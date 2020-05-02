@@ -26,8 +26,8 @@ function ProjectThumbnail(props) {
         )}
       </figure>
       <div className="project-info">
-        <h3 class="title">{props.title}</h3>
-        <p class="date">{format(new Date(props.start_year, (props.start_month - 1)), 'MMMM yyyy', {locale: enUS})}</p>
+        <h3 className="title">{props.title}</h3>
+        <p className="date">{format(new Date(props.start_year, (props.start_month - 1)), 'MMMM yyyy', {locale: enUS})}</p>
       </div>
     </article>
   );

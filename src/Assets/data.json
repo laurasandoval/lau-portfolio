@@ -210,7 +210,7 @@
       "description": "Description",
       "artwork_type": "img",
       "artwork_src": "metro-bot.png",
-      "featured": true,
+      "featured": false,
       "start_year": "2017",
       "start_month": "07",
       "end_year": "2018",
