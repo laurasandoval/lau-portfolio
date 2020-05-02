@@ -24,6 +24,10 @@ function DesignProjects() {
                 description={item.description}
                 artwork_type={item.artwork_type}
                 artwork_src={item.artwork_src}
+                start_year={item.start_year}
+                start_month={item.start_month}
+                end_year={item.end_year}
+                end_month={item.end_month}
                 key={index}
               />
             );
@@ -39,6 +43,10 @@ function DesignProjects() {
                 description={item.description}
                 artwork_type={item.artwork_type}
                 artwork_src={item.artwork_src}
+                start_year={item.start_year}
+                start_month={item.start_month}
+                end_year={item.end_year}
+                end_month={item.end_month}
                 key={index}
               />
             );

@@ -18,4 +18,23 @@
       max-width: 100%;
     }
   }
+  .project-info {
+    display: flex;
+    flex-flow: column-reverse;
+    margin-top: var(--global-padding);
+    .title,
+    .date {
+      margin: 0;
+      padding: 0;
+    }
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .date {
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(136, 139, 144, 1);
+    }
+  }
 }
