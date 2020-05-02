@@ -21,7 +21,7 @@
   .project-info {
     display: flex;
     flex-flow: column-reverse;
-    margin-top: var(--global-padding);
+    padding: var(--global-padding) 0;
     .title,
     .date {
       margin: 0;
