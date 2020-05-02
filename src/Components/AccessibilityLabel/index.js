@@ -4,7 +4,7 @@ import "./index.scss";
 function AccessibilityLabel(props) {
   const Tag = props.as;
   return (
-    <Tag className="visuallyhidden">
+    <Tag className="visually-hidden">
       {props.children}
     </Tag>
   );

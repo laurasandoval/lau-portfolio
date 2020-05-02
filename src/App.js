@@ -1,18 +1,15 @@
 import React, { Fragment } from "react";
-import logo from "./logo.svg";
 import "./App.scss";
-import Header from "./Components/Header";
-import Grid from "./Components/Grid";
+import GlobalHeader from "./Components/GlobalHeader";
 import AccessibilityLabel from "./Components/AccessibilityLabel";
+import DesignProjects from "./Containers/DesignProjects";
 
 function App() {
   return (
     <Fragment>
-      <Header/>
-      <AccessibilityLabel as="h2">
-        Selected Works
-      </AccessibilityLabel>
-      <Grid />
+      <GlobalHeader />
+      <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
+      <DesignProjects />
     </Fragment>
   );
 }

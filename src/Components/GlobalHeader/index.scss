@@ -1,0 +1,45 @@
+.global-header {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(100px) saturate(5);
+  .header-content-container {
+    margin: 0 auto;
+    max-width: calc(1440px + calc(var(--global-padding) * 2));
+    .header-content {
+      width: fit-content;
+      padding: 40px var(--global-padding);
+      box-sizing: border-box;
+      display: grid;
+      grid-auto-flow: column;
+      grid-gap: 40px;
+      align-items: center;
+      font-size: 20px;
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      h1 {
+        font-size: inherit;
+        margin: 0;
+      }
+      nav {
+        display: inherit;
+        grid-auto-flow: inherit;
+        grid-gap: inherit;
+        align-items: inherit;
+        ul {
+          display: inherit;
+          grid-auto-flow: inherit;
+          grid-gap: inherit;
+          align-items: inherit;
+          list-style: none;
+          padding: 0;
+        }
+      }
+    }
+  }
+}

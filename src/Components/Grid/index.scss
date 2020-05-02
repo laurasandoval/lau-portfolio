@@ -1,16 +1,21 @@
-@import url("https://use.typekit.net/dyb5arw.css");
-
-header {
+.grid {
   width: 100%;
-  height: auto;
-  margin: 0;
-  padding: 32px 0;
+  margin: 0 auto;
+  padding: 0 var(--global-padding);
   box-sizing: border-box;
-  .kiosk-logo {
-    font: normal 900 26px/26px urw-din, sans-serif;
-    color: rgba(224, 32, 32, 1);
-    text-transform: uppercase;
-    margin: 0;
-    padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+  grid-gap: var(--global-padding);
+  article {
+    .project-artwork {
+      margin: 0;
+      padding: 0;
+      img {
+        width: 100%;
+      }
+    }
+    .project-info {
+      display: none;
+    }
   }
 }
