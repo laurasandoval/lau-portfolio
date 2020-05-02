@@ -12,16 +12,4 @@
   &.featured {
     grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
   }
-  article {
-    .project-artwork {
-      margin: 0;
-      padding: 0;
-      img {
-        width: 100%;
-      }
-    }
-    .project-info {
-      display: none;
-    }
-  }
 }

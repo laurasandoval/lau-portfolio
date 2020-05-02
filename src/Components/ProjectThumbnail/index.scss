@@ -1,11 +1,21 @@
-.visually-hidden {
-  position: absolute;
-  clip: rect(1px, 1px, 1px, 1px);
-  -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
-  clip-path: inset(0px 0px 99.9% 99.9%);
-  overflow: hidden;
-  height: 1px;
-  width: 1px;
-  padding: 0;
-  border: 0;
+.project-thumbnail {
+  .project-artwork {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: rgba(239, 239, 244, 1);
+    padding-top: calc(100% * calc(3 / 4));
+    position: relative;
+    > img,
+    > video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      right: 0;
+      min-width: 100%;
+      min-height: 100%;
+      max-width: 100%;
+    }
+  }
 }
