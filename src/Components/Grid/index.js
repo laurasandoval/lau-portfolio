@@ -3,7 +3,7 @@ import "./index.scss";
 
 function Grid(props) {
   return (
-    <section className="grid">
+    <section className={`projects-grid ${props.featured === true && "featured"}`}>
       {props.children}
     </section>
   );

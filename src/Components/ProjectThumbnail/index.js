@@ -7,7 +7,7 @@ function ProjectThumbnail(props) {
       <figure className="project-artwork">
         {props.artwork_type === "img" ? (
           <img
-            src={props.artwork_src}
+            src={require(`../../Assets/project-images/${props.artwork_src}`)}
             alt="Dummy project description"
           ></img>
         ) : (
