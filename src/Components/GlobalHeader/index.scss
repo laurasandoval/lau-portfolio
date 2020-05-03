@@ -11,7 +11,7 @@
     max-width: calc(1440px + calc(var(--global-padding) * 2));
     .header-content {
       width: fit-content;
-      padding: calc(var(--global-padding) / 2) var(--global-padding);
+      padding: calc(var(--global-padding) * 1.5) var(--global-padding);
       box-sizing: border-box;
       display: grid;
       grid-auto-flow: column;
@@ -32,12 +32,15 @@
         grid-auto-flow: inherit;
         grid-gap: inherit;
         align-items: inherit;
+        margin: 0;
+        padding: 0;
         ul {
           display: inherit;
           grid-auto-flow: inherit;
           grid-gap: inherit;
           align-items: inherit;
           list-style: none;
+          margin: 0;
           padding: 0;
         }
       }
