@@ -1,36 +1,82 @@
 import React from "react";
 import "./index.scss";
 import { format } from "date-fns";
-import { enUS } from 'date-fns/locale'
+import { enUS } from "date-fns/locale";
 
-function ProjectThumbnail(props) {
-  return (
-    <article className="project-thumbnail" data-name={props.title}>
-      <figure className="project-artwork">
-        {props.artwork_type === "img" ? (
-          <img
-            src={require(`../../Assets/project-images/${props.artwork_src}`)}
-            alt="Dummy project description"
-          ></img>
-        ) : (
-          <video playsInline muted autoPlay loop>
-            <source
-              src={require(`../../Assets/project-images/${props.artwork_src.replace(".mp4",".webm")}`)}
-              type="video/webm"
-            />
-            <source
-              src={require(`../../Assets/project-images/${props.artwork_src.replace(".webm",".mp4")}`)}
-              type="video/mp4"
-            />
-          </video>
-        )}
-      </figure>
-      <div className="project-info">
-        <h3 className="title">{props.title}</h3>
-        <p className="date">{format(new Date(props.start_year, (props.start_month - 1)), 'MMMM yyyy', {locale: enUS})}</p>
-      </div>
-    </article>
-  );
+class ProjectThumbnail extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this._renderThumbnail = this._renderThumbnail.bind(this);
+  }
+
+  _renderThumbnail(thumbnail, src) {
+    const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"];
+    const videoFormats = ["mp4", "webm"];
+
+    if (new RegExp(`[.](${imageFormats.join("|")})`).test(thumbnail)) {
+      return (
+        <img
+          src={require(`../../Work/${src}/thumbnails/${thumbnail}`)}
+          alt="Dummy project description"
+        ></img>
+      );
+    } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(thumbnail)) {
+      return (
+        <video playsInline muted autoPlay loop>
+          <source
+            src={require(`../../Work/${src}/thumbnails/${thumbnail.replace(
+              ".mp4",
+              ".webm"
+            )}`)}
+            type="video/webm"
+          />
+          <source
+            src={require(`../../Work/${src}/thumbnails/${thumbnail.replace(
+              ".webm",
+              ".mp4"
+            )}`)}
+            type="video/mp4"
+          />
+        </video>
+      );
+    }
+  }
+
+  render() {
+    const {
+      title,
+      client,
+      description,
+      start_year,
+      start_month,
+      end_year,
+      end_month,
+      featured,
+      src,
+      thumbnails,
+    } = this.props;
+
+    const randomThumbnail = thumbnails.sort(
+      () => Math.random() - Math.random()
+    )[0];
+
+    return (
+      <article className="project-thumbnail" data-name={title}>
+        <figure className="project-artwork">
+          {this._renderThumbnail(randomThumbnail, src)}
+        </figure>
+        <div className="project-info">
+          <h3 className="title">{title}</h3>
+          <p className="date">
+            {format(new Date(start_year, start_month - 1), "MMMM yyyy", {
+              locale: enUS,
+            })}
+          </p>
+        </div>
+      </article>
+    );
+  }
 }
 
 export default ProjectThumbnail;

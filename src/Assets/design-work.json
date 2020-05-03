@@ -1,0 +1,88 @@
+{
+  "DesignWork": [
+    {
+      "title": "Cornershop Referral Landing",
+      "client": "Cornershop",
+      "description": "Website redesign for Cornershop referral landing page.",
+      "start_year": "2020",
+      "start_month": "01",
+      "end_year": "2020",
+      "end_month": "01",
+      "featured": true,
+      "src": "cornershop/cornershop-referral-landing",
+      "thumbnails": [
+        "cornershop-raf-links.webm"
+      ]
+    },
+    {
+      "title": "Kappo Brand Identity Redesign",
+      "client": "Kappo",
+      "description": "Visual identity redesign for Kappo Bike.",
+      "start_year": "2019",
+      "start_month": "03",
+      "end_year": "2019",
+      "end_month": "06",
+      "featured": true,
+      "src": "kappo/kappo-brand-identity",
+      "thumbnails": [
+        "kappo-brand-identity.webm"
+      ]
+    },
+    {
+      "title": "Santiago Transit Map Series 4",
+      "client": null,
+      "description": "Explorations of Santiago’s Transit Map as a format. Multiple iterations over shape and form define a versatile graphic system that allows for expansion or compression based on the required levels of complexity.",
+      "start_year": "2018",
+      "start_month": "11",
+      "end_year": "2019",
+      "end_month": "07",
+      "featured": false,
+      "src": "santiago-transit-map/series-4",
+      "thumbnails": [
+        "santiago-transit-map-s4.png"
+      ]
+    },
+    {
+      "title": "Santiago Transit Map Series 3",
+      "client": null,
+      "description": "Santiago Transit Map Series 3",
+      "start_year": "2018",
+      "start_month": "02",
+      "end_year": "2018",
+      "end_month": "04",
+      "featured": true,
+      "src": "santiago-transit-map/series-3",
+      "thumbnails": [
+        "santiago-transit-map-s3.png"
+      ]
+    },
+    {
+      "title": "Santiago Transit Map Series 2",
+      "client": null,
+      "description": "Description",
+      "start_year": "2017",
+      "start_month": "11",
+      "end_year": "2017",
+      "end_month": "12",
+      "featured": false,
+      "src": "santiago-transit-map/series-2",
+      "thumbnails": [
+        "santiago-transit-map-s2.png"
+      ]
+    },
+    {
+      "title": "Santiago Transit Map Series 1",
+      "client": null,
+      "description": "Description",
+      "start_year": "2017",
+      "start_month": "08",
+      "end_year": "2017",
+      "end_month": "09",
+      "featured": false,
+      "src": "santiago-transit-map/series-1",
+      "thumbnails": [
+        "santiago-transit-map-s1.png"
+      ]
+    }
+  ]
+}
