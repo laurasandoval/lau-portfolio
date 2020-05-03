@@ -1,9 +1,9 @@
 .global-header {
   width: 100%;
-  margin: 0 auto;
+  margin: calc(var(--global-padding) * 2) auto;
   padding: 0;
   position: sticky;
-  top: 0;
+  top: 0px;
   z-index: 100;
   background: rgba(255, 255, 255, 1);
   .header-content-container {
@@ -11,7 +11,7 @@
     max-width: calc(1440px + calc(var(--global-padding) * 2));
     .header-content {
       width: fit-content;
-      padding: 40px var(--global-padding);
+      padding: calc(var(--global-padding) / 2) var(--global-padding);
       box-sizing: border-box;
       display: grid;
       grid-auto-flow: column;
