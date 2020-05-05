@@ -29,6 +29,20 @@
       ]
     },
     {
+      "title": "Cool Place to Bike Website",
+      "client": "Kappo",
+      "description": "Website redesign and development for Kappo's Cool Place to Bike program.",
+      "start_year": "2019",
+      "start_month": "02",
+      "end_year": "2019",
+      "end_month": "03",
+      "featured": true,
+      "src": "kappo/cool-place-to-bike-website",
+      "thumbnails": [
+        "web-cool-place-to-bike.webm"
+      ]
+    },
+    {
       "title": "Santiago Transit Map Series 4",
       "client": null,
       "description": "Explorations of Santiago’s Transit Map as a format. Multiple iterations over shape and form define a versatile graphic system that allows for expansion or compression based on the required levels of complexity.",
@@ -82,6 +96,90 @@
       "src": "santiago-transit-map/series-1",
       "thumbnails": [
         "santiago-transit-map-s1.png"
+      ]
+    },
+    {
+      "title": "Saldo Red",
+      "client": "Saldo Red",
+      "description": "Design and development of the best, privacy and simplicity-driven, most positively reviewed app for managing Chilean Transit Cards.",
+      "start_year": "2019",
+      "start_month": "04",
+      "end_year": "2019",
+      "end_month": "11",
+      "featured": false,
+      "src": "saldo-red/saldo-red-app",
+      "thumbnails": [
+        "saldo-red.png"
+      ]
+    },
+    {
+      "title": "Saldo Red Website",
+      "client": "Saldo Red",
+      "description": "Website design and development for Saldo Red.",
+      "start_year": "2019",
+      "start_month": "06",
+      "end_year": "2019",
+      "end_month": "06",
+      "featured": false,
+      "src": "saldo-red/saldo-red-website",
+      "thumbnails": [
+        "web-saldo-red.webm"
+      ]
+    },
+    {
+      "title": "Chilean Ministry of Health & LIPUC",
+      "client": "Chilean Ministry of Health & PUC’s Public Innovation Lab",
+      "description": "Graphic design of companion material for citizens within Chilean’s Public Health System.",
+      "start_year": "2019",
+      "start_month": "04",
+      "end_year": "2019",
+      "end_month": "11",
+      "featured": false,
+      "src": "chilean-ministry-of-health/name-pending",
+      "thumbnails": [
+        "ministerio-de-salud-lip.png"
+      ]
+    },
+    {
+      "title": "Transantiago Virtual Assistant",
+      "client": null,
+      "description": "Facebook Messenger Bot for Santiago’s Transit System.",
+      "start_year": "2018",
+      "start_month": "08",
+      "end_year": "2019",
+      "end_month": "03",
+      "featured": true,
+      "src": "transantiago-bot",
+      "thumbnails": [
+        "transantiago-bot.png"
+      ]
+    },
+    {
+      "title": "Guemil Icon Uploader",
+      "client": "Guemil Project",
+      "description": "Design and development of internal tools and APIs to automate icon testing and visualization.",
+      "start_year": "2018",
+      "start_month": "09",
+      "end_year": "2018",
+      "end_month": "11",
+      "featured": true,
+      "src": "guemil/icon-uploader",
+      "thumbnails": [
+        "guemil-uploader.png"
+      ]
+    },
+    {
+      "title": "Y4PT 2nd Transport Hackathon Chile 2017",
+      "client": "Y4PT Chile",
+      "description": "Branding and graphic design for Y4PT’s 2nd Chilean National Transport Hackathon.",
+      "start_year": "2017",
+      "start_month": "07",
+      "end_year": "2017",
+      "end_month": "10",
+      "featured": false,
+      "src": "y4pt/2nd-transport-hackathon-chile",
+      "thumbnails": [
+        "y4pt-2nd-national-transport-hackathon-chile-2017.png"
       ]
     }
   ]
