@@ -181,6 +181,76 @@
       "thumbnails": [
         "y4pt-2nd-national-transport-hackathon-chile-2017.png"
       ]
+    },
+    {
+      "title": "Bus Route Visualizer",
+      "client": null,
+      "description": "Bus route visualizer for Transantiago Virtual Assistant.",
+      "start_year": "2018",
+      "start_month": "08",
+      "end_year": "2018",
+      "end_month": "08",
+      "featured": false,
+      "src": "bus-route-visualizer",
+      "thumbnails": [
+        "bus-route-visualizer.png"
+      ]
+    },
+    {
+      "title": "Cycling Wayfinding Signage",
+      "client": null,
+      "description": "Proposed wayfinding signage for Santiago de Chile's cycling ecosistem.",
+      "start_year": "2018",
+      "start_month": "08",
+      "end_year": "2018",
+      "end_month": "11",
+      "featured": false,
+      "src": "cycling-wayfinding-signage",
+      "thumbnails": [
+        "cycling-wayfinding-signage.png"
+      ]
+    },
+    {
+      "title": "Metro Virtual Assistant",
+      "client": null,
+      "description": "Facebook Messenger Bot for Santiago's Metro system.",
+      "start_year": "2017",
+      "start_month": "07",
+      "end_year": "2018",
+      "end_month": "10",
+      "featured": false,
+      "src": "metro-bot",
+      "thumbnails": [
+        "metro-bot.png"
+      ]
+    },
+    {
+      "title": "Bip macOS App",
+      "client": null,
+      "description": "macOS app for keeping your remaining transit card balance right in your menu bar.",
+      "start_year": "2019",
+      "start_month": "01",
+      "end_year": "2019",
+      "end_month": "01",
+      "featured": false,
+      "src": "bip-macos-app",
+      "thumbnails": [
+        "bip-macos-app.png"
+      ]
+    },
+    {
+      "title": "Bip webApp",
+      "client": null,
+      "description": "Simple Web App for managing Santiago’s Transit Card balance.",
+      "start_year": "2018",
+      "start_month": "11",
+      "end_year": "2018",
+      "end_month": "11",
+      "featured": false,
+      "src": "bip-web-app",
+      "thumbnails": [
+        "bip-web-app.png"
+      ]
     }
   ]
 }
