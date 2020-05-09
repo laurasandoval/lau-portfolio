@@ -1,27 +1,64 @@
 .project-thumbnail {
+  --hover-separation: 6px;
+  --hover-speed: 0.4s;
+
+  position: relative;
+  display: block;
+  margin-bottom: var(--global-padding);
+  .projects-grid.featured & {
+    --hover-separation: 4px;
+    --hover-speed: 0.4s;
+  }
+  .project-access {
+    text-decoration: none;
+    color: unset;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
   .project-artwork {
+    position: relative;
+    display: block;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background: rgba(239, 239, 244, 1);
-    padding-top: calc(100% * calc(3 / 4));
-    position: relative;
-    > img,
-    > video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      right: 0;
-      min-width: 100%;
-      min-height: 100%;
-      max-width: 100%;
+    .artwork {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: rgba(239, 239, 244, 1);
+      padding-top: calc(100% * calc(3 / 4));
+      position: relative;
+      border-radius: 5px;
+      transition: all var(--hover-speed) cubic-bezier(0.2, 0.9, 0.42, 1);
+      > img,
+      > video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        max-width: 100%;
+      }
+      &.shadow {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        filter: blur(10px);
+        opacity: 0;
+      }
     }
   }
   .project-info {
     display: flex;
     flex-flow: column-reverse;
-    padding: var(--global-padding) 0;
+    padding: calc(var(--global-padding) / 1.4) 0 0;
     .title,
     .date {
       margin: 0;
@@ -29,13 +66,27 @@
       line-height: 1.3;
     }
     .title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 600;
+      transition: color 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
     }
     .date {
       font-size: 16px;
       font-weight: 400;
       color: rgba(136, 139, 144, 1);
+    }
+  }
+  @media (hover: hover) {
+    &:hover {
+      .project-artwork {
+        .artwork {
+          transform: translate3d(0, calc(var(--hover-separation) * -1), 0);
+          &.shadow {
+            transform: scale(1.01);
+            opacity: 0.4;
+          }
+        }
+      }
     }
   }
 }
