@@ -46,13 +46,8 @@ class ProjectThumbnail extends React.Component {
   render() {
     const {
       title,
-      client,
-      description,
       start_year,
       start_month,
-      end_year,
-      end_month,
-      featured,
       src,
       thumbnails,
     } = this.props;
@@ -68,11 +63,11 @@ class ProjectThumbnail extends React.Component {
         </figure>
         <div className="project-info">
           <h3 className="title">{title}</h3>
-          <p className="date">
+          <time datetime={`${start_year}-${start_month}`} className="date">
             {format(new Date(start_year, start_month - 1), "MMMM yyyy", {
               locale: enUS,
             })}
-          </p>
+          </time>
         </div>
       </article>
     );
