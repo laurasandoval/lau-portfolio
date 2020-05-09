@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Data from "./Assets/design-work.json";
-import ProjectPage from "./Containers/ProjectPage";
+import ProjectsIndex from "./Containers/ProjectsIndex";
 
 import "./App.scss";
 import DesignWork from "./Containers/DesignWork";
@@ -20,7 +20,7 @@ function App() {
               exact
               path={`/${item.src}`}
               key={index}
-              render={() => <ProjectPage project={item.src} />}
+              render={() => <ProjectsIndex project_src={item.src} />}
             />
           );
         })}

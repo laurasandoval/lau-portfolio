@@ -82,7 +82,7 @@
         .artwork {
           transform: translate3d(0, calc(var(--hover-separation) * -1), 0);
           &.shadow {
-            transform: scale(1.01);
+            transform: scale(1.01) translate3d(0,2px,0);
             opacity: 0.4;
           }
         }
