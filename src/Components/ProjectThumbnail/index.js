@@ -63,7 +63,7 @@ class ProjectThumbnail extends React.Component {
         </figure>
         <div className="project-info">
           <h3 className="title">{title}</h3>
-          <time datetime={`${start_year}-${start_month}`} className="date">
+          <time dateTime={`${start_year}-${start_month}`} className="date">
             {format(new Date(start_year, start_month - 1), "MMMM yyyy", {
               locale: enUS,
             })}

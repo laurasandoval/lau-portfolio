@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import Data from "../../Assets/design-work.json";
 import Grid from "../../Components/Grid";
 import ProjectThumbnail from "../../Components/ProjectThumbnail";
+import AccessibilityLabel from "../../Components/AccessibilityLabel";
+import GlobalHeader from "../../Components/GlobalHeader";
 
 class DesignWork extends React.Component {
   constructor(props) {
@@ -38,6 +40,8 @@ class DesignWork extends React.Component {
 
     return (
       <Fragment>
+        <GlobalHeader />
+        <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
         <Grid featured>
           {firstFourFeaturedProjects.map((project, index) => {
             return this._renderThumbnail(project, index);

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./index.scss";
 
 function GlobalHeader(props) {
@@ -6,13 +7,17 @@ function GlobalHeader(props) {
     <header className="global-header">
       <div className="header-content-container">
         <div className="header-content">
-          <h1><a href="/">Laura Sandoval</a></h1>
+          <h1>
+            <Link to="/">Laura Sandoval</Link>
+          </h1>
           <nav>
             <ul>
-              <li>Design</li>
-              <li>Photography</li>
-              <li>About</li>
-              <li>Get in Touch</li>
+              <li>
+                <Link to="/">Work</Link>
+              </li>
+              <li>
+                <Link to="/about">About</Link>
+              </li>
             </ul>
           </nav>
         </div>
