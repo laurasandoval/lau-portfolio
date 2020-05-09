@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./index.scss";
 
 function GlobalHeader(props) {
@@ -8,15 +8,15 @@ function GlobalHeader(props) {
       <div className="header-content-container">
         <div className="header-content">
           <h1>
-            <Link to="/">Laura Sandoval</Link>
+            <NavLink exact to="/">Laura Sandoval</NavLink>
           </h1>
           <nav>
             <ul>
               <li>
-                <Link to="/">Work</Link>
+                <NavLink activeClassName="active" exact to="/">Work</NavLink>
               </li>
               <li>
-                <Link to="/about">About</Link>
+                <NavLink activeClassName="active" exact to="/about">About</NavLink>
               </li>
             </ul>
           </nav>
