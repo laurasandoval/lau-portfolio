@@ -5,8 +5,6 @@ import ProjectThumbnail from "../ProjectThumbnail";
 import Time from "../Time";
 
 function ProjectPageFallback(props) {
-  console.log(props.team);
-
   return (
     <Fragment>
       <GlobalHeader />
