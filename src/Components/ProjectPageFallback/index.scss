@@ -1,5 +1,7 @@
 .project-page-fallback {
   margin: 0 auto;
+  padding: 0 var(--global-padding);
+  box-sizing: border-box;
   max-width: calc(1440px + calc(var(--global-padding) * 2));
   display: grid;
   grid-template-columns: 1fr 0.5fr;
