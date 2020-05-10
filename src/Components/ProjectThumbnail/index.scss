@@ -1,14 +1,7 @@
 .project-thumbnail {
-  --hover-separation: 6px;
-  --hover-speed: 0.4s;
-
   position: relative;
   display: block;
   margin-bottom: var(--global-padding);
-  .projects-grid.featured & {
-    --hover-separation: 4px;
-    --hover-speed: 0.4s;
-  }
   .project-access {
     text-decoration: none;
     color: unset;
@@ -32,7 +25,7 @@
       padding-top: calc(100% * calc(3 / 4));
       position: relative;
       border-radius: 5px;
-      transition: all var(--hover-speed) cubic-bezier(0.2, 0.9, 0.42, 1);
+      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
       > img,
       > video {
         position: absolute;
@@ -80,9 +73,9 @@
     &:hover {
       .project-artwork {
         .artwork {
-          transform: translate3d(0, calc(var(--hover-separation) * -1), 0);
+          transform: translate3d(0, -4px, 0);
           &.shadow {
-            transform: scale(1.01) translate3d(0,2px,0);
+            transform: scale(1.01) translate3d(0,px,0);
             opacity: 0.4;
           }
         }
