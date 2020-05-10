@@ -16,17 +16,31 @@
       ],
       "team": {
         "Product Design": [
-          "Matías Martínez",
-          "Varsha Ashock",
-          "Gonzalo Castillo",
-          "Laura Sandoval"
+          {
+            "name": "Matías Martínez"
+          },
+          {
+            "name": "Varsha Ashock"
+          },
+          {
+            "name": "Gonzalo Castillo"
+          },
+          {
+            "name": "Laura Sandoval"
+          }
         ],
         "Frontend Development": [
-          "Laura Sandoval"
+          {
+            "name": "Laura Sandoval"
+          }
         ],
         "Backend Development": [
-          "Alejandra Fernández",
-          "Roberto Riquelme"
+          {
+            "name": "Alejandra Fernández"
+          },
+          {
+            "name": "Roberto Riquelme"
+          }
         ]
       }
     },
@@ -46,11 +60,17 @@
       ],
       "team": {
         "Graphic Design": [
-          "Laura Sandoval"
+          {
+            "name": "Laura Sandoval"
+          }
         ],
         "Kappo Counterparts": [
-          "Iván Paéz Mora",
-          "Mónica Berrios"
+          {
+            "name": "Iván Paéz Mora"
+          },
+          {
+            "name": "Mónica Berrios"
+          }
         ]
       }
     },
@@ -70,14 +90,22 @@
       ],
       "team": {
         "Web Design": [
-          "Laura Sandoval"
+          {
+            "name": "Laura Sandoval"
+          }
         ],
         "Frontend Development": [
-          "Laura Sandoval"
+          {
+            "name": "Laura Sandoval"
+          }
         ],
         "Kappo Counterparts": [
-          "Iván Paéz Mora",
-          "Mónica Berrios"
+          {
+            "name": "Iván Paéz Mora"
+          },
+          {
+            "name": "Mónica Berrios"
+          }
         ]
       }
     },
@@ -193,15 +221,25 @@
       ],
       "team": {
         "Graphic Design": [
-          "Jose Allard",
-          "Laura Sandoval"
+          {
+            "name": "Jose Allard"
+          },
+          {
+            "name": "Laura Sandoval"
+          }
         ],
         "Project Manager": [
-          "Cristobal Tello"
+          {
+            "name": "Cristobal Tello"
+          }
         ],
-        "PUC's Public Innovation Lab Research": [
-          "Sara Riveros",
-          "Javiera Parra"
+        "PUC's Public Innovation Lab Design Research": [
+          {
+            "name": "Sara Riveros"
+          },
+          {
+            "name": "Javiera Parra"
+          }
         ]
       }
     },
@@ -237,19 +275,36 @@
       ],
       "team": {
         "Project Owner": [
-          "Rodrigo Ramírez"
+          {
+            "name": "Rodrigo Ramírez"
+          }
         ],
         "Web Design": [
-          "Laura Sandoval"
+          {
+            "name": "Laura Sandoval"
+          }
         ],
         "Frontend Development": [
-          "Laura Sandoval"
+          {
+            "name": "Felipe Cortez"
+          },
+          {
+            "name": "Laura Sandoval"
+          }
         ],
         "Guemil Designers": [
-          "Valentina Morales",
-          "Sofía Pizarro",
-          "Felipe Vilches",
-          "Laura Sandoval"
+          {
+            "name": "Valentina Morales"
+          },
+          {
+            "name": "Sofía Pizarro"
+          },
+          {
+            "name": "Felipe Vilches"
+          },
+          {
+            "name": "Laura Sandoval"
+          }
         ]
       }
     },
@@ -269,15 +324,29 @@
       ],
       "team": {
         "Graphic Design": [
-          "Laura Sandoval"
+          {
+            "name": "Laura Sandoval"
+          }
         ],
         "Y4PT Volunteers": [
-          "Lluis Vidal",
-          "Jeanette Orozco",
-          "Carolina Sánchez",
-          "Rolando Álvarez",
-          "Sebastián Díaz",
-          "Laura Sandoval"
+          {
+            "name": "Lluís Vidal"
+          },
+          {
+            "name": "Jeannette Orozco"
+          },
+          {
+            "name": "Carolina Sánchez"
+          },
+          {
+            "name": "Rolando Álvarez"
+          },
+          {
+            "name": "Sebastián Díaz"
+          },
+          {
+            "name": "Laura Sandoval"
+          }
         ]
       }
     },
@@ -313,12 +382,20 @@
       ],
       "team": {
         "Design": [
-          "Laura Sandoval"
+          {
+            "name": "Laura Sandoval"
+          }
         ],
         "Research": [
-          "Ricardo Hurtubia",
-          "Tomas Echiburú",
-          "Laura Sandoval"
+          {
+            "name": "Ricardo Hurtubia"
+          },
+          {
+            "name": "Tomás Echiburú"
+          },
+          {
+            "name": "Laura Sandoval"
+          }
         ]
       }
     },

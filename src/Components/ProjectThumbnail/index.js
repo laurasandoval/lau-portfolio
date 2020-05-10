@@ -1,16 +1,14 @@
 import React from "react";
 import "./index.scss";
-import { format } from "date-fns";
-import { enUS } from "date-fns/locale";
 import { Link } from "react-router-dom";
 import AccessibilityLabel from "../AccessibilityLabel";
+import Time from "../Time";
 
 class ProjectThumbnail extends React.Component {
   constructor(props) {
     super(props);
 
     this._renderThumbnail = this._renderThumbnail.bind(this);
-    this._renderTime = this._renderTime.bind(this);
   }
 
   _renderThumbnail(thumbnail, src) {
@@ -46,16 +44,6 @@ class ProjectThumbnail extends React.Component {
     }
   }
 
-  _renderTime(start_year, start_month) {
-    return (
-      <time dateTime={`${start_year}-${start_month}`} className="date">
-        {format(new Date(start_year, start_month - 1), "MMMM yyyy", {
-          locale: enUS,
-        })}
-      </time>
-    );
-  }
-
   render() {
     const {
       as,
@@ -83,7 +71,7 @@ class ProjectThumbnail extends React.Component {
         {hover && (
           <Link to={src} className="project-access">
             <AccessibilityLabel as="span">
-              {title} | {this._renderTime(start_year, start_month)}
+              {title} | <Time year={start_year} month={start_month} />
             </AccessibilityLabel>
           </Link>
         )}
@@ -104,7 +92,7 @@ class ProjectThumbnail extends React.Component {
         {!img_only && (
           <div className="project-info" aria-hidden={hover}>
             <h3 className="title">{title}</h3>
-            {this._renderTime(start_year, start_month)}
+            <Time year={start_year} month={start_month} />
           </div>
         )}
       </Tag>
