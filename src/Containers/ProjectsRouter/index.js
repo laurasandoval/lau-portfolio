@@ -2,9 +2,7 @@ import React, { Suspense } from "react";
 import ProjectPageFallback from "../../Components/ProjectPageFallback";
 
 function ProjectsRouter(props) {
-  const ProjectPage = React.lazy(() =>
-    import(`../../Work/${props.project_src}`)
-  );
+  const ProjectPage = React.lazy(() => import(`../../Work/${props.src}`));
 
   return (
     <div>
