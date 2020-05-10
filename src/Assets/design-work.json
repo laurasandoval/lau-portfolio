@@ -12,6 +12,16 @@
       "thumbnails": [
         "cornershop-raf-links.webm"
       ],
+      "cta": [
+        {
+          "title": "Visit Website",
+          "url": "https://cornershopapp.com/en-us/r/yxlimygng"
+        },
+        {
+          "title": "About Cornershop",
+          "url": "https://cornershopapp.com/"
+        }
+      ],
       "team": {
         "Product Design": [
           {
@@ -54,6 +64,7 @@
       "thumbnails": [
         "kappo-brand-identity.webm"
       ],
+      "cta": null,
       "team": {
         "Graphic Design": [
           {
@@ -81,6 +92,12 @@
       "src": "kappo/cool-place-to-bike-website",
       "thumbnails": [
         "web-cool-place-to-bike.webm"
+      ],
+      "cta": [
+        {
+          "title": "Visit Website",
+          "url": "https://coolplacetobike.com"
+        }
       ],
       "team": {
         "Web Design": [
@@ -115,6 +132,7 @@
       "thumbnails": [
         "santiago-transit-map-s4.png"
       ],
+      "cta": null,
       "team": null
     },
     {
@@ -129,6 +147,7 @@
       "thumbnails": [
         "santiago-transit-map-s3.png"
       ],
+      "cta": null,
       "team": null
     },
     {
@@ -143,6 +162,7 @@
       "thumbnails": [
         "santiago-transit-map-s2.png"
       ],
+      "cta": null,
       "team": null
     },
     {
@@ -157,6 +177,7 @@
       "thumbnails": [
         "santiago-transit-map-s1.png"
       ],
+      "cta": null,
       "team": null
     },
     {
@@ -170,6 +191,16 @@
       "src": "saldo-red/saldo-red-app",
       "thumbnails": [
         "saldo-red.png"
+      ],
+      "cta": [
+        {
+          "title": "Download on the App Store",
+          "url": "https://apps.apple.com/cl/app/saldo-red/id1464611715"
+        },
+        {
+          "title": "Visit Website",
+          "url": "https://saldo.red"
+        }
       ],
       "team": null
     },
@@ -185,6 +216,16 @@
       "thumbnails": [
         "web-saldo-red.webm"
       ],
+      "cta": [
+        {
+          "title": "Visit Website",
+          "url": "https://saldo.red"
+        },
+        {
+          "title": "Download on the App Store",
+          "url": "https://apps.apple.com/cl/app/saldo-red/id1464611715"
+        }
+      ],
       "team": null
     },
     {
@@ -199,6 +240,7 @@
       "thumbnails": [
         "ministerio-de-salud-lip.png"
       ],
+      "cta": null,
       "team": {
         "Graphic Design": [
           {
@@ -235,6 +277,7 @@
       "thumbnails": [
         "transantiago-bot.png"
       ],
+      "cta": null,
       "team": null
     },
     {
@@ -248,6 +291,12 @@
       "src": "guemil/icon-uploader",
       "thumbnails": [
         "guemil-uploader.png"
+      ],
+      "cta": [
+        {
+          "title": "About Guemil",
+          "url": "https://guemil.info"
+        }
       ],
       "team": {
         "Project Owner": [
@@ -296,6 +345,7 @@
       "thumbnails": [
         "y4pt-2nd-national-transport-hackathon-chile-2017.png"
       ],
+      "cta": null,
       "team": {
         "Graphic Design": [
           {
@@ -336,6 +386,7 @@
       "thumbnails": [
         "bus-route-visualizer.png"
       ],
+      "cta": null,
       "team": null
     },
     {
@@ -350,6 +401,7 @@
       "thumbnails": [
         "cycling-wayfinding-signage.png"
       ],
+      "cta": null,
       "team": {
         "Design": [
           {
@@ -381,6 +433,7 @@
       "thumbnails": [
         "metro-bot.png"
       ],
+      "cta": null,
       "team": null
     },
     {
@@ -395,6 +448,7 @@
       "thumbnails": [
         "bip-macos-app.png"
       ],
+      "cta": null,
       "team": null
     },
     {
@@ -409,6 +463,7 @@
       "thumbnails": [
         "bip-web-app.png"
       ],
+      "cta": null,
       "team": null
     }
   ]

@@ -34,11 +34,30 @@
         font-weight: 400;
         color: rgba(136, 138, 144, 1);
       }
+      .ctas {
+        .call-to-action {
+          display: block;
+          font-size: 18px;
+          font-weight: 400;
+          text-decoration: underline;
+          color: rgba(16, 99, 238, 1);
+          width: fit-content;
+          transition: color 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
+          &:after {
+            content: " →";
+          }
+          @media (hover: hover) {
+            &:hover {
+              color: rgba(0, 0, 0, 1);
+            }
+          }
+        }
+      }
     }
     .credits {
       width: fit-content;
       display: grid;
-      grid-template-columns: repeat(2,1fr);
+      grid-template-columns: repeat(2, 1fr);
       grid-auto-flow: dense;
       grid-gap: 40px 20px;
       .item {

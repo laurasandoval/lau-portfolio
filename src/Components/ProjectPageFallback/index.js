@@ -25,6 +25,17 @@ function ProjectPageFallback(props) {
           <div className="main">
             <h1 className="title">{props.title}</h1>
             <h2 className="description">{props.description}</h2>
+            {props.cta && (
+              <div className="ctas">
+                {props.cta.map((cta, i) => {
+                  return (
+                    <a className="call-to-action" key={i} href={cta.url} target="_blank" rel="noopener">
+                      {cta.title}
+                    </a>
+                  );
+                })}
+              </div>
+            )}
           </div>
           <div className="credits">
             {props.client && (
