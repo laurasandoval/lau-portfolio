@@ -26,7 +26,7 @@
     }
     grid-template-columns: repeat(3,1fr);
   }
-  @media(max-width: 1280px) {
+  @media(max-width: 1080px) {
     &.featured {
       grid-template-columns: repeat(1, 1fr);
     }
@@ -37,5 +37,8 @@
       grid-template-columns: repeat(1, 1fr);
     }
     grid-template-columns: repeat(1,1fr);
+  }
+  .project-thumbnail {
+    margin-bottom: var(--global-padding);
   }
 }

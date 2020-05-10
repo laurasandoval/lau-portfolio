@@ -1,13 +1,13 @@
-import React from "react";
+import React, { Fragment } from "react";
 import GlobalHeader from "../../Components/GlobalHeader";
 
 function About(props) {
   return (
-    <div>
+    <Fragment>
       <GlobalHeader sticky/>
       <h1>About</h1>
       <p>Hello there, the quick brown fox jumps over the lazy dog.</p>
-    </div>
+    </Fragment>
   );
 }
 
