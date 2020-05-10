@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Data from "./Assets/design-work.json";
-import ProjectsIndex from "./Containers/ProjectsIndex";
+import ProjectsRouter from "./Containers/ProjectsRouter";
 
 import "./App.scss";
 import DesignWork from "./Containers/DesignWork";
@@ -14,13 +14,13 @@ function App() {
       <Switch>
         <Route exact path="/" component={DesignWork} />
         <Route exact path="/about" component={About} />
-        {Data.DesignWork.map((item, index) => {
+        {Data.DesignWork.map((project, index) => {
           return (
             <Route
               exact
-              path={`/${item.src}`}
+              path={`/${project.src}`}
               key={index}
-              render={() => <ProjectsIndex project_src={item.src} />}
+              render={() => <ProjectsRouter {...project} />}
             />
           );
         })}

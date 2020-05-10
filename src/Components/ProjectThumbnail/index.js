@@ -57,32 +57,57 @@ class ProjectThumbnail extends React.Component {
   }
 
   render() {
-    const { title, start_year, start_month, src, thumbnails } = this.props;
+    const {
+      as,
+      title,
+      start_year,
+      start_month,
+      src,
+      thumbnail,
+      thumbnails,
+      hover,
+      img_only,
+    } = this.props;
 
+    const Tag = as ? as : "div";
     const randomThumbnail = thumbnails.sort(
       () => Math.random() - Math.random()
     )[0];
 
     return (
-      <article className="project-thumbnail" data-name={title}>
-        <Link to={src} className="project-access">
-          <AccessibilityLabel as="span">
-            {title} | {this._renderTime(start_year, start_month)}
-          </AccessibilityLabel>
-        </Link>
-        <figure className="project-artwork" aria-hidden="true">
-          <div className="artwork shadow">
-            {this._renderThumbnail(randomThumbnail, src)}
-          </div>
+      <Tag
+        className="project-thumbnail"
+        data-name={title}
+        data-hover={hover}
+      >
+        {hover && (
+          <Link to={src} className="project-access">
+            <AccessibilityLabel as="span">
+              {title} | {this._renderTime(start_year, start_month)}
+            </AccessibilityLabel>
+          </Link>
+        )}
+        <figure className="project-artwork" aria-hidden={hover}>
+          {hover && (
+            <div className="artwork shadow">
+              {thumbnail
+                ? this._renderThumbnail(thumbnail, src)
+                : this._renderThumbnail(randomThumbnail, src)}
+            </div>
+          )}
           <div className="artwork">
-            {this._renderThumbnail(randomThumbnail, src)}
+            {thumbnail
+              ? this._renderThumbnail(thumbnail, src)
+              : this._renderThumbnail(randomThumbnail, src)}
           </div>
         </figure>
-        <div className="project-info" aria-hidden="true">
-          <h3 className="title">{title}</h3>
-          {this._renderTime(start_year, start_month)}
-        </div>
-      </article>
+        {!img_only && (
+          <div className="project-info" aria-hidden={hover}>
+            <h3 className="title">{title}</h3>
+            {this._renderTime(start_year, start_month)}
+          </div>
+        )}
+      </Tag>
     );
   }
 }

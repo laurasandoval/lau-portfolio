@@ -9,10 +9,26 @@
       "end_year": "2020",
       "end_month": "01",
       "featured": true,
+      "has_page": false,
       "src": "cornershop/cornershop-referral-landing",
       "thumbnails": [
         "cornershop-raf-links.webm"
-      ]
+      ],
+      "team": {
+        "Product Design": [
+          "Matías Martínez",
+          "Varsha Ashock",
+          "Gonzalo Castillo",
+          "Laura Sandoval"
+        ],
+        "Frontend Development": [
+          "Laura Sandoval"
+        ],
+        "Backend Development": [
+          "Alejandra Fernández",
+          "Roberto Riquelme"
+        ]
+      }
     },
     {
       "title": "Kappo Brand Identity Redesign",
@@ -23,10 +39,20 @@
       "end_year": "2019",
       "end_month": "06",
       "featured": true,
+      "has_page": false,
       "src": "kappo/kappo-brand-identity",
       "thumbnails": [
         "kappo-brand-identity.webm"
-      ]
+      ],
+      "team": {
+        "Graphic Design": [
+          "Laura Sandoval"
+        ],
+        "Kappo Counterparts": [
+          "Iván Paéz Mora",
+          "Mónica Berrios"
+        ]
+      }
     },
     {
       "title": "Cool Place to Bike Website",
@@ -37,10 +63,23 @@
       "end_year": "2019",
       "end_month": "03",
       "featured": true,
+      "has_page": false,
       "src": "kappo/cool-place-to-bike-website",
       "thumbnails": [
         "web-cool-place-to-bike.webm"
-      ]
+      ],
+      "team": {
+        "Web Design": [
+          "Laura Sandoval"
+        ],
+        "Frontend Development": [
+          "Laura Sandoval"
+        ],
+        "Kappo Counterparts": [
+          "Iván Paéz Mora",
+          "Mónica Berrios"
+        ]
+      }
     },
     {
       "title": "Santiago Transit Map Series 4",
@@ -51,10 +90,12 @@
       "end_year": "2019",
       "end_month": "07",
       "featured": false,
+      "has_page": false,
       "src": "santiago-transit-map/series-4",
       "thumbnails": [
         "santiago-transit-map-s4.png"
-      ]
+      ],
+      "team": null
     },
     {
       "title": "Santiago Transit Map Series 3",
@@ -65,10 +106,12 @@
       "end_year": "2018",
       "end_month": "04",
       "featured": true,
+      "has_page": false,
       "src": "santiago-transit-map/series-3",
       "thumbnails": [
         "santiago-transit-map-s3.png"
-      ]
+      ],
+      "team": null
     },
     {
       "title": "Santiago Transit Map Series 2",
@@ -79,10 +122,12 @@
       "end_year": "2017",
       "end_month": "12",
       "featured": false,
+      "has_page": false,
       "src": "santiago-transit-map/series-2",
       "thumbnails": [
         "santiago-transit-map-s2.png"
-      ]
+      ],
+      "team": null
     },
     {
       "title": "Santiago Transit Map Series 1",
@@ -93,10 +138,12 @@
       "end_year": "2017",
       "end_month": "09",
       "featured": false,
+      "has_page": false,
       "src": "santiago-transit-map/series-1",
       "thumbnails": [
         "santiago-transit-map-s1.png"
-      ]
+      ],
+      "team": null
     },
     {
       "title": "Saldo Red",
@@ -107,10 +154,12 @@
       "end_year": "2019",
       "end_month": "11",
       "featured": false,
+      "has_page": false,
       "src": "saldo-red/saldo-red-app",
       "thumbnails": [
         "saldo-red.png"
-      ]
+      ],
+      "team": null
     },
     {
       "title": "Saldo Red Website",
@@ -121,10 +170,12 @@
       "end_year": "2019",
       "end_month": "06",
       "featured": false,
+      "has_page": false,
       "src": "saldo-red/saldo-red-website",
       "thumbnails": [
         "web-saldo-red.webm"
-      ]
+      ],
+      "team": null
     },
     {
       "title": "Chilean Ministry of Health & LIPUC",
@@ -135,10 +186,24 @@
       "end_year": "2019",
       "end_month": "11",
       "featured": false,
+      "has_page": false,
       "src": "chilean-ministry-of-health/name-pending",
       "thumbnails": [
         "ministerio-de-salud-lip.png"
-      ]
+      ],
+      "team": {
+        "Graphic Design": [
+          "Jose Allard",
+          "Laura Sandoval"
+        ],
+        "Project Manager": [
+          "Cristobal Tello"
+        ],
+        "PUC's Public Innovation Lab Research": [
+          "Sara Riveros",
+          "Javiera Parra"
+        ]
+      }
     },
     {
       "title": "Transantiago Virtual Assistant",
@@ -149,10 +214,12 @@
       "end_year": "2019",
       "end_month": "03",
       "featured": true,
+      "has_page": false,
       "src": "transantiago-bot",
       "thumbnails": [
         "transantiago-bot.png"
-      ]
+      ],
+      "team": null
     },
     {
       "title": "Guemil Icon Uploader",
@@ -163,10 +230,28 @@
       "end_year": "2018",
       "end_month": "11",
       "featured": true,
+      "has_page": false,
       "src": "guemil/icon-uploader",
       "thumbnails": [
         "guemil-uploader.png"
-      ]
+      ],
+      "team": {
+        "Project Owner": [
+          "Rodrigo Ramírez"
+        ],
+        "Web Design": [
+          "Laura Sandoval"
+        ],
+        "Frontend Development": [
+          "Laura Sandoval"
+        ],
+        "Guemil Designers": [
+          "Valentina Morales",
+          "Sofía Pizarro",
+          "Felipe Vilches",
+          "Laura Sandoval"
+        ]
+      }
     },
     {
       "title": "Y4PT 2nd Transport Hackathon Chile 2017",
@@ -177,10 +262,24 @@
       "end_year": "2017",
       "end_month": "10",
       "featured": false,
+      "has_page": false,
       "src": "y4pt/2nd-transport-hackathon-chile",
       "thumbnails": [
         "y4pt-2nd-national-transport-hackathon-chile-2017.png"
-      ]
+      ],
+      "team": {
+        "Graphic Design": [
+          "Laura Sandoval"
+        ],
+        "Y4PT Volunteers": [
+          "Lluis Vidal",
+          "Jeanette Orozco",
+          "Carolina Sánchez",
+          "Rolando Álvarez",
+          "Sebastián Díaz",
+          "Laura Sandoval"
+        ]
+      }
     },
     {
       "title": "Bus Route Visualizer",
@@ -191,10 +290,12 @@
       "end_year": "2018",
       "end_month": "08",
       "featured": false,
+      "has_page": false,
       "src": "bus-route-visualizer",
       "thumbnails": [
         "bus-route-visualizer.png"
-      ]
+      ],
+      "team": null
     },
     {
       "title": "Cycling Wayfinding Signage",
@@ -205,10 +306,21 @@
       "end_year": "2018",
       "end_month": "11",
       "featured": false,
+      "has_page": false,
       "src": "cycling-wayfinding-signage",
       "thumbnails": [
         "cycling-wayfinding-signage.png"
-      ]
+      ],
+      "team": {
+        "Design": [
+          "Laura Sandoval"
+        ],
+        "Research": [
+          "Ricardo Hurtubia",
+          "Tomas Echiburú",
+          "Laura Sandoval"
+        ]
+      }
     },
     {
       "title": "Metro Virtual Assistant",
@@ -219,10 +331,12 @@
       "end_year": "2018",
       "end_month": "10",
       "featured": false,
+      "has_page": false,
       "src": "metro-bot",
       "thumbnails": [
         "metro-bot.png"
-      ]
+      ],
+      "team": null
     },
     {
       "title": "Bip macOS App",
@@ -233,10 +347,12 @@
       "end_year": "2019",
       "end_month": "01",
       "featured": false,
+      "has_page": false,
       "src": "bip-macos-app",
       "thumbnails": [
         "bip-macos-app.png"
-      ]
+      ],
+      "team": null
     },
     {
       "title": "Bip webApp",
@@ -247,10 +363,12 @@
       "end_year": "2018",
       "end_month": "11",
       "featured": false,
+      "has_page": false,
       "src": "bip-web-app",
       "thumbnails": [
         "bip-web-app.png"
-      ]
+      ],
+      "team": null
     }
   ]
 }

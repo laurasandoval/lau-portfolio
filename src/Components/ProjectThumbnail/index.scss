@@ -70,7 +70,7 @@
     }
   }
   @media (hover: hover) {
-    &:hover {
+    &[data-hover="true"]:hover {
       .project-artwork {
         .artwork {
           transform: translate3d(0, -4px, 0);

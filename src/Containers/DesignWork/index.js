@@ -15,16 +15,9 @@ class DesignWork extends React.Component {
   _renderThumbnail(project, index) {
     return (
       <ProjectThumbnail
-        title={project.title}
-        client={project.client}
-        description={project.description}
-        start_year={project.start_year}
-        start_month={project.start_month}
-        end_year={project.end_year}
-        end_month={project.end_month}
-        featured={project.featured}
-        src={project.src}
-        thumbnails={project.thumbnails}
+        {...project}
+        as="article"
+        hover
         key={index}
       />
     );
