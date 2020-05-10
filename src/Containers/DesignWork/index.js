@@ -33,7 +33,7 @@ class DesignWork extends React.Component {
 
     return (
       <Fragment>
-        <GlobalHeader />
+        <GlobalHeader sticky />
         <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
         <Grid featured>
           {firstFourFeaturedProjects.map((project, index) => {

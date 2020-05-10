@@ -4,7 +4,7 @@ import "./index.scss";
 
 function GlobalHeader(props) {
   return (
-    <header className="global-header">
+    <header className="global-header" data-sticky={props.sticky}>
       <div className="header-content-container">
         <div className="header-content">
           <h1>
