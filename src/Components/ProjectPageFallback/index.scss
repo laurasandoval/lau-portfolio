@@ -42,13 +42,20 @@
           text-decoration: underline;
           color: rgba(16, 99, 238, 1);
           width: fit-content;
-          transition: color 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
+          transition: all 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
           &:after {
-            content: " →";
+            content: "→";
+            display: inline-block;
+            margin-left: 0.2em;
+            transition: inherit;
+            color: rgba(16, 99, 238, 1);
           }
           @media (hover: hover) {
             &:hover {
               color: rgba(0, 0, 0, 1);
+              &:after {
+                transform: translate3d(10px,0,0);
+              }
             }
           }
         }
