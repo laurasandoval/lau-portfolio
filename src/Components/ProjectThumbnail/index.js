@@ -48,8 +48,8 @@ class ProjectThumbnail extends React.Component {
     const {
       as,
       title,
-      start_year,
-      start_month,
+      release_year,
+      release_month,
       src,
       thumbnail,
       thumbnails,
@@ -71,7 +71,7 @@ class ProjectThumbnail extends React.Component {
         {hover && (
           <Link to={src} className="project-access">
             <AccessibilityLabel as="span">
-              {title} | <Time year={start_year} month={start_month} />
+              {title} | <Time year={release_year} month={release_month} />
             </AccessibilityLabel>
           </Link>
         )}
@@ -92,7 +92,7 @@ class ProjectThumbnail extends React.Component {
         {!img_only && (
           <div className="project-info" aria-hidden={hover}>
             <h3 className="title">{title}</h3>
-            <Time year={start_year} month={start_month} />
+            <Time year={release_year} month={release_month} />
           </div>
         )}
       </Tag>

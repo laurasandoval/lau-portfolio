@@ -36,7 +36,7 @@ function ProjectPageFallback(props) {
             <div className="item">
               <h3>Release Date</h3>
               <p>
-                <Time year={props.start_year} month={props.start_month} />
+                <Time year={props.release_year} month={props.release_month} />
               </p>
             </div>
             {props.team &&
