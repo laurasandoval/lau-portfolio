@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Helmet } from "react-helmet";
 import "./index.scss";
 import GlobalHeader from "../GlobalHeader";
 import ProjectThumbnail from "../ProjectThumbnail";
@@ -7,6 +8,10 @@ import Time from "../Time";
 function ProjectPageFallback(props) {
   return (
     <Fragment>
+      <Helmet>
+        <title>{props.title} — Laura Sandoval</title>
+      </Helmet>
+
       <GlobalHeader />
       <article className="project-page-fallback" data-name={props.title}>
         <div className="project-gallery">
@@ -29,7 +34,13 @@ function ProjectPageFallback(props) {
               <div className="ctas">
                 {props.cta.map((cta, i) => {
                   return (
-                    <a className="call-to-action" key={i} href={cta.url} target="_blank" rel="noopener noreferrer">
+                    <a
+                      className="call-to-action"
+                      key={i}
+                      href={cta.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {cta.title}
                     </a>
                   );

@@ -4,6 +4,7 @@ import Grid from "../../Components/Grid";
 import ProjectThumbnail from "../../Components/ProjectThumbnail";
 import AccessibilityLabel from "../../Components/AccessibilityLabel";
 import GlobalHeader from "../../Components/GlobalHeader";
+import { Helmet } from "react-helmet";
 
 class DesignWork extends React.Component {
   constructor(props) {
@@ -33,6 +34,10 @@ class DesignWork extends React.Component {
 
     return (
       <Fragment>
+        <Helmet>
+          <title>Laura Sandoval — Work</title>
+        </Helmet>
+        
         <GlobalHeader sticky />
         <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
         <Grid featured>

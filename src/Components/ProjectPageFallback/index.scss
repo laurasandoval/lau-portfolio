@@ -105,7 +105,7 @@
     .credits {
       display: grid;
       grid-template-columns: auto 1fr;
-      grid-gap: 40px 20px;
+      grid-gap: 40px;
       @media(max-width: 1080px) {
         grid-template-columns: 1fr;
         grid-gap: 20px;
