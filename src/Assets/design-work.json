@@ -62,7 +62,9 @@
       "has_page": false,
       "src": "kappo/kappo-brand-identity",
       "thumbnails": [
-        "kappo-brand-identity.webm"
+        "kappo-brand-identity.webm",
+        "kappo-brand-identity-variant.png",
+        "kappo-brand-identity-poster-example.png"
       ],
       "cta": null,
       "team": {
