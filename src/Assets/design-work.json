@@ -147,7 +147,10 @@
       "has_page": false,
       "src": "santiago-transit-map/series-3",
       "thumbnails": [
-        "santiago-transit-map-s3.png"
+        "santiago-transit-map-s3.png",
+        "santiago-transit-map-s3-variant.png",
+        "santiago-transit-map-s3-variant-2.png",
+        "santiago-transit-map-s3-full.png"
       ],
       "cta": null,
       "team": null
@@ -401,7 +404,8 @@
       "has_page": false,
       "src": "cycling-wayfinding-signage",
       "thumbnails": [
-        "cycling-wayfinding-signage.png"
+        "cycling-wayfinding-signage.png",
+        "cycling-wayfinding-signage-plain.png"
       ],
       "cta": null,
       "team": {
