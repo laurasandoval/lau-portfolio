@@ -63,7 +63,6 @@
       "src": "kappo/kappo-brand-identity",
       "thumbnails": [
         "kappo-brand-identity.webm",
-        "kappo-brand-identity-variant.png",
         "kappo-brand-identity-tote.png"
       ],
       "cta": null,
@@ -149,7 +148,6 @@
       "thumbnails": [
         "santiago-transit-map-s3.png",
         "santiago-transit-map-s3-variant.png",
-        "santiago-transit-map-s3-variant-2.png",
         "santiago-transit-map-s3-full.png"
       ],
       "cta": null,
