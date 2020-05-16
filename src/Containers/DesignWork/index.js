@@ -39,40 +39,23 @@ class DesignWork extends React.Component {
     }
     
     _sessionNumber() {
-      // if(sessionStorage.getItem("sessionSeed") === null) {
-      //   console.log("No sessionSeed in sessionStorage.");
-      //   sessionStorage.setItem("sessionSeed", Math.floor(Math.random() * 100) + 1);
-      //   console.log("Created sessionSeed in sessionStorage.");
-      //   console.log("sessionSeed: " + sessionStorage.getItem("sessionSeed"));
-      // } else {
-      //   console.log("A sessionSeed already exists in sessionStorage.");
-      //   console.log("sessionSeed: " + sessionStorage.getItem("sessionSeed"));
-      // }
+      if(sessionStorage.getItem("sessionSeed") === null) {
+        sessionStorage.setItem("sessionSeed", Math.floor(Math.random() * 1000) + 1);
+      }
       
-      const sessionSeed = 1234;
-
+      const sessionSeed = sessionStorage.getItem("sessionSeed");
       return this._randomGenerator(sessionSeed);
     }
 
   render() {
-        
+
     const generator = this._sessionNumber();
-    const randomizedDesignWork = Data.DesignWork.sort(() => generator() - generator());
-
-    console.log("====== ORIGINAL ARRAY: ======");
-    console.log(Data.DesignWork);
-    
-    console.log("====== SHUFFLED ARRAY: ======");
-    console.log(randomizedDesignWork);
-
-    console.log("====== generator() - generator() RESULT: ======");
-    console.log(generator() - generator());
-    
-    // const featuredProjects = randomizedDesignWork.filter(item => item.featured === true);
-    // const firstFourFeaturedProjects = featuredProjects.slice(0, 4);
-    // const remainingFeaturedProjects = featuredProjects.slice(4, featuredProjects.lenght);
-    // const nonFeaturedProjects = Data.DesignWork.filter(item => item.featured === false);
-    // const remainingProjects = nonFeaturedProjects.concat(remainingFeaturedProjects);
+    const randomizedDesignWork = Data.DesignWork.slice().sort(() => generator() - generator());
+    const featuredProjects = randomizedDesignWork.filter(item => item.featured === true);
+    const firstFourFeaturedProjects = featuredProjects.slice(0, 4);
+    const remainingFeaturedProjects = featuredProjects.slice(4, featuredProjects.lenght);
+    const nonFeaturedProjects = randomizedDesignWork.filter(item => item.featured === false);
+    const remainingProjects = nonFeaturedProjects.concat(remainingFeaturedProjects);
 
     return (
       <Fragment>
@@ -82,13 +65,13 @@ class DesignWork extends React.Component {
         
         <GlobalHeader sticky />
         <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
-        {/* <Grid featured>
+        <Grid featured>
           {firstFourFeaturedProjects.map((project, index) => {
             return this._renderThumbnail(project, index);
           })}
-        </Grid> */}
+        </Grid>
         <Grid>
-          {Data.DesignWork.map((project, index) => {
+          {remainingProjects.map((project, index) => {
             return this._renderThumbnail(project, index);
           })}
         </Grid>
