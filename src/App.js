@@ -7,10 +7,12 @@ import ProjectsRouter from "./Containers/ProjectsRouter";
 import "./App.scss";
 import DesignWork from "./Containers/DesignWork";
 import About from "./Containers/About";
+import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Switch>
         <Route exact path="/" component={DesignWork} />
         <Route exact path="/about" component={About} />
