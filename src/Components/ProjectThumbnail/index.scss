@@ -60,6 +60,9 @@
     flex-flow: column-reverse;
     padding: calc(var(--global-padding) / 1.4) 0 0;
     transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    @media(max-width: 800px) {
+      padding: calc(var(--global-padding) / 2) calc(var(--global-padding) / 2) 0;
+    }
     .title,
     .date {
       margin: 0;
@@ -69,11 +72,17 @@
     .title {
       font-size: 18px;
       font-weight: 600;
+      @media(max-width: 800px) {
+        font-size: 16px;
+      }
     }
     .date {
       font-size: 16px;
       font-weight: 400;
       color: rgba(136, 139, 144, 1);
+      @media(max-width: 800px) {
+        font-size: 14px;
+      }
     }
   }
   @media (hover: hover) {

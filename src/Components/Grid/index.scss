@@ -10,7 +10,7 @@
   padding: 0 var(--global-padding);
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 1fr;
   grid-auto-flow: dense;
   grid-gap: var(--global-padding);
@@ -20,25 +20,26 @@
   &.featured {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media(max-width: 2000px) {
+  @media (max-width: 2000px) {
     &.featured {
       grid-template-columns: repeat(2, 1fr);
     }
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
-  @media(max-width: 1080px) {
+  @media (max-width: 1080px) {
     &.featured {
       grid-template-columns: repeat(1, 1fr);
     }
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
-  @media(max-width: 800px) {
+  @media (max-width: 800px) {
     &.featured {
       grid-template-columns: repeat(1, 1fr);
     }
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(1, 1fr);
+    padding: calc(var(--global-padding) / 2);
   }
   .project-thumbnail {
-    margin-bottom: var(--global-padding);
+    margin-bottom: calc(var(--global-padding) / 2);
   }
 }
