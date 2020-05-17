@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./index.scss";
 import { Link } from "react-router-dom";
 import AccessibilityLabel from "../AccessibilityLabel";
@@ -14,6 +14,9 @@ class ProjectThumbnail extends React.Component {
   _renderThumbnail(thumbnail, src) {
     const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"];
     const videoFormats = ["mp4", "webm"];
+    const HtmlThumbnail = React.lazy(() =>
+      import(`../../Work/${src}/thumbnails/${thumbnail}`)
+    );
 
     if (new RegExp(`[.](${imageFormats.join("|")})`).test(thumbnail)) {
       return (
@@ -41,6 +44,14 @@ class ProjectThumbnail extends React.Component {
           />
         </video>
       );
+    } else {
+      return (
+        <div className="html-thumbnail-container">
+          <Suspense fallback={<span></span>}>
+            <HtmlThumbnail />
+          </Suspense>
+        </div>
+      );
     }
   }
 
@@ -58,9 +69,9 @@ class ProjectThumbnail extends React.Component {
     } = this.props;
 
     const Tag = as ? as : "div";
-    const randomThumbnail = thumbnails.sort(
-      () => Math.random() - Math.random()
-    )[0];
+    const randomThumbnail = thumbnails
+      .slice()
+      .sort(() => Math.random() - Math.random())[0];
 
     return (
       <Tag className="project-thumbnail" data-name={title} data-hover={hover}>
