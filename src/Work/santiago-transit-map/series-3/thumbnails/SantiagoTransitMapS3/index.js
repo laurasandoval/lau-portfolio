@@ -76,7 +76,7 @@ function SantiagoTransitMapS3(props) {
           <path
             stroke="#D8222B"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
             strokeWidth="43.247"
             d="M3317.35 516.897h-6251.77a4.32 4.32 0 01-3.06-1.268l-334.8-335.054a4.322 4.322 0 01-1.26-3.057v-486.645"
           />

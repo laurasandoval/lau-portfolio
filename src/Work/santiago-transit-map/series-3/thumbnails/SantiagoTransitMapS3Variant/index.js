@@ -10,7 +10,7 @@ function SantiagoTransitMapS3Variant(props) {
         fill="none"
         data-name="SantiagoTransitMapS3Variant"
       >
-        <g clip-path="url(#clip0)">
+        <g clipPath="url(#clip0)">
           <path fill="#fff" d="M1080 0H0v811h1080V0z" />
           <path fill="#fff" d="M3045.39-2308H-10171v8550H3045.39v-8550z" />
           <path fill="#F5F5F5" d="M3045.39-2308h-8813.81v8550h8813.81v-8550z" />
@@ -92,7 +92,7 @@ function SantiagoTransitMapS3Variant(props) {
           <path
             stroke="#D8222B"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
             strokeWidth="43.247"
             d="M2392.35 593.897h-6251.77a4.32 4.32 0 01-3.06-1.268l-334.8-335.054a4.322 4.322 0 01-1.26-3.057v-486.645"
           />
