@@ -17,36 +17,35 @@
     display: block;
     margin: 0;
     padding: 0;
-    .artwork {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background: rgba(239, 239, 244, 1);
-      padding-top: calc(100% * calc(3 / 4));
-      position: relative;
-      border-radius: 5px;
-      transition: all 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
-      will-change: transform;
-      > img,
-      > video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        right: 0;
-        min-width: 100%;
-        min-height: 100%;
-        max-width: 100%;
-      }
-      &.shadow {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        filter: blur(10px);
-        opacity: 0;
-      }
+    overflow: hidden;
+    background: rgba(239, 239, 244, 1);
+    padding-top: calc(100% * calc(3 / 4));
+    position: relative;
+    border-radius: 5px;
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    > img,
+    > video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      right: 0;
+      min-width: 100%;
+      min-height: 100%;
+      max-width: 100%;
+    }
+    &:after {
+      content: "";
+      border-radius: inherit;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
+      transition: inherit;
+      opacity: 0;
     }
   }
   .project-info {
@@ -73,12 +72,10 @@
   @media (hover: hover) {
     &[data-hover="true"]:hover {
       .project-artwork {
-        .artwork {
-          transform: translate3d(0, -4px, 0);
-          &.shadow {
-            transform: scale(1.01) translate3d(0,px,0);
-            opacity: 0.5;
-          }
+        transform: translate3d(0, -4px, 0);
+        box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.09);
+        &:after {
+          opacity: 1;
         }
       }
     }

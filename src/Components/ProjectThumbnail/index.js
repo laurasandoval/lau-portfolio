@@ -63,11 +63,7 @@ class ProjectThumbnail extends React.Component {
     )[0];
 
     return (
-      <Tag
-        className="project-thumbnail"
-        data-name={title}
-        data-hover={hover}
-      >
+      <Tag className="project-thumbnail" data-name={title} data-hover={hover}>
         {hover && (
           <Link to={src} className="project-access">
             <AccessibilityLabel as="span">
@@ -76,18 +72,9 @@ class ProjectThumbnail extends React.Component {
           </Link>
         )}
         <figure className="project-artwork" aria-hidden={hover}>
-          {hover && (
-            <div className="artwork shadow">
-              {thumbnail
-                ? this._renderThumbnail(thumbnail, src)
-                : this._renderThumbnail(randomThumbnail, src)}
-            </div>
-          )}
-          <div className="artwork">
-            {thumbnail
-              ? this._renderThumbnail(thumbnail, src)
-              : this._renderThumbnail(randomThumbnail, src)}
-          </div>
+          {thumbnail
+            ? this._renderThumbnail(thumbnail, src)
+            : this._renderThumbnail(randomThumbnail, src)}
         </figure>
         {!img_only && (
           <div className="project-info" aria-hidden={hover}>
