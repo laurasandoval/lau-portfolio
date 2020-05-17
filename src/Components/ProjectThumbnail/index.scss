@@ -2,6 +2,8 @@
   position: relative;
   display: block;
   margin: 0;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
   .project-access {
     text-decoration: none;
     color: unset;
@@ -60,7 +62,7 @@
     flex-flow: column-reverse;
     padding: calc(var(--global-padding) / 1.4) 0 0;
     transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    @media(max-width: 800px) {
+    @media (max-width: 800px) {
       padding: calc(var(--global-padding) / 2) calc(var(--global-padding) / 2) 0;
     }
     .title,
@@ -72,7 +74,7 @@
     .title {
       font-size: 18px;
       font-weight: 600;
-      @media(max-width: 800px) {
+      @media (max-width: 800px) {
         font-size: 16px;
       }
     }
@@ -80,22 +82,51 @@
       font-size: 16px;
       font-weight: 400;
       color: rgba(136, 139, 144, 1);
-      @media(max-width: 800px) {
+      @media (max-width: 800px) {
         font-size: 14px;
       }
     }
   }
-  @media (hover: hover) {
-    &[data-hover="true"]:hover {
-      .project-artwork {
-        transform: translate3d(0, -4px, 0);
-        box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.09);
-        &:after {
-          opacity: 1;
+  &:after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: calc(calc(var(--global-padding) / 2) * -1.5);
+    left: -4px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 8px;
+    transition: inherit;
+    opacity: 0;
+    pointer-events: none;
+  }
+  &[data-hover="true"] {
+    @media (hover: hover) {
+      &:hover {
+        .project-artwork {
+          transform: translate3d(0, -4px, 0);
+          box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.09);
+          &:after {
+            opacity: 1;
+          }
         }
+        .project-info {
+          opacity: 0.6;
+        }
+      }
+    }
+    &:active {
+      transform: translate3d(0, 6px, 0) scale3d(0.96, 0.96, 0.96);
+      .project-artwork {
+        transform: translate3d(0, 0, 0);
+        box-shadow: none;
+        opacity: 0.6;
       }
       .project-info {
         opacity: 0.6;
+      }
+      &:after {
+        opacity: 1;
       }
     }
   }
