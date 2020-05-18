@@ -11,7 +11,7 @@ class ProjectThumbnail extends React.Component {
     this._renderThumbnail = this._renderThumbnail.bind(this);
   }
 
-  _renderThumbnail(thumbnail, src) {
+  _renderThumbnail(thumbnail, src, title) {
     const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"];
     const videoFormats = ["mp4", "webm"];
     const HtmlThumbnail = React.lazy(() =>
@@ -22,7 +22,7 @@ class ProjectThumbnail extends React.Component {
       return (
         <img
           src={require(`../../Work/${src}/thumbnails/${thumbnail}`)}
-          alt="Dummy project description"
+          alt={title}
         ></img>
       );
     } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(thumbnail)) {
@@ -84,8 +84,8 @@ class ProjectThumbnail extends React.Component {
         )}
         <figure className="project-artwork" aria-hidden={hover}>
           {thumbnail
-            ? this._renderThumbnail(thumbnail, src)
-            : this._renderThumbnail(randomThumbnail, src)}
+            ? this._renderThumbnail(thumbnail, src, title)
+            : this._renderThumbnail(randomThumbnail, src, title)}
         </figure>
         {!img_only && (
           <div className="project-info" aria-hidden={hover}>
