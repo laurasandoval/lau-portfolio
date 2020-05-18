@@ -17,23 +17,23 @@
   &:not(:first-of-type) {
     margin-top: var(--global-padding);
   }
-  &.featured {
+  &[data-featured="true"] {
     grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: 2000px) {
-    &.featured {
+    &[data-featured="true"] {
       grid-template-columns: repeat(2, 1fr);
     }
     grid-template-columns: repeat(3, 1fr);
   }
   @media (max-width: 1080px) {
-    &.featured {
+    &[data-featured="true"] {
       grid-template-columns: repeat(1, 1fr);
     }
     grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: 800px) {
-    &.featured {
+    &[data-featured="true"] {
       grid-template-columns: repeat(1, 1fr);
     }
     grid-template-columns: repeat(1, 1fr);

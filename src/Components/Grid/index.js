@@ -1,10 +1,9 @@
 import React from "react";
-import classNames from "classnames";
 import "./index.scss";
 
 function Grid(props) {
   return (
-    <section className={classNames("projects-grid", {"featured": props.featured})}>
+    <section className="projects-grid" data-featured={props.featured}>
       {props.children}
     </section>
   );
