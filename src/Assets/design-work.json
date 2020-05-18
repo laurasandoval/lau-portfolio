@@ -127,12 +127,13 @@
       "description": "Explorations of Santiago’s Transit Map as a format. Multiple iterations over shape and form define a versatile graphic system that allows for expansion or compression based on the required levels of complexity.",
       "release_year": "2019",
       "release_month": "07",
-      "featured": false,
+      "featured": true,
       "has_page": false,
       "src": "santiago-transit-map/series-4",
       "thumbnails": [
         "santiago-transit-map-s4.png",
-        "santiago-transit-map-s4-detail.png"
+        "santiago-transit-map-s4-detail.png",
+        "santiago-transit-map-s4-video-reveal.webm"
       ],
       "cta": null,
       "team": null
