@@ -3,7 +3,7 @@
     {
       "title": "Cornershop Referral Landing",
       "client": "Cornershop",
-      "description": "Website redesign for Cornershop referral landing page.",
+      "description": "Website redesign for Cornershop referral landing page. All visual elements of the website were rewritten using modern HTML5 and CSS techniques to allow for better accessibility, lightning-fast load times, and enormous flexibility.",
       "release_year": "2020",
       "release_month": "01",
       "featured": true,
@@ -125,13 +125,14 @@
       "title": "Santiago Transit Map Series 4",
       "client": null,
       "description": "Explorations of Santiago’s Transit Map as a format. Multiple iterations over shape and form define a versatile graphic system that allows for expansion or compression based on the required levels of complexity.",
-      "release_year": "2018",
-      "release_month": "11",
+      "release_year": "2019",
+      "release_month": "07",
       "featured": false,
       "has_page": false,
       "src": "santiago-transit-map/series-4",
       "thumbnails": [
-        "santiago-transit-map-s4.png"
+        "santiago-transit-map-s4.png",
+        "santiago-transit-map-s4-detail.png"
       ],
       "cta": null,
       "team": null
@@ -185,15 +186,16 @@
     },
     {
       "title": "Saldo Red",
-      "client": "Saldo Red",
+      "client": null,
       "description": "Design and development of the best, privacy and simplicity-driven, most positively reviewed app for managing Chilean Transit Cards.",
       "release_year": "2019",
       "release_month": "04",
-      "featured": false,
+      "featured": true,
       "has_page": false,
       "src": "saldo-red/saldo-red-app",
       "thumbnails": [
-        "saldo-red.png"
+        "saldo-red.png",
+        "saldo-red-variant.png"
       ],
       "cta": [
         {
@@ -205,7 +207,23 @@
           "url": "https://saldo.red"
         }
       ],
-      "team": null
+      "team": {
+        "Product Design": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "Frontend Development": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "Backend Development": [
+          {
+            "name": "Eduardo Riveros"
+          }
+        ]
+      }
     },
     {
       "title": "Saldo Red Website",
