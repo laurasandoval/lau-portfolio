@@ -5,7 +5,7 @@ import ProjectThumbnail from "../../Components/ProjectThumbnail";
 import AccessibilityLabel from "../../Components/AccessibilityLabel";
 import GlobalHeader from "../../Components/GlobalHeader";
 import { Helmet } from "react-helmet";
-import SeeAllThumbnail from "../../Components/SeeAllThumbnail";
+import RemainingItems from "./RemainingItems";
 
 class DesignWork extends React.Component {
   constructor(props) {
@@ -17,71 +17,70 @@ class DesignWork extends React.Component {
   }
 
   _randomGenerator(seed) {
-      var m = 25;
-      var a = 11;
-      var c = 17;
-  
-      var z = seed;
-      return function() {
-        z = (a * z + c) % m;
-        return z/m;
-      }
+    var m = 25;
+    var a = 11;
+    var c = 17;
+
+    var z = seed;
+    return function () {
+      z = (a * z + c) % m;
+      return z / m;
+    };
   }
 
   _renderThumbnail(project, index) {
-    return (
-      <ProjectThumbnail
-      {...project}
-      as="article"
-      hover
-      key={index}
-      />
+    return <ProjectThumbnail {...project} as="article" hover key={index} />;
+  }
+
+  _sessionNumber() {
+    if (sessionStorage.getItem("sessionSeed") === null) {
+      sessionStorage.setItem(
+        "sessionSeed",
+        Math.floor(Math.random() * 1000) + 1
       );
     }
-    
-    _sessionNumber() {
-      if(sessionStorage.getItem("sessionSeed") === null) {
-        sessionStorage.setItem("sessionSeed", Math.floor(Math.random() * 1000) + 1);
-      }
-      
-      const sessionSeed = sessionStorage.getItem("sessionSeed");
-      return this._randomGenerator(sessionSeed);
-    }
+
+    const sessionSeed = sessionStorage.getItem("sessionSeed");
+    return this._randomGenerator(sessionSeed);
+  }
 
   render() {
-
+    const maxFeaturedCount = 4;
+    const maxRemainingCount = 8;
     const generator = this._sessionNumber();
+
     const randomizedDesignWork = Data.DesignWork.slice().sort(() => generator() - generator());
-    const featuredProjects = randomizedDesignWork.filter(item => item.featured === true);
-    const firstFourFeaturedProjects = featuredProjects.slice(0, 4);
-    const remainingFeaturedProjects = featuredProjects.slice(4, featuredProjects.lenght);
-    const nonFeaturedProjects = randomizedDesignWork.filter(item => item.featured === false);
+    const featuredProjects = randomizedDesignWork.filter((item) => item.featured === true);
+    const featuredProjectsMax = featuredProjects.slice(0, maxFeaturedCount);
+    const remainingFeaturedProjects = featuredProjects.slice(maxFeaturedCount,featuredProjects.lenght);
+    const nonFeaturedProjects = randomizedDesignWork.filter((item) => item.featured === false);
     const remainingProjects = nonFeaturedProjects.concat(remainingFeaturedProjects);
-    const remainingProjectsPreview = remainingProjects.slice(0, 8);
+    const remainingProjectsMax = remainingProjects.slice(0, maxRemainingCount);
 
     return (
       <Fragment>
         <Helmet>
           <title>Laura Sandoval — Work</title>
         </Helmet>
-        
+
         <GlobalHeader sticky />
         <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
         <Grid featured>
-          {firstFourFeaturedProjects.map((project, index) => {
+          {featuredProjectsMax.map((project, index) => {
             return this._renderThumbnail(project, index);
           })}
         </Grid>
         <Grid>
-          {remainingProjectsPreview.map((project, index) => {
+          {remainingProjectsMax.map((project, index) => {
             return this._renderThumbnail(project, index);
           })}
-         <SeeAllThumbnail
-          as="article"
-          remainingCount={
-            remainingProjects.length - remainingProjectsPreview.length
-          }
-         />
+          <RemainingItems
+            itemsToShow={remainingProjects.slice(maxRemainingCount, remainingProjects.length)}
+            as="article"
+            remainingCount={
+              remainingProjects.slice(maxRemainingCount, remainingProjects.length).length
+            }
+          />
         </Grid>
       </Fragment>
     );
