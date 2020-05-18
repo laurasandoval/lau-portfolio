@@ -1,0 +1,171 @@
+.see-all-thumbnail {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: rgba(239, 239, 244, 1);
+  padding-top: calc(100% * calc(3 / 4));
+  border-radius: 5px;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  backface-visibility: hidden;
+  will-change: transform;
+  height: fit-content;
+  user-select: none;
+  @at-root :active#{&} {
+    transform: translateY(6px) scale(0.96);
+    opacity: 0.9;
+  }
+  .button-access {
+    text-decoration: none;
+    color: unset;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    -webkit-appearance: none;
+    background: transparent;
+    outline: none;
+    border: none;
+    user-select: none;
+  }
+  .content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    transition: inherit;
+    will-change: transform;
+    .cards-stack {
+      text-align: center;
+      position: relative;
+      transition: inherit;
+      filter: drop-shadow(0px 2px 20px rgba(16, 99, 238, 0.25));
+      @media (hover: hover) {
+        @at-root :hover#{&} {
+          filter: drop-shadow(0px 2px 20px rgba(16, 99, 238, 0.45));
+          transform: scale(1.05);
+        }
+      }
+      @at-root :active#{&} {
+        filter: drop-shadow(0px 2px 20px rgba(16, 99, 238, 0.45));
+        transform: scale(1);
+      }
+      .card {
+        --size: 90px;
+        @media (max-width: 800px) {
+          --size: 76px;
+        }
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        overflow: hidden;
+        will-change: transform;
+        transition: inherit;
+        user-select: none;
+        &:nth-child(3) {
+          width: var(--size);
+          height: var(--size);
+          background: rgba(16, 99, 238, 1);
+          position: relative;
+          z-index: 3;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 12px;
+          .remaining-count {
+            position: relative;
+            top: -3px;
+            font-size: 50px;
+            line-height: 50px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 1);
+            user-select: none;
+            backface-visibility: hidden;
+            @media (max-width: 800px) {
+              font-size: 40px;
+            }
+          }
+        }
+        &:nth-child(2) {
+          width: calc(var(--size) - 16px);
+          height: calc(var(--size) - 16px);
+          background: rgba(104, 155, 240, 1);
+          position: absolute;
+          top: -4px;
+          right: 0;
+          left: 0;
+          z-index: 2;
+          border-radius: 10px;
+          @media (hover: hover) {
+            @at-root :hover#{&} {
+              transform: translateY(-2px);
+            }
+          }
+          @at-root :active#{&} {
+            transform: translateY(1px);
+          }
+        }
+        &:nth-child(1) {
+          width: calc(var(--size) - 16px - 14px);
+          height: calc(var(--size) - 16px - 14px);
+          background: rgba(147, 183, 242, 1);
+          position: absolute;
+          top: -8px;
+          right: 0;
+          left: 0;
+          z-index: 1;
+          border-radius: 8px;
+          @media (hover: hover) {
+            @at-root :hover#{&} {
+              transform: translateY(-4px);
+            }
+          }
+          @at-root :active#{&} {
+            transform: translateY(2px);
+          }
+        }
+      }
+    }
+    .text {
+      text-align: center;
+      margin-top: 28px;
+      transition: inherit;
+      @media (hover: hover) {
+        @at-root :hover#{&} {
+          opacity: 0.6;
+        }
+      }
+      @at-root :active#{&} {
+        opacity: 0.6;
+      }
+      .title,
+      .subtitle {
+        font-size: 18px;
+        margin: 0;
+        padding: 0;
+        user-select: none;
+        @media (max-width: 800px) {
+          font-size: 16px;
+        }
+      }
+      .title {
+        font-weight: 600;
+        color: rgba(0, 0, 0, 1);
+      }
+      .subtitle {
+        font-weight: 400;
+        color: rgba(136, 139, 144, 1);
+      }
+    }
+  }
+}

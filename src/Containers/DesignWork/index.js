@@ -5,6 +5,7 @@ import ProjectThumbnail from "../../Components/ProjectThumbnail";
 import AccessibilityLabel from "../../Components/AccessibilityLabel";
 import GlobalHeader from "../../Components/GlobalHeader";
 import { Helmet } from "react-helmet";
+import SeeAllThumbnail from "../../Components/SeeAllThumbnail";
 
 class DesignWork extends React.Component {
   constructor(props) {
@@ -56,6 +57,7 @@ class DesignWork extends React.Component {
     const remainingFeaturedProjects = featuredProjects.slice(4, featuredProjects.lenght);
     const nonFeaturedProjects = randomizedDesignWork.filter(item => item.featured === false);
     const remainingProjects = nonFeaturedProjects.concat(remainingFeaturedProjects);
+    const remainingProjectsPreview = remainingProjects.slice(0, 8);
 
     return (
       <Fragment>
@@ -71,9 +73,15 @@ class DesignWork extends React.Component {
           })}
         </Grid>
         <Grid>
-          {remainingProjects.map((project, index) => {
+          {remainingProjectsPreview.map((project, index) => {
             return this._renderThumbnail(project, index);
           })}
+         <SeeAllThumbnail
+          as="article"
+          remainingCount={
+            remainingProjects.length - remainingProjectsPreview.length
+          }
+         />
         </Grid>
       </Fragment>
     );

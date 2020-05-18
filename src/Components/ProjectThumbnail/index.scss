@@ -22,9 +22,8 @@
     overflow: hidden;
     background: rgba(239, 239, 244, 1);
     padding-top: calc(100% * calc(3 / 4));
-    position: relative;
     border-radius: 5px;
-    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: inherit;
     will-change: transform;
     > img,
     > video {
@@ -62,7 +61,7 @@
     display: flex;
     flex-flow: column-reverse;
     padding: calc(var(--global-padding) / 1.4) 0 0;
-    transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: inherit;
     @media (max-width: 800px) {
       padding: calc(var(--global-padding) / 2) calc(var(--global-padding) / 2) 0;
     }
@@ -105,7 +104,7 @@
     @media (hover: hover) {
       &:hover {
         .project-artwork {
-          transform: translate3d(0, -4px, 0);
+          transform: translateY(-4px);
           box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.09);
           &:after {
             opacity: 1;
@@ -117,9 +116,9 @@
       }
     }
     &:active {
-      transform: translate3d(0, 6px, 0) scale3d(0.96, 0.96, 0.96);
+      transform: translateY(6px) scale(0.96);
       .project-artwork {
-        transform: translate3d(0, 0, 0);
+        transform: translateY(0);
         box-shadow: none;
         opacity: 0.6;
       }

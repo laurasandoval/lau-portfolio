@@ -69,9 +69,9 @@ class ProjectThumbnail extends React.Component {
     } = this.props;
 
     const Tag = as ? as : "div";
-    const randomThumbnail = thumbnails
-      .slice()
-      .sort(() => Math.random() - Math.random())[0];
+    const thumbnailToRender = thumbnail
+      ? thumbnail
+      : thumbnails.slice().sort(() => Math.random() - Math.random())[0];
 
     return (
       <Tag className="project-thumbnail" data-name={title} data-hover={hover}>
@@ -83,9 +83,7 @@ class ProjectThumbnail extends React.Component {
           </Link>
         )}
         <figure className="project-artwork" aria-hidden={hover}>
-          {thumbnail
-            ? this._renderThumbnail(thumbnail, src, title)
-            : this._renderThumbnail(randomThumbnail, src, title)}
+          {this._renderThumbnail(thumbnailToRender, src, title)}
         </figure>
         {!img_only && (
           <div className="project-info" aria-hidden={hover}>
