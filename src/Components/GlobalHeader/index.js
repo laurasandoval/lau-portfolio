@@ -9,8 +9,10 @@ class GlobalHeader extends React.Component {
   constructor(props) {
     super(props);
 
-    this._updateSearch = this._updateSearch.bind(this);
-    this._toggleSearch = this._toggleSearch.bind(this);
+    this.searchField = React.createRef();
+    this._updateSearchQuery = this._updateSearchQuery.bind(this);
+    this._openSearch = this._openSearch.bind(this);
+    this._closeSearch = this._closeSearch.bind(this);
     this._toggleNav = this._toggleNav.bind(this);
     this.state = {
       navOpen: false,
@@ -19,23 +21,28 @@ class GlobalHeader extends React.Component {
     };
   }
 
-  _updateSearch(event) {
+  _updateSearchQuery(event) {
     this.setState({
       searchQuery: event.target.value.substr(0, 100).toLowerCase(),
     });
   }
 
-  _toggleSearch() {
+  _openSearch() {
+    this.setState({
+      searchOpen: true,
+    });
+    this.searchField.current.focus()
+  }
+
+  _closeSearch() {
     this.setState((prevState) => ({
       searchOpen: !prevState.searchOpen,
     }));
-    this.state.searchOpen === false && this.nameInput.focus();
-    this.state.searchOpen === true &&
-      setTimeout(() => {
-        this.setState({
-          searchQuery: "",
-        });
-      }, 1000);
+    setTimeout(() => {
+      this.setState({
+        searchQuery: "",
+      });
+    }, 1000);
   }
 
   _toggleNav() {
@@ -78,7 +85,7 @@ class GlobalHeader extends React.Component {
               </span>
             </div>
             <h1>
-              <NavLink exact to="/">
+              <NavLink className="nav-item" exact to="/">
                 Laura Sandoval
               </NavLink>
             </h1>
@@ -86,27 +93,47 @@ class GlobalHeader extends React.Component {
           <nav data-open={this.state.navOpen}>
             <ul>
               <li>
-                <NavLink activeClassName="active" exact to="/">
+                <NavLink
+                  className="nav-item"
+                  activeClassName="active"
+                  exact
+                  to="/"
+                >
                   Design
                 </NavLink>
               </li>
               <li>
-                <NavLink activeClassName="active" exact to="/about">
+                <NavLink
+                  className="nav-item"
+                  activeClassName="active"
+                  exact
+                  to="/about"
+                >
                   Photography
                 </NavLink>
               </li>
               <li>
-                <NavLink activeClassName="active" exact to="/about">
+                <NavLink
+                  className="nav-item"
+                  activeClassName="active"
+                  exact
+                  to="/about"
+                >
                   About
                 </NavLink>
               </li>
               <li>
-                <NavLink activeClassName="active" exact to="/about">
+                <NavLink
+                  className="nav-item"
+                  activeClassName="active"
+                  exact
+                  to="/about"
+                >
                   Get in Touch
                 </NavLink>
               </li>
-              <li className="search-button" onClick={this._toggleSearch}>
-                <span>Search</span>
+              <li className="search-button" onClick={this._openSearch}>
+                <span className="nav-item">Search</span>
               </li>
             </ul>
           </nav>
@@ -120,10 +147,9 @@ class GlobalHeader extends React.Component {
                 type="search"
                 placeholder="Search"
                 value={this.state.searchQuery}
-                onChange={this._updateSearch}
-                ref={(input) => {
-                  this.nameInput = input;
-                }}
+                onChange={this._updateSearchQuery}
+                onFocus={this._openSearch}
+                ref={this.searchField}
               />
               <div className="search-results">
                 <ul>

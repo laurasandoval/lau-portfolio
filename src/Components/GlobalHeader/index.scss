@@ -33,6 +33,16 @@
     position: sticky;
     top: 0px;
   }
+  &:before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 1);
+  }
   &:after {
     content: "";
     opacity: 0;
@@ -50,16 +60,6 @@
       pointer-events: all;
     }
   }
-  &:before {
-    content: "";
-    position: absolute;
-    pointer-events: none;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(255, 255, 255, 1);
-  }
   .header-content {
     margin: 0 auto;
     width: 100%;
@@ -72,8 +72,7 @@
     align-items: center;
     font-size: 18px;
     color: rgba(0, 0, 0, 1);
-    a,
-    span {
+    .nav-item {
       text-decoration: none;
       color: inherit;
       cursor: pointer;
@@ -123,11 +122,9 @@
             @include transitionDelays;
           }
           @media (hover: hover) {
-            &:hover {
-              a,
-              span {
-                color: rgba(136, 138, 144, 1);
-              }
+            .nav-item:hover,
+            &.nav-item:hover {
+              color: rgba(136, 138, 144, 1);
             }
           }
         }
@@ -137,10 +134,14 @@
   @media (max-width: 800px) {
     --header-height: 64px;
     margin: 0;
+    &:after {
+      transition-delay: 0s;
+    }
     .header-content {
       padding: 0 calc(var(--global-padding) / 2);
       grid-template-columns: 100%;
       grid-auto-flow: row;
+      grid-gap: 0;
       text-align: center;
       background: inherit;
       a {
@@ -153,6 +154,11 @@
         align-items: center;
         z-index: 3;
         background: inherit;
+        h1 {
+          @at-root [data-search-open="true"]#{&} {
+            opacity: 1;
+          }
+        }
       }
       nav {
         position: fixed;
@@ -178,8 +184,15 @@
             transition: inherit;
             padding-bottom: 16px;
             box-sizing: border-box;
-            &:not(:last-child) {
+            &:not(:nth-last-child(2)) {
               border-bottom: 1px solid rgba(136, 139, 144, 0.2);
+            }
+            &.search-button {
+              display: none;
+            }
+            @at-root [data-search-open="true"]#{&} {
+              opacity: 1;
+              transform: none;
             }
           }
         }
@@ -195,6 +208,20 @@
               animation-fill-mode: backwards;
               @include animationDelays;
             }
+          }
+        }
+      }
+      .search-box-container {
+        position: relative;
+        opacity: 1;
+        width: 100%;
+        pointer-events: all;
+        padding: calc(var(--global-padding) / 2) 0;
+        .search-container {
+          width: inherit;
+          transform: none;
+          .search-bar-input {
+            width: inherit;
           }
         }
       }
