@@ -92,7 +92,7 @@
     position: absolute;
     top: -4px;
     right: -4px;
-    bottom: calc(calc(var(--global-padding) / 2) * -1.5);
+    bottom: calc((var(--global-padding) / 2) * -1.5);
     left: -4px;
     background: rgba(0,0,0,0.05);
     border-radius: 8px;
