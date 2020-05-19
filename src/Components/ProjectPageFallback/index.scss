@@ -1,16 +1,16 @@
 .project-page-fallback {
   margin: 0 auto;
-  padding: 0 var(--global-padding);
+  padding: var(--global-padding) calc(var(--global-padding) / 2);
   box-sizing: border-box;
   max-width: calc(1440px + calc(var(--global-padding) * 2));
   display: grid;
   grid-template-columns: 1fr 0.5fr;
-  grid-gap: 60px;
+  grid-gap: calc(var(--global-padding) * 3);
   @media (max-width: 800px) {
     & {
       grid-template-columns: 1fr;
       grid-template-rows: repeat(2, auto);
-      grid-gap: 40px;
+      grid-gap: var(--global-padding);
     }
   }
   .project-gallery {
@@ -20,14 +20,14 @@
       & {
         grid-auto-flow: column;
         grid-auto-columns: 100%;
-        grid-gap: 8px;
+        grid-gap: 4px;
         overflow: auto;
         position: sticky;
         top: 0;
-        margin: calc(var(--global-padding) * -1);
-        padding: var(--global-padding);
+        margin: calc((var(--global-padding) / 2) * -1);
+        padding: calc(var(--global-padding) / 2);
         box-sizing: border-box;
-        background: rgba(255, 255, 255, 1);
+        background: white;
         scroll-snap-type: x mandatory;
         &:after {
           content: "";
@@ -49,6 +49,8 @@
     grid-auto-flow: row;
     grid-gap: 60px;
     height: fit-content;
+    padding: 0 calc(var(--global-padding) / 2);
+    box-sizing: border-box;
     @media (max-width: 800px) {
       & {
         position: initial;
@@ -104,9 +106,9 @@
     }
     .credits {
       display: grid;
-      grid-template-columns: repeat(2,1fr);
+      grid-template-columns: repeat(2, 1fr);
       grid-gap: 40px;
-      @media(max-width: 1080px) {
+      @media (max-width: 1080px) {
         grid-template-columns: 1fr;
         grid-gap: 20px;
       }

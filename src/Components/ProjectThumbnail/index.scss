@@ -93,6 +93,9 @@
     top: -4px;
     right: -4px;
     bottom: calc((var(--global-padding) / 2) * -1.5);
+    @at-root [data-img-only="true"]#{&} {
+      bottom: -4px;
+    }
     left: -4px;
     background: rgba(0,0,0,0.05);
     border-radius: 8px;

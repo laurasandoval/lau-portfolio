@@ -75,7 +75,7 @@ class ProjectThumbnail extends React.Component {
       : thumbnails.slice().sort(() => Math.random() - Math.random())[0];
       
     return (
-      <Tag className="project-thumbnail" data-name={title} data-hover={hover}>
+      <Tag className="project-thumbnail" data-name={title} data-hover={hover} data-img-only={img_only}>
         {hover && (
           <Link to={`/${src}`} className="project-access">
             <AccessibilityLabel as="span">
