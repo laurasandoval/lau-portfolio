@@ -30,6 +30,12 @@ class GlobalHeader extends React.Component {
       searchOpen: !prevState.searchOpen,
     }));
     this.state.searchOpen === false && this.nameInput.focus();
+    this.state.searchOpen === true &&
+      setTimeout(() => {
+        this.setState({
+          searchQuery: "",
+        });
+      }, 1000);
   }
 
   _toggleNav() {
@@ -113,7 +119,6 @@ class GlobalHeader extends React.Component {
                 placeholder="Search"
                 value={this.state.searchQuery}
                 onChange={this._updateSearch}
-                onBlur={this._toggleSearch}
                 ref={(input) => {
                   this.nameInput = input;
                 }}
@@ -123,7 +128,11 @@ class GlobalHeader extends React.Component {
                   {searchResults.map((result, i) => {
                     return (
                       <li key={i}>
-                        <ProjectThumbnail {...result} thumbnail={result.thumbnails[0]} hover />
+                        <ProjectThumbnail
+                          {...result}
+                          thumbnail={result.thumbnails[0]}
+                          hover
+                        />
                       </li>
                     );
                   })}

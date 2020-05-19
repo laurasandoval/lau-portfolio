@@ -26,8 +26,6 @@ class ProjectThumbnail extends React.Component {
         ></img>
       );
     } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(thumbnail)) {
-      console.log(autoplay);
-      
       return (
         <video playsInline muted autoPlay={autoplay} loop>
           <source
