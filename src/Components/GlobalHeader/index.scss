@@ -372,7 +372,7 @@
       margin: 0;
       padding: 0;
       position: absolute;
-      top: calc(var(--search-bar-height) + var(--global-padding));
+      top: calc(var(--search-bar-height) + (var(--global-padding) / 2));
       left: calc(var(--global-padding) * -2);
       right: calc(var(--global-padding) * -2);
       ul {
@@ -420,6 +420,7 @@
             }
             &:after {
               bottom: -4px;
+              z-index: -1;
             }
           }
           @media (hover: hover) {
@@ -427,7 +428,6 @@
               .project-thumbnail {
                 &:after {
                   opacity: 1;
-                  z-index: -1;
                 }
                 .project-info {
                   opacity: 1;
