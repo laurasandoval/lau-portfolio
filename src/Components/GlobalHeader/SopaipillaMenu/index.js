@@ -3,7 +3,7 @@ import "./index.scss";
 
 function SopaipillaMenu(props) {
   return (
-    <div className="sopaipilla-menu">
+    <div className="sopaipilla-menu" aria-hidden="true">
       <span className="sopaipilla top">
         <span className="inner-sopaipilla"></span>
       </span>

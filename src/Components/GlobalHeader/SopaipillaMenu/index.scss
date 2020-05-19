@@ -1,16 +1,16 @@
 .sopaipilla-menu {
+  --sopaipilla-size: 38px;
+  z-index: 3;
   display: none;
-  width: 38px;
-  height: 38px;
+  width: var(--sopaipilla-size);
+  height: var(--sopaipilla-size);
   position: absolute;
   left: 0;
   @media (max-width: 800px) {
     display: block;
   }
   .sopaipilla {
-    --sopaipilla-size: 38px;
     position: absolute;
-    z-index: 3;
     top: 0;
     left: 0;
     right: 0;
