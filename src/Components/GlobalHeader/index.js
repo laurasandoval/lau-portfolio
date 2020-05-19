@@ -2,15 +2,34 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./index.scss";
 import AccessibilityLabel from "../AccessibilityLabel";
+import DesignWork from "../../Assets/design-work.json";
+import ProjectThumbnail from "../ProjectThumbnail";
 
 class GlobalHeader extends React.Component {
   constructor(props) {
     super(props);
 
+    this._updateSearch = this._updateSearch.bind(this);
+    this._toggleSearch = this._toggleSearch.bind(this);
     this._toggleNav = this._toggleNav.bind(this);
     this.state = {
       navOpen: false,
+      searchOpen: false,
+      searchQuery: "",
     };
+  }
+
+  _updateSearch(event) {
+    this.setState({
+      searchQuery: event.target.value.substr(0, 100).toLowerCase(),
+    });
+  }
+
+  _toggleSearch() {
+    this.setState((prevState) => ({
+      searchOpen: !prevState.searchOpen,
+    }));
+    this.state.searchOpen === false && this.nameInput.focus();
   }
 
   _toggleNav() {
@@ -21,8 +40,18 @@ class GlobalHeader extends React.Component {
 
   render() {
     const { sticky } = this.props;
+    let searchResults = DesignWork.DesignWork.filter((project) => {
+      return this.state.searchQuery.length
+        ? project.title.toLowerCase().indexOf(this.state.searchQuery) !== -1
+        : null;
+    });
+
     return (
-      <header className="global-header" data-sticky={sticky}>
+      <header
+        className="global-header"
+        data-sticky={sticky}
+        data-search-open={this.state.searchOpen}
+      >
         <div className="header-content">
           <div className="top-bar">
             <div
@@ -70,8 +99,38 @@ class GlobalHeader extends React.Component {
                   Get in Touch
                 </NavLink>
               </li>
+              <li onClick={this._toggleSearch}>Search</li>
             </ul>
           </nav>
+          <div
+            className="search-box-container"
+            data-open={this.state.searchOpen}
+          >
+            <div className="search-container">
+              <input
+                className="search-bar-input"
+                type="search"
+                placeholder="Search"
+                value={this.state.searchQuery}
+                onChange={this._updateSearch}
+                // onBlur={this._toggleSearch}
+                ref={(input) => {
+                  this.nameInput = input;
+                }}
+              />
+              <div className="search-results">
+                <ul>
+                  {searchResults.map((result, i) => {
+                    return (
+                      <li key={i}>
+                        <ProjectThumbnail {...result} hover />
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
     );
