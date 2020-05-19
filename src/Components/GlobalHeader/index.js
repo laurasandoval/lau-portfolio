@@ -33,10 +33,10 @@ class GlobalHeader extends React.Component {
     });
     this.searchField.current.focus();
     document.body.addEventListener("keydown", (e) => {
-      if(e.key === "Escape" || e.key === "Esc") {
+      if (e.key === "Escape" || e.key === "Esc") {
         this._closeSearch();
       }
-    })
+    });
   }
 
   _closeSearch() {
@@ -150,7 +150,7 @@ class GlobalHeader extends React.Component {
           >
             <div className="search-container">
               <input
-                className="search-bar-input"
+                className="search-field"
                 type="search"
                 placeholder="Search"
                 value={this.state.searchQuery}
@@ -177,6 +177,7 @@ class GlobalHeader extends React.Component {
             </div>
           </div>
         </div>
+        <div className="translucent-overlay" />
       </header>
     );
   }
