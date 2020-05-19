@@ -11,7 +11,7 @@ class ProjectThumbnail extends React.Component {
     this._renderThumbnail = this._renderThumbnail.bind(this);
   }
 
-  _renderThumbnail(thumbnail, src, title) {
+  _renderThumbnail(thumbnail, src, title, autoplay) {
     const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"];
     const videoFormats = ["mp4", "webm"];
     const HtmlThumbnail = React.lazy(() =>
@@ -26,8 +26,10 @@ class ProjectThumbnail extends React.Component {
         ></img>
       );
     } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(thumbnail)) {
+      console.log(autoplay);
+      
       return (
-        <video playsInline muted autoPlay loop>
+        <video playsInline muted autoPlay={autoplay} loop>
           <source
             src={require(`../../Work/${src}/thumbnails/${thumbnail.replace(
               ".mp4",
@@ -66,24 +68,25 @@ class ProjectThumbnail extends React.Component {
       thumbnails,
       hover,
       img_only,
+      autoplay
     } = this.props;
 
     const Tag = as ? as : "div";
     const thumbnailToRender = thumbnail
       ? thumbnail
       : thumbnails.slice().sort(() => Math.random() - Math.random())[0];
-
+      
     return (
       <Tag className="project-thumbnail" data-name={title} data-hover={hover}>
         {hover && (
-          <Link to={src} className="project-access">
+          <Link to={`/${src}`} className="project-access">
             <AccessibilityLabel as="span">
               {title} | <Time year={release_year} month={release_month} />
             </AccessibilityLabel>
           </Link>
         )}
         <figure className="project-artwork" aria-hidden={hover}>
-          {this._renderThumbnail(thumbnailToRender, src, title)}
+          {this._renderThumbnail(thumbnailToRender, src, title, autoplay)}
         </figure>
         {!img_only && (
           <div className="project-info" aria-hidden={hover}>

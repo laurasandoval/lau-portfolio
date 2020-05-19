@@ -29,7 +29,7 @@ class DesignWork extends React.Component {
   }
 
   _renderThumbnail(project, index) {
-    return <ProjectThumbnail {...project} as="article" hover key={index} />;
+    return <ProjectThumbnail {...project} as="article" hover autoplay key={index} />;
   }
 
   _sessionNumber() {

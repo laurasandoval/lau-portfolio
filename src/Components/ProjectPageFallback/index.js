@@ -22,6 +22,7 @@ function ProjectPageFallback(props) {
                 img_only
                 thumbnail={thumbnail}
                 key={index}
+                autoplay
               />
             );
           })}
