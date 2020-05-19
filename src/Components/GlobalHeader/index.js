@@ -1,7 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./index.scss";
-import SopaipillaMenu from "./SopaipillaMenu";
 import AccessibilityLabel from "../AccessibilityLabel";
 
 class GlobalHeader extends React.Component {
