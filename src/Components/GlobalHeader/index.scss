@@ -1,6 +1,7 @@
 .global-header {
+  position: relative;
   width: 100%;
-  margin: calc(var(--global-padding) * 2) auto;
+  margin: 0 0 calc(var(--global-padding) * 2);
   padding: 0;
   z-index: 100;
   background: rgba(255, 255, 255, 1);
@@ -8,50 +9,61 @@
     position: sticky;
     top: 0px;
   }
-  .header-content-container {
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    right: 0;
+    bottom: -2px;
+    left: 0;
+    background: transparent;
+    backdrop-filter: blur(80px) saturate(1.8);
+  }
+  .header-content {
     margin: 0 auto;
-    max-width: calc(1440px + calc(var(--global-padding) * 2));
-    .header-content {
-      width: fit-content;
-      padding: calc(var(--global-padding) * 1.5) var(--global-padding);
-      box-sizing: border-box;
-      display: grid;
-      grid-auto-flow: column;
-      grid-gap: 40px;
-      align-items: center;
-      font-size: 18px;
-      color: rgba(136, 138, 144, 1);
-      a {
-        text-decoration: none;
-        color: inherit;
-        transition: color 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
-        &.active,
-        &:hover {
-          color: rgba(0, 0, 0, 1);
-        }
+    width: 100%;
+    max-width: calc(1440px + calc(var(--global-padding) * 4));
+    padding: calc(var(--global-padding) * 1.5) calc(var(--global-padding) * 2);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-gap: 40px;
+    align-items: center;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 1);
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
+      &.active,
+      &:hover {
+        color: rgba(136, 138, 144, 1);
       }
-      h1 {
-        font-size: inherit;
-        font-weight: 600;
-        margin: 0;
+    }
+    h1 {
+      font-size: inherit;
+      font-weight: 600;
+      margin: 0;
+      color: rgba(0, 0, 0, 1);
+      a.active {
         color: rgba(0, 0, 0, 1);
       }
-      nav {
+    }
+    nav {
+      display: inherit;
+      grid-auto-flow: column;
+      grid-gap: inherit;
+      align-items: inherit;
+      margin: 0;
+      padding: 0;
+      ul {
         display: inherit;
         grid-auto-flow: inherit;
         grid-gap: inherit;
         align-items: inherit;
+        list-style: none;
         margin: 0;
         padding: 0;
-        ul {
-          display: inherit;
-          grid-auto-flow: inherit;
-          grid-gap: inherit;
-          align-items: inherit;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-        }
       }
     }
   }
