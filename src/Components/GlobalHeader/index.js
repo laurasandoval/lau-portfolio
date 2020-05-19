@@ -1,16 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./index.scss";
+import SopaipillaMenu from "./SopaipillaMenu";
 
 function GlobalHeader(props) {
   return (
     <header className="global-header" data-sticky={props.sticky}>
       <div className="header-content">
-        <h1>
-          <NavLink exact to="/">
-            Laura Sandoval
-          </NavLink>
-        </h1>
+        <div className="top-bar">
+          <SopaipillaMenu />
+          <h1>
+            <NavLink exact to="/">
+              Laura Sandoval
+            </NavLink>
+          </h1>
+        </div>
         <nav>
           <ul>
             <li>
