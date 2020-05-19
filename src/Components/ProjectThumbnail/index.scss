@@ -62,7 +62,7 @@
     flex-flow: column-reverse;
     padding: calc(var(--global-padding) / 1.4) 0 0;
     transition: inherit;
-    @media (max-width: 800px) {
+    @media (max-width: 1080px) {
       padding: calc(var(--global-padding) / 2) calc(var(--global-padding) / 2) 0;
     }
     .title,
