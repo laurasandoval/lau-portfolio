@@ -105,7 +105,9 @@ class GlobalHeader extends React.Component {
                   Get in Touch
                 </NavLink>
               </li>
-              <li onClick={this._toggleSearch}>Search</li>
+              <li className="search-button" onClick={this._toggleSearch}>
+                <span>Search</span>
+              </li>
             </ul>
           </nav>
           <div
