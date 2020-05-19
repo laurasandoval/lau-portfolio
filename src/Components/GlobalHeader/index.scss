@@ -144,10 +144,6 @@
       grid-gap: 0;
       text-align: center;
       background: inherit;
-      a {
-        position: relative;
-        top: -0.08em;
-      }
       .top-bar {
         height: var(--header-height);
         display: grid;
@@ -155,6 +151,8 @@
         z-index: 3;
         background: inherit;
         h1 {
+          position: relative;
+          top: -0.08em;
           @at-root [data-search-open="true"]#{&} {
             opacity: 1;
           }
@@ -217,11 +215,16 @@
         width: 100%;
         pointer-events: all;
         padding: calc(var(--global-padding) / 2) 0;
+        text-align: left;
         .search-container {
           width: inherit;
           transform: none;
           .search-bar-input {
             width: inherit;
+          }
+          .search-results {
+            right: 0;
+            left: 0;
           }
         }
       }
