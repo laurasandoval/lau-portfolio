@@ -120,6 +120,7 @@
             transform: translateX(-200px);
             opacity: 0;
             @include transitionDelays;
+            pointer-events: none;
           }
           @media (hover: hover) {
             .nav-item:hover,
@@ -135,7 +136,7 @@
     --header-height: 64px;
     margin: 0;
     &:after {
-      transition-delay: 0s;
+      transition: opacity 0.4s ease 0s;
     }
     .header-content {
       padding: 0 calc(var(--global-padding) / 2);
@@ -191,6 +192,7 @@
             @at-root [data-search-open="true"]#{&} {
               opacity: 1;
               transform: none;
+              pointer-events: all;
             }
           }
         }

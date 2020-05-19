@@ -31,13 +31,20 @@ class GlobalHeader extends React.Component {
     this.setState({
       searchOpen: true,
     });
-    this.searchField.current.focus()
+    this.searchField.current.focus();
+    document.body.addEventListener("keydown", (e) => {
+      if(e.key === "Escape" || e.key === "Esc") {
+        this._closeSearch();
+      }
+    })
   }
 
   _closeSearch() {
-    this.setState((prevState) => ({
-      searchOpen: !prevState.searchOpen,
-    }));
+    setTimeout(() => {
+      this.setState({
+        searchOpen: false,
+      });
+    }, 100);
     setTimeout(() => {
       this.setState({
         searchQuery: "",
@@ -149,6 +156,7 @@ class GlobalHeader extends React.Component {
                 value={this.state.searchQuery}
                 onChange={this._updateSearchQuery}
                 onFocus={this._openSearch}
+                onBlur={this._closeSearch}
                 ref={this.searchField}
               />
               <div className="search-results">

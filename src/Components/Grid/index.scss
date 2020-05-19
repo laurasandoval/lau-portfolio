@@ -45,7 +45,7 @@
       grid-template-columns: repeat(1, 1fr);
     }
     grid-template-columns: repeat(1, 1fr);
-    padding: calc(var(--global-padding) / 2);
+    padding: var(--global-padding) calc(var(--global-padding) / 2) calc(var(--global-padding) / 2);
   }
   .project-thumbnail {
     margin-bottom: calc(var(--global-padding) / 2);
