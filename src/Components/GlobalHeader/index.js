@@ -107,17 +107,7 @@ class GlobalHeader extends React.Component {
                   exact
                   to="/"
                 >
-                  Design
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="nav-item"
-                  activeClassName="active"
-                  exact
-                  to="/about"
-                >
-                  Photography
+                  Work
                 </NavLink>
               </li>
               <li>
@@ -128,16 +118,6 @@ class GlobalHeader extends React.Component {
                   to="/about"
                 >
                   About
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  className="nav-item"
-                  activeClassName="active"
-                  exact
-                  to="/about"
-                >
-                  Get in Touch
                 </NavLink>
               </li>
               <li className="search-button" onClick={this._openSearch}>
