@@ -9,9 +9,9 @@ class GlobalHeader extends React.Component {
   constructor(props) {
     super(props);
 
-    this.searchField = React.createRef();
     this._updateSearchQuery = this._updateSearchQuery.bind(this);
     this._openSearch = this._openSearch.bind(this);
+    this._escapeKeyPress = this._escapeKeyPress.bind(this);
     this._closeSearch = this._closeSearch.bind(this);
     this._toggleNav = this._toggleNav.bind(this);
     this.state = {
@@ -19,6 +19,7 @@ class GlobalHeader extends React.Component {
       searchOpen: false,
       searchQuery: "",
     };
+    this.searchField = React.createRef();
   }
 
   _updateSearchQuery(event) {
@@ -32,11 +33,15 @@ class GlobalHeader extends React.Component {
       searchOpen: true,
     });
     this.searchField.current.focus();
-    document.body.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" || e.key === "Esc") {
-        this._closeSearch();
-      }
-    });
+    document.body.addEventListener("keydown", this._escapeKeyPress);
+  }
+
+  _escapeKeyPress(e) {
+    if (e.key === "Escape" || e.key === "Esc") {
+      this.searchField.current.blur();
+      this._closeSearch();
+      document.body.removeEventListener("keydown", this._escapeKeyPress);
+    }
   }
 
   _closeSearch() {
@@ -150,6 +155,7 @@ class GlobalHeader extends React.Component {
           >
             <div className="search-container">
               <input
+                id="search-field"
                 className="search-field"
                 type="search"
                 placeholder="Search"
@@ -159,21 +165,28 @@ class GlobalHeader extends React.Component {
                 onBlur={this._closeSearch}
                 ref={this.searchField}
               />
-              <div className="search-results">
-                <ul>
-                  {searchResults.map((result, i) => {
-                    return (
-                      <li key={i}>
-                        <ProjectThumbnail
-                          {...result}
-                          thumbnail={result.thumbnails[0]}
-                          hover
-                        />
-                      </li>
-                    );
-                  })}
-                </ul>
+              <div className="cancel-button-container">
+                <label
+                  htmlFor="search-field"
+                  className="search-field-placeholder"
+                ></label>
+                <button className="cancel-button">Cancel</button>
               </div>
+            </div>
+            <div className="search-results">
+              <ul>
+                {searchResults.map((result, i) => {
+                  return (
+                    <li key={i}>
+                      <ProjectThumbnail
+                        {...result}
+                        thumbnail={result.thumbnails[0]}
+                        hover
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </div>
         </div>
