@@ -79,7 +79,7 @@
     padding: calc(var(--global-padding) * 1.5) calc(var(--global-padding) * 2);
     box-sizing: border-box;
     display: grid;
-    grid-template-columns: 1fr auto auto;
+    grid-template-columns: 1fr auto;
     grid-gap: 40px;
     align-items: center;
     font-size: 18px;
