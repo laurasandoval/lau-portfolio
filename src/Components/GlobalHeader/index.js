@@ -38,7 +38,7 @@ class GlobalHeader extends React.Component {
 
   _escapeKeyPress(e) {
     if (e.key === "Escape" || e.key === "Esc") {
-      this.searchField.current.blur();
+      this.searchField && this.searchField.current.blur();
       this._closeSearch();
       document.body.removeEventListener("keydown", this._escapeKeyPress);
     }
