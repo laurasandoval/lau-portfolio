@@ -145,11 +145,12 @@
     background: transparent;
     .translucent-overlay {
       transition: opacity 0.4s ease 0s;
+      background: rgba(249, 248, 248, 1);
     }
     &:before {
       transition: transform 0.4s ease;
       @at-root [data-search-open="true"]#{&} {
-        transform: translateY(calc(var(--header-height) * -1));
+        transform: translateY(calc((var(--header-height) * -1) + (var(--global-padding) / 2)));
       }
     }
     .header-content {
@@ -168,7 +169,7 @@
         background: inherit;
         transition: transform 0.4s ease;
         @at-root [data-search-open="true"]#{&} {
-          transform: translateY(calc(var(--header-height) * -1));
+          transform: translateY(calc((var(--header-height) * -1) + (var(--global-padding) / 2)));
         }
         h1 {
           position: relative;
@@ -449,11 +450,11 @@
     opacity: 1;
     width: 100%;
     pointer-events: all;
-    padding: calc(var(--global-padding) / 2) 0;
+    padding: 0 0 calc(var(--global-padding) / 2) 0;
     text-align: left;
     transition: transform 0.4s ease;
     @at-root [data-open="true"]#{&} {
-      transform: translateY(calc(var(--header-height) * -1));
+      transform: translateY(calc((var(--header-height) * -1) + (var(--global-padding) / 2)));
     }
     .search-container {
       width: inherit;
@@ -468,10 +469,13 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        transition: transform 0.4s ease;
+        transition: all 0.4s ease;
         transform: translateX(100%);
         @at-root [data-open="true"]#{&} {
           transform: translateX(0);
+        }
+        &:active {
+          opacity: 0.4;
         }
         .search-field-placeholder {
           position: absolute;
@@ -508,9 +512,45 @@
           transition: all 0s ease 4s;
         }
       }
-      .search-results {
-        right: 0;
-        left: 0;
+    }
+    .search-results {
+      top: 100%;
+      right: calc((var(--global-padding) / 2) * -1);
+      left: calc((var(--global-padding) / 2) * -1);
+      max-width: none;
+      ul {
+        background: transparent;
+        box-shadow: none;
+        li {
+          padding-top: 8px;
+          padding-bottom: 8px;
+          position: relative;
+          &:not(:last-child) {
+            border-bottom: none;
+          }
+          &:after {
+            content: "";
+            position: absolute;
+            right: calc(var(--global-padding) / 2);
+            bottom: 0;
+            left: calc(60px + var(--global-padding));
+            height: 1px;
+            background: rgba(136, 139, 144, 0.2);
+          }
+          &:last-child {
+            &:after {
+              left: calc(var(--global-padding) / 2);
+            }
+          }
+          .project-thumbnail {
+            .project-info {
+              .title,
+              .date {
+                font-size: 14px;
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -160,6 +160,7 @@ class GlobalHeader extends React.Component {
                 onFocus={this._openSearch}
                 onBlur={this._closeSearch}
                 ref={this.searchField}
+                autoComplete="off"
               />
               <div className="cancel-button-container">
                 <label
@@ -171,7 +172,7 @@ class GlobalHeader extends React.Component {
             </div>
             <div className="search-results">
               <ul>
-                {searchResults.map((result, i) => {
+                {searchResults.slice(0, 5).map((result, i) => {
                   return (
                     <li key={i}>
                       <ProjectThumbnail
