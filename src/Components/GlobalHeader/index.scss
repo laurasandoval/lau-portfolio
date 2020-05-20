@@ -144,7 +144,7 @@
       }
     }
   }
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     --header-height: 64px;
     margin: 0;
     background: transparent;
@@ -251,7 +251,7 @@
   height: var(--sopaipilla-size);
   position: absolute;
   left: 0;
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     display: block;
   }
   .toggle {
@@ -454,7 +454,7 @@
       }
     }
   }
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     position: relative;
     opacity: 1;
     width: 100%;

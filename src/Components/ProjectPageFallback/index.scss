@@ -9,7 +9,7 @@
   @media (max-width: 1080px) {
     grid-gap: var(--global-padding);
   }
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     padding: var(--global-padding) calc(var(--global-padding) / 2);
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, auto);
@@ -19,7 +19,7 @@
     padding: 10px;
     box-sizing: border-box;
     position: relative;
-    @media (max-width: 800px) {
+    @media (max-width: 850px) {
       position: sticky;
       top: 0;
       &::after {
@@ -36,7 +36,7 @@
     .project-gallery {
       display: grid;
       grid-gap: var(--global-padding);
-      @media (max-width: 800px) {
+      @media (max-width: 850px) {
         grid-auto-flow: column;
         grid-auto-columns: 100%;
         grid-gap: 4px;
@@ -69,7 +69,7 @@
     height: fit-content;
     padding: 0 calc(var(--global-padding) / 2);
     box-sizing: border-box;
-    @media (max-width: 800px) {
+    @media (max-width: 850px) {
       & {
         position: initial;
       }

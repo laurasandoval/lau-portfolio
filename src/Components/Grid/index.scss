@@ -37,7 +37,7 @@
     }
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 800px) {
+  @media (max-width: 850px) {
     &[data-featured="true"] {
       grid-template-columns: repeat(1, 1fr);
     }
