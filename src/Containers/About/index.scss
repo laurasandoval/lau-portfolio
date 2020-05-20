@@ -9,7 +9,7 @@
 @mixin paragraphAnimationDelays {
   @for $i from 1 through 20 {
     &:nth-child(#{$i}) {
-      animation-delay: #{3 + ($i * 0.1)}s;
+      animation-delay: #{2.2 + ($i * 0.1)}s;
     }
   }
 }
