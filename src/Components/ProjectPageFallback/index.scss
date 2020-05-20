@@ -1,29 +1,46 @@
 .project-page-fallback {
   margin: 0 auto;
-  padding: var(--global-padding) calc(var(--global-padding) / 2);
+  padding: var(--global-padding);
   box-sizing: border-box;
   max-width: calc(1440px + calc(var(--global-padding) * 2));
   display: grid;
   grid-template-columns: 1fr 0.5fr;
   grid-gap: calc(var(--global-padding) * 3);
-  @media (max-width: 800px) {
-    & {
-      grid-template-columns: 1fr;
-      grid-template-rows: repeat(2, auto);
-      grid-gap: var(--global-padding);
-    }
-  }
-  .project-gallery {
-    display: grid;
+  @media (max-width: 1080px) {
     grid-gap: var(--global-padding);
+  }
+  @media (max-width: 800px) {
+    padding: var(--global-padding) calc(var(--global-padding) / 2);
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, auto);
+  }
+  .project-gallery-container {
+    margin: -10px;
+    padding: 10px;
+    box-sizing: border-box;
+    position: relative;
     @media (max-width: 800px) {
-      & {
+      position: sticky;
+      top: 0;
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -1px;
+        left: 0;
+        height: 2px;
+        background: transparent;
+        backdrop-filter: blur(40px) saturate(1.5);
+      }
+    }
+    .project-gallery {
+      display: grid;
+      grid-gap: var(--global-padding);
+      @media (max-width: 800px) {
         grid-auto-flow: column;
         grid-auto-columns: 100%;
         grid-gap: 4px;
         overflow: auto;
-        position: sticky;
-        top: 0;
         margin: calc((var(--global-padding) / 2) * -1);
         padding: calc(var(--global-padding) / 2);
         box-sizing: border-box;
@@ -31,7 +48,8 @@
         scroll-snap-type: x mandatory;
         &:after {
           content: "";
-          width: calc(var(--global-padding) - 8px);
+          display: block;
+          width: 8px;
         }
         .project-thumbnail {
           scroll-snap-align: center;

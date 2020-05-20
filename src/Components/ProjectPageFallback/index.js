@@ -14,18 +14,20 @@ function ProjectPageFallback(props) {
 
       <GlobalHeader />
       <article className="project-page-fallback" data-name={props.title}>
-        <div className="project-gallery">
-          {props.thumbnails.landscape.map((thumbnail, index) => {
-            return (
-              <ProjectThumbnail
-                {...props}
-                img_only
-                thumbnail={thumbnail}
-                key={index}
-                autoplay
-              />
-            );
-          })}
+        <div className="project-gallery-container">
+          <div className="project-gallery">
+            {props.thumbnails.landscape.map((thumbnail, index) => {
+              return (
+                <ProjectThumbnail
+                  {...props}
+                  img_only
+                  thumbnail={thumbnail}
+                  key={index}
+                  autoplay
+                />
+              );
+            })}
+          </div>
         </div>
         <div className="project-info">
           <div className="main">
