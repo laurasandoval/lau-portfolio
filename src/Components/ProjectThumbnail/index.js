@@ -66,16 +66,18 @@ class ProjectThumbnail extends React.Component {
       thumbnails,
       hover,
       img_only,
-      autoplay
+      autoplay,
+      portrait
     } = this.props;
 
     const Tag = as ? as : "div";
+    const thumbnailSet = portrait ? thumbnails.portrait : thumbnails.landscape;
     const thumbnailToRender = thumbnail
       ? thumbnail
-      : thumbnails.slice().sort(() => Math.random() - Math.random())[0];
+      : thumbnailSet.slice().sort(() => Math.random() - Math.random())[0];
       
     return (
-      <Tag className="project-thumbnail" data-name={title} data-hover={hover} data-img-only={img_only}>
+      <Tag className="project-thumbnail" data-name={title} data-hover={hover} data-img-only={img_only} data-portrait={portrait}>
         {hover && (
           <Link to={`/${src}`} className="project-access">
             <AccessibilityLabel as="span">

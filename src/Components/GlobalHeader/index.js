@@ -48,13 +48,9 @@ class GlobalHeader extends React.Component {
     setTimeout(() => {
       this.setState({
         searchOpen: false,
-      });
-    }, 100);
-    setTimeout(() => {
-      this.setState({
         searchQuery: "",
       });
-    }, 1000);
+    }, 200);
   }
 
   _toggleNav() {
@@ -180,7 +176,7 @@ class GlobalHeader extends React.Component {
                     <li key={i}>
                       <ProjectThumbnail
                         {...result}
-                        thumbnail={result.thumbnails[0]}
+                        thumbnail={result.thumbnails.landscape[0]}
                         hover
                       />
                     </li>

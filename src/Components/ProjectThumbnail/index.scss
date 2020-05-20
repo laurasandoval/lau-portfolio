@@ -22,6 +22,9 @@
     overflow: hidden;
     background: rgba(239, 239, 244, 1);
     padding-top: calc(100% * calc(3 / 4));
+    @at-root [data-portrait="true"]#{&} {
+      padding-top: calc(100% * calc(4 / 3));
+    }
     border-radius: 5px;
     transition: inherit;
     will-change: transform;
@@ -31,10 +34,16 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      right: 0;
       min-width: 100%;
       min-height: 100%;
       max-width: 100%;
+      @at-root [data-portrait="true"]#{&} {
+        min-width: unset;
+        min-height: unset;
+        max-width: unset;
+        height: 100%;
+        width: auto;
+      }
     }
     &:after {
       content: "";
@@ -97,7 +106,7 @@
       bottom: -4px;
     }
     left: -4px;
-    background: rgba(0,0,0,0.05);
+    background: rgba(0, 0, 0, 0.05);
     border-radius: 8px;
     transition: inherit;
     opacity: 0;

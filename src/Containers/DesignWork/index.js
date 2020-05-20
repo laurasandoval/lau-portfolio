@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { debounce } from "lodash";
 import Data from "../../Assets/design-work.json";
 import Grid from "../../Components/Grid";
 import ProjectThumbnail from "../../Components/ProjectThumbnail";
@@ -6,15 +7,47 @@ import AccessibilityLabel from "../../Components/AccessibilityLabel";
 import GlobalHeader from "../../Components/GlobalHeader";
 import { Helmet } from "react-helmet";
 import RemainingItems from "./RemainingItems";
+import "./index.scss";
 
 class DesignWork extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isMobile: false,
+      viewportChecked: false,
+      viewportWidth: undefined,
+    };
 
     this._renderThumbnail = this._renderThumbnail.bind(this);
     this._randomGenerator = this._randomGenerator.bind(this);
     this._sessionNumber = this._sessionNumber.bind(this);
   }
+
+  componentDidMount() {
+    if (this.state.viewportChecked === false) {
+      this._debouncedWindowSizeCheck();
+    }
+    window.addEventListener("resize", this._debouncedWindowSizeCheck);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this._debouncedWindowSizeCheck);
+  }
+
+  _debouncedWindowSizeCheck = debounce(() => {
+    if (window.innerWidth != this.state.viewportWidth) {
+      this.setState({
+        isMobile: window.innerWidth < 480,
+        viewportWidth: window.innerWidth,
+      });
+    }
+    if (this.state.viewportChecked === false) {
+      this.setState({
+        viewportChecked: true,
+        viewportWidth: window.innerWidth,
+      });
+    }
+  }, 500);
 
   _randomGenerator(seed) {
     var m = 25;
@@ -29,7 +62,20 @@ class DesignWork extends React.Component {
   }
 
   _renderThumbnail(project, index) {
-    return <ProjectThumbnail {...project} as="article" hover autoplay key={index} />;
+    const isMobile = this.state.isMobile;
+    const viewportChecked = this.state.viewportChecked;
+    if (viewportChecked) {
+      return (
+        <ProjectThumbnail
+          {...project}
+          as="article"
+          hover
+          autoplay
+          key={index}
+          portrait={isMobile ? (project.featured ? true : false) : false}
+        />
+      );
+    }
   }
 
   _sessionNumber() {
@@ -45,8 +91,8 @@ class DesignWork extends React.Component {
   }
 
   render() {
-    const maxFeaturedCount = 4;
-    const maxRemainingCount = 8;
+    const maxFeaturedCount = this.state.isMobile ? 3 : 4;
+    const maxRemainingCount = this.state.isMobile ? 6 : 8;
     const generator = this._sessionNumber();
 
     const randomizedDesignWork = Data.DesignWork.slice().sort(() => generator() - generator());
@@ -70,17 +116,26 @@ class DesignWork extends React.Component {
             return this._renderThumbnail(project, index);
           })}
         </Grid>
+        {this.state.viewportChecked && <hr className="grids-divider" />}
         <Grid>
           {remainingProjectsMax.map((project, index) => {
             return this._renderThumbnail(project, index);
           })}
-          <RemainingItems
-            itemsToShow={remainingProjects.slice(maxRemainingCount, remainingProjects.length)}
-            as="article"
-            remainingCount={
-              remainingProjects.slice(maxRemainingCount, remainingProjects.length).length
-            }
-          />
+          {this.state.viewportChecked && (
+            <RemainingItems
+              itemsToShow={remainingProjects.slice(
+                maxRemainingCount,
+                remainingProjects.length
+              )}
+              as="article"
+              remainingCount={
+                remainingProjects.slice(
+                  maxRemainingCount,
+                  remainingProjects.length
+                ).length
+              }
+            />
+          )}
         </Grid>
       </Fragment>
     );

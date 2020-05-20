@@ -1,4 +1,12 @@
-svg[data-name="SantiagoTransitMapS3"] {
-  width: 100%;
-  height: auto;
+.project-thumbnail {
+  .html-thumbnail-container {
+    svg[data-name="SantiagoTransitMapS3"] {
+      width: 100%;
+      height: auto;
+      @at-root [data-portrait="true"]#{&} {
+        height: 100%;
+        width: auto;
+      }
+    }
+  }
 }

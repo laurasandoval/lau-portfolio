@@ -22,9 +22,6 @@
   grid-auto-rows: auto;
   grid-auto-flow: dense;
   grid-gap: var(--global-padding);
-  &:not(:first-of-type) {
-    margin-top: var(--global-padding);
-  }
   &[data-featured="true"] {
     grid-template-columns: repeat(2, 1fr);
   }

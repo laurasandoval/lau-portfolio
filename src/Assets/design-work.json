@@ -9,9 +9,14 @@
       "featured": true,
       "has_page": false,
       "src": "cornershop/cornershop-referral-landing",
-      "thumbnails": [
-        "cornershop-raf-links.webm"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "cornershop-raf-links.webm"
+        ],
+        "landscape": [
+          "cornershop-raf-links.webm"
+        ]
+      },
       "cta": [
         {
           "title": "Visit Website",
@@ -61,10 +66,16 @@
       "featured": true,
       "has_page": false,
       "src": "kappo/kappo-brand-identity",
-      "thumbnails": [
-        "kappo-brand-identity.webm",
-        "kappo-brand-identity-tote.png"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "kappo-brand-identity.webm",
+          "kappo-brand-identity-tote.png"
+        ],
+        "landscape": [
+          "kappo-brand-identity.webm",
+          "kappo-brand-identity-tote.png"
+        ]
+      },
       "cta": null,
       "team": {
         "Graphic Design": [
@@ -91,9 +102,14 @@
       "featured": true,
       "has_page": false,
       "src": "kappo/cool-place-to-bike-website",
-      "thumbnails": [
-        "web-cool-place-to-bike.webm"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "web-cool-place-to-bike.webm"
+        ],
+        "landscape": [
+          "web-cool-place-to-bike.webm"
+        ]
+      },
       "cta": [
         {
           "title": "Visit Website",
@@ -130,11 +146,18 @@
       "featured": true,
       "has_page": false,
       "src": "santiago-transit-map/series-4",
-      "thumbnails": [
-        "santiago-transit-map-s4.png",
-        "santiago-transit-map-s4-detail.png",
-        "santiago-transit-map-s4-video-reveal.webm"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "santiago-transit-map-s4.png",
+          "santiago-transit-map-s4-detail.png",
+          "santiago-transit-map-s4-video-reveal.webm"
+        ],
+        "landscape": [
+          "santiago-transit-map-s4.png",
+          "santiago-transit-map-s4-detail.png",
+          "santiago-transit-map-s4-video-reveal.webm"
+        ]
+      },
       "cta": null,
       "team": null
     },
@@ -147,11 +170,18 @@
       "featured": true,
       "has_page": false,
       "src": "santiago-transit-map/series-3",
-      "thumbnails": [
-        "SantiagoTransitMapS3",
-        "santiago-transit-map-s3-full.png",
-        "SantiagoTransitMapS3Variant"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "SantiagoTransitMapS3",
+          "santiago-transit-map-s3-full.png",
+          "SantiagoTransitMapS3Variant"
+        ],
+        "landscape": [
+          "SantiagoTransitMapS3",
+          "santiago-transit-map-s3-full.png",
+          "SantiagoTransitMapS3Variant"
+        ]
+      },
       "cta": null,
       "team": null
     },
@@ -164,9 +194,14 @@
       "featured": false,
       "has_page": false,
       "src": "santiago-transit-map/series-2",
-      "thumbnails": [
-        "santiago-transit-map-s2.png"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "santiago-transit-map-s2.png"
+        ],
+        "landscape": [
+          "santiago-transit-map-s2.png"
+        ]
+      },
       "cta": null,
       "team": null
     },
@@ -179,9 +214,14 @@
       "featured": false,
       "has_page": false,
       "src": "santiago-transit-map/series-1",
-      "thumbnails": [
-        "santiago-transit-map-s1.png"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "santiago-transit-map-s1.png"
+        ],
+        "landscape": [
+          "santiago-transit-map-s1.png"
+        ]
+      },
       "cta": null,
       "team": null
     },
@@ -194,10 +234,16 @@
       "featured": true,
       "has_page": false,
       "src": "saldo-red/saldo-red-app",
-      "thumbnails": [
-        "saldo-red.png",
-        "saldo-red-variant.png"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "saldo-red.png",
+          "saldo-red-variant.png"
+        ],
+        "landscape": [
+          "saldo-red.png",
+          "saldo-red-variant.png"
+        ]
+      },
       "cta": [
         {
           "title": "Download on the App Store",
@@ -235,9 +281,14 @@
       "featured": false,
       "has_page": false,
       "src": "saldo-red/saldo-red-website",
-      "thumbnails": [
-        "web-saldo-red.webm"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "web-saldo-red.webm"
+        ],
+        "landscape": [
+          "web-saldo-red.webm"
+        ]
+      },
       "cta": [
         {
           "title": "Visit Website",
@@ -259,9 +310,14 @@
       "featured": false,
       "has_page": false,
       "src": "chilean-ministry-of-health/name-pending",
-      "thumbnails": [
-        "ministerio-de-salud-lip.png"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "ministerio-de-salud-lip.png"
+        ],
+        "landscape": [
+          "ministerio-de-salud-lip.png"
+        ]
+      },
       "cta": null,
       "team": {
         "Graphic Design": [
@@ -296,9 +352,14 @@
       "featured": true,
       "has_page": false,
       "src": "transantiago-bot",
-      "thumbnails": [
-        "transantiago-bot.png"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "transantiago-bot.png"
+        ],
+        "landscape": [
+          "transantiago-bot.png"
+        ]
+      },
       "cta": null,
       "team": null
     },
@@ -311,9 +372,14 @@
       "featured": true,
       "has_page": false,
       "src": "guemil/icon-uploader",
-      "thumbnails": [
-        "guemil-uploader.png"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "guemil-uploader.png"
+        ],
+        "landscape": [
+          "guemil-uploader.png"
+        ]
+      },
       "cta": [
         {
           "title": "About Guemil",
@@ -364,9 +430,14 @@
       "featured": false,
       "has_page": false,
       "src": "y4pt/2nd-transport-hackathon-chile",
-      "thumbnails": [
-        "y4pt-2nd-national-transport-hackathon-chile-2017.png"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "y4pt-2nd-national-transport-hackathon-chile-2017.png"
+        ],
+        "landscape": [
+          "y4pt-2nd-national-transport-hackathon-chile-2017.png"
+        ]
+      },
       "cta": null,
       "team": {
         "Graphic Design": [
@@ -405,9 +476,14 @@
       "featured": false,
       "has_page": false,
       "src": "bus-route-visualizer",
-      "thumbnails": [
-        "bus-route-visualizer.png"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "bus-route-visualizer.png"
+        ],
+        "landscape": [
+          "bus-route-visualizer.png"
+        ]
+      },
       "cta": null,
       "team": null
     },
@@ -420,10 +496,16 @@
       "featured": false,
       "has_page": false,
       "src": "cycling-wayfinding-signage",
-      "thumbnails": [
-        "cycling-wayfinding-signage.png",
-        "cycling-wayfinding-signage-plain.png"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "cycling-wayfinding-signage.png",
+          "cycling-wayfinding-signage-plain.png"
+        ],
+        "landscape": [
+          "cycling-wayfinding-signage.png",
+          "cycling-wayfinding-signage-plain.png"
+        ]
+      },
       "cta": null,
       "team": {
         "Design": [
@@ -453,9 +535,14 @@
       "featured": false,
       "has_page": false,
       "src": "metro-bot",
-      "thumbnails": [
-        "metro-bot.png"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "metro-bot.png"
+        ],
+        "landscape": [
+          "metro-bot.png"
+        ]
+      },
       "cta": null,
       "team": null
     },
@@ -468,9 +555,14 @@
       "featured": false,
       "has_page": false,
       "src": "bip-macos-app",
-      "thumbnails": [
-        "bip-macos-app.png"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "bip-macos-app.png"
+        ],
+        "landscape": [
+          "bip-macos-app.png"
+        ]
+      },
       "cta": null,
       "team": null
     },
@@ -483,9 +575,14 @@
       "featured": false,
       "has_page": false,
       "src": "bip-web-app",
-      "thumbnails": [
-        "bip-web-app.png"
-      ],
+      "thumbnails": {
+        "portrait": [
+          "bip-web-app.png"
+        ],
+        "landscape": [
+          "bip-web-app.png"
+        ]
+      },
       "cta": null,
       "team": null
     }

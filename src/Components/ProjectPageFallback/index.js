@@ -15,7 +15,7 @@ function ProjectPageFallback(props) {
       <GlobalHeader />
       <article className="project-page-fallback" data-name={props.title}>
         <div className="project-gallery">
-          {props.thumbnails.map((thumbnail, index) => {
+          {props.thumbnails.landscape.map((thumbnail, index) => {
             return (
               <ProjectThumbnail
                 {...props}
