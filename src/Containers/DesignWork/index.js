@@ -35,7 +35,7 @@ class DesignWork extends React.Component {
   }
 
   _debouncedWindowSizeCheck = debounce(() => {
-    if (window.innerWidth != this.state.viewportWidth) {
+    if (window.innerWidth !== this.state.viewportWidth) {
       this.setState({
         isMobile: window.innerWidth < 480,
         viewportWidth: window.innerWidth,
