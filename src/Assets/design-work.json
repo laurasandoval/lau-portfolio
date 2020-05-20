@@ -11,7 +11,7 @@
       "src": "cornershop/cornershop-referral-landing",
       "thumbnails": {
         "portrait": [
-          "cornershop-raf-links.webm"
+          "cornershop-raf-links-portrait.png"
         ],
         "landscape": [
           "cornershop-raf-links.webm"
@@ -149,7 +149,6 @@
       "thumbnails": {
         "portrait": [
           "santiago-transit-map-s4.png",
-          "santiago-transit-map-s4-detail.png",
           "santiago-transit-map-s4-video-reveal.webm"
         ],
         "landscape": [
@@ -172,9 +171,7 @@
       "src": "santiago-transit-map/series-3",
       "thumbnails": {
         "portrait": [
-          "SantiagoTransitMapS3",
-          "santiago-transit-map-s3-full.png",
-          "SantiagoTransitMapS3Variant"
+          "SantiagoTransitMapS3"
         ],
         "landscape": [
           "SantiagoTransitMapS3",
@@ -236,7 +233,6 @@
       "src": "saldo-red/saldo-red-app",
       "thumbnails": {
         "portrait": [
-          "saldo-red.png",
           "saldo-red-variant.png"
         ],
         "landscape": [
@@ -309,13 +305,14 @@
       "release_month": "04",
       "featured": false,
       "has_page": false,
-      "src": "chilean-ministry-of-health/name-pending",
+      "src": "chilean-ministry-of-health/waiting-list-perception",
       "thumbnails": {
         "portrait": [
           "ministerio-de-salud-lip.png"
         ],
         "landscape": [
-          "ministerio-de-salud-lip.png"
+          "ministerio-de-salud-lip.png",
+          "ministerio-de-salud-lip-variant.png"
         ]
       },
       "cta": null,
@@ -354,7 +351,7 @@
       "src": "transantiago-bot",
       "thumbnails": {
         "portrait": [
-          "transantiago-bot.png"
+          "transantiago-bot-portrait.png"
         ],
         "landscape": [
           "transantiago-bot.png"
@@ -374,7 +371,7 @@
       "src": "guemil/icon-uploader",
       "thumbnails": {
         "portrait": [
-          "guemil-uploader.png"
+          "guemil-uploader-portrait.png"
         ],
         "landscape": [
           "guemil-uploader.png"
