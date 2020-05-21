@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import AccessibilityLabel from "../AccessibilityLabel";
 import Time from "../Time";
 
-class ProjectThumbnail extends React.Component {
+class ProjectThumbnail extends React.PureComponent {
   constructor(props) {
     super(props);
 
