@@ -8,7 +8,7 @@ import GlobalHeader from "../../Components/GlobalHeader";
 import { Helmet } from "react-helmet";
 import RemainingItems from "./RemainingItems";
 
-class DesignWork extends React.Component {
+class DesignWork extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,10 +41,11 @@ class DesignWork extends React.Component {
       });
     }
     if (this.state.viewportChecked === false) {
-      this.setState({
-        viewportChecked: true,
-        viewportWidth: window.innerWidth,
-      });
+      setTimeout(() => {
+        this.setState({
+          viewportChecked: true,
+        });
+      }, 400);
     }
   }, 500);
 
@@ -63,18 +64,17 @@ class DesignWork extends React.Component {
   _renderThumbnail(project, index) {
     const isMobile = this.state.isMobile;
     const viewportChecked = this.state.viewportChecked;
-    if (viewportChecked) {
-      return (
-        <ProjectThumbnail
-          {...project}
-          as="article"
-          hover
-          autoplay
-          key={index}
-          portrait={isMobile ? (project.featured ? true : false) : false}
-        />
-      );
-    }
+    return (
+      <ProjectThumbnail
+        {...project}
+        as="article"
+        hover
+        autoplay
+        key={index}
+        portrait={isMobile ? (project.featured ? true : false) : false}
+        fadeIn={viewportChecked ? "true" : "false"}
+      />
+    );
   }
 
   _sessionNumber() {
@@ -94,13 +94,27 @@ class DesignWork extends React.Component {
     const maxRemainingCount = this.state.isMobile ? 6 : 8;
     const generator = this._sessionNumber();
 
-    const randomizedDesignWork = Data.DesignWork.slice().sort(() => generator() - generator());
-    const featuredProjects = randomizedDesignWork.filter((item) => item.featured === true);
-    const featuredProjectsMax = featuredProjects.slice(0, maxFeaturedCount);
-    const remainingFeaturedProjects = featuredProjects.slice(maxFeaturedCount,featuredProjects.lenght);
-    const nonFeaturedProjects = randomizedDesignWork.filter((item) => item.featured === false);
-    const remainingProjects = nonFeaturedProjects.concat(remainingFeaturedProjects);
-    const remainingProjectsMax = remainingProjects.slice(0, maxRemainingCount);
+    const randomizedDesignWork = Data.DesignWork.slice().sort(
+      () => generator() - generator()
+    );
+    const featuredProjects = randomizedDesignWork.filter(
+      (item) => item.featured === true
+    );
+    const featuredProjectsLimited = featuredProjects.slice(0, maxFeaturedCount);
+    const remainingFeaturedProjects = featuredProjects.slice(
+      maxFeaturedCount,
+      featuredProjects.lenght
+    );
+    const nonFeaturedProjects = randomizedDesignWork.filter(
+      (item) => item.featured === false
+    );
+    const remainingProjects = nonFeaturedProjects.concat(
+      remainingFeaturedProjects
+    );
+    const remainingProjectsLimited = remainingProjects.slice(
+      0,
+      maxRemainingCount
+    );
 
     return (
       <Fragment>
@@ -111,12 +125,12 @@ class DesignWork extends React.Component {
         <GlobalHeader sticky />
         <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
         <Grid featured>
-          {featuredProjectsMax.map((project, index) => {
+          {featuredProjectsLimited.map((project, index) => {
             return this._renderThumbnail(project, index);
           })}
         </Grid>
         <Grid>
-          {remainingProjectsMax.map((project, index) => {
+          {remainingProjectsLimited.map((project, index) => {
             return this._renderThumbnail(project, index);
           })}
           {this.state.viewportChecked && (

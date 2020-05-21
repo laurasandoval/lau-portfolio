@@ -54,7 +54,7 @@ class RemainingItems extends React.Component {
         {this.state.showComponent === true &&
           itemsToShow.map((project, index) => {
             return (
-              <ProjectThumbnail {...project} as="article" hover key={index} />
+              <ProjectThumbnail {...project} as="article" hover key={index} fadeIn="true" />
             );
           })}
       </Fragment>
