@@ -25,6 +25,9 @@
   &[data-featured="true"] {
     grid-template-columns: repeat(2, 1fr);
   }
+  &:not(:first-child) {
+    margin-top: var(--global-padding);
+  }
   @media (max-width: 2000px) {
     &[data-featured="true"] {
       grid-template-columns: repeat(2, 1fr);
