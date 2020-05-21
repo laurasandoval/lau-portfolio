@@ -42,7 +42,7 @@
       grid-template-columns: repeat(1, 1fr);
     }
     grid-template-columns: repeat(1, 1fr);
-    padding: var(--global-padding) calc(var(--global-padding) / 2) calc(var(--global-padding) / 2);
+    padding: 0 calc(var(--global-padding) / 2) var(--global-padding);
   }
   .project-thumbnail {
     margin-bottom: calc(var(--global-padding) / 2);

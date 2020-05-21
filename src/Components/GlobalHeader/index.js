@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { throttle } from "lodash";
 import "./index.scss";
 import AccessibilityLabel from "../AccessibilityLabel";
 import DesignWork from "../../Assets/design-work.json";
@@ -17,9 +18,45 @@ class GlobalHeader extends React.Component {
     this.state = {
       navOpen: false,
       searchOpen: false,
+      showHeaderBorder: false,
       searchQuery: "",
+      headerHeight: undefined,
     };
     this.searchField = React.createRef();
+  }
+
+  componentDidMount() {
+    const headerHeight = window
+      .getComputedStyle(this.headerElement)
+      .getPropertyValue("margin-bottom")
+      .replace("px", "");
+    this.setState({ headerHeight });
+    window.addEventListener("scroll", this._throttledScrollCheck);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this._throttledScrollCheck);
+  }
+
+  _throttledScrollCheck = throttle(() => {
+    console.log(window.scrollY);
+    console.log(this.state.headerHeight);
+
+    window.scrollY > this.state.headerHeight
+      ? this._showHeaderBorder()
+      : this._hideHeaderBorder();
+  }, 250);
+
+  _showHeaderBorder() {
+    this.setState({
+      showHeaderBorder: true,
+    });
+  }
+
+  _hideHeaderBorder() {
+    this.setState({
+      showHeaderBorder: false,
+    });
   }
 
   _updateSearchQuery(event) {
@@ -72,6 +109,18 @@ class GlobalHeader extends React.Component {
         className="global-header"
         data-sticky={sticky}
         data-search-open={this.state.searchOpen}
+        data-show-border={
+          this.state.showHeaderBorder === true
+            ? sticky
+              ? "true"
+              : "false"
+            : this.state.searchOpen
+            ? "true"
+            : "false"
+        }
+        ref={(headerElement) => {
+          this.headerElement = headerElement;
+        }}
       >
         <div className="header-content">
           <div className="top-bar">

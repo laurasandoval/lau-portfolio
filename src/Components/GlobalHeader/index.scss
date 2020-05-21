@@ -42,18 +42,10 @@
     bottom: 0;
     left: 0;
     background: rgba(255, 255, 255, 1);
-  }
-  &:after {
-    content: "";
-    position: absolute;
-    right: 0;
-    bottom: -1px;
-    left: 0;
-    height: 2px;
-    background: transparent;
-    backdrop-filter: blur(40px) saturate(1.5);
-    @at-root [data-search-open="true"]#{&} {
-      display: none;
+    transition: all 0.4s ease;
+    border-bottom: 1px solid rgba(231, 232, 233, 0);
+    @at-root [data-show-border="true"]#{&} {
+      border-bottom: 1px solid rgba(231, 232, 233, 1);
     }
   }
   .translucent-overlay {
@@ -146,14 +138,13 @@
   }
   @media (max-width: 850px) {
     --header-height: 64px;
-    margin: 0;
+    margin: 0 0 var(--global-padding);
     background: transparent;
     .translucent-overlay {
       transition: opacity 0.4s ease 0s;
       background: rgba(249, 248, 248, 1);
     }
     &:before {
-      transition: transform 0.4s ease;
       @at-root [data-search-open="true"]#{&} {
         transform: translateY(
           calc((var(--header-height) * -1) + (var(--global-padding) / 2))
@@ -337,7 +328,6 @@
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(255, 255, 255, 1);
   display: flex;
   align-items: center;
   justify-content: center;
