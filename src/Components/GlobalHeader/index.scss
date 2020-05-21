@@ -520,9 +520,9 @@
       left: calc((var(--global-padding) / 2) * -1);
       max-width: none;
       ul {
-        background: transparent;
         box-shadow: none;
         background: rgba(255, 255, 255, 1);
+        border-radius: 0;
         li {
           padding-top: 8px;
           padding-bottom: 8px;

@@ -15,22 +15,24 @@ class GlobalHeader extends React.Component {
     this._escapeKeyPress = this._escapeKeyPress.bind(this);
     this._closeSearch = this._closeSearch.bind(this);
     this._toggleNav = this._toggleNav.bind(this);
+    this._showHeaderBorder = this._showHeaderBorder.bind(this);
+    this._hideHeaderBorder = this._hideHeaderBorder.bind(this);
     this.state = {
       navOpen: false,
       searchOpen: false,
       showHeaderBorder: false,
       searchQuery: "",
-      headerHeight: undefined,
+      headerMarginBottom: undefined,
     };
     this.searchField = React.createRef();
   }
 
   componentDidMount() {
-    const headerHeight = window
+    const headerMarginBottom = window
       .getComputedStyle(this.headerElement)
       .getPropertyValue("margin-bottom")
       .replace("px", "");
-    this.setState({ headerHeight });
+    this.setState({ headerMarginBottom });
     window.addEventListener("scroll", this._throttledScrollCheck);
   }
 
@@ -39,10 +41,7 @@ class GlobalHeader extends React.Component {
   }
 
   _throttledScrollCheck = throttle(() => {
-    console.log(window.scrollY);
-    console.log(this.state.headerHeight);
-
-    window.scrollY > this.state.headerHeight
+    window.scrollY > this.state.headerMarginBottom
       ? this._showHeaderBorder()
       : this._hideHeaderBorder();
   }, 250);
