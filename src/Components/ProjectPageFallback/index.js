@@ -6,7 +6,7 @@ import GlobalHeader from "../GlobalHeader";
 import ProjectThumbnail from "../ProjectThumbnail";
 import Time from "../Time";
 
-class ProjectPageFallback extends React.Component {
+class ProjectPageFallback extends React.PureComponent {
   constructor(props) {
     super(props);
 
