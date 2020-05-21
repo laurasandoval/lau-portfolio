@@ -213,6 +213,12 @@
             &.search-button {
               display: none;
             }
+            .nav-item {
+              display: block;
+              margin: -16px -20px;
+              padding: 16px 20px;
+              box-sizing: border-box;
+            }
           }
         }
         &[data-open="true"] {
