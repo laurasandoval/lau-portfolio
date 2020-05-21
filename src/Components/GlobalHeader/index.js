@@ -1,12 +1,17 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { throttle } from "lodash";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock";
 import "./index.scss";
 import AccessibilityLabel from "../AccessibilityLabel";
 import DesignWork from "../../Assets/design-work.json";
 import ProjectThumbnail from "../ProjectThumbnail";
 
-class GlobalHeader extends React.Component {
+class GlobalHeader extends React.PureComponent {
   constructor(props) {
     super(props);
 
@@ -25,6 +30,7 @@ class GlobalHeader extends React.Component {
       headerMarginBottom: undefined,
     };
     this.searchField = React.createRef();
+    this.searchResults = React.createRef();
   }
 
   componentDidMount() {
@@ -38,6 +44,7 @@ class GlobalHeader extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this._throttledScrollCheck);
+    clearAllBodyScrollLocks();
   }
 
   _throttledScrollCheck = throttle(() => {
@@ -68,6 +75,8 @@ class GlobalHeader extends React.Component {
     this.setState({
       searchOpen: true,
     });
+
+    disableBodyScroll(this.searchResults.current);
     this.searchField.current.focus();
     document.body.addEventListener("keydown", this._escapeKeyPress);
   }
@@ -86,6 +95,8 @@ class GlobalHeader extends React.Component {
         searchOpen: false,
         searchQuery: "",
       });
+
+      enableBodyScroll(this.searchResults.current);
     }, 200);
   }
 
@@ -199,7 +210,7 @@ class GlobalHeader extends React.Component {
               </div>
             </div>
             <div className="search-results">
-              <ul>
+              <ul ref={this.searchResults}>
                 {searchResults.slice(0, 5).map((result, i) => {
                   return (
                     <li key={i}>
