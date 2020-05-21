@@ -41,11 +41,9 @@ class DesignWork extends React.PureComponent {
       });
     }
     if (this.state.viewportChecked === false) {
-      setTimeout(() => {
-        this.setState({
-          viewportChecked: true,
-        });
-      }, 400);
+      this.setState({
+        viewportChecked: true,
+      });
     }
   }, 500);
 
@@ -63,7 +61,6 @@ class DesignWork extends React.PureComponent {
 
   _renderThumbnail(project, index) {
     const isMobile = this.state.isMobile;
-    const viewportChecked = this.state.viewportChecked;
     return (
       <ProjectThumbnail
         {...project}
@@ -72,7 +69,7 @@ class DesignWork extends React.PureComponent {
         autoplay
         key={index}
         portrait={isMobile ? (project.featured ? true : false) : false}
-        fadeIn={viewportChecked ? "true" : "false"}
+        fadeIn
       />
     );
   }
@@ -94,27 +91,13 @@ class DesignWork extends React.PureComponent {
     const maxRemainingCount = this.state.isMobile ? 6 : 8;
     const generator = this._sessionNumber();
 
-    const randomizedDesignWork = Data.DesignWork.slice().sort(
-      () => generator() - generator()
-    );
-    const featuredProjects = randomizedDesignWork.filter(
-      (item) => item.featured === true
-    );
+    const randomizedDesignWork = Data.DesignWork.slice().sort(() => generator() - generator());
+    const featuredProjects = randomizedDesignWork.filter((item) => item.featured === true);
     const featuredProjectsLimited = featuredProjects.slice(0, maxFeaturedCount);
-    const remainingFeaturedProjects = featuredProjects.slice(
-      maxFeaturedCount,
-      featuredProjects.lenght
-    );
-    const nonFeaturedProjects = randomizedDesignWork.filter(
-      (item) => item.featured === false
-    );
-    const remainingProjects = nonFeaturedProjects.concat(
-      remainingFeaturedProjects
-    );
-    const remainingProjectsLimited = remainingProjects.slice(
-      0,
-      maxRemainingCount
-    );
+    const remainingFeaturedProjects = featuredProjects.slice(maxFeaturedCount,featuredProjects.lenght);
+    const nonFeaturedProjects = randomizedDesignWork.filter((item) => item.featured === false);
+    const remainingProjects = nonFeaturedProjects.concat(remainingFeaturedProjects);
+    const remainingProjectsLimited = remainingProjects.slice(0,maxRemainingCount);
 
     return (
       <Fragment>
@@ -124,16 +107,18 @@ class DesignWork extends React.PureComponent {
 
         <GlobalHeader sticky />
         <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
-        <Grid featured>
-          {featuredProjectsLimited.map((project, index) => {
-            return this._renderThumbnail(project, index);
-          })}
-        </Grid>
-        <Grid>
-          {remainingProjectsLimited.map((project, index) => {
-            return this._renderThumbnail(project, index);
-          })}
-          {this.state.viewportChecked && (
+        {this.state.viewportChecked && (
+          <Grid featured>
+            {featuredProjectsLimited.map((project, index) => {
+              return this._renderThumbnail(project, index);
+            })}
+          </Grid>
+        )}
+        {this.state.viewportChecked && (
+          <Grid>
+            {remainingProjectsLimited.map((project, index) => {
+              return this._renderThumbnail(project, index);
+            })}
             <RemainingItems
               itemsToShow={remainingProjects.slice(
                 maxRemainingCount,
@@ -147,8 +132,8 @@ class DesignWork extends React.PureComponent {
                 ).length
               }
             />
-          )}
-        </Grid>
+          </Grid>
+        )}
       </Fragment>
     );
   }

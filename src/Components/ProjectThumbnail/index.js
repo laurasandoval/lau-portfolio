@@ -84,8 +84,7 @@ class ProjectThumbnail extends React.Component {
         data-hover={hover}
         data-img-only={img_only}
         data-portrait={portrait}
-        data-will-fade-in={fadeIn ? fadeIn === "false" && "true" : null}
-        data-fade-in={fadeIn ? (fadeIn === "true" ? "true" : "false") : null}
+        data-fade-in={fadeIn}
       >
         {hover && (
           <Link to={`/${src}`} className="project-access">
