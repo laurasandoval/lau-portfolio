@@ -116,7 +116,6 @@ class DesignWork extends React.Component {
             return this._renderThumbnail(project, index);
           })}
         </Grid>
-        {this.state.viewportChecked && <hr className="grids-divider" />}
         <Grid>
           {remainingProjectsMax.map((project, index) => {
             return this._renderThumbnail(project, index);
