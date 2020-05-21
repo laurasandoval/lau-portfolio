@@ -7,7 +7,6 @@ import AccessibilityLabel from "../../Components/AccessibilityLabel";
 import GlobalHeader from "../../Components/GlobalHeader";
 import { Helmet } from "react-helmet";
 import RemainingItems from "./RemainingItems";
-import "./index.scss";
 
 class DesignWork extends React.Component {
   constructor(props) {
