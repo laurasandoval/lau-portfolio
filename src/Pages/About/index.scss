@@ -92,7 +92,7 @@
       animation-fill-mode: backwards;
       @include paragraphAnimationDelays;
       @media (max-width: 850px) {
-        text-indent: 18px;
+        text-indent: 16px;
       }
     }
   }

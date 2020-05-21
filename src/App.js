@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Data from "./Assets/design-work.json";
-import ProjectsRouter from "./Containers/ProjectsRouter";
+import ProjectsRouter from "./Pages/ProjectsRouter";
 
 import "./App.scss";
-import DesignWork from "./Containers/DesignWork";
-import About from "./Containers/About";
+import DesignWork from "./Pages/DesignWork";
+import About from "./Pages/About";
 import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
