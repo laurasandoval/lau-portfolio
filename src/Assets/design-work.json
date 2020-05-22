@@ -414,7 +414,8 @@
       "title": "Y4PT 2nd Transport Hackathon Chile 2017",
       "client": "Y4PT Chile",
       "description": [
-        "Branding and graphic design for Y4PT’s 2nd Chilean National Transport Hackathon."
+        "Branding and graphic design for Y4PT’s 2nd Chilean National Transport Hackathon.",
+        "The vector-based illustration developed for the event reassembled key landmarks of both Santiago and Concepción —the two chilean cities in which the event took place—, contained in a 2-shaped grid to symbolize the 2nd edition."
       ],
       "release_year": "2017",
       "release_month": "07",
@@ -423,10 +424,12 @@
       "src": "y4pt/2nd-transport-hackathon-chile",
       "thumbnails": {
         "portrait": [
-          "y4pt-2nd-national-transport-hackathon-chile-2017.png"
+          "y4pt-2nd-national-transport-hackathon-chile-2017.png",
+          "y4pt-2nd-national-transport-hackathon-chile-2017-sketch.png"
         ],
         "landscape": [
-          "y4pt-2nd-national-transport-hackathon-chile-2017.png"
+          "y4pt-2nd-national-transport-hackathon-chile-2017.png",
+          "y4pt-2nd-national-transport-hackathon-chile-2017-sketch.png"
         ]
       },
       "cta": null,
