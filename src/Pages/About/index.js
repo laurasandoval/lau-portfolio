@@ -47,7 +47,7 @@ function About(props) {
           <p>
             I strive to design wonderful and accessible digital products that go
             unnoticed in day-to-day life, while staying true to their intended
-            meaning. Currently doing that at Cornershop, a Uber-owned grocery
+            meaning. Currently doing that at Cornershop, an Uber-owned grocery
             delivery service that offers world-class digital products powered by
             software and design.
           </p>
