@@ -5,7 +5,7 @@
       "client": "Cornershop",
       "description": [
         "Website redesign for Cornershop referral landing page.",
-        "All visual elements of the website were rewritten using modern and native web techniques to allow for better accessibility, lightning-fast load times, and enormous flexibility."
+        "All visual elements of the website were redesign and rewritten using modern and native web standards to allow for better accessibility, lightning-fast load times, and enormous flexibility."
       ],
       "release_year": "2020",
       "release_month": "01",
@@ -145,7 +145,7 @@
       }
     },
     {
-      "title": "Santiago Transit Map Series 4",
+      "title": "Santiago Transit Map 2019",
       "client": null,
       "description": [
         "Explorations of Santiago’s Transit Map as a format. Multiple iterations over shape and form define a versatile graphic system that allows for expansion or compression based on the required levels of complexity.",
@@ -156,7 +156,7 @@
       "release_month": "07",
       "featured": true,
       "has_page": false,
-      "src": "santiago-transit-map/series-4",
+      "src": "santiago-transit-map/2019",
       "thumbnails": {
         "portrait": [
           "santiago-transit-map-s4.png",
@@ -172,7 +172,7 @@
       "team": null
     },
     {
-      "title": "Santiago Transit Map Series 3",
+      "title": "Santiago Transit Map 2018",
       "client": null,
       "description": [
         "Transit map for Santiago's Transit system.",
@@ -184,7 +184,7 @@
       "release_month": "02",
       "featured": true,
       "has_page": false,
-      "src": "santiago-transit-map/series-3",
+      "src": "santiago-transit-map/2018",
       "thumbnails": {
         "portrait": [
           "SantiagoTransitMapS3"
@@ -193,50 +193,6 @@
           "SantiagoTransitMapS3",
           "santiago-transit-map-s3-full.png",
           "SantiagoTransitMapS3Variant"
-        ]
-      },
-      "cta": null,
-      "team": null
-    },
-    {
-      "title": "Santiago Transit Map Series 2",
-      "client": null,
-      "description": [
-        "Description"
-      ],
-      "release_year": "2017",
-      "release_month": "11",
-      "featured": false,
-      "has_page": false,
-      "src": "santiago-transit-map/series-2",
-      "thumbnails": {
-        "portrait": [
-          "santiago-transit-map-s2.png"
-        ],
-        "landscape": [
-          "santiago-transit-map-s2.png"
-        ]
-      },
-      "cta": null,
-      "team": null
-    },
-    {
-      "title": "Santiago Transit Map Series 1",
-      "client": null,
-      "description": [
-        "Description"
-      ],
-      "release_year": "2017",
-      "release_month": "08",
-      "featured": false,
-      "has_page": false,
-      "src": "santiago-transit-map/series-1",
-      "thumbnails": {
-        "portrait": [
-          "santiago-transit-map-s1.png"
-        ],
-        "landscape": [
-          "santiago-transit-map-s1.png"
         ]
       },
       "cta": null,

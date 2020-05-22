@@ -64,7 +64,7 @@
     .main {
       display: grid;
       grid-auto-flow: row;
-      grid-gap: 20px;
+      grid-gap: calc(var(--global-padding) * 2);
       height: fit-content;
       .title,
       .description {
@@ -80,7 +80,7 @@
       .description {
         font-size: 18px;
         font-weight: 400;
-        color: rgba(136, 138, 144, 1);
+        color: rgba(0, 0, 0, 1);
         p {
           margin: 0;
           padding: 0;
@@ -123,7 +123,7 @@
       grid-gap: 40px;
       @media (max-width: 1080px) {
         grid-template-columns: 1fr;
-        grid-gap: 20px;
+        grid-gap: var(--global-padding);
       }
       .item {
         h2,
