@@ -5,7 +5,7 @@
       "client": "Cornershop",
       "description": [
         "Website redesign for Cornershop referral landing page.",
-        "All visual elements of the website were redesign and rewritten using modern and native web standards to allow for better accessibility, lightning-fast load times, and enormous flexibility."
+        "All visual elements of the website were redesigned and rewritten from scratch using modern and native web standards to allow for better accessibility, lightning-fast load times, and enormous flexibility."
       ],
       "release_year": "2020",
       "release_month": "01",
@@ -159,10 +159,12 @@
       "src": "santiago-transit-map/2019",
       "thumbnails": {
         "portrait": [
+          "santiago-transit-map-s4-print-portrait.png",
           "santiago-transit-map-s4.png",
           "santiago-transit-map-s4-video-reveal.webm"
         ],
         "landscape": [
+          "santiago-transit-map-s4-print.png",
           "santiago-transit-map-s4.png",
           "santiago-transit-map-s4-detail.png",
           "santiago-transit-map-s4-video-reveal.webm"
@@ -282,7 +284,9 @@
       "title": "Chilean Ministry of Health & LIPUC",
       "client": "Chilean Ministry of Health & PUC’s Public Innovation Lab",
       "description": [
-        "Graphic design of companion material for citizens within Chilean’s Public Health System."
+        "Chile's Public Health System it's recognized locally by its enormous unreliability and tremendously long waiting times. Embarrassingly, people die waiting for an appointment.",
+        "Due to the above, PUC's Public Innovation Lab team was asked for help in the design of a mechanism for giving citizens access to simplified information about their status within the \"waiting lists\" burocracy. The team landed on a printable, dead-simple document: No color, no fancy graphics. Citizens needed to be encouraged to make it their own.",
+        "The overall motivation of the project was to reduce waiting time perception by giving citizens a reliable tool to ask for official information on their appointment status."
       ],
       "release_year": "2019",
       "release_month": "04",
@@ -327,7 +331,8 @@
       "title": "Transantiago Virtual Assistant",
       "client": null,
       "description": [
-        "Facebook Messenger Bot for Santiago’s Transit System."
+        "Facebook Messenger Bot for Santiago’s Transit System.",
+        "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
       ],
       "release_year": "2018",
       "release_month": "08",
@@ -349,7 +354,7 @@
       "title": "Guemil Icon Uploader",
       "client": "Guemil Project",
       "description": [
-        "Design and development of internal tools and APIs to automate icon testing and visualization."
+        "Design and development of internal tools and API's to automate icon testing and visualization."
       ],
       "release_year": "2018",
       "release_month": "09",
@@ -520,7 +525,8 @@
       "title": "Metro Virtual Assistant",
       "client": null,
       "description": [
-        "Facebook Messenger Bot for Santiago's Metro system."
+        "Facebook Messenger Bot for Santiago's Metro system. Shelved upon Metro de Santiago's Request.",
+        "This project was not commissioned by, and it's not directly related to Metro de Santiago."
       ],
       "release_year": "2017",
       "release_month": "07",
@@ -542,7 +548,8 @@
       "title": "Bip macOS App",
       "client": null,
       "description": [
-        "macOS app for keeping your remaining transit card balance right in your menu bar."
+        "macOS app for keeping your remaining transit card balance right in your menu bar.",
+        "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
       ],
       "release_year": "2019",
       "release_month": "01",
@@ -564,7 +571,8 @@
       "title": "Bip webApp",
       "client": null,
       "description": [
-        "Simple Web App for managing Santiago’s Transit Card balance."
+        "Simple Web App for managing Santiago’s Transit Card balance.",
+        "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
       ],
       "release_year": "2018",
       "release_month": "11",
