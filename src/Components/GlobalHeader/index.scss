@@ -453,8 +453,9 @@
   @media (max-width: 850px) {
     position: relative;
     opacity: 1;
-    width: 100%;
+    width: auto;
     pointer-events: all;
+    margin: 0 calc((var(--global-padding) / 2) * -1);
     padding: 0 0 calc(var(--global-padding) / 2) 0;
     text-align: left;
     transition: transform 0.4s ease;
@@ -464,9 +465,11 @@
       );
     }
     .search-container {
-      width: inherit;
+      width: 100%;
       transform: none;
       overflow: hidden;
+      padding: 0 calc((var(--global-padding) / 2));
+      box-sizing: border-box;
       .search-field {
         width: inherit;
       }
@@ -480,9 +483,9 @@
         transform: translateX(100%);
         @at-root [data-open="true"]#{&} {
           transform: translateX(0);
-        }
-        &:active {
-          opacity: 0.4;
+          &:active {
+            opacity: 0.4;
+          }
         }
         .search-field-placeholder {
           position: absolute;
