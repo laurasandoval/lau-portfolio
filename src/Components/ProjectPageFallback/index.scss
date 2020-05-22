@@ -81,6 +81,14 @@
         font-size: 18px;
         font-weight: 400;
         color: rgba(136, 138, 144, 1);
+        p {
+          margin: 0;
+          padding: 0;
+          font: inherit;
+          &:not(:first-child) {
+            margin-top: 1em;
+          }
+        }
       }
       .ctas {
         .call-to-action {
@@ -118,14 +126,14 @@
         grid-gap: 20px;
       }
       .item {
-        h3,
+        h2,
         p {
           font-size: 18px;
           font-weight: 400;
           margin: 0;
           padding: 0;
         }
-        h3 {
+        h2 {
           color: rgba(136, 138, 144, 1);
         }
       }

@@ -79,7 +79,11 @@ class ProjectPageFallback extends React.PureComponent {
           <div className="project-info">
             <div className="main">
               <h1 className="title">{this.props.title}</h1>
-              <h2 className="description">{this.props.description}</h2>
+              <div className="description">
+                {this.props.description.map((p, i) => {
+                  return <p key={i}>{p}</p>;
+                })}
+              </div>
               {this.props.cta && (
                 <div className="ctas">
                   {this.props.cta.map((cta, i) => {
@@ -101,12 +105,12 @@ class ProjectPageFallback extends React.PureComponent {
             <div className="credits">
               {this.props.client && (
                 <div className="item">
-                  <h3>Client</h3>
+                  <h2>Client</h2>
                   <p>{this.props.client}</p>
                 </div>
               )}
               <div className="item">
-                <h3>Release Date</h3>
+                <h2>Release Date</h2>
                 <p>
                   <Time
                     year={this.props.release_year}
@@ -118,7 +122,7 @@ class ProjectPageFallback extends React.PureComponent {
                 Object.keys(this.props.team).map((item, i) => {
                   return (
                     <div className="item" key={i}>
-                      <h3>{item}</h3>
+                      <h2>{item}</h2>
                       {this.props.team[item].map((person, i) => {
                         return <p key={i}>{person.name}</p>;
                       })}

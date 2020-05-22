@@ -3,7 +3,10 @@
     {
       "title": "Cornershop Referral Landing",
       "client": "Cornershop",
-      "description": "Website redesign for Cornershop referral landing page. All visual elements of the website were rewritten using modern HTML5 and CSS techniques to allow for better accessibility, lightning-fast load times, and enormous flexibility.",
+      "description": [
+        "Website redesign for Cornershop referral landing page.",
+        "All visual elements of the website were rewritten using modern and native web techniques to allow for better accessibility, lightning-fast load times, and enormous flexibility."
+      ],
       "release_year": "2020",
       "release_month": "01",
       "featured": true,
@@ -11,7 +14,7 @@
       "src": "cornershop/cornershop-referral-landing",
       "thumbnails": {
         "portrait": [
-          "cornershop-raf-links-portrait.png"
+          "cornershop-raf-links-portrait.webm"
         ],
         "landscape": [
           "cornershop-raf-links.webm"
@@ -60,7 +63,9 @@
     {
       "title": "Kappo Brand Identity Redesign",
       "client": "Kappo",
-      "description": "Visual identity redesign for Kappo Bike.",
+      "description": [
+        "Visual identity redesign for Kappo Bike."
+      ],
       "release_year": "2019",
       "release_month": "03",
       "featured": true,
@@ -96,7 +101,9 @@
     {
       "title": "Cool Place to Bike Website",
       "client": "Kappo",
-      "description": "Website redesign and development for Kappo's Cool Place to Bike program.",
+      "description": [
+        "Website redesign and development for Kappo's Cool Place to Bike program."
+      ],
       "release_year": "2019",
       "release_month": "02",
       "featured": true,
@@ -140,7 +147,11 @@
     {
       "title": "Santiago Transit Map Series 4",
       "client": null,
-      "description": "Explorations of Santiago’s Transit Map as a format. Multiple iterations over shape and form define a versatile graphic system that allows for expansion or compression based on the required levels of complexity.",
+      "description": [
+        "Explorations of Santiago’s Transit Map as a format. Multiple iterations over shape and form define a versatile graphic system that allows for expansion or compression based on the required levels of complexity.",
+        "40 physical copies of the map were printed and distributed during 2019.",
+        "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
+      ],
       "release_year": "2019",
       "release_month": "07",
       "featured": true,
@@ -163,7 +174,12 @@
     {
       "title": "Santiago Transit Map Series 3",
       "client": null,
-      "description": "Santiago Transit Map Series 3",
+      "description": [
+        "Transit map for Santiago's Transit system.",
+        "The map was specially designed with color-blinded individuals and newcomers to Santiago's transit system in mind, incorporing redundant and accessible iconography —that doesn't really on color alone—, while still maintaning a flexible and approachable design language.",
+        "100 physical copies of the map were printed and distributed in mid-2018.",
+        "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
+      ],
       "release_year": "2018",
       "release_month": "02",
       "featured": true,
@@ -185,7 +201,9 @@
     {
       "title": "Santiago Transit Map Series 2",
       "client": null,
-      "description": "Description",
+      "description": [
+        "Description"
+      ],
       "release_year": "2017",
       "release_month": "11",
       "featured": false,
@@ -205,7 +223,9 @@
     {
       "title": "Santiago Transit Map Series 1",
       "client": null,
-      "description": "Description",
+      "description": [
+        "Description"
+      ],
       "release_year": "2017",
       "release_month": "08",
       "featured": false,
@@ -225,7 +245,10 @@
     {
       "title": "Saldo Red",
       "client": null,
-      "description": "Design and development of the best, privacy and simplicity-driven, most positively reviewed app for managing Chilean Transit Cards.",
+      "description": [
+        "Design and development of the best, privacy and simplicity-driven, most positively reviewed app for managing Chilean Transit Cards.",
+        "This project was not commissioned by, and it's not directly related to any of Chile's official transit authorities."
+      ],
       "release_year": "2019",
       "release_month": "04",
       "featured": true,
@@ -271,7 +294,9 @@
     {
       "title": "Saldo Red Website",
       "client": "Saldo Red",
-      "description": "Website design and development for Saldo Red.",
+      "description": [
+        "Website design and development for Saldo Red."
+      ],
       "release_year": "2019",
       "release_month": "06",
       "featured": false,
@@ -300,7 +325,9 @@
     {
       "title": "Chilean Ministry of Health & LIPUC",
       "client": "Chilean Ministry of Health & PUC’s Public Innovation Lab",
-      "description": "Graphic design of companion material for citizens within Chilean’s Public Health System.",
+      "description": [
+        "Graphic design of companion material for citizens within Chilean’s Public Health System."
+      ],
       "release_year": "2019",
       "release_month": "04",
       "featured": false,
@@ -343,7 +370,9 @@
     {
       "title": "Transantiago Virtual Assistant",
       "client": null,
-      "description": "Facebook Messenger Bot for Santiago’s Transit System.",
+      "description": [
+        "Facebook Messenger Bot for Santiago’s Transit System."
+      ],
       "release_year": "2018",
       "release_month": "08",
       "featured": true,
@@ -363,7 +392,9 @@
     {
       "title": "Guemil Icon Uploader",
       "client": "Guemil Project",
-      "description": "Design and development of internal tools and APIs to automate icon testing and visualization.",
+      "description": [
+        "Design and development of internal tools and APIs to automate icon testing and visualization."
+      ],
       "release_year": "2018",
       "release_month": "09",
       "featured": true,
@@ -421,7 +452,9 @@
     {
       "title": "Y4PT 2nd Transport Hackathon Chile 2017",
       "client": "Y4PT Chile",
-      "description": "Branding and graphic design for Y4PT’s 2nd Chilean National Transport Hackathon.",
+      "description": [
+        "Branding and graphic design for Y4PT’s 2nd Chilean National Transport Hackathon."
+      ],
       "release_year": "2017",
       "release_month": "07",
       "featured": false,
@@ -467,7 +500,9 @@
     {
       "title": "Bus Route Visualizer",
       "client": null,
-      "description": "Bus route visualizer for Transantiago Virtual Assistant.",
+      "description": [
+        "Bus route visualizer for Transantiago Virtual Assistant."
+      ],
       "release_year": "2018",
       "release_month": "08",
       "featured": false,
@@ -487,7 +522,9 @@
     {
       "title": "Cycling Wayfinding Signage",
       "client": null,
-      "description": "Proposed wayfinding signage for Santiago de Chile's cycling ecosistem.",
+      "description": [
+        "Proposed wayfinding signage for Santiago de Chile's cycling ecosistem."
+      ],
       "release_year": "2018",
       "release_month": "08",
       "featured": false,
@@ -526,7 +563,9 @@
     {
       "title": "Metro Virtual Assistant",
       "client": null,
-      "description": "Facebook Messenger Bot for Santiago's Metro system.",
+      "description": [
+        "Facebook Messenger Bot for Santiago's Metro system."
+      ],
       "release_year": "2017",
       "release_month": "07",
       "featured": false,
@@ -546,7 +585,9 @@
     {
       "title": "Bip macOS App",
       "client": null,
-      "description": "macOS app for keeping your remaining transit card balance right in your menu bar.",
+      "description": [
+        "macOS app for keeping your remaining transit card balance right in your menu bar."
+      ],
       "release_year": "2019",
       "release_month": "01",
       "featured": false,
@@ -566,7 +607,9 @@
     {
       "title": "Bip webApp",
       "client": null,
-      "description": "Simple Web App for managing Santiago’s Transit Card balance.",
+      "description": [
+        "Simple Web App for managing Santiago’s Transit Card balance."
+      ],
       "release_year": "2018",
       "release_month": "11",
       "featured": false,
