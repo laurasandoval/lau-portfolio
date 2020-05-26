@@ -7,11 +7,13 @@ import AccessibilityLabel from "../../Components/AccessibilityLabel";
 import CVData from "../../Assets/cv-data.json";
 import "./index.scss";
 
-function About(props) {
+function About() {
   const Age = differenceInYears(
     new Date(new Date().getFullYear(), 7, 5),
     new Date(1998, 7, 5)
   );
+  const CVData = CVData;
+
   return (
     <Fragment>
       <Helmet>
