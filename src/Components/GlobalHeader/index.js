@@ -134,12 +134,12 @@ class GlobalHeader extends React.PureComponent {
       >
         <div className="header-content">
           <div className="top-bar">
-            <div
-              className="sopaipilla-menu"
-              aria-hidden="true"
-              data-open={this.state.navOpen}
-            >
-              <button className="toggle" onClick={this._toggleNav}>
+            <div className="sopaipilla-menu" data-open={this.state.navOpen}>
+              <button
+                className="toggle"
+                onClick={this._toggleNav}
+                aria-hidden="true"
+              >
                 <AccessibilityLabel>
                   {this.navOpen === true ? "Close" : "Open"} menu
                 </AccessibilityLabel>
@@ -151,8 +151,9 @@ class GlobalHeader extends React.PureComponent {
                 <span className="inner-sopaipilla"></span>
               </span>
             </div>
-            <h1>
-              <NavLink className="nav-item" exact to="/">
+            <h1 aria-hidden={this.state.navOpen}>
+              <AccessibilityLabel>Laura Sandoval</AccessibilityLabel>
+              <NavLink className="nav-item" exact to="/" aria-hidden="true">
                 Laura Sandoval
               </NavLink>
             </h1>
@@ -210,7 +211,7 @@ class GlobalHeader extends React.PureComponent {
                 autoComplete="off"
                 spellCheck="false"
               />
-              <div className="cancel-button-container">
+              <div className="cancel-button-container" aria-hidden={this.state.searchOpen ? "false" : "true"}>
                 <label
                   htmlFor="search-field"
                   className="search-field-placeholder"

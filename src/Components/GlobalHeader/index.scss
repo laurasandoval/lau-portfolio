@@ -513,8 +513,8 @@
           position: absolute;
           display: block;
           width: 100%;
-          right: calc(var(--search-bar-border-radius) * -1);
-          width: calc(100% + var(--search-bar-border-radius));
+          right: calc((var(--search-bar-border-radius) * 4) * -1);
+          width: calc(100% + (var(--search-bar-border-radius) * 4));
           height: 100%;
           background-color: var(--search-bar-background-color);
           transition: background-color 0s ease 0s;
