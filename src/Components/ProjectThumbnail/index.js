@@ -89,11 +89,11 @@ class ProjectThumbnail extends React.PureComponent {
         {hover && (
           <Link to={`/${src}`} className="project-access">
             <AccessibilityLabel as="span">
-              {title} | <Time year={release_year} month={release_month} />
+              {title}. Released <Time as="span" year={release_year} month={release_month} />
             </AccessibilityLabel>
           </Link>
         )}
-        <figure className="project-artwork" aria-hidden={hover}>
+        <figure className="project-artwork" aria-hidden="true">
           {this._renderThumbnail(thumbnailToRender, src, title, autoplay)}
         </figure>
         {!img_only && (

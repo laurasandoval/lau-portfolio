@@ -3,12 +3,13 @@ import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
 
 function Time(props) {
+  const Tag = props.as ? props.as : "time";
   return (
-    <time dateTime={`${props.year}-${props.month}`} className="date">
+    <Tag dateTime={`${props.year}-${props.month}`} className="date">
       {format(new Date(props.year, props.month - 1), "MMMM yyyy", {
         locale: enUS,
       })}
-    </time>
+    </Tag>
   );
 }
 
