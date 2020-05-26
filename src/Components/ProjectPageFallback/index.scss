@@ -99,8 +99,7 @@
           color: rgba(16, 99, 238, 1);
           width: fit-content;
           transition: all 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
-          &:after {
-            content: "→";
+          .right-arrow {
             display: inline-block;
             margin-left: 0.2em;
             transition: inherit;
@@ -109,7 +108,7 @@
           @media (hover: hover) {
             &:hover {
               color: rgba(0, 0, 0, 1);
-              &:after {
+              .right-arrow {
                 transform: translateX(10px);
               }
             }
@@ -126,14 +125,14 @@
         grid-gap: var(--global-padding);
       }
       .item {
-        h2,
+        h3,
         p {
           font-size: 18px;
           font-weight: 400;
           margin: 0;
           padding: 0;
         }
-        h2 {
+        h3 {
           color: rgba(136, 138, 144, 1);
         }
       }
