@@ -88,7 +88,7 @@ class ProjectThumbnail extends React.PureComponent {
       >
         {hover && (
           <Link to={`/${src}`} className="project-access">
-            <AccessibilityLabel as="span">
+            <AccessibilityLabel role="text" as="span">
               {title}. Released <Time as="span" year={release_year} month={release_month} />
             </AccessibilityLabel>
           </Link>

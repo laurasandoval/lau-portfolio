@@ -110,14 +110,14 @@ class ProjectPageFallback extends React.PureComponent {
               {this.props.client && (
                 <div className="item" role="text">
                   <h3>
-                    Client<AccessibilityLabel>: </AccessibilityLabel>
+                    Client<AccessibilityLabel role="text">: </AccessibilityLabel>
                   </h3>
                   <p>{this.props.client}</p>
                 </div>
               )}
               <div className="item" role="text">
                 <h3>
-                  Release Date<AccessibilityLabel>: </AccessibilityLabel>
+                  Release Date<AccessibilityLabel role="text">: </AccessibilityLabel>
                 </h3>
                 <p>
                   <Time
@@ -133,7 +133,7 @@ class ProjectPageFallback extends React.PureComponent {
                     <div className="item" key={i} role="text">
                       <h3>
                         {item}
-                        <AccessibilityLabel>: </AccessibilityLabel>
+                        <AccessibilityLabel role="text">: </AccessibilityLabel>
                       </h3>
                       {this.props.team[item].map((person, i) => {
                         if (this.props.team[item].length > 1) {
@@ -141,7 +141,7 @@ class ProjectPageFallback extends React.PureComponent {
                             return (
                               <p key={i}>
                                 {person.name}
-                                <AccessibilityLabel>.</AccessibilityLabel>
+                                <AccessibilityLabel role="text">.</AccessibilityLabel>
                               </p>
                             );
                           } else if (
@@ -151,14 +151,14 @@ class ProjectPageFallback extends React.PureComponent {
                             return (
                               <p key={i}>
                                 {person.name}
-                                <AccessibilityLabel> and </AccessibilityLabel>
+                                <AccessibilityLabel role="text"> and </AccessibilityLabel>
                               </p>
                             );
                           } else {
                             return (
                               <p key={i}>
                                 {person.name}
-                                <AccessibilityLabel>, </AccessibilityLabel>
+                                <AccessibilityLabel role="text">, </AccessibilityLabel>
                               </p>
                             );
                           }

@@ -140,7 +140,7 @@ class GlobalHeader extends React.PureComponent {
                 onClick={this._toggleNav}
                 aria-hidden="true"
               >
-                <AccessibilityLabel>
+                <AccessibilityLabel role="text">
                   {this.navOpen === true ? "Close" : "Open"} menu
                 </AccessibilityLabel>
               </button>
@@ -152,7 +152,7 @@ class GlobalHeader extends React.PureComponent {
               </span>
             </div>
             <h1 aria-hidden={this.state.navOpen}>
-              <AccessibilityLabel>Laura Sandoval</AccessibilityLabel>
+              <AccessibilityLabel role="text">Laura Sandoval</AccessibilityLabel>
               <NavLink className="nav-item" exact to="/" aria-hidden="true">
                 Laura Sandoval
               </NavLink>

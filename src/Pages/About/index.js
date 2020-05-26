@@ -22,39 +22,59 @@ function About() {
 
       <GlobalHeader sticky />
       <GenericContainer className="about-page">
-        <h1>
-          <AccessibilityLabel>About — Laura Sandoval</AccessibilityLabel>
-        </h1>
-        <div className="hearts-animation">
-          <span className="heart" role="img" aria-label="Floating Heart">
+        <h2>
+          <AccessibilityLabel role="text">About — Laura Sandoval</AccessibilityLabel>
+        </h2>
+        <figure className="hearts-animation" role="img">
+          <figcaption>
+            <AccessibilityLabel role="text">
+              Animation of floating yellow hearts.
+            </AccessibilityLabel>
+          </figcaption>
+          <span
+            className="heart"
+            aria-hidden="true"
+            role="img"
+            aria-label="Floating Heart"
+          >
             💛
           </span>
-          <span className="heart" role="img" aria-label="Floating Heart">
+          <span
+            className="heart"
+            aria-hidden="true"
+            role="img"
+            aria-label="Floating Heart"
+          >
             💛
           </span>
-          <span className="heart" role="img" aria-label="Floating Heart">
+          <span
+            className="heart"
+            aria-hidden="true"
+            role="img"
+            aria-label="Floating Heart"
+          >
             💛
           </span>
-        </div>
-        <h2 className="big-statement">
+        </figure>
+        <h3 className="big-statement">
           I like building digital products that people love—without them even
           noticing it.
-        </h2>
+        </h3>
         <p className="big-statement-subtitle">(Hopefully at least)</p>
         <div className="about-me-paragraphs">
-          <p>
-            Born in Perú {Age} years ago. Moved to Chile a year after that. Then
-            back to Perú in 2014. And back to Chile again two years later. So
+          <p role="text">
+            Born in Peru {Age} years ago. Moved to Chile a year after that. Then
+            back to Peru in 2014. And back to Chile again two years later. So
             here I am.
           </p>
-          <p>
+          <p role="text">
             I strive to design wonderful and accessible digital products that go
             unnoticed in day-to-day life, while staying true to their intended
             meaning. Currently doing that at Cornershop, an Uber-owned grocery
             delivery service that offers world-class digital products powered by
             software and design.
           </p>
-          <p>
+          <p role="text">
             Studied Design at Pontificia Universidad Católica de Chile, and you
             know how it goes. Find more of that on my{" "}
             <a
@@ -63,9 +83,19 @@ function About() {
               rel="noopener noreferrer"
             >
               Resume
-            </a>{" "}
+            </a>
+            {<AccessibilityLabel role="text">.</AccessibilityLabel>}{" "}
             :-)
           </p>
+          <AccessibilityLabel>
+            <a
+              href={require(`../../Assets/cv-files/${CVData.CV[0].filename}`)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Résumé
+            </a>
+          </AccessibilityLabel>
         </div>
       </GenericContainer>
     </Fragment>
