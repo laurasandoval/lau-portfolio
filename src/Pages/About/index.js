@@ -4,7 +4,7 @@ import { differenceInYears } from "date-fns";
 import GlobalHeader from "../../Components/GlobalHeader";
 import GenericContainer from "../../Components/GenericContainer";
 import AccessibilityLabel from "../../Components/AccessibilityLabel";
-import CVData from "../../Assets/cv.json";
+import CVData from "../../Assets/cv-data.json";
 import "./index.scss";
 
 function About(props) {
