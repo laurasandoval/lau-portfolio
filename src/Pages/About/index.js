@@ -4,6 +4,7 @@ import { differenceInYears } from "date-fns";
 import GlobalHeader from "../../Components/GlobalHeader";
 import GenericContainer from "../../Components/GenericContainer";
 import AccessibilityLabel from "../../Components/AccessibilityLabel";
+import CVData from "../../Assets/cv.json";
 import "./index.scss";
 
 function About(props) {
@@ -55,7 +56,7 @@ function About(props) {
             Studied Design at Pontificia Universidad Católica de Chile, and you
             know how it goes. Find more of that on my{" "}
             <a
-              href={require("../../Assets/cv-files/LS_CV_en_Undefined2020.pdf")}
+              href={require(`../../Assets/cv-files/${CVData.CV[0].filename}`)}
               target="_blank"
               rel="noopener noreferrer"
             >
