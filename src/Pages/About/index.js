@@ -4,7 +4,7 @@ import { differenceInYears } from "date-fns";
 import GlobalHeader from "../../Components/GlobalHeader";
 import GenericContainer from "../../Components/GenericContainer";
 import AccessibilityLabel from "../../Components/AccessibilityLabel";
-import CVData from "../../Assets/cv-data.json";
+import CVDataJSON from "../../Assets/cv-data.json";
 import "./index.scss";
 
 function About() {
@@ -12,7 +12,7 @@ function About() {
     new Date(new Date().getFullYear(), 7, 5),
     new Date(1998, 7, 5)
   );
-  const CVData = CVData;
+  const CVData = CVDataJSON;
 
   return (
     <Fragment>
