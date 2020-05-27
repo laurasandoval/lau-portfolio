@@ -23,14 +23,11 @@ function About() {
       <GlobalHeader sticky />
       <GenericContainer className="about-page">
         <h2>
-          <AccessibilityLabel role="text">About — Laura Sandoval</AccessibilityLabel>
+          <AccessibilityLabel role="text">
+            About — Laura Sandoval
+          </AccessibilityLabel>
         </h2>
         <figure className="hearts-animation" role="img">
-          <figcaption>
-            <AccessibilityLabel role="text">
-              Animation of floating yellow hearts.
-            </AccessibilityLabel>
-          </figcaption>
           <span
             className="heart"
             aria-hidden="true"
@@ -55,6 +52,9 @@ function About() {
           >
             💛
           </span>
+          <AccessibilityLabel role="text" as="figcaption">
+            Animation of floating yellow hearts.
+          </AccessibilityLabel>
         </figure>
         <h3 className="big-statement">
           I like building digital products that people love—without them even
@@ -84,8 +84,7 @@ function About() {
             >
               Resume
             </a>
-            {<AccessibilityLabel role="text">.</AccessibilityLabel>}{" "}
-            :-)
+            {<AccessibilityLabel role="text">.</AccessibilityLabel>} :-)
           </p>
           <AccessibilityLabel>
             <a
