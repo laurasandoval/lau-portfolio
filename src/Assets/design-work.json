@@ -106,7 +106,7 @@
       ],
       "release_year": "2019",
       "release_month": "02",
-      "featured": true,
+      "featured": false,
       "has_page": false,
       "src": "kappo/cool-place-to-bike-website",
       "thumbnails": {
@@ -571,10 +571,11 @@
       "team": null
     },
     {
-      "title": "Bip webApp",
+      "title": "Simple Bip App",
       "client": null,
       "description": [
         "Simple Web App for managing Santiago’s Transit Card balance.",
+        "Deprecated in 2019, open-sourced in 2020.",
         "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
       ],
       "release_year": "2018",
@@ -590,7 +591,16 @@
           "bip-web-app.png"
         ]
       },
-      "cta": null,
+      "cta": [
+        {
+          "title": "Demo",
+          "url": "https://laurasandoval.github.io/SimpleBipApp"
+        },
+        {
+          "title": "See the code on GitHub",
+          "url": "https://github.com/laurasandoval/SimpleBipApp"
+        }
+      ],
       "team": null
     }
   ]
