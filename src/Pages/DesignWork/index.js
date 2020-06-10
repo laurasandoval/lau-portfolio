@@ -106,7 +106,7 @@ class DesignWork extends React.PureComponent {
         </Helmet>
 
         <GlobalHeader sticky />
-        <AccessibilityLabel role="text" as="h2">Selected Works</AccessibilityLabel>
+        <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
         {this.state.viewportChecked && (
           <Grid featured>
             {featuredProjectsLimited.map((project, index) => {

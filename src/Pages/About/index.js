@@ -23,7 +23,7 @@ function About() {
       <GlobalHeader sticky />
       <GenericContainer className="about-page">
         <h2>
-          <AccessibilityLabel role="text">
+          <AccessibilityLabel>
             About — Laura Sandoval
           </AccessibilityLabel>
         </h2>
@@ -52,7 +52,7 @@ function About() {
           >
             💛
           </span>
-          <AccessibilityLabel role="text" as="figcaption">
+          <AccessibilityLabel as="figcaption">
             Animation of floating yellow hearts.
           </AccessibilityLabel>
         </figure>
@@ -67,7 +67,7 @@ function About() {
             back to Peru in 2014. And back to Chile again two years later. So
             here I am.
           </p>
-          <p role="text">
+          <p>
             I strive to design wonderful and accessible digital products that go
             unnoticed in day-to-day life, while staying true to their intended
             meaning. Currently doing that at Cornershop, an Uber-owned grocery
@@ -84,7 +84,7 @@ function About() {
             >
               Resume
             </a>
-            {<AccessibilityLabel role="text">.</AccessibilityLabel>} :-)
+            {<AccessibilityLabel>.</AccessibilityLabel>} :-)
           </p>
           <AccessibilityLabel>
             <a

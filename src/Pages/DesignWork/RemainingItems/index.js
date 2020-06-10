@@ -33,7 +33,7 @@ class RemainingItems extends React.Component {
               onClick={this._showRemainingItems}
             >
               <AccessibilityLabel role="text">
-                See all, {remainingCount} remaining project
+                See all. {remainingCount} remaining {remainingCount > 1 ? "projects": "project"}
               </AccessibilityLabel>
             </button>
             <div className="content" aria-hidden="true">
