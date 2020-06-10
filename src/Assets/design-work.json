@@ -574,21 +574,21 @@
       "title": "Simple Bip App",
       "client": null,
       "description": [
-        "Simple Web App for managing Santiago’s Transit Card balance.",
-        "Deprecated in 2019, open-sourced in 2020.",
+        "Simple, exploratory web app for checking Santiago’s Transit Card (Bip) balance.",
+        "Released in 2018, deprecated in 2019, open-sourced in 2020.",
         "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
       ],
       "release_year": "2018",
       "release_month": "11",
-      "featured": false,
+      "featured": true,
       "has_page": false,
-      "src": "bip-web-app",
+      "src": "open-source/simple-bip-app",
       "thumbnails": {
         "portrait": [
-          "bip-web-app.png"
+          "simple-bip-app-portrait.svg"
         ],
         "landscape": [
-          "bip-web-app.png"
+          "simple-bip-app.svg"
         ]
       },
       "cta": [
@@ -601,7 +601,18 @@
           "url": "https://github.com/laurasandoval/SimpleBipApp"
         }
       ],
-      "team": null
+      "team": {
+        "Design and Frontend Development": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "API Development": [
+          {
+            "name": "Eduardo Riveros"
+          }
+        ]
+      }
     }
   ]
 }
