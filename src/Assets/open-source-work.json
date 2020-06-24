@@ -1,0 +1,97 @@
+{
+  "OpenSourceWork": [
+    {
+      "title": "Responsive Müller-Brockmann",
+      "client": null,
+      "description": [
+        "Responsive and accessible Josef Müller-Brockmann posters using CSS Grid and native web technologies."
+      ],
+      "release_year": "2020",
+      "release_month": "06",
+      "featured": true,
+      "has_page": false,
+      "src": "open-source/responsive-muller-brockmann",
+      "thumbnails": {
+        "portrait": [
+          "responsive-muller-brockmann-01.png",
+          "responsive-muller-brockmann-02.png",
+          "responsive-muller-brockmann-03.png",
+          "responsive-muller-brockmann-04.png"
+        ],
+        "landscape": [
+          "responsive-muller-brockmann-01.png",
+          "responsive-muller-brockmann-02.png",
+          "responsive-muller-brockmann-03.png",
+          "responsive-muller-brockmann-04.png"
+        ]
+      },
+      "cta": [
+        {
+          "title": "See the code on GitHub",
+          "url": "https://github.com/laurasandoval/ResponsiveMullerBrockmann"
+        },
+        {
+          "title": "Musica Viva (1959)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1959/"
+        },
+        {
+          "title": "Musica Viva (1961)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1961/"
+        },
+        {
+          "title": "Brockmann (1967)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/brockmann-1967/"
+        },
+        {
+          "title": "Musica Viva (1970)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1970/"
+        }
+      ],
+      "team": null
+    },
+    {
+      "title": "Simple Bip App",
+      "client": null,
+      "description": [
+        "Simple, exploratory web app for checking Santiago’s Transit Card (Bip) balance.",
+        "Released in 2018, deprecated in 2019, open-sourced in 2020.",
+        "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
+      ],
+      "release_year": "2018",
+      "release_month": "11",
+      "featured": true,
+      "has_page": false,
+      "src": "open-source/simple-bip-app",
+      "thumbnails": {
+        "portrait": [
+          "simple-bip-app-portrait.png"
+        ],
+        "landscape": [
+          "simple-bip-app.png"
+        ]
+      },
+      "cta": [
+        {
+          "title": "Demo",
+          "url": "https://laurasandoval.github.io/SimpleBipApp"
+        },
+        {
+          "title": "See the code on GitHub",
+          "url": "https://github.com/laurasandoval/SimpleBipApp"
+        }
+      ],
+      "team": {
+        "Design and Frontend Development": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "API Development": [
+          {
+            "name": "Eduardo Riveros"
+          }
+        ]
+      }
+    }
+  ]
+}

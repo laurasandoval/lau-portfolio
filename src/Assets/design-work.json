@@ -1,6 +1,55 @@
 {
   "DesignWork": [
     {
+      "title": "Responsive Müller-Brockmann",
+      "client": null,
+      "description": [
+        "Responsive and accessible Josef Müller-Brockmann posters using CSS Grid and native web technologies."
+      ],
+      "release_year": "2020",
+      "release_month": "06",
+      "featured": true,
+      "has_page": false,
+      "src": "open-source/responsive-muller-brockmann",
+      "thumbnails": {
+        "portrait": [
+          "responsive-muller-brockmann-01.png",
+          "responsive-muller-brockmann-02.png",
+          "responsive-muller-brockmann-03.png",
+          "responsive-muller-brockmann-04.png"
+        ],
+        "landscape": [
+          "responsive-muller-brockmann-01.png",
+          "responsive-muller-brockmann-02.png",
+          "responsive-muller-brockmann-03.png",
+          "responsive-muller-brockmann-04.png"
+        ]
+      },
+      "cta": [
+        {
+          "title": "See the code on GitHub",
+          "url": "https://github.com/laurasandoval/ResponsiveMullerBrockmann"
+        },
+        {
+          "title": "Musica Viva (1959)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1959/"
+        },
+        {
+          "title": "Musica Viva (1961)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1961/"
+        },
+        {
+          "title": "Brockmann (1967)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/brockmann-1967/"
+        },
+        {
+          "title": "Musica Viva (1970)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1970/"
+        }
+      ],
+      "team": null
+    },
+    {
       "title": "Cornershop Referral Landing",
       "client": "Cornershop",
       "description": [

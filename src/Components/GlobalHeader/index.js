@@ -180,6 +180,16 @@ class GlobalHeader extends React.PureComponent {
                   About
                 </NavLink>
               </li>
+              <li>
+                <NavLink
+                  className="nav-item"
+                  activeClassName="active"
+                  exact
+                  to="/open-source"
+                >
+                  Open Source
+                </NavLink>
+              </li>
               <li className="search-button" onClick={this._openSearch}>
                 <span className="nav-item">Search</span>
               </li>
