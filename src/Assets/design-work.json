@@ -585,10 +585,10 @@
       "src": "open-source/simple-bip-app",
       "thumbnails": {
         "portrait": [
-          "simple-bip-app-portrait.svg"
+          "simple-bip-app-portrait.png"
         ],
         "landscape": [
-          "simple-bip-app.svg"
+          "simple-bip-app.png"
         ]
       },
       "cta": [
