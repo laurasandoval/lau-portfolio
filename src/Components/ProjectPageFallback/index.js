@@ -80,11 +80,14 @@ class ProjectPageFallback extends React.PureComponent {
           <div className="project-info">
             <div className="main">
               <h2 className="title">{this.props.title}</h2>
-              <div className="description">
-                {this.props.description.map((p, i) => {
-                  return <p key={i}>{p}</p>;
-                })}
-              </div>
+              {
+                this.props.description &&
+                <div className="description">
+                  {this.props.description.map((p, i) => {
+                    return <p key={i}>{p}</p>;
+                  })}
+                </div>
+              }
               {this.props.cta && (
                 <div className="ctas">
                   {this.props.cta.map((cta, i) => {

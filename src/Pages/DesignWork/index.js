@@ -87,7 +87,7 @@ class DesignWork extends React.PureComponent {
   }
 
   render() {
-    const maxFeaturedCount = this.state.isMobile ? 3 : 4;
+    const maxFeaturedCount = this.state.isMobile ? 4 : 6;
     const maxRemainingCount = this.state.isMobile ? 6 : 8;
     const generator = this._sessionNumber();
 

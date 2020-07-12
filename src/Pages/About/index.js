@@ -75,7 +75,7 @@ function About() {
             software and design.
           </p>
           <p role="text">
-            Studied Design at Pontificia Universidad Católica de Chile, and you
+            Taught myself to code, studied Design at Pontificia Universidad Católica de Chile, and you
             know how it goes. Find more of that on my{" "}
             <a
               href={require(`../../Assets/cv-files/${CVData.CV[0].filename}`)}

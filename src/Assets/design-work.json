@@ -1,6 +1,175 @@
 {
   "DesignWork": [
     {
+      "title": "Uber Grocery with Cornershop",
+      "client": "Cornershop & Uber",
+      "description": null,
+      "release_year": "2020",
+      "release_month": "07",
+      "featured": true,
+      "has_page": false,
+      "src": "cornershop/cornershop-uber-integration",
+      "thumbnails": {
+        "portrait": [
+          "cornershop-uber-stores-home.png",
+          "cornershop-uber-store-home.png",
+          "cornershop-uber-store-department.png",
+          "cornershop-uber-product-detail.png"
+        ],
+        "landscape": [
+          "cornershop-uber-stores-home.png",
+          "cornershop-uber-store-home.png",
+          "cornershop-uber-store-department.png",
+          "cornershop-uber-product-detail.png"
+        ]
+      },
+      "cta": [
+        {
+          "title": "Press Release",
+          "url": "https://www.uber.com/newsroom/introducing-grocery-delivery/"
+        },
+        {
+          "title": "About Cornershop",
+          "url": "https://cornershopapp.com/"
+        }
+      ],
+      "team": {
+        "Cornershop Product Design": [
+          {
+            "name": "Laura Sandoval"
+          },
+          {
+            "name": "Matías Martínez"
+          }
+        ],
+        "Uber Product Design": [
+          {
+            "name": "Angela Wen"
+          },
+          {
+            "name": "Angie Kwan"
+          }
+        ],
+        "Cornershop Frontend Engineering": [
+          {
+            "name": "Erasmo Marin"
+          },
+          {
+            "name": "Laura Sandoval"
+          },
+          {
+            "name": "Abel Fernández"
+          },
+          {
+            "name": "Mercedes Rodriguez"
+          },
+          {
+            "name": "Gonzalo Castillo"
+          },
+          {
+            "name": "Francisco García"
+          },
+          {
+            "name": "Franciso Yáñez"
+          },
+          {
+            "name": "Jorge Pernia"
+          }
+        ],
+        "Uber Engineering": [
+          {
+            "name": "Ashish Gupta"
+          },
+          {
+            "name": "Yi Zhang"
+          },
+          {
+            "name": "Damon Toal-Rossi"
+          },
+          {
+            "name": "Erin Gallagher"
+          },
+          {
+            "name": "Esco Obong"
+          },
+          {
+            "name": "Hosung Lee"
+          },
+          {
+            "name": "Jakob Holdgaard Thomsen"
+          },
+          {
+            "name": "Kristian Lassen"
+          },
+          {
+            "name": "Kun Bao"
+          },
+          {
+            "name": "Martin Ickowicz"
+          },
+          {
+            "name": "Rene Schmidt"
+          },
+          {
+            "name": "Stefan Gavrilovic"
+          }
+        ],
+        "Cornershop Backend Engineering": [
+          {
+            "name": "Osvaldo Mena"
+          },
+          {
+            "name": "Alejandra Fernández"
+          },
+          {
+            "name": "Ricardo Oyarzun"
+          }
+        ],
+        "Cornershop QA": [
+          {
+            "name": "Lili Achji"
+          },
+          {
+            "name": "Daiana Spengler"
+          },
+          {
+            "name": "Marcos Galeano"
+          },
+          {
+            "name": "Christian I. Muñoz"
+          }
+        ],
+        "Cornershop Project Managment": [
+          {
+            "name": "Valentina Aguirre"
+          },
+          {
+            "name": "Osvaldo Mena"
+          },
+          {
+            "name": "Cristopher Oyarzun"
+          }
+        ],
+        "Uber Project Managment": [
+          {
+            "name": "Lawrence Luk"
+          },
+          {
+            "name": "Utkarsh Garg"
+          },
+          {
+            "name": "Maya Eichler"
+          },
+          {
+            "name": "Jennifer Yang Wong"
+          },
+          {
+            "name": "Bryan Yang"
+          }
+        ]
+      }
+    },
+    {
       "title": "Responsive Müller-Brockmann",
       "client": null,
       "description": [
@@ -94,12 +263,12 @@
             "name": "Laura Sandoval"
           }
         ],
-        "Frontend Development": [
+        "Frontend Engineering": [
           {
             "name": "Laura Sandoval"
           }
         ],
-        "Backend Development": [
+        "Backend Engineering": [
           {
             "name": "Alejandra Fernández"
           },
@@ -151,7 +320,7 @@
       "title": "Cool Place to Bike Website",
       "client": "Kappo",
       "description": [
-        "Website redesign and development for Kappo's Cool Place to Bike program."
+        "Website redesign and Engineering for Kappo's Cool Place to Bike program."
       ],
       "release_year": "2019",
       "release_month": "02",
@@ -178,7 +347,7 @@
             "name": "Laura Sandoval"
           }
         ],
-        "Frontend Development": [
+        "Frontend Engineering": [
           {
             "name": "Laura Sandoval"
           }
@@ -253,7 +422,7 @@
       "title": "Saldo Red",
       "client": null,
       "description": [
-        "Design and development of the best, privacy and simplicity-driven, most positively reviewed app for managing Chilean Transit Cards.",
+        "Design and Engineering of the best, privacy and simplicity-driven, most positively reviewed app for managing Chilean Transit Cards.",
         "This project was not commissioned by, and it's not directly related to any of Chile's official transit authorities."
       ],
       "release_year": "2019",
@@ -286,12 +455,12 @@
             "name": "Laura Sandoval"
           }
         ],
-        "Frontend Development": [
+        "Frontend Engineering": [
           {
             "name": "Laura Sandoval"
           }
         ],
-        "Backend Development": [
+        "Backend Engineering": [
           {
             "name": "Eduardo Riveros"
           }
@@ -302,7 +471,7 @@
       "title": "Saldo Red Website",
       "client": "Saldo Red",
       "description": [
-        "Website design and development for Saldo Red."
+        "Website design and Engineering for Saldo Red."
       ],
       "release_year": "2019",
       "release_month": "06",
@@ -385,7 +554,7 @@
       ],
       "release_year": "2018",
       "release_month": "08",
-      "featured": true,
+      "featured": false,
       "has_page": false,
       "src": "transantiago-bot",
       "thumbnails": {
@@ -403,11 +572,11 @@
       "title": "Guemil Icon Uploader",
       "client": "Guemil Project",
       "description": [
-        "Design and development of internal tools and API's to automate icon testing and visualization."
+        "Design and Engineering of internal tools and API's to automate icon testing and visualization."
       ],
       "release_year": "2018",
       "release_month": "09",
-      "featured": true,
+      "featured": false,
       "has_page": false,
       "src": "guemil/icon-uploader",
       "thumbnails": {
@@ -435,7 +604,7 @@
             "name": "Laura Sandoval"
           }
         ],
-        "Frontend Development": [
+        "Frontend Engineering": [
           {
             "name": "Felipe Cortez"
           },
@@ -651,12 +820,12 @@
         }
       ],
       "team": {
-        "Design and Frontend Development": [
+        "Design and Frontend Engineering": [
           {
             "name": "Laura Sandoval"
           }
         ],
-        "API Development": [
+        "API Engineering": [
           {
             "name": "Eduardo Riveros"
           }
