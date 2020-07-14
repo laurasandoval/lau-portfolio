@@ -65,7 +65,7 @@ class ProjectPageFallback extends React.PureComponent {
               this.projectGallery = projectGallery;
             }}
           >
-            {this.props.thumbnails.landscape.map((thumbnail, index) => {
+            {this.props.thumbnails.map((thumbnail, index) => {
               return (
                 <ProjectThumbnail
                   {...this.props}

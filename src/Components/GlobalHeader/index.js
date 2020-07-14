@@ -236,7 +236,7 @@ class GlobalHeader extends React.PureComponent {
                     <li key={i}>
                       <ProjectThumbnail
                         {...result}
-                        thumbnail={result.thumbnails.landscape[0]}
+                        thumbnail={result.thumbnails[0]}
                         hover
                       />
                     </li>
