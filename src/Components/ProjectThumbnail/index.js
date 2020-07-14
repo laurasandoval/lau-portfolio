@@ -72,10 +72,9 @@ class ProjectThumbnail extends React.PureComponent {
     } = this.props;
 
     const Tag = as ? as : "div";
-    const thumbnailSet = portrait ? thumbnails.portrait : thumbnails.landscape;
     const thumbnailToRender = thumbnail
       ? thumbnail
-      : thumbnailSet.slice().sort(() => Math.random() - Math.random())[0];
+      : thumbnails.slice().sort(() => Math.random() - Math.random())[0];
 
     return (
       <Tag

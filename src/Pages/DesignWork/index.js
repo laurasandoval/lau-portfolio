@@ -11,41 +11,11 @@ import RemainingItems from "./RemainingItems";
 class DesignWork extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {
-      isMobile: false,
-      viewportChecked: false,
-      viewportWidth: undefined,
-    };
 
     this._renderThumbnail = this._renderThumbnail.bind(this);
     this._randomGenerator = this._randomGenerator.bind(this);
     this._sessionNumber = this._sessionNumber.bind(this);
   }
-
-  componentDidMount() {
-    if (this.state.viewportChecked === false) {
-      this._debouncedWindowSizeCheck();
-    }
-    window.addEventListener("resize", this._debouncedWindowSizeCheck);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this._debouncedWindowSizeCheck);
-  }
-
-  _debouncedWindowSizeCheck = debounce(() => {
-    if (window.innerWidth !== this.state.viewportWidth) {
-      this.setState({
-        isMobile: window.innerWidth < 480,
-        viewportWidth: window.innerWidth,
-      });
-    }
-    if (this.state.viewportChecked === false) {
-      this.setState({
-        viewportChecked: true,
-      });
-    }
-  }, 500);
 
   _randomGenerator(seed) {
     var m = 25;
@@ -59,8 +29,7 @@ class DesignWork extends React.PureComponent {
     };
   }
 
-  _renderThumbnail(project, index) {
-    const isMobile = this.state.isMobile;
+  _renderThumbnail(project, index, featured) {
     return (
       <ProjectThumbnail
         {...project}
@@ -68,7 +37,7 @@ class DesignWork extends React.PureComponent {
         hover
         autoplay
         key={index}
-        portrait={isMobile ? (project.featured ? true : false) : false}
+        portrait={featured}
         fadeIn
       />
     );
@@ -87,8 +56,8 @@ class DesignWork extends React.PureComponent {
   }
 
   render() {
-    const maxFeaturedCount = this.state.isMobile ? 4 : 6;
-    const maxRemainingCount = this.state.isMobile ? 6 : 8;
+    const maxFeaturedCount = 6;
+    const maxRemainingCount = 8;
     const generator = this._sessionNumber();
 
     const randomizedDesignWork = Data.DesignWork.slice().sort(() => generator() - generator());
@@ -107,33 +76,29 @@ class DesignWork extends React.PureComponent {
 
         <GlobalHeader sticky />
         <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
-        {this.state.viewportChecked && (
-          <Grid featured>
-            {featuredProjectsLimited.map((project, index) => {
-              return this._renderThumbnail(project, index);
-            })}
-          </Grid>
-        )}
-        {this.state.viewportChecked && (
-          <Grid>
-            {remainingProjectsLimited.map((project, index) => {
-              return this._renderThumbnail(project, index);
-            })}
-            <RemainingItems
-              itemsToShow={remainingProjects.slice(
+        <Grid featured>
+          {featuredProjectsLimited.map((project, index) => {
+            return this._renderThumbnail(project, index, true);
+          })}
+        </Grid>
+        <Grid>
+          {remainingProjectsLimited.map((project, index) => {
+            return this._renderThumbnail(project, index);
+          })}
+          <RemainingItems
+            itemsToShow={remainingProjects.slice(
+              maxRemainingCount,
+              remainingProjects.length
+            )}
+            as="article"
+            remainingCount={
+              remainingProjects.slice(
                 maxRemainingCount,
                 remainingProjects.length
-              )}
-              as="article"
-              remainingCount={
-                remainingProjects.slice(
-                  maxRemainingCount,
-                  remainingProjects.length
-                ).length
-              }
-            />
-          </Grid>
-        )}
+              ).length
+            }
+          />
+        </Grid>
       </Fragment>
     );
   }
