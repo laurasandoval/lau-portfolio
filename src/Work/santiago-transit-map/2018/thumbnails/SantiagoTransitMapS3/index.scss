@@ -4,8 +4,10 @@
       width: 100%;
       height: auto;
       @at-root [data-portrait="true"]#{&} {
-        height: 100%;
-        width: auto;
+        @media (max-width: 480px) {
+          height: 100%;
+          width: auto;
+        }
       }
     }
   }
