@@ -81,6 +81,8 @@
       color: inherit;
       cursor: pointer;
       transition: color 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
+      padding: 16px;
+      margin: -16px;
       &.active {
         color: rgba(136, 138, 144, 1);
       }
