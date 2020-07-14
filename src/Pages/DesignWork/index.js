@@ -96,7 +96,7 @@ class DesignWork extends React.PureComponent {
     const featuredProjectsLimited = featuredProjects.slice(0, maxFeaturedCount);
     const remainingFeaturedProjects = featuredProjects.slice(maxFeaturedCount,featuredProjects.lenght);
     const nonFeaturedProjects = randomizedDesignWork.filter((item) => item.featured === false);
-    const remainingProjects = nonFeaturedProjects.concat(remainingFeaturedProjects);
+    const remainingProjects = remainingFeaturedProjects.concat(nonFeaturedProjects);
     const remainingProjectsLimited = remainingProjects.slice(0,maxRemainingCount);
 
     return (
