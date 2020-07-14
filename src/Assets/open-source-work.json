@@ -11,20 +11,12 @@
       "featured": true,
       "has_page": false,
       "src": "open-source/responsive-muller-brockmann",
-      "thumbnails": {
-        "portrait": [
-          "responsive-muller-brockmann-01.png",
-          "responsive-muller-brockmann-02.png",
-          "responsive-muller-brockmann-03.png",
-          "responsive-muller-brockmann-04.png"
-        ],
-        "landscape": [
-          "responsive-muller-brockmann-01.png",
-          "responsive-muller-brockmann-02.png",
-          "responsive-muller-brockmann-03.png",
-          "responsive-muller-brockmann-04.png"
-        ]
-      },
+      "thumbnails": [
+        "responsive-muller-brockmann-01.png",
+        "responsive-muller-brockmann-02.png",
+        "responsive-muller-brockmann-03.png",
+        "responsive-muller-brockmann-04.png"
+      ],
       "cta": [
         {
           "title": "See the code on GitHub",
@@ -62,14 +54,9 @@
       "featured": true,
       "has_page": false,
       "src": "open-source/simple-bip-app",
-      "thumbnails": {
-        "portrait": [
-          "simple-bip-app-portrait.png"
-        ],
-        "landscape": [
-          "simple-bip-app.png"
-        ]
-      },
+      "thumbnails": [
+        "simple-bip-app.png"
+      ],
       "cta": [
         {
           "title": "Demo",
