@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import { debounce } from "lodash";
 import Data from "../../Assets/design-work.json";
 import Grid from "../../Components/Grid";
 import ProjectThumbnail from "../../Components/ProjectThumbnail";
