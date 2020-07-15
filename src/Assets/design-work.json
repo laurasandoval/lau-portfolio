@@ -378,7 +378,7 @@
       "title": "Saldo Red",
       "client": null,
       "description": [
-        "Design and Engineering of the best, privacy and simplicity-driven, most positively reviewed app for managing Chilean Transit Cards.",
+        "Design and development of the best, privacy and simplicity-driven, most positively reviewed app for managing Chilean Transit Cards.",
         "This project was not commissioned by, and it's not directly related to any of Chile's official transit authorities."
       ],
       "release_year": "2019",
@@ -387,7 +387,8 @@
       "has_page": false,
       "src": "saldo-red/saldo-red-app",
       "thumbnails": [
-        "saldo-red.png"
+        "saldo-red.png",
+        "saldo-red-variant.png"
       ],
       "cta": [
         {
