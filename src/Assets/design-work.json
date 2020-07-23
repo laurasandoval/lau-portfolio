@@ -346,7 +346,6 @@
       "thumbnails": [
         "santiago-transit-map-s4-print.png",
         "santiago-transit-map-s4.png",
-        "santiago-transit-map-s4-detail.png",
         "santiago-transit-map-s4-video-reveal.webm"
       ],
       "cta": null,
@@ -387,8 +386,8 @@
       "has_page": false,
       "src": "saldo-red/saldo-red-app",
       "thumbnails": [
-        "saldo-red.png",
-        "saldo-red-variant.png"
+        "saldo-red-variant.png",
+        "saldo-red.png"
       ],
       "cta": [
         {
