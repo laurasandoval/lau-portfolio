@@ -4,7 +4,7 @@
       "title": "Cornershop Web App",
       "client": "Cornershop",
       "description": [
-        "Originally aimed at making Cornershop's web application suitable for smaller screen sizes, multiple discussions within Cornershop's Product Design and Engineering teams snowballed the project into a complete redesign and development of the website.",
+        "Originally aimed at making Cornershop's web application suitable for smaller screen sizes, multiple discussions between the Product Design and Engineering teams snowballed the project into a complete redesign and development of the website.",
         "While preserving its underlying Javascript foundations, the entire markup and CSS of the web app were rethought and rebuilt from the ground up, taking advantage of modern CSS properties to achieve native-feeling interactions, visually polished elements, and mobile-first layout designs—all while taking the opportunity to significantly improve accessibility for both screen reader and keyboard users throught every point of the experience.",
         "Most Javascript-powered UI libraries were deprecated from the codebase afterwards, helping consolidate a mature, propietary, and flexible design and development environment."
       ],
