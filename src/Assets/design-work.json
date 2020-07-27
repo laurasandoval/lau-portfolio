@@ -735,7 +735,7 @@
       ],
       "release_year": "2018",
       "release_month": "11",
-      "featured": true,
+      "featured": false,
       "has_page": false,
       "src": "open-source/simple-bip-app",
       "thumbnails": [
