@@ -46,6 +46,9 @@
         width: 96%;
         margin-right: 4px;
         flex-shrink: 0;
+        &:not(:last-of-type) {
+          margin-bottom: 0;
+        }
         &:last-of-type {
           margin-right: 0;
         }
