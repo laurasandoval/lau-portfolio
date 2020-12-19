@@ -444,7 +444,7 @@
       "release_month": "04",
       "featured": true,
       "has_page": false,
-      "src": "saldo-red/saldo-red-app",
+      "src": "saldo-red",
       "thumbnails": [
         "saldo-red-variant.png",
         "saldo-red.png"
