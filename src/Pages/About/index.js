@@ -79,7 +79,6 @@ function About() {
             know how it goes. Find more of that on my{" "}
             <a
               href={require(`../../Assets/cv-files/${CVData.CV[0].filename}`)}
-              target="_blank"
               rel="noopener noreferrer"
             >
               Resume
@@ -89,7 +88,6 @@ function About() {
           <AccessibilityLabel>
             <a
               href={require(`../../Assets/cv-files/${CVData.CV[0].filename}`)}
-              target="_blank"
               rel="noopener noreferrer"
             >
               Résumé

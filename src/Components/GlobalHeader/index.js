@@ -9,6 +9,7 @@ import {
 import "./index.scss";
 import AccessibilityLabel from "../AccessibilityLabel";
 import DesignWork from "../../Assets/design-work.json";
+import CVDataJSON from "../../Assets/cv-data.json";
 import ProjectThumbnail from "../ProjectThumbnail";
 
 class GlobalHeader extends React.PureComponent {
@@ -114,6 +115,8 @@ class GlobalHeader extends React.PureComponent {
         : null;
     });
 
+    const CVData = CVDataJSON;
+
     return (
       <header
         className="global-header"
@@ -181,14 +184,13 @@ class GlobalHeader extends React.PureComponent {
                 </NavLink>
               </li>
               <li>
-                <NavLink
+                <a
                   className="nav-item"
-                  activeClassName="active"
-                  exact
-                  to="/open-source"
+                  href={require(`../../Assets/cv-files/${CVData.CV[0].filename}`)}target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  Open Source
-                </NavLink>
+                  Resume
+                </a>
               </li>
               <li className="search-button" onClick={this._openSearch}>
                 <span className="nav-item">Search</span>
