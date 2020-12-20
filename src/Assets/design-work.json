@@ -446,17 +446,15 @@
       "has_page": false,
       "src": "saldo-red",
       "thumbnails": [
-        "saldo-red-variant.png",
-        "saldo-red.png"
+        "saldo-red-real-life.png",
+        "saldo-red-card-selector.png",
+        "saldo-red-tne-card.png",
+        "saldo-red-merval-card-details.png"
       ],
       "cta": [
         {
           "title": "Download on the App Store",
           "url": "https://apps.apple.com/cl/app/saldo-red/id1464611715"
-        },
-        {
-          "title": "Visit Website",
-          "url": "https://saldo.red"
         }
       ],
       "team": {
