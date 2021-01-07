@@ -189,7 +189,7 @@ class GlobalHeader extends React.PureComponent {
                   href={require(`../../Assets/cv-files/${CVData.CV[0].filename}`)}target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Resume
+                  Résumé
                 </a>
               </li>
               <li className="search-button" onClick={this._openSearch}>

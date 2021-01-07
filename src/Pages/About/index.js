@@ -81,7 +81,7 @@ function About() {
               href={require(`../../Assets/cv-files/${CVData.CV[0].filename}`)}
               rel="noopener noreferrer"
             >
-              Resume
+              Résumé
             </a>
             {<AccessibilityLabel>.</AccessibilityLabel>} :-)
           </p>
