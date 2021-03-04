@@ -318,6 +318,48 @@
       }
     },
     {
+      "title": "Cornershop for Stores Landing",
+      "client": "Cornershop",
+      "description": [
+        "Website redesign for \"Cornershop for Stores\" landing page.",
+        "The entire website was redesigned and rewritten from the ground up, providing first-class support for assistive technologies —such as keyboard navigation and screen readers— in every step of the process."
+      ],
+      "release_year": "2021",
+      "release_month": "01",
+      "featured": true,
+      "has_page": false,
+      "src": "cornershop/cornershop-stores-landing",
+      "thumbnails": [
+        "cornershop-stores-landing-redesign.webm"
+      ],
+      "cta": [
+        {
+          "title": "Visit Website",
+          "url": "https://corner.shop/stores"
+        }
+      ],
+      "team": {
+        "Product Design": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "Frontend Engineering": [
+          {
+            "name": "Coni Lastra"
+          },
+          {
+            "name": "Matías Verdejo"
+          }
+        ],
+        "Backend Engineering": [
+          {
+            "name": "Saher Piñero"
+          }
+        ]
+      }
+    },
+    {
       "title": "Kappo Brand Identity Redesign",
       "client": "Kappo",
       "description": [
