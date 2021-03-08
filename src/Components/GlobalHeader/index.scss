@@ -42,7 +42,7 @@
     bottom: 0;
     left: 0;
     background: rgba(255, 255, 255, 1);
-    transition: all 0.4s ease;
+    transition: border-bottom 0.4s ease, transform 0.4s ease;
     border-bottom: 1px solid rgba(231, 232, 233, 0);
     @at-root [data-show-border="true"]#{&} {
       border-bottom: 1px solid rgba(231, 232, 233, 1);
@@ -119,7 +119,7 @@
         margin: 0;
         padding: 0;
         li {
-          transition: all 1s cubic-bezier(0.86, 0, 0.07, 1);
+          transition: transform 1s cubic-bezier(0.86, 0, 0.07, 1), opacity 1s cubic-bezier(0.86, 0, 0.07, 1), color 1s cubic-bezier(0.86, 0, 0.07, 1);
           transform: translateX(0);
           @include transitionDelaysBackwards;
           @at-root [data-search-open="true"]#{&} {
@@ -202,12 +202,11 @@
           grid-gap: 16px;
           transition-delay: 3s;
           li {
-            transition: inherit;
             padding-bottom: 16px;
             box-sizing: border-box;
             opacity: 0;
             transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.28, 0.11, 0.32, 1);
+            transition: border-bottom 0.8s cubic-bezier(0.28, 0.11, 0.32, 1), opacity 0.8s cubic-bezier(0.28, 0.11, 0.32, 1), transform 0.8s cubic-bezier(0.28, 0.11, 0.32, 1);
             @include transitionDelaysBackwards;
             &:not(:nth-last-child(2)) {
               border-bottom: 1px solid rgba(136, 139, 144, 0.2);
@@ -341,7 +340,7 @@
   justify-content: center;
   opacity: 0;
   pointer-events: none;
-  transition: all 1s cubic-bezier(0.86, 0, 0.07, 1) 0.2s;
+  transition: opacity 1s cubic-bezier(0.86, 0, 0.07, 1) 0.2s;
   &[data-open="true"] {
     opacity: 1;
     pointer-events: all;
@@ -349,7 +348,7 @@
   .search-container {
     position: relative;
     transform: translateX(200px);
-    transition: inherit;
+    transition: opacity 1s cubic-bezier(0.86, 0, 0.07, 1) 0.2s, transform 1s cubic-bezier(0.86, 0, 0.07, 1) 0.2s;
     display: flex;
     flex-flow: row;
     @at-root [data-open="true"]#{&} {
@@ -503,7 +502,7 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        transition: all 0.4s ease;
+        transition: transform 0.4s ease, opacity 0.4s ease;
         transform: translateX(100%);
         @at-root [data-open="true"]#{&} {
           transform: translateX(0);
@@ -543,7 +542,6 @@
           box-sizing: border-box;
           font-size: 18px;
           color: rgba(16, 99, 238, 1);
-          transition: all 0s ease 4s;
         }
       }
     }
