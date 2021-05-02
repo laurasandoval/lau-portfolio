@@ -18,6 +18,7 @@
     display: flex;
     flex-flow: column;
     border-bottom: 1px solid rgba(231, 232, 233, 0);
+    transition: border-bottom .4s ease;
     .project-thumbnail:not(:last-of-type) {
       margin-bottom: var(--global-padding);
     }
