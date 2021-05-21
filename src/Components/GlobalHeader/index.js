@@ -102,13 +102,32 @@ class GlobalHeader extends React.PureComponent {
   }
 
   _toggleNav() {
-    this.setState((prevState) => ({
-      navOpen: !prevState.navOpen,
-    }));
+    if (this.state.navOpen === false && this.state.showHeaderBorder === false) {
+      this.setState({
+        showHeaderBorder: true,
+      });
+
+      setTimeout(() => {
+        this.setState({
+          navOpen: true,
+        });
+      }, 300);
+    } else {
+      this.setState((prevState) => ({
+        navOpen: !prevState.navOpen,
+      }));
+
+      setTimeout(() => {
+        this._throttledScrollCheck();
+      }, 2000);
+    }
   }
 
   render() {
-    const { sticky } = this.props;
+    const {
+      sticky,
+      backgroundColor,
+    } = this.props;
     let searchResults = DesignWork.DesignWork.filter((project) => {
       return this.state.searchQuery.length
         ? project.title.toLowerCase().indexOf(this.state.searchQuery) !== -1
@@ -131,6 +150,9 @@ class GlobalHeader extends React.PureComponent {
             ? "true"
             : "false"
         }
+        style={{
+          "--background-color": backgroundColor
+        }}
         ref={(headerElement) => {
           this.headerElement = headerElement;
         }}

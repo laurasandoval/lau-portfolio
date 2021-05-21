@@ -28,7 +28,7 @@
   margin: 0 0 calc(var(--global-padding) * 2);
   padding: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 1);
+  background: var(--background-color, rgba(255, 255, 255, 1));
   &[data-sticky="true"] {
     position: sticky;
     top: 0px;
@@ -41,11 +41,15 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(255, 255, 255, 1);
-    transition: border-bottom 0.4s ease, transform 0.4s ease;
+    background: var(--background-color, rgba(255, 255, 255, 1));
+    transition: border-bottom 0.4s ease, transform 0.4s ease, background-color 0.4s ease;
     border-bottom: 1px solid rgba(231, 232, 233, 0);
     @at-root [data-show-border="true"]#{&} {
+      background: rgba(255, 255, 255, 1);
       border-bottom: 1px solid rgba(231, 232, 233, 1);
+    }
+    @at-root [data-nav-open="true"]#{&} {
+      background: rgba(255, 255, 255, 1);
     }
   }
   .translucent-overlay {
@@ -407,7 +411,7 @@
     left: 0;
     max-width: 400px;
     ul {
-      background: rgba(255, 255, 255, 1);
+      background: var(--background-color, rgba(255, 255, 255, 1));
       margin: 0;
       padding: 0;
       list-style: none;
@@ -552,7 +556,7 @@
       max-width: none;
       ul {
         box-shadow: none;
-        background: rgba(255, 255, 255, 1);
+        background: var(--background-color, rgba(255, 255, 255, 1));
         border-radius: 0;
         li {
           padding-top: 8px;
