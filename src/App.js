@@ -7,6 +7,7 @@ import ProjectsRouter from "./Pages/ProjectsRouter";
 import "./App.scss";
 import DesignWork from "./Pages/DesignWork";
 import About from "./Pages/About";
+import Balance from "./Pages/Balance";
 import ScrollToTop from "./Components/ScrollToTop";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={DesignWork} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/balance" component={Balance} />
         {DesignWorkSrc.DesignWork.map((project, index) => {
           return (
             <Route
