@@ -9,6 +9,7 @@ import DesignWork from "./Pages/DesignWork";
 import About from "./Pages/About";
 import Balance from "./Pages/Balance";
 import ScrollToTop from "./Components/ScrollToTop";
+import BalancePrivacyPolicy from "./Pages/Balance/PrivacyPolicy";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path="/" component={DesignWork} />
         <Route exact path="/about" component={About} />
         <Route exact path="/balance" component={Balance} />
+        <Route exact path="/balance/privacy-policy" component={BalancePrivacyPolicy} />
         {DesignWorkSrc.DesignWork.map((project, index) => {
           return (
             <Route
