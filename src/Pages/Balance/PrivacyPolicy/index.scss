@@ -3,6 +3,12 @@
   --background-color-rgb: 250, 250, 250;
   background-color: rgba(var(--background-color-rgb), 1);
   box-shadow: 0 0 0 1000px rgba(var(--background-color-rgb), 1);
+  
+  @media (max-width: 850px) {
+    & {
+      padding: var(--global-padding);
+    }
+  }
 
   .app-icon {
     display: block;
