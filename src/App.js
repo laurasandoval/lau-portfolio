@@ -21,7 +21,7 @@ function App() {
         <Route exact path="/balance" component={Balance} />
         <Route exact path="/balance/privacy-policy" component={BalancePrivacyPolicy} />
         <Route exact path="/balance/rate" component={() => { 
-          window.location.replace("https://itunes.apple.com/app/id540252823?action=write-review");
+          window.location.replace("https://itunes.apple.com/app/id1464611715?action=write-review");
         }}/>
         {DesignWorkSrc.DesignWork.map((project, index) => {
           return (
