@@ -23,6 +23,9 @@ function App() {
         <Route exact path="/balance/rate" component={() => { 
           window.location.replace("https://itunes.apple.com/app/id1464611715?action=write-review");
         }}/>
+        <Route exact path="/balance/twitter" component={() => { 
+          window.location.replace("https://twitter.com/BalanceAppCL");
+        }}/>
         {DesignWorkSrc.DesignWork.map((project, index) => {
           return (
             <Route
