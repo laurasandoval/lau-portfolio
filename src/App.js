@@ -26,6 +26,9 @@ function App() {
         <Route exact path="/balance/twitter" component={() => { 
           window.location.replace("https://twitter.com/BalanceAppCL");
         }}/>
+        <Route exact path="/patreon" component={() => { 
+          window.location.replace("https://patreon.com/laurasideral");
+        }}/>
         {DesignWorkSrc.DesignWork.map((project, index) => {
           return (
             <Route
