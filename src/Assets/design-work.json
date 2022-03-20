@@ -408,12 +408,7 @@
       "thumbnails": [
         "web-cool-place-to-bike.webm"
       ],
-      "cta": [
-        {
-          "title": "Visit Website",
-          "url": "https://coolplacetobike.com"
-        }
-      ],
+      "cta": null,
       "team": {
         "Web Design": [
           {
@@ -478,29 +473,30 @@
       "team": null
     },
     {
-      "title": "Saldo Red",
+      "title": "Balance",
       "client": null,
       "description": [
-        "Saldo Red is an iOS app for managing Chilean transit cards.",
-        "With its unique functionalities and deep attention to accessibility and details, Saldo Red has consistently remained within the top 20 most downloaded navigation apps in Chile ever since its launch in 2019—and it’s by far the most positively reviewed one among its local alternatives.",
-        "Screenshots from an upcoming update. Demo available upon request.",
+        "Formerly “Saldo Red”, Balance is Chile’s top-rated app for managing transit cards.",
+        "With its unique functionalities, native iOS look & feel, and deep attention to accessibility and details, Balance has consistently remained within the top 20 most downloaded navigation apps in Chile ever since its launch in 2019 —reaching up to the second most downloaded navigation app in 2021, right above similar apps like Moovit or Waze— and it’s by far the most positively reviewed one among its local alternatives.",
         "This project was not commissioned by, and it's not directly related to any of Chile's official transit authorities."
       ],
       "release_year": "2019",
       "release_month": "04",
       "featured": true,
       "has_page": false,
-      "src": "saldo-red",
+      "src": "balance",
       "thumbnails": [
-        "saldo-red-real-life.png",
-        "saldo-red-card-selector.png",
-        "saldo-red-tne-card.png",
-        "saldo-red-merval-card-details.png"
+        "balance-bip.png",
+        "balance-saved-cards.png"
       ],
       "cta": [
         {
           "title": "Download on the App Store",
-          "url": "https://apps.apple.com/cl/app/saldo-red/id1464611715"
+          "url": "https://apps.apple.com/app/balance-for-your-bip-card/id1532939978"
+        },
+        {
+          "title": "Visit Website",
+          "url": "https://balanceapp.cl"
         }
       ],
       "team": {
@@ -509,7 +505,7 @@
             "name": "Laura Sandoval"
           }
         ],
-        "Frontend Engineering": [
+        "iOS Engineering": [
           {
             "name": "Laura Sandoval"
           }
@@ -517,6 +513,9 @@
         "Backend Engineering": [
           {
             "name": "Eduardo Riveros"
+          },
+          {
+            "name": "Laura Sandoval"
           }
         ]
       }
