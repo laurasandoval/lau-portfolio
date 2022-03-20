@@ -484,7 +484,7 @@
       "release_month": "04",
       "featured": true,
       "has_page": false,
-      "src": "balance",
+      "src": "balance/app",
       "thumbnails": [
         "balance-bip.png",
         "balance-saved-cards.png"
