@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import { Helmet } from "react-helmet";
-import { differenceInYears } from "date-fns";
 import GlobalHeader from "../../Components/GlobalHeader";
 import GenericContainer from "../../Components/GenericContainer";
 import AccessibilityLabel from "../../Components/AccessibilityLabel";
@@ -8,10 +7,7 @@ import CVDataJSON from "../../Assets/cv-data.json";
 import "./index.scss";
 
 function About() {
-  const Age = differenceInYears(
-    new Date(new Date().getFullYear(), 7, 5),
-    new Date(1998, 7, 5)
-  );
+  const Age = "23";
   const CVData = CVDataJSON;
 
   return (
