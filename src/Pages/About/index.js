@@ -7,7 +7,7 @@ import CVDataJSON from "../../Assets/cv-data.json";
 import "./index.scss";
 
 function About() {
-  const Age = "23";
+  const Age = "24";
   const CVData = CVDataJSON;
 
   return (
