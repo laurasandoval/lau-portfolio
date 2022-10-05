@@ -45,7 +45,7 @@ class RemainingItems extends React.Component {
                 </span>
               </div>
               <div className="text">
-                <h3 className="title">See all</h3>
+                <h3 className="title">See All</h3>
                 <h4 className="subtitle">Remaining Projects</h4>
               </div>
             </div>

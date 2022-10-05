@@ -6,6 +6,7 @@ import AccessibilityLabel from "../../Components/AccessibilityLabel";
 import GlobalHeader from "../../Components/GlobalHeader";
 import { Helmet } from "react-helmet";
 import RemainingItems from "./RemainingItems";
+import Callout from "../../Components/Callout";
 
 class DesignWork extends React.PureComponent {
   constructor(props) {
@@ -98,6 +99,9 @@ class DesignWork extends React.PureComponent {
             }
           />
         </Grid>
+        <Callout>
+          <p>This portfolio website uses Bézier Curves (aka. <a href="/squircles.png" rel="noopener noreferrer">squircles</a>) and it's also part of my portfolio. You can find the code on <a href="https://github.com/laurasandoval/lau-portfolio/" rel="noopener noreferrer">GitHub</a>.</p>
+        </Callout>
       </Fragment>
     );
   }
