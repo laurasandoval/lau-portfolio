@@ -30,7 +30,7 @@
       top: 0;
       flex-flow: row;
       overflow: auto;
-      margin: calc((var(--global-padding) / 2) * -1);
+      margin: calc(-1 * (var(--global-padding) / 2));
       padding: calc(var(--global-padding) / 2);
       box-sizing: border-box;
       background: white;
