@@ -15,7 +15,7 @@
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    margin-top: calc(((var(--global-padding) * 2) - (var(--global-padding) / 2)) * 2);
+    margin-top: calc((var(--global-padding) * 2 - var(--global-padding) / 2) * 2);
     margin-bottom: calc(var(--global-padding) * 2);
     padding: 15px 21px;
     text-align: center;
