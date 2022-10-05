@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^14.4.3",
-    "body-scroll-lock": "^4.0.0-beta.0",
-    "date-fns": "^2.29.3",
-    "lodash": "^4.17.21",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
-    "react-router-dom": "^6.4.1",
-    "react-scripts": "^5.0.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "body-scroll-lock": "^3.0.2",
+    "date-fns": "^2.12.0",
+    "lodash": "^4.17.15",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-helmet": "^6.0.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
     "sass": "^1.55.0"
   },
   "scripts": {
@@ -36,8 +36,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "yarn-upgrade-all": "^0.7.1"
   }
 }
