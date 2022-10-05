@@ -487,7 +487,9 @@
       "src": "balance/app",
       "thumbnails": [
         "balance-bip.png",
-        "balance-saved-cards.png"
+        "balance-saved-cards.png",
+        "balance-bip-full.png",
+        "balance-card-artworks.png"
       ],
       "cta": [
         {
