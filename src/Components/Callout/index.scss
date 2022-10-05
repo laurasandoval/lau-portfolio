@@ -15,7 +15,11 @@
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
-    margin-top: calc((var(--global-padding) * 2 - var(--global-padding) / 2) * 2);
+    /*
+      Originally `margin-top: calc((var(--global-padding) * 2 - var(--global-padding) / 2) * 2);`
+      but a stupid JS react thing is messing with that CSS calc so hardcoded to 60px instead.
+    */
+    margin-top: 60px;
     margin-bottom: calc(var(--global-padding) * 2);
     padding: 15px 21px;
     text-align: center;
