@@ -61,7 +61,7 @@
   }
   .big-statement {
     font-size: 36px;
-    line-height: 1.2em;
+    line-height: 1.2;
     max-width: 750px;
     text-align: center;
     margin: 40px auto 0 auto;
@@ -81,8 +81,9 @@
     animation-fill-mode: backwards;
   }
   .about-me-paragraphs {
-    max-width: 620px;
+    max-width: 520px;
     margin: 60px auto 0 auto;
+    line-height: 1.4;
     p {
       font-size: 18px;
       text-indent: 36px;
