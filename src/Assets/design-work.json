@@ -326,7 +326,7 @@
       ],
       "release_year": "2021",
       "release_month": "01",
-      "featured": true,
+      "featured": false,
       "has_page": false,
       "src": "cornershop/cornershop-stores-landing",
       "thumbnails": [
@@ -370,7 +370,7 @@
       ],
       "release_year": "2019",
       "release_month": "03",
-      "featured": true,
+      "featured": false,
       "has_page": false,
       "src": "kappo/kappo-brand-identity",
       "thumbnails": [
@@ -473,7 +473,7 @@
       "team": null
     },
     {
-      "title": "Balance",
+      "title": "Balance – Your transit cards in one place",
       "client": null,
       "description": [
         "Formerly “Saldo Red”, Balance is Chile’s top-rated app for managing transit cards.",
@@ -518,6 +518,52 @@
           },
           {
             "name": "Laura Sandoval"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Lintuaf – An unofficial Fintual client for iOS",
+      "client": null,
+      "description": [
+        "Lintuaf is a silly little side-project I made for myself because I didn't like the official Fintual client for iOS and I found some private Fintual APIs.",
+        "In real life, Fintual is a Chilean start-up that makes investments easy, and I've been using it for a couple of years now.",
+        "This project was not commissioned, reviewed, or approved by, and it's not associated with Fintual in any way."
+      ],
+      "release_year": "2022",
+      "release_month": "09",
+      "featured": true,
+      "has_page": false,
+      "src": "lintuaf",
+      "thumbnails": [
+        "lintuaf-goal-view.png",
+        "lintuaf-goals-view.png",
+        "lintuaf-rename-goal-view.png"
+      ],
+      "cta": [
+        {
+          "title": "Tweet",
+          "url": "https://twitter.com/laurasideral/status/1574174522499944450"
+        },
+        {
+          "title": "About Fintual",
+          "url": "https://fintual.com"
+        }
+      ],
+      "team": {
+        "Product Design": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "iOS Engineering": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "Backend Engineering": [
+          {
+            "name": "Fintual"
           }
         ]
       }
