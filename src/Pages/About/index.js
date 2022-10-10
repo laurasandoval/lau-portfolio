@@ -30,7 +30,7 @@ function About() {
             role="img"
             aria-label="Floating Heart"
           >
-            💛
+            🤍
           </span>
           <span
             className="heart"
@@ -38,7 +38,7 @@ function About() {
             role="img"
             aria-label="Floating Heart"
           >
-            💛
+            🤍
           </span>
           <span
             className="heart"
@@ -46,7 +46,7 @@ function About() {
             role="img"
             aria-label="Floating Heart"
           >
-            💛
+            🤍
           </span>
           <AccessibilityLabel as="figcaption">
             Animation of floating yellow hearts.
