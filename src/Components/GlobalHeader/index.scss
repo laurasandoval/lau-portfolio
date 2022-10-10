@@ -424,12 +424,15 @@
         -webkit-appearance: none;
         padding: 10px;
         &:not(:last-child) {
-          border-bottom: 1px solid rgba(136, 139, 144, 0.2);
+          border-bottom: 0.5px solid rgba(136, 139, 144, 0.2);
         }
         .project-thumbnail {
           display: grid;
           grid-template-columns: 60px 1fr;
           grid-gap: 10px;
+          &:after {
+            --radius: 4px;
+          }
           .project-access {
             top: -10px;
             right: -10px;
@@ -438,9 +441,7 @@
           }
           .project-artwork {
             height: fit-content;
-            &:after {
-              opacity: 1;
-            }
+            --radius: 2px;
           }
           .project-info {
             padding: 0;
