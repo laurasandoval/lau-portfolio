@@ -63,7 +63,10 @@
     {
       "title": "Uber Grocery with Cornershop",
       "client": "Uber",
-      "description": null,
+      "description": [
+        "In 5 months, designed, developed, and launched a grocery delivery service for Uber Eats from scratch.",
+        "By leveraging existing products and expertise from Cornershop, Uber Grocery has helped Uber Eats add more than 24,000 grocery stores around the world into its catalog —including Albertsons, Carrefour, Costco and Woolworths—, and has allowed Uber Eats customers to order at least 100,000 bunches of bananas each month."
+      ],
       "release_year": "2020",
       "release_month": "07",
       "featured": true,
