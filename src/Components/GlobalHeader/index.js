@@ -9,7 +9,6 @@ import {
 import "./index.scss";
 import AccessibilityLabel from "../AccessibilityLabel";
 import DesignWork from "../../Assets/design-work.json";
-import CVDataJSON from "../../Assets/cv-data.json";
 import ProjectThumbnail from "../ProjectThumbnail";
 
 class GlobalHeader extends React.PureComponent {
@@ -134,8 +133,6 @@ class GlobalHeader extends React.PureComponent {
         : null;
     });
 
-    const CVData = CVDataJSON;
-
     return (
       <header
         className="global-header"
@@ -208,7 +205,7 @@ class GlobalHeader extends React.PureComponent {
               <li>
                 <a
                   className="nav-item"
-                  href={require(`../../Assets/cv-files/${CVData.CV[0].filename}`)}target="_blank"
+                  href="/resume"
                   rel="noopener noreferrer"
                 >
                   Résumé

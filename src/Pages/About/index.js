@@ -3,12 +3,10 @@ import { Helmet } from "react-helmet";
 import GlobalHeader from "../../Components/GlobalHeader";
 import GenericContainer from "../../Components/GenericContainer";
 import AccessibilityLabel from "../../Components/AccessibilityLabel";
-import CVDataJSON from "../../Assets/cv-data.json";
 import "./index.scss";
 
 function About() {
   const Age = "24";
-  const CVData = CVDataJSON;
 
   return (
     <Fragment>
@@ -74,7 +72,7 @@ function About() {
             Taught myself to code, studied Design at Pontificia Universidad Católica de Chile, and you
             know how it goes. Find more of that on my{" "}
             <a
-              href={require(`../../Assets/cv-files/${CVData.CV[0].filename}`)}
+              href="/resume"
               rel="noopener noreferrer"
             >
               Résumé
@@ -83,7 +81,7 @@ function About() {
           </p>
           <AccessibilityLabel>
             <a
-              href={require(`../../Assets/cv-files/${CVData.CV[0].filename}`)}
+              href="/resume"
               rel="noopener noreferrer"
             >
               Résumé

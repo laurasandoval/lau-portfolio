@@ -11,6 +11,8 @@ import Balance from "./Pages/Balance";
 import ScrollToTop from "./Components/ScrollToTop";
 import BalancePrivacyPolicy from "./Pages/Balance/PrivacyPolicy";
 
+import LatestResume from "./Assets/latest-resume.json";
+
 function App() {
   return (
     <Router>
@@ -28,6 +30,9 @@ function App() {
         }}/>
         <Route exact path="/patreon" component={() => { 
           window.location.replace("https://patreon.com/laurasideral");
+        }}/>
+        <Route exact path="/resume" component={() => { 
+          window.location.replace(`/resume/${LatestResume.filename}`)
         }}/>
         {DesignWorkSrc.DesignWork.map((project, index) => {
           return (
