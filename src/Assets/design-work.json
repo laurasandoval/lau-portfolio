@@ -10,7 +10,7 @@
       ],
       "release_year": "2020",
       "release_month": "03",
-      "featured": true,
+      "featured": false,
       "has_page": false,
       "src": "cornershop/cornershop-web-app",
       "thumbnails": [
@@ -531,9 +531,8 @@
       "has_page": false,
       "src": "balance/app",
       "thumbnails": [
-        "balance-bip.png",
+        "balance-bip-full.webm",
         "balance-saved-cards.png",
-        "balance-bip-full.png",
         "balance-card-artworks.png"
       ],
       "cta": [
