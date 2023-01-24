@@ -119,7 +119,7 @@ class ProjectPageFallback extends React.PureComponent {
               )}
               <div className="item" role="text">
                 <h3>
-                  Release Date<AccessibilityLabel>: </AccessibilityLabel>
+                  Date<AccessibilityLabel>: </AccessibilityLabel>
                 </h3>
                 <p>
                   <Time

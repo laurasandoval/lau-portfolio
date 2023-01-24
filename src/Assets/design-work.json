@@ -301,6 +301,63 @@
       }
     },
     {
+      "title": "Cornershop by Uber",
+      "client": "Cornershop by Uber",
+      "description": [
+        "From 2020 to 2023, led de design division of Cornershop by Uber's customer-facing products.",
+        "This included hiring, managing and mentoring a team of 8 Product Designers and Design Managers, overseeing the design of over 100 projects, and working closely with Engineering and Product teams to deliver new features and continuously improve Cornershop by Uber’s customer-facing products.",
+        "Cornershop is an Uber-owned grocery delivery service that offers world-class digital products powered by software and design."
+      ],
+      "release_year": "2023",
+      "release_month": "01",
+      "featured": true,
+      "has_page": false,
+      "src": "cornershop/head-of-customers-product-design",
+      "thumbnails": [
+        "projects-grid-infinite-carousel.webm",
+        "cornershop-marketplace.png",
+        "cornershop-storefront.png",
+        "cornershop-order.png"
+      ],
+      "cta": [
+        {
+          "title": "About Cornershop by Uber",
+          "url": "https://cornershopapp.com/"
+        }
+      ],
+      "team": {
+        "Team": [
+          {
+            "name": "Boris Pinto"
+          },
+          {
+            "name": "Camila Navarrete"
+          },
+          {
+            "name": "Fernanda Quiroz"
+          },
+          {
+            "name": "Francisco Bulnes"
+          },
+          {
+            "name": "Gricelle Bouvier"
+          },
+          {
+            "name": "Javiera Sanhueza"
+          },
+          {
+            "name": "Laura Sandoval"
+          },
+          {
+            "name": "Nataly Medina"
+          },
+          {
+            "name": "René Morales"
+          }
+        ]
+      }
+    },
+    {
       "title": "Cornershop for Stores Landing",
       "client": "Cornershop by Uber",
       "description": [
