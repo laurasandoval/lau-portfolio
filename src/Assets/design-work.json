@@ -1,61 +1,56 @@
 {
   "DesignWork": [
     {
-      "title": "Cornershop by Uber Web App",
-      "client": "Cornershop by Uber",
+      "title": "Cornershop by Uber",
       "description": [
-        "Originally aimed at making Cornershop's web application suitable for smaller screen sizes, multiple discussions between the Product Design and Engineering teams snowballed the project into a complete redesign and development of the website.",
-        "While preserving its underlying Javascript foundations, the entire markup and CSS of the web app were reimagined and rebuilt from the ground up, taking advantage of modern CSS properties to achieve native-feeling interactions, visually polished elements, and a brand new, mobile-first component library—all while taking the opportunity to significantly improve accessibility for both screen readers and keyboard users throughout every point of the experience.",
-        "Most Javascript-powered UI libraries were deprecated from the codebase afterwards, helping consolidate a mature, propietary, and flexible design and development environment."
+        "From 2020 to 2023, led de design division of Cornershop by Uber's customer-facing products.",
+        "This included hiring, managing and mentoring a team of 8 Product Designers and Design Managers, overseeing the design of over 100 projects, and working closely with Engineering and Product teams to deliver new features and continuously improve Cornershop by Uber’s customer-facing products.",
+        "Cornershop is an Uber-owned grocery delivery service that offers world-class digital products powered by software and design."
       ],
-      "release_year": "2020",
-      "release_month": "03",
-      "featured": false,
+      "release_year": "2023",
+      "release_month": "01",
       "has_page": false,
-      "src": "cornershop/cornershop-web-app",
+      "src": "cornershop/head-of-customers-product-design",
       "thumbnails": [
-        "cornershop-web-app-iphone-11-and-ipad-pro-11-inch.png",
-        "cornershop-web-app-iphone-11-dark-mode.png",
-        "cornershop-web-app-ipad-pro-11-inch.png",
-        "cornershop-web-app-iphone-11-fruits-and-vegetables.png",
-        "cornershop-web-app-iphone-11-and-iphone-se-2.png"
+        "projects-grid-infinite-carousel.webm",
+        "cornershop-marketplace.png",
+        "cornershop-storefront.png",
+        "cornershop-order.png"
       ],
       "cta": [
         {
-          "title": "Open Cornershop by Uber",
-          "url": "https://web.cornershopapp.com"
+          "title": "About Cornershop by Uber",
+          "url": "https://cornershopapp.com/"
         }
       ],
       "team": {
-        "Product Design": [
+        "Team": [
+          {
+            "name": "Boris Pinto"
+          },
+          {
+            "name": "Camila Navarrete"
+          },
+          {
+            "name": "Fernanda Quiroz"
+          },
+          {
+            "name": "Francisco Bulnes"
+          },
+          {
+            "name": "Gricelle Bouvier"
+          },
+          {
+            "name": "Javiera Sanhueza"
+          },
           {
             "name": "Laura Sandoval"
           },
           {
-            "name": "Matías Martínez"
+            "name": "Nataly Medina"
           },
           {
-            "name": "Varsha Ashock"
-          },
-          {
-            "name": "Gonzalo Castillo"
-          }
-        ],
-        "Frontend Engineering": [
-          {
-            "name": "Laura Sandoval"
-          },
-          {
-            "name": "Erasmo Marin"
-          },
-          {
-            "name": "Franciso Yáñez"
-          },
-          {
-            "name": "Francisco García"
-          },
-          {
-            "name": "Gonzalo Castillo"
+            "name": "René Morales"
           }
         ]
       }
@@ -69,7 +64,6 @@
       ],
       "release_year": "2020",
       "release_month": "07",
-      "featured": true,
       "has_page": false,
       "src": "uber/uber-grocery-with-cornershop",
       "thumbnails": [
@@ -204,320 +198,6 @@
       }
     },
     {
-      "title": "Responsive Müller-Brockmann",
-      "client": null,
-      "description": [
-        "Responsive and accessible Josef Müller-Brockmann posters using CSS Grid and native web technologies."
-      ],
-      "release_year": "2020",
-      "release_month": "06",
-      "featured": true,
-      "has_page": false,
-      "src": "open-source/responsive-muller-brockmann",
-      "thumbnails": [
-        "responsive-muller-brockmann-01.png",
-        "responsive-muller-brockmann-02.png",
-        "responsive-muller-brockmann-03.png",
-        "responsive-muller-brockmann-04.png"
-      ],
-      "cta": [
-        {
-          "title": "See the code on GitHub",
-          "url": "https://github.com/laurasandoval/ResponsiveMullerBrockmann"
-        },
-        {
-          "title": "Musica Viva (1959)",
-          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1959/"
-        },
-        {
-          "title": "Musica Viva (1961)",
-          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1961/"
-        },
-        {
-          "title": "Brockmann (1967)",
-          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/brockmann-1967/"
-        },
-        {
-          "title": "Musica Viva (1970)",
-          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1970/"
-        }
-      ],
-      "team": null
-    },
-    {
-      "title": "Cornershop by Uber Referral Landing",
-      "client": "Cornershop by Uber",
-      "description": [
-        "Website redesign for Cornershop's referral landing page.",
-        "Cornershop is an Uber-owned grocery delivery service that offers world-class digital products powered by software and design.",
-        "All visual elements of the website were redesigned and rewritten from scratch using modern and native web standards to allow for better accessibility, lightning-fast load times, and enormous flexibility."
-      ],
-      "release_year": "2020",
-      "release_month": "01",
-      "featured": true,
-      "has_page": false,
-      "src": "cornershop/cornershop-referral-landing",
-      "thumbnails": [
-        "cornershop-raf-links.webm"
-      ],
-      "cta": [
-        {
-          "title": "Visit Website",
-          "url": "https://corner.shop/r/lau"
-        },
-        {
-          "title": "About Cornershop by Uber",
-          "url": "https://cornershopapp.com/"
-        }
-      ],
-      "team": {
-        "Product Design": [
-          {
-            "name": "Matías Martínez"
-          },
-          {
-            "name": "Varsha Ashock"
-          },
-          {
-            "name": "Gonzalo Castillo"
-          },
-          {
-            "name": "Laura Sandoval"
-          }
-        ],
-        "Frontend Engineering": [
-          {
-            "name": "Laura Sandoval"
-          }
-        ],
-        "Backend Engineering": [
-          {
-            "name": "Alejandra Fernández"
-          },
-          {
-            "name": "Roberto Riquelme"
-          }
-        ]
-      }
-    },
-    {
-      "title": "Cornershop by Uber",
-      "client": "Cornershop by Uber",
-      "description": [
-        "From 2020 to 2023, led de design division of Cornershop by Uber's customer-facing products.",
-        "This included hiring, managing and mentoring a team of 8 Product Designers and Design Managers, overseeing the design of over 100 projects, and working closely with Engineering and Product teams to deliver new features and continuously improve Cornershop by Uber’s customer-facing products.",
-        "Cornershop is an Uber-owned grocery delivery service that offers world-class digital products powered by software and design."
-      ],
-      "release_year": "2023",
-      "release_month": "01",
-      "featured": true,
-      "has_page": false,
-      "src": "cornershop/head-of-customers-product-design",
-      "thumbnails": [
-        "projects-grid-infinite-carousel.webm",
-        "cornershop-marketplace.png",
-        "cornershop-storefront.png",
-        "cornershop-order.png"
-      ],
-      "cta": [
-        {
-          "title": "About Cornershop by Uber",
-          "url": "https://cornershopapp.com/"
-        }
-      ],
-      "team": {
-        "Team": [
-          {
-            "name": "Boris Pinto"
-          },
-          {
-            "name": "Camila Navarrete"
-          },
-          {
-            "name": "Fernanda Quiroz"
-          },
-          {
-            "name": "Francisco Bulnes"
-          },
-          {
-            "name": "Gricelle Bouvier"
-          },
-          {
-            "name": "Javiera Sanhueza"
-          },
-          {
-            "name": "Laura Sandoval"
-          },
-          {
-            "name": "Nataly Medina"
-          },
-          {
-            "name": "René Morales"
-          }
-        ]
-      }
-    },
-    {
-      "title": "Cornershop for Stores Landing",
-      "client": "Cornershop by Uber",
-      "description": [
-        "Website redesign for \"Cornershop for Stores\" landing page.",
-        "Cornershop is an Uber-owned grocery delivery service that offers world-class digital products powered by software and design.",
-        "The entire website was redesigned and rewritten from the ground up, providing first-class support for assistive technologies —such as keyboard navigation and screen readers— in every step of the process."
-      ],
-      "release_year": "2021",
-      "release_month": "01",
-      "featured": false,
-      "has_page": false,
-      "src": "cornershop/cornershop-stores-landing",
-      "thumbnails": [
-        "cornershop-stores-landing-redesign.webm"
-      ],
-      "cta": [
-        {
-          "title": "Visit Website",
-          "url": "https://corner.shop/stores"
-        }
-      ],
-      "team": {
-        "Product Design": [
-          {
-            "name": "Laura Sandoval"
-          },
-          {
-            "name": "Bárbara Molina"
-          }
-        ],
-        "Frontend Engineering": [
-          {
-            "name": "Coniele Lastra"
-          },
-          {
-            "name": "Matías Verdejo"
-          }
-        ],
-        "Backend Engineering": [
-          {
-            "name": "Saher Piñero"
-          }
-        ]
-      }
-    },
-    {
-      "title": "Kappo Bike – Brand Identity Redesign",
-      "client": "Kappo",
-      "description": [
-        "Led, designed, and implemented a complete brand identity redesign for Kappo Bike, a now-defunct app for logging your bicycle trips around the city.",
-        "Based in Santiago de Chile, Kappo Bike aimed to become a global facilitator of tools for smart city development around sustainable mobility, with tools such as \"PedalHeat\", Kappo's government-oriented solution for mapping out bike lane usage, \"Cool Place to Bike\", Kappo's B2B solution for encouraging bicycle usage within companies, and many more.",
-        "The development of this project resulted in a comprehensive Brand Book and internal websites and documents with guidance around the usage of the new Kappo brand."
-      ],
-      "release_year": "2019",
-      "release_month": "03",
-      "featured": false,
-      "has_page": false,
-      "src": "kappo/kappo-brand-identity",
-      "thumbnails": [
-        "kappo-brand-identity.webm",
-        "kappo-brand-identity-tote.png",
-        "kappo-brand-posters-1.png",
-        "kappo-brand-pillars-simplified.png"
-      ],
-      "cta": null,
-      "team": {
-        "Graphic Design": [
-          {
-            "name": "Laura Sandoval"
-          }
-        ],
-        "Kappo Counterparts": [
-          {
-            "name": "Iván Paéz Mora"
-          },
-          {
-            "name": "Mónica Berrios"
-          }
-        ]
-      }
-    },
-    {
-      "title": "Cool Place to Bike Website",
-      "client": "Kappo",
-      "description": [
-        "Website redesign and development for Kappo's Cool Place to Bike program."
-      ],
-      "release_year": "2019",
-      "release_month": "02",
-      "featured": false,
-      "has_page": false,
-      "src": "kappo/cool-place-to-bike-website",
-      "thumbnails": [
-        "web-cool-place-to-bike.webm"
-      ],
-      "cta": null,
-      "team": {
-        "Web Design": [
-          {
-            "name": "Laura Sandoval"
-          }
-        ],
-        "Frontend Engineering": [
-          {
-            "name": "Laura Sandoval"
-          }
-        ],
-        "Kappo Counterparts": [
-          {
-            "name": "Iván Paéz Mora"
-          },
-          {
-            "name": "Mónica Berrios"
-          }
-        ]
-      }
-    },
-    {
-      "title": "Santiago Transit Map 2019",
-      "client": null,
-      "description": [
-        "Explorations of Santiago’s Transit Map as a format. Multiple iterations over shape and form define a versatile graphic system that allows for expansion or compression based on the required levels of complexity.",
-        "40 physical copies of the map were printed and distributed during 2019.",
-        "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
-      ],
-      "release_year": "2019",
-      "release_month": "07",
-      "featured": true,
-      "has_page": false,
-      "src": "santiago-transit-map/2019",
-      "thumbnails": [
-        "santiago-transit-map-s4-print.png",
-        "santiago-transit-map-s4.png"
-      ],
-      "cta": null,
-      "team": null
-    },
-    {
-      "title": "Santiago Transit Map 2018",
-      "client": null,
-      "description": [
-        "Transit map for Santiago's Transit system.",
-        "The map was specially designed with color-blinded individuals and newcomers to Santiago's transit system in mind, incorporing redundant and accessible iconography —that doesn't really on color alone—, while still maintaning a flexible and approachable design language.",
-        "100 physical copies of the map were printed and distributed in mid-2018.",
-        "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
-      ],
-      "release_year": "2018",
-      "release_month": "02",
-      "featured": false,
-      "has_page": false,
-      "src": "santiago-transit-map/2018",
-      "thumbnails": [
-        "SantiagoTransitMapS3",
-        "santiago-transit-map-s3-full.png",
-        "SantiagoTransitMapS3Variant"
-      ],
-      "cta": null,
-      "team": null
-    },
-    {
       "title": "Balance – Your transit cards in one place",
       "client": null,
       "description": [
@@ -527,7 +207,6 @@
       ],
       "release_year": "2019",
       "release_month": "04",
-      "featured": true,
       "has_page": false,
       "src": "balance/app",
       "thumbnails": [
@@ -576,7 +255,6 @@
       ],
       "release_year": "2022",
       "release_month": "09",
-      "featured": true,
       "has_page": false,
       "src": "lintuaf",
       "thumbnails": [
@@ -613,91 +291,257 @@
       }
     },
     {
-      "title": "Chilean Ministry of Health & LIPUC",
-      "client": "Chilean Ministry of Health & PUC’s Public Innovation Lab",
-      "description": [
-        "Chile's Public Health System it's recognized locally by its enormous unreliability and tremendously long waiting times. Embarrassingly, people die waiting for an appointment.",
-        "Due to the above, PUC's Public Innovation Lab team was asked for help in the design of a mechanism for giving citizens access to simplified information about their status within the \"waiting lists\" bureaucracy. The team landed on a printable, dead-simple document: No color, no fancy graphics. Citizens needed to be encouraged to make it their own.",
-        "The overall motivation of the project was to reduce waiting time perception by giving citizens a reliable tool to ask for official information on their appointment status."
-      ],
-      "release_year": "2019",
-      "release_month": "04",
-      "featured": false,
-      "has_page": false,
-      "src": "chilean-ministry-of-health/waiting-list-perception",
-      "thumbnails": [
-        "ministerio-de-salud-lip.png",
-        "ministerio-de-salud-lip-variant.png"
-      ],
-      "cta": null,
-      "team": {
-        "Graphic Design": [
-          {
-            "name": "Jose Allard"
-          },
-          {
-            "name": "Laura Sandoval"
-          }
-        ],
-        "Project Manager": [
-          {
-            "name": "Cristobal Tello"
-          }
-        ],
-        "PUC's Public Innovation Lab Design Research": [
-          {
-            "name": "Sara Riveros"
-          },
-          {
-            "name": "Javiera Parra"
-          }
-        ]
-      }
-    },
-    {
-      "title": "Transantiago Virtual Assistant",
+      "title": "Santiago Transit Map 2019",
       "client": null,
       "description": [
-        "Facebook Messenger Bot for Santiago’s Transit System.",
+        "Explorations of Santiago’s Transit Map as a format. Multiple iterations over shape and form define a versatile graphic system that allows for expansion or compression based on the required levels of complexity.",
+        "40 physical copies of the map were printed and distributed during 2019.",
         "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
       ],
-      "release_year": "2018",
-      "release_month": "08",
-      "featured": false,
+      "release_year": "2019",
+      "release_month": "07",
       "has_page": false,
-      "src": "transantiago-bot",
+      "src": "santiago-transit-map/2019",
       "thumbnails": [
-        "transantiago-bot.png"
+        "santiago-transit-map-s4-print.png",
+        "santiago-transit-map-s4.png"
       ],
       "cta": null,
       "team": null
     },
     {
-      "title": "Guemil Icon Uploader",
-      "client": "Guemil Project",
+      "title": "Responsive Müller-Brockmann",
+      "client": null,
       "description": [
-        "Design and development of internal tools and API's to automate icon testing and visualization."
+        "Responsive and accessible Josef Müller-Brockmann posters using CSS Grid and native web technologies."
       ],
-      "release_year": "2018",
-      "release_month": "09",
-      "featured": false,
+      "release_year": "2020",
+      "release_month": "06",
       "has_page": false,
-      "src": "guemil/icon-uploader",
+      "src": "open-source/responsive-muller-brockmann",
       "thumbnails": [
-        "guemil-uploader.png"
+        "responsive-muller-brockmann-01.png",
+        "responsive-muller-brockmann-02.png",
+        "responsive-muller-brockmann-03.png",
+        "responsive-muller-brockmann-04.png"
       ],
       "cta": [
         {
-          "title": "About Guemil",
-          "url": "https://guemil.info"
+          "title": "See the code on GitHub",
+          "url": "https://github.com/laurasandoval/ResponsiveMullerBrockmann"
+        },
+        {
+          "title": "Musica Viva (1959)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1959/"
+        },
+        {
+          "title": "Musica Viva (1961)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1961/"
+        },
+        {
+          "title": "Brockmann (1967)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/brockmann-1967/"
+        },
+        {
+          "title": "Musica Viva (1970)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1970/"
+        }
+      ],
+      "team": null
+    },
+    {
+      "title": "Cornershop for Stores Landing",
+      "description": [
+        "Website redesign for \"Cornershop for Stores\" landing page.",
+        "Cornershop is an Uber-owned grocery delivery service that offers world-class digital products powered by software and design.",
+        "The entire website was redesigned and rewritten from the ground up, providing first-class support for assistive technologies —such as keyboard navigation and screen readers— in every step of the process."
+      ],
+      "release_year": "2021",
+      "release_month": "01",
+      "has_page": false,
+      "src": "cornershop/cornershop-stores-landing",
+      "thumbnails": [
+        "cornershop-stores-landing-redesign.webm"
+      ],
+      "cta": [
+        {
+          "title": "Visit Website",
+          "url": "https://corner.shop/stores"
         }
       ],
       "team": {
-        "Project Owner": [
+        "Product Design": [
           {
-            "name": "Rodrigo Ramírez"
+            "name": "Laura Sandoval"
+          },
+          {
+            "name": "Bárbara Molina"
           }
         ],
+        "Frontend Engineering": [
+          {
+            "name": "Coniele Lastra"
+          },
+          {
+            "name": "Matías Verdejo"
+          }
+        ],
+        "Backend Engineering": [
+          {
+            "name": "Saher Piñero"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Cornershop by Uber Web App",
+      "description": [
+        "Originally aimed at making Cornershop's web application suitable for smaller screen sizes, multiple discussions between the Product Design and Engineering teams snowballed the project into a complete redesign and development of the website.",
+        "While preserving its underlying Javascript foundations, the entire markup and CSS of the web app were reimagined and rebuilt from the ground up, taking advantage of modern CSS properties to achieve native-feeling interactions, visually polished elements, and a brand new, mobile-first component library—all while taking the opportunity to significantly improve accessibility for both screen readers and keyboard users throughout every point of the experience.",
+        "Most Javascript-powered UI libraries were deprecated from the codebase afterwards, helping consolidate a mature, propietary, and flexible design and development environment."
+      ],
+      "release_year": "2020",
+      "release_month": "03",
+      "has_page": false,
+      "src": "cornershop/cornershop-web-app",
+      "thumbnails": [
+        "cornershop-web-app-iphone-11-and-ipad-pro-11-inch.png",
+        "cornershop-web-app-iphone-11-dark-mode.png",
+        "cornershop-web-app-ipad-pro-11-inch.png",
+        "cornershop-web-app-iphone-11-fruits-and-vegetables.png",
+        "cornershop-web-app-iphone-11-and-iphone-se-2.png"
+      ],
+      "cta": [
+        {
+          "title": "Open Cornershop by Uber",
+          "url": "https://web.cornershopapp.com"
+        }
+      ],
+      "team": {
+        "Product Design": [
+          {
+            "name": "Laura Sandoval"
+          },
+          {
+            "name": "Matías Martínez"
+          },
+          {
+            "name": "Varsha Ashock"
+          },
+          {
+            "name": "Gonzalo Castillo"
+          }
+        ],
+        "Frontend Engineering": [
+          {
+            "name": "Laura Sandoval"
+          },
+          {
+            "name": "Erasmo Marin"
+          },
+          {
+            "name": "Franciso Yáñez"
+          },
+          {
+            "name": "Francisco García"
+          },
+          {
+            "name": "Gonzalo Castillo"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Cornershop by Uber Referral Landing",
+      "description": [
+        "Website redesign for Cornershop's referral landing page.",
+        "Cornershop is an Uber-owned grocery delivery service that offers world-class digital products powered by software and design.",
+        "All visual elements of the website were redesigned and rewritten from scratch using modern and native web standards to allow for better accessibility, lightning-fast load times, and enormous flexibility."
+      ],
+      "release_year": "2020",
+      "release_month": "01",
+      "has_page": false,
+      "src": "cornershop/cornershop-referral-landing",
+      "thumbnails": [
+        "cornershop-raf-links.webm"
+      ],
+      "cta": [
+        {
+          "title": "Visit Website",
+          "url": "https://corner.shop/r/lau"
+        },
+        {
+          "title": "About Cornershop by Uber",
+          "url": "https://cornershopapp.com/"
+        }
+      ],
+      "team": {
+        "Product Design": [
+          {
+            "name": "Matías Martínez"
+          },
+          {
+            "name": "Varsha Ashock"
+          },
+          {
+            "name": "Gonzalo Castillo"
+          },
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "Frontend Engineering": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "Backend Engineering": [
+          {
+            "name": "Alejandra Fernández"
+          },
+          {
+            "name": "Roberto Riquelme"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Santiago Transit Map 2018",
+      "client": null,
+      "description": [
+        "Transit map for Santiago's Transit system.",
+        "The map was specially designed with color-blinded individuals and newcomers to Santiago's transit system in mind, incorporing redundant and accessible iconography —that doesn't really on color alone—, while still maintaning a flexible and approachable design language.",
+        "100 physical copies of the map were printed and distributed in mid-2018.",
+        "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
+      ],
+      "release_year": "2018",
+      "release_month": "02",
+      "has_page": false,
+      "src": "santiago-transit-map/2018",
+      "thumbnails": [
+        "SantiagoTransitMapS3",
+        "santiago-transit-map-s3-full.png",
+        "SantiagoTransitMapS3Variant"
+      ],
+      "cta": null,
+      "team": null
+    },
+    {
+      "title": "Cool Place to Bike Website",
+      "client": "Kappo",
+      "description": [
+        "Website redesign and development for Kappo's Cool Place to Bike program."
+      ],
+      "release_year": "2019",
+      "release_month": "02",
+      "featured": false,
+      "has_page": false,
+      "src": "kappo/cool-place-to-bike-website",
+      "thumbnails": [
+        "web-cool-place-to-bike.webm"
+      ],
+      "cta": null,
+      "team": {
         "Web Design": [
           {
             "name": "Laura Sandoval"
@@ -705,43 +549,37 @@
         ],
         "Frontend Engineering": [
           {
-            "name": "Felipe Cortez"
-          },
-          {
             "name": "Laura Sandoval"
           }
         ],
-        "Guemil Designers": [
+        "Kappo Counterparts": [
           {
-            "name": "Valentina Morales"
+            "name": "Iván Paéz Mora"
           },
           {
-            "name": "Sofía Pizarro"
-          },
-          {
-            "name": "Felipe Vilches"
-          },
-          {
-            "name": "Laura Sandoval"
+            "name": "Mónica Berrios"
           }
         ]
       }
     },
     {
-      "title": "Y4PT 2nd Transport Hackathon Chile 2017",
-      "client": "Y4PT Chile",
+      "title": "Kappo Bike – Brand Identity Redesign",
+      "client": "Kappo",
       "description": [
-        "Branding and graphic design for Y4PT’s 2nd Chilean National Transport Hackathon.",
-        "The vector-based illustration developed for the event reassembled key landmarks of both Santiago and Concepción —the two chilean cities in which the event took place—, contained in a 2-shaped grid to symbolize the 2nd edition."
+        "Led, designed, and implemented a complete brand identity redesign for Kappo Bike, a now-defunct app for logging your bicycle trips around the city.",
+        "Based in Santiago de Chile, Kappo Bike aimed to become a global facilitator of tools for smart city development around sustainable mobility, with tools such as \"PedalHeat\", Kappo's government-oriented solution for mapping out bike lane usage, \"Cool Place to Bike\", Kappo's B2B solution for encouraging bicycle usage within companies, and many more.",
+        "The development of this project resulted in a comprehensive Brand Book and internal websites and documents with guidance around the usage of the new Kappo brand."
       ],
-      "release_year": "2017",
-      "release_month": "07",
+      "release_year": "2019",
+      "release_month": "03",
       "featured": false,
       "has_page": false,
-      "src": "y4pt/2nd-transport-hackathon-chile",
+      "src": "kappo/kappo-brand-identity",
       "thumbnails": [
-        "y4pt-2nd-national-transport-hackathon-chile-2017.png",
-        "y4pt-2nd-national-transport-hackathon-chile-2017-sketch.png"
+        "kappo-brand-identity.webm",
+        "kappo-brand-identity-tote.png",
+        "kappo-brand-posters-1.png",
+        "kappo-brand-pillars-simplified.png"
       ],
       "cta": null,
       "team": {
@@ -750,151 +588,12 @@
             "name": "Laura Sandoval"
           }
         ],
-        "Y4PT Volunteers": [
+        "Kappo Counterparts": [
           {
-            "name": "Lluís Vidal"
+            "name": "Iván Paéz Mora"
           },
           {
-            "name": "Jeannette Orozco"
-          },
-          {
-            "name": "Carolina Sánchez"
-          },
-          {
-            "name": "Rolando Álvarez"
-          },
-          {
-            "name": "Sebastián Díaz"
-          },
-          {
-            "name": "Laura Sandoval"
-          }
-        ]
-      }
-    },
-    {
-      "title": "Bus Route Visualizer",
-      "client": null,
-      "description": [
-        "Bus route visualizer for Transantiago Virtual Assistant."
-      ],
-      "release_year": "2018",
-      "release_month": "08",
-      "featured": false,
-      "has_page": false,
-      "src": "bus-route-visualizer",
-      "thumbnails": [
-        "bus-route-visualizer.png"
-      ],
-      "cta": null,
-      "team": null
-    },
-    {
-      "title": "Cycling Wayfinding Signage",
-      "client": null,
-      "description": [
-        "Proposed wayfinding signage for Santiago de Chile's cycling ecosistem."
-      ],
-      "release_year": "2018",
-      "release_month": "08",
-      "featured": false,
-      "has_page": false,
-      "src": "cycling-wayfinding-signage",
-      "thumbnails": [
-        "cycling-wayfinding-signage.png",
-        "cycling-wayfinding-signage-plain.png"
-      ],
-      "cta": null,
-      "team": {
-        "Design": [
-          {
-            "name": "Laura Sandoval"
-          }
-        ],
-        "Research": [
-          {
-            "name": "Ricardo Hurtubia"
-          },
-          {
-            "name": "Tomás Echiburú"
-          },
-          {
-            "name": "Laura Sandoval"
-          }
-        ]
-      }
-    },
-    {
-      "title": "Metro Virtual Assistant",
-      "client": null,
-      "description": [
-        "Facebook Messenger Bot for Santiago's Metro system. Shelved upon Metro de Santiago's Request.",
-        "This project was not commissioned by, and it's not directly related to Metro de Santiago."
-      ],
-      "release_year": "2017",
-      "release_month": "07",
-      "featured": false,
-      "has_page": false,
-      "src": "metro-bot",
-      "thumbnails": [
-        "metro-bot.png"
-      ],
-      "cta": null,
-      "team": null
-    },
-    {
-      "title": "Bip macOS App",
-      "client": null,
-      "description": [
-        "macOS app for keeping your remaining transit card balance right in your menu bar.",
-        "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
-      ],
-      "release_year": "2019",
-      "release_month": "01",
-      "featured": false,
-      "has_page": false,
-      "src": "bip-macos-app",
-      "thumbnails": [
-        "bip-macos-app.png"
-      ],
-      "cta": null,
-      "team": null
-    },
-    {
-      "title": "Simple Bip App",
-      "client": null,
-      "description": [
-        "Simple, exploratory web app for checking Santiago’s Transit Card (Bip) balance.",
-        "Released in 2018, deprecated in 2019, open-sourced in 2020.",
-        "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
-      ],
-      "release_year": "2018",
-      "release_month": "11",
-      "featured": false,
-      "has_page": false,
-      "src": "open-source/simple-bip-app",
-      "thumbnails": [
-        "simple-bip-app.png"
-      ],
-      "cta": [
-        {
-          "title": "Demo",
-          "url": "https://laurasandoval.github.io/SimpleBipApp"
-        },
-        {
-          "title": "See the code on GitHub",
-          "url": "https://github.com/laurasandoval/SimpleBipApp"
-        }
-      ],
-      "team": {
-        "Design and Frontend Engineering": [
-          {
-            "name": "Laura Sandoval"
-          }
-        ],
-        "API Engineering": [
-          {
-            "name": "Eduardo Riveros"
+            "name": "Mónica Berrios"
           }
         ]
       }
