@@ -1,11 +1,10 @@
 import Head from 'next/head'
-import Data from "../assets/design-work.json"
 import { GlobalHeader } from '@/components/GlobalHeader/GlobalHeader'
 import Grid from '@/components/Grid/Grid'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 
-export default function Home() {
+export default function Home({ designWorkData }) {
 
   const _renderThumbnail = (project, index, featured) => {
     return (
@@ -23,8 +22,8 @@ export default function Home() {
 
   const maxFeaturedCount = 6;
 
-  const featuredProjects = Data.DesignWork.slice(0, maxFeaturedCount);
-  const remainingProjects = Data.DesignWork.slice(maxFeaturedCount, featuredProjects.lenght);
+  const featuredProjects = designWorkData.slice(0, maxFeaturedCount);
+  const remainingProjects = designWorkData.slice(maxFeaturedCount, featuredProjects.lenght);
 
   return (
     <>
@@ -51,4 +50,11 @@ export default function Home() {
       </Grid>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const url = "https://lau-portfolio-nextjs.vercel.app/api/design-work";
+  const res = await fetch(url);
+  const designWorkData = await res.json();
+  return { props: { designWorkData } };
 }

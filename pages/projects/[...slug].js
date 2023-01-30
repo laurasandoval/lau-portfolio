@@ -1,17 +1,17 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-export default function Project({ dataExport }) {
+export default function Project({ designWorkData }) {
   const router = useRouter()
   const slug = router.query.slug || []
   let currentProject;
 
   const checkIfRouteIsValid = () => {
-    const i = dataExport.findIndex(e => e.src === slug.join('/'))
+    const i = designWorkData.findIndex(e => e.src === slug.join('/'))
     if (i > -1) {
       console.log("WENA CHORAZA");
 
-      currentProject = dataExport[i]
+      currentProject = designWorkData[i]
     } else {
       console.log("mmmmm not so wena choraza");
     }
@@ -51,6 +51,6 @@ export default function Project({ dataExport }) {
 export async function getServerSideProps() {
   const url = "https://lau-portfolio-nextjs.vercel.app/api/design-work";
   const res = await fetch(url);
-  const dataExport = await res.json();
-  return { props: { dataExport } };
+  const designWorkData = await res.json();
+  return { props: { designWorkData } };
 }
