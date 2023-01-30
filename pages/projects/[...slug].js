@@ -1,27 +1,24 @@
 import Data from '../../assets/design-work.json'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
 
 export default function Project() {
   const router = useRouter()
   const slug = router.query.slug || []
-  const [currentProject, setCurrentProject] = useState(null)
+  let currentProject;
 
   const checkIfRouteIsValid = () => {
     const i = Data.DesignWork.findIndex(e => e.src === slug.join('/'))
     if (i > -1) {
       console.log("WENA CHORAZA");
 
-      setCurrentProject(Data.DesignWork[i])
+      currentProject = Data.DesignWork[i]
     } else {
       console.log("mmmmm not so wena choraza");
     }
   }
 
-  useEffect(() => {
-    checkIfRouteIsValid()
-  })
+  checkIfRouteIsValid()
 
   return (
     <>
@@ -39,4 +36,11 @@ export default function Project() {
       <h2>Slug: {slug.join('/')}</h2>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const url = "http://localhost:3000/api/design-work";
+  const res = await fetch(url);
+  const dataExport = await res.json();
+  return { props: { dataExport } };
 }
