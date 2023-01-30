@@ -25,7 +25,7 @@ export default function Project({ dataExport }) {
         <title>{currentProject?.title}</title>
         <meta name="description" content={`${currentProject?.description[0]}`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="image" content={`/Work/${currentProject?.src}/${currentProject?.social_thumbnail}`} />
+        <meta name="image" content={`/Work/${currentProject?.src}/thumbnails/${currentProject?.social_thumbnail}`} />
 
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
@@ -33,12 +33,12 @@ export default function Project({ dataExport }) {
         <meta property="og:type" content="website" />
         <meta property="og:title" content={currentProject?.title} />
         <meta property="og:description" content={`${currentProject?.description[0]}`} />
-        <meta property="og:image" content={`/Work/${currentProject?.src}/${currentProject?.social_thumbnail}`} />
+        <meta property="og:image" content={`/Work/${currentProject?.src}/thumbnails/${currentProject?.social_thumbnail}`} />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={currentProject?.title} />
         <meta name="twitter:description" content={`${currentProject?.description[0]}`} />
-        <meta name="twitter:image" content={`/Work/${currentProject?.src}/${currentProject?.social_thumbnail}`} />
+        <meta name="twitter:image" content={`/Work/${currentProject?.src}/thumbnails/${currentProject?.social_thumbnail}`} />
       </Head>
 
       <span>Hey! I'm a project!</span>
