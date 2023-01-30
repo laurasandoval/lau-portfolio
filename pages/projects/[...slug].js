@@ -24,9 +24,9 @@ export default function Project() {
     <>
       <Head>
         <title>{currentProject?.title}</title>
-        <meta name="description" content="Digital Product Designer & Developer from Santiago, Chile. Featured clients include Uber, Cornershop, among others." />
+        <meta name="description" content={`${currentProject?.description[0]}`} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="image" content="/site-thumbnail.png" />
+        <meta name="image" content={`/Work/${currentProject?.src}/${currentProject?.social_thumbnail}`} />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
       </Head>

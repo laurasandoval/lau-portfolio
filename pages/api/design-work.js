@@ -10,6 +10,7 @@ export default function handler(req, res) {
       "release_year": "2023",
       "release_month": "01",
       "src": "cornershop/head-of-customers-product-design",
+      "social_thumbnail": "cornershop-order.png",
       "thumbnails": [
         "cornershop-order.png",
         "cornershop-marketplace.png",
@@ -64,6 +65,7 @@ export default function handler(req, res) {
       "release_year": "2020",
       "release_month": "07",
       "src": "uber/uber-grocery-with-cornershop",
+      "social_thumbnail": "uber-grocery-home.png",
       "thumbnails": [
         "uber-grocery-home.png",
         "uber-grocery-department.png",
@@ -206,6 +208,7 @@ export default function handler(req, res) {
       "release_year": "2019",
       "release_month": "04",
       "src": "balance/app",
+      "social_thumbnail": "balance-saved-cards.png",
       "thumbnails": [
         "balance-bip-full.webm",
         "balance-saved-cards.png",
@@ -253,6 +256,7 @@ export default function handler(req, res) {
       "release_year": "2022",
       "release_month": "09",
       "src": "lintuaf",
+      "social_thumbnail": "lintuaf-goal-view.png",
       "thumbnails": [
         "lintuaf-goal-view.png",
         "lintuaf-goals-view.png",
@@ -297,6 +301,7 @@ export default function handler(req, res) {
       "release_year": "2019",
       "release_month": "07",
       "src": "santiago-transit-map/2019",
+      "social_thumbnail": "santiago-transit-map-s4-print.png",
       "thumbnails": [
         "santiago-transit-map-s4-print.png",
         "santiago-transit-map-s4.png"
@@ -313,6 +318,7 @@ export default function handler(req, res) {
       "release_year": "2020",
       "release_month": "06",
       "src": "open-source/responsive-muller-brockmann",
+      "social_thumbnail": "responsive-muller-brockmann-01.png",
       "thumbnails": [
         "responsive-muller-brockmann-01.png",
         "responsive-muller-brockmann-02.png",
@@ -353,6 +359,7 @@ export default function handler(req, res) {
       "release_year": "2021",
       "release_month": "01",
       "src": "cornershop/cornershop-stores-landing",
+      "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
         "cornershop-stores-landing-redesign.webm"
       ],
@@ -396,6 +403,7 @@ export default function handler(req, res) {
       "release_year": "2020",
       "release_month": "03",
       "src": "cornershop/cornershop-web-app",
+      "social_thumbnail": "cornershop-web-app-iphone-11-and-ipad-pro-11-inch.png",
       "thumbnails": [
         "cornershop-web-app-iphone-11-and-ipad-pro-11-inch.png",
         "cornershop-web-app-iphone-11-dark-mode.png",
@@ -453,6 +461,7 @@ export default function handler(req, res) {
       "release_year": "2020",
       "release_month": "01",
       "src": "cornershop/cornershop-referral-landing",
+      "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
         "cornershop-raf-links.webm"
       ],
@@ -508,6 +517,7 @@ export default function handler(req, res) {
       "release_year": "2018",
       "release_month": "02",
       "src": "santiago-transit-map/2018",
+      "social_thumbnail": "santiago-transit-map-s3-full.png",
       "thumbnails": [
         "santiago-transit-map-s3-full.png"
       ],
@@ -524,6 +534,7 @@ export default function handler(req, res) {
       "release_month": "02",
       "featured": false,
       "src": "kappo/cool-place-to-bike-website",
+      "social_thumbnail": ".png",
       "thumbnails": [
         "web-cool-place-to-bike.webm"
       ],
@@ -561,6 +572,7 @@ export default function handler(req, res) {
       "release_month": "03",
       "featured": false,
       "src": "kappo/kappo-brand-identity",
+      "social_thumbnail": "kappo-brand-posters-1.png",
       "thumbnails": [
         "kappo-brand-identity.webm",
         "kappo-brand-identity-tote.png",
