@@ -1,24 +1,7 @@
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-export default function Project({ designWorkData }) {
-  const router = useRouter()
-  const slug = router.query.slug || []
-  let currentProject;
-
-  const checkIfRouteIsValid = () => {
-    const i = designWorkData.findIndex(e => e.src === slug.join('/'))
-    if (i > -1) {
-      console.log("WENA CHORAZA");
-
-      currentProject = designWorkData[i]
-    } else {
-      console.log("mmmmm not so wena choraza");
-    }
-  }
-
-  checkIfRouteIsValid()
-
+export default function Project({ currentProject }) {
   return (
     <>
       <Head>
@@ -43,14 +26,31 @@ export default function Project({ designWorkData }) {
 
       <span>Hey! I'm a project!</span>
       <h1>{currentProject?.title}</h1>
-      <h2>Slug: {slug.join('/')}</h2>
+      <h2>Slug: {currentProject.src}</h2>
     </>
   )
 }
 
-export async function getServerSideProps() {
-  const url = "https://lau-portfolio-nextjs.vercel.app/api/design-work";
+export async function getServerSideProps(context) {
+  const dev = process.env.NODE_ENV !== 'production';
+  const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`;
+  const url = `${server}/api/design-work`;
   const res = await fetch(url);
   const designWorkData = await res.json();
-  return { props: { designWorkData } };
+
+  const projectSrc = context.query.project.join('/') || []
+  let currentProject
+
+  const i = designWorkData.findIndex(e => e.src === projectSrc)
+  if (i > -1) {
+    currentProject = designWorkData[i]
+  } else {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { currentProject }
+  };
 }
