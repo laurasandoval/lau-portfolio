@@ -1,5 +1,6 @@
+import { throttle } from 'lodash';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel';
 import styles from './GlobalHeader.module.scss'
 
@@ -7,8 +8,25 @@ export function GlobalHeader({
     sticky,
     backgroundColor,
 }) {
+    const [headerMarginBottom, setHeaderMarginBottom] = useState(null)
     const [navOpen, setNavOpen] = useState(false)
     const [showHeaderBorder, setShowHeaderBorder] = useState(false)
+    const headerElementRef = useRef(null)
+
+    useEffect(() => {
+        const renderedHeaderMarginBottom = window
+            .getComputedStyle(headerElementRef.current)
+            .getPropertyValue("margin-bottom")
+            .replace("px", "");
+        setHeaderMarginBottom(renderedHeaderMarginBottom)
+        window.addEventListener("scroll", _throttledScrollCheck);
+    })
+
+    const _throttledScrollCheck = throttle(() => {
+        window.scrollY > headerMarginBottom
+            ? setShowHeaderBorder(true)
+            : setShowHeaderBorder(false);
+    }, 250);
 
     const _toggleNav = () => {
         if (navOpen === false && showHeaderBorder === false) {
@@ -38,6 +56,7 @@ export function GlobalHeader({
             style={{
                 "--background-color": backgroundColor
             }}
+            ref={headerElementRef}
         >
             <div className={styles.header_content}>
                 <div className={styles.top_bar}>
