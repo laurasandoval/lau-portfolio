@@ -39,7 +39,7 @@ export default function Project() {
 }
 
 export async function getServerSideProps() {
-  const url = "http://localhost:3000/api/design-work";
+  const url = "https://lau-portfolio-nextjs.vercel.app/api/design-work";
   const res = await fetch(url);
   const dataExport = await res.json();
   return { props: { dataExport } };
