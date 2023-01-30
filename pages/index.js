@@ -1,12 +1,31 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.scss'
+import Data from "../assets/design-work.json"
 import { GlobalHeader } from '@/components/GlobalHeader/GlobalHeader'
-
-const inter = Inter({ subsets: ['latin'] })
+import Grid from '@/components/Grid/Grid'
+import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
+import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 
 export default function Home() {
+
+  const _renderThumbnail = (project, index, featured) => {
+    return (
+      <ProjectThumbnail
+        {...project}
+        as="article"
+        hover
+        autoplay
+        key={index}
+        portrait={featured}
+        fadeIn
+      />
+    );
+  }
+
+  const maxFeaturedCount = 6;
+
+  const featuredProjects = Data.DesignWork.slice(0, maxFeaturedCount);
+  const remainingProjects = Data.DesignWork.slice(maxFeaturedCount, featuredProjects.lenght);
+
   return (
     <>
       <Head>
@@ -19,6 +38,17 @@ export default function Home() {
       </Head>
 
       <GlobalHeader sticky />
+      <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
+      <Grid featured>
+        {featuredProjects.map((project, index) => {
+          return _renderThumbnail(project, index, true);
+        })}
+      </Grid>
+      <Grid>
+        {remainingProjects.map((project, index) => {
+          return _renderThumbnail(project, index);
+        })}
+      </Grid>
     </>
   )
 }
