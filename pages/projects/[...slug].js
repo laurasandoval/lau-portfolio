@@ -1,18 +1,17 @@
-import Data from '../../assets/design-work.json'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-export default function Project() {
+export default function Project({ dataExport }) {
   const router = useRouter()
   const slug = router.query.slug || []
   let currentProject;
 
   const checkIfRouteIsValid = () => {
-    const i = Data.DesignWork.findIndex(e => e.src === slug.join('/'))
+    const i = dataExport.findIndex(e => e.src === slug.join('/'))
     if (i > -1) {
       console.log("WENA CHORAZA");
 
-      currentProject = Data.DesignWork[i]
+      currentProject = dataExport[i]
     } else {
       console.log("mmmmm not so wena choraza");
     }
