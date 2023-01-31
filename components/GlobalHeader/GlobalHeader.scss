@@ -57,6 +57,29 @@
         }
     }
 
+    &:after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: transparent;
+        border-bottom: 2px solid transparent;
+        z-index: 3;
+
+        @at-root [data-show-border="true"]#{&} {
+            border-bottom: 2px solid transparent;
+            transition: border-bottom 0.4s ease 1.6s;
+
+            @at-root [data-nav-open="true"]#{&} {
+                transition: border-bottom 0.4s ease 0s;
+                border-bottom: 2px solid rgba(255, 255, 255, 1);
+            }
+        }
+    }
+
     .header_content {
         margin: 0 auto;
         width: 100%;

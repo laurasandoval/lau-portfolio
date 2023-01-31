@@ -63,6 +63,7 @@ export default function GlobalHeader({
                         : "false"
                     : "false"
             }
+            data-nav-open={navOpen.toString()}
             style={{
                 "--background-color": backgroundColor
             }}
