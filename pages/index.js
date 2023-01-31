@@ -52,7 +52,7 @@ export default function Home({ designWorkData }) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   const dev = process.env.NODE_ENV !== 'production'
   const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
   const url = `${server}/api/design-work`
