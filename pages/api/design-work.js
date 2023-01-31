@@ -507,9 +507,11 @@ export default function handler(req, res) {
       ],
       "year": "2018",
       "src": "santiago-transit-map/2018",
-      "social_thumbnail": "santiago-transit-map-s3-full.png",
+      "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
-        "santiago-transit-map-s3-full.png"
+        "santiago-transit-map-s3.png",
+        "santiago-transit-map-s3-full.png",
+        "santiago-transit-map-s3-variant.png"
       ],
       "cta": null,
       "team": null
