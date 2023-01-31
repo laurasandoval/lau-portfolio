@@ -1,19 +1,19 @@
-function generateSiteMap(designWorkData) {
+function generateSiteMap(designWorkData, server) {
     return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <url>
-       <loc>https://lau.work</loc>
+       <loc>${server}</loc>
      </url>
      <url>
-       <loc>https://lau.work/about</loc>
+       <loc>${server}/about</loc>
      </url>
      <url>
-       <loc>https://lau.work/resume</loc>
+       <loc>${server}/resume</loc>
      </url>
      ${designWorkData.map((project, index) => {
         return `
        <url>
-           <loc>${`https://lau.work/design/${project.src}`}</loc>
+           <loc>${`${server}/design/${project.src}`}</loc>
        </url>
      `;
     }).join('')}}
@@ -25,18 +25,20 @@ function SiteMap() {
     // getServerSideProps will do the heavy lifting
 }
 
-export async function getServerSideProps({ res }) {
-    const url = `https://lau-portfolio-nextjs.vercel.app/api/design-work`
+export async function getServerSideProps(context) {
+    const dev = process.env.NODE_ENV !== 'production'
+    const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
+    const url = `${server}/api/design-work`
     const request = await fetch(url)
     const designWorkData = await request.json()
 
     // We generate the XML sitemap with the posts data
-    const sitemap = generateSiteMap(designWorkData);
+    const sitemap = generateSiteMap(designWorkData, server);
 
-    res.setHeader('Content-Type', 'text/xml');
+    context.res.setHeader('Content-Type', 'text/xml');
     // we send the XML to the browser
-    res.write(sitemap);
-    res.end();
+    context.res.write(sitemap);
+    context.res.end();
 
     return {
         props: {},
