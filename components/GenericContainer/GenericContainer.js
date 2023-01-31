@@ -5,7 +5,7 @@ export default function GenericContainer({
     className,
     children,
 }) {
-    const Tag = as ? as : "span";
+    const Tag = as ? as : "div";
 
     return (
         <Tag className={`generic_container ${className}`}>{children}</Tag>
