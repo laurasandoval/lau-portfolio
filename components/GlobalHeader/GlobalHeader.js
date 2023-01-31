@@ -1,7 +1,7 @@
-import { throttle } from 'lodash';
-import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
-import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel';
+import { throttle } from 'lodash'
+import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
+import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './GlobalHeader.scss'
 
 export function GlobalHeader({
@@ -17,7 +17,7 @@ export function GlobalHeader({
         const renderedHeaderMarginBottom = window
             .getComputedStyle(headerElementRef.current)
             .getPropertyValue("margin-bottom")
-            .replace("px", "");
+            .replace("px", "")
         setHeaderMarginBottom(renderedHeaderMarginBottom)
         window.addEventListener("scroll", _throttledScrollCheck)
 
@@ -27,8 +27,8 @@ export function GlobalHeader({
     const _throttledScrollCheck = throttle(() => {
         window.scrollY > headerMarginBottom
             ? setShowHeaderBorder(true)
-            : setShowHeaderBorder(false);
-    }, 250);
+            : setShowHeaderBorder(false)
+    }, 250)
 
     const _toggleNav = () => {
         setNavOpen(!navOpen)

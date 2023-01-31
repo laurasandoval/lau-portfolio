@@ -17,13 +17,13 @@ export default function Home({ designWorkData }) {
         portrait={featured}
         fadeIn
       />
-    );
+    )
   }
 
-  const maxFeaturedCount = 6;
+  const maxFeaturedCount = 6
 
-  const featuredProjects = designWorkData.slice(0, maxFeaturedCount);
-  const remainingProjects = designWorkData.slice(maxFeaturedCount, featuredProjects.lenght);
+  const featuredProjects = designWorkData.slice(0, maxFeaturedCount)
+  const remainingProjects = designWorkData.slice(maxFeaturedCount, featuredProjects.lenght)
 
   return (
     <>
@@ -40,12 +40,12 @@ export default function Home({ designWorkData }) {
       <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
       <Grid featured>
         {featuredProjects.map((project, index) => {
-          return _renderThumbnail(project, index, true);
+          return _renderThumbnail(project, index, true)
         })}
       </Grid>
       <Grid>
         {remainingProjects.map((project, index) => {
-          return _renderThumbnail(project, index);
+          return _renderThumbnail(project, index)
         })}
       </Grid>
     </>
@@ -53,8 +53,10 @@ export default function Home({ designWorkData }) {
 }
 
 export async function getServerSideProps() {
-  const url = "https://lau-portfolio-nextjs.vercel.app/api/design-work";
-  const res = await fetch(url);
-  const designWorkData = await res.json();
-  return { props: { designWorkData } };
+  const dev = process.env.NODE_ENV !== 'production'
+  const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
+  const url = `${server}/api/design-work`
+  const res = await fetch(url)
+  const designWorkData = await res.json()
+  return { props: { designWorkData } }
 }

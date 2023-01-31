@@ -1,10 +1,10 @@
 import './[...project].scss'
 import Head from 'next/head'
 import { GlobalHeader } from '@/components/GlobalHeader/GlobalHeader'
-import { throttle } from 'lodash';
-import { useEffect, useRef, useState } from 'react';
-import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail';
-import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel';
+import { throttle } from 'lodash'
+import { useEffect, useRef, useState } from 'react'
+import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
+import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 
 export default function Project({ currentProject }) {
   const [showGalleryBorder, setShowGalleryBorder] = useState(false)
@@ -22,9 +22,9 @@ export default function Project({ currentProject }) {
     ) {
       setShowGalleryBorder(true)
     } else {
-      setShowGalleryBorder(false);
+      setShowGalleryBorder(false)
     }
-  }, 250);
+  }, 250)
 
   return (
     <>
@@ -64,7 +64,7 @@ export default function Project({ currentProject }) {
                 key={index}
                 autoplay
               />
-            );
+            )
           })}
         </div>
         <div className="project_info">
@@ -74,7 +74,7 @@ export default function Project({ currentProject }) {
               currentProject?.description &&
               <div className="description">
                 {currentProject?.description.map((p, i) => {
-                  return <p key={i}>{p}</p>;
+                  return <p key={i}>{p}</p>
                 })}
               </div>
             }
@@ -93,7 +93,7 @@ export default function Project({ currentProject }) {
                         →
                       </span>
                     </a>
-                  );
+                  )
                 })}
               </div>
             )}
@@ -109,15 +109,9 @@ export default function Project({ currentProject }) {
             )}
             <div className="item" role="text">
               <h3>
-                Date<AccessibilityLabel>: </AccessibilityLabel>
+                Year<AccessibilityLabel>: </AccessibilityLabel>
               </h3>
-              <p>
-                {/* <Time
-                  year={currentProject?.release_year}
-                  month={currentProject?.release_month}
-                  as="span"
-                /> */}
-              </p>
+              <p>{currentProject?.year}</p>
             </div>
             {currentProject?.team &&
               Object.keys(currentProject?.team).map((item, i) => {
@@ -135,7 +129,7 @@ export default function Project({ currentProject }) {
                               {person.name}
                               <AccessibilityLabel>.</AccessibilityLabel>
                             </p>
-                          );
+                          )
                         } else if (
                           i + 1 ===
                           currentProject?.team[item].length - 1
@@ -145,21 +139,21 @@ export default function Project({ currentProject }) {
                               {person.name}
                               <AccessibilityLabel> and </AccessibilityLabel>
                             </p>
-                          );
+                          )
                         } else {
                           return (
                             <p key={i}>
                               {person.name}
                               <AccessibilityLabel>, </AccessibilityLabel>
                             </p>
-                          );
+                          )
                         }
                       } else {
-                        return <p key={i}>{person.name}</p>;
+                        return <p key={i}>{person.name}</p>
                       }
                     })}
                   </div>
-                );
+                )
               })}
           </div>
         </div>
@@ -169,11 +163,11 @@ export default function Project({ currentProject }) {
 }
 
 export async function getServerSideProps(context) {
-  const dev = process.env.NODE_ENV !== 'production';
-  const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`;
-  const url = `${server}/api/design-work`;
-  const res = await fetch(url);
-  const designWorkData = await res.json();
+  const dev = process.env.NODE_ENV !== 'production'
+  const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
+  const url = `${server}/api/design-work`
+  const res = await fetch(url)
+  const designWorkData = await res.json()
 
   const projectSrc = context.query.project.join('/') || []
   let currentProject
@@ -189,5 +183,5 @@ export async function getServerSideProps(context) {
 
   return {
     props: { currentProject }
-  };
+  }
 }

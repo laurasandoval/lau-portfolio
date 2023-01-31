@@ -1,12 +1,11 @@
-import Link from 'next/link';
-import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel';
+import Link from 'next/link'
+import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './ProjectThumbnail.scss'
 
 export function ProjectThumbnail({
     as,
     title,
-    release_year,
-    release_month,
+    year,
     src,
     thumbnail,
     thumbnails,
@@ -17,8 +16,8 @@ export function ProjectThumbnail({
     fadeIn,
 }) {
     const _renderThumbnail = (thumbnail, src, title, autoplay) => {
-        const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"];
-        const videoFormats = ["mp4", "webm"];
+        const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"]
+        const videoFormats = ["mp4", "webm"]
 
         if (new RegExp(`[.](${imageFormats.join("|")})`).test(thumbnail)) {
             return (
@@ -26,7 +25,7 @@ export function ProjectThumbnail({
                     src={`/Work/${src}/thumbnails/${thumbnail}`}
                     alt={title}
                 />
-            );
+            )
         } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(thumbnail)) {
             return (
                 <video playsInline muted autoPlay={autoplay} loop>
@@ -45,17 +44,17 @@ export function ProjectThumbnail({
                         type="video/mp4"
                     />
                 </video>
-            );
+            )
         } else {
             return (
                 <div>
                     <span>Error</span>
                 </div>
-            );
+            )
         }
     }
 
-    const Tag = as ? as : "div";
+    const Tag = as ? as : "div"
 
     return (
         <Tag
@@ -79,7 +78,7 @@ export function ProjectThumbnail({
             {!img_only && (
                 <div className="project_info" aria-hidden={hover}>
                     <h3 className="title">{title}</h3>
-                    {/* <Time year={release_year} month={release_month} /> */}
+                    <span className="date">{year}</span>
                 </div>
             )}
         </Tag>

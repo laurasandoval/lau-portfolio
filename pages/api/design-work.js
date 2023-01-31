@@ -7,8 +7,7 @@ export default function handler(req, res) {
         "This included hiring, managing and mentoring a team of 8 Product Designers and Design Managers, overseeing the design of over 100 projects, and working closely with Engineering and Product teams to deliver new features and continuously improve Cornershop by Uber’s customer-facing products.",
         "Cornershop is an Uber-owned grocery delivery service that offers world-class digital products powered by software and design."
       ],
-      "release_year": "2023",
-      "release_month": "01",
+      "year": "2023",
       "src": "cornershop/head-of-customers-product-design",
       "social_thumbnail": "cornershop-order.png",
       "thumbnails": [
@@ -62,8 +61,7 @@ export default function handler(req, res) {
         "In 5 months, designed, developed, and shipped a grocery delivery service for Uber Eats from scratch.",
         "By leveraging existing products and expertise from Cornershop, Uber Grocery has helped Uber Eats add more than 24,000 grocery stores around the world into its catalog —including Albertsons, Carrefour, Costco and Woolworths—, and has allowed Uber Eats customers to order at least 100,000 bunches of bananas each month."
       ],
-      "release_year": "2020",
-      "release_month": "07",
+      "year": "2020",
       "src": "uber/uber-grocery-with-cornershop",
       "social_thumbnail": "uber-grocery-home.png",
       "thumbnails": [
@@ -205,8 +203,7 @@ export default function handler(req, res) {
         "With its unique functionalities, native iOS look & feel, and deep attention to accessibility and details, Balance has consistently remained within the top 20 most downloaded navigation apps in Chile ever since its launch in 2019 —reaching up to the second most downloaded navigation app in 2021, right above similar apps like Moovit or Waze— and it’s by far the most positively reviewed one among its local alternatives.",
         "This project was not commissioned by, and it's not directly related to any of Chile's official transit authorities."
       ],
-      "release_year": "2019",
-      "release_month": "04",
+      "year": "2019",
       "src": "balance/app",
       "social_thumbnail": "balance-saved-cards.png",
       "thumbnails": [
@@ -253,8 +250,7 @@ export default function handler(req, res) {
         "In real life, Fintual is a Chilean start-up that makes investments easy, and I've been using it for a couple of years now.",
         "This project was not commissioned, reviewed, or approved by, and it's not associated with Fintual in any way."
       ],
-      "release_year": "2022",
-      "release_month": "09",
+      "year": "2022",
       "src": "lintuaf",
       "social_thumbnail": "lintuaf-goal-view.png",
       "thumbnails": [
@@ -298,8 +294,7 @@ export default function handler(req, res) {
         "40 physical copies of the map were printed and distributed during 2019.",
         "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
       ],
-      "release_year": "2019",
-      "release_month": "07",
+      "year": "2019",
       "src": "santiago-transit-map/2019",
       "social_thumbnail": "santiago-transit-map-s4-print.png",
       "thumbnails": [
@@ -315,8 +310,7 @@ export default function handler(req, res) {
       "description": [
         "Responsive and accessible Josef Müller-Brockmann posters using CSS Grid and native web technologies."
       ],
-      "release_year": "2020",
-      "release_month": "06",
+      "year": "2020",
       "src": "open-source/responsive-muller-brockmann",
       "social_thumbnail": "responsive-muller-brockmann-01.png",
       "thumbnails": [
@@ -356,8 +350,7 @@ export default function handler(req, res) {
         "Cornershop is an Uber-owned grocery delivery service that offers world-class digital products powered by software and design.",
         "The entire website was redesigned and rewritten from the ground up, providing first-class support for assistive technologies —such as keyboard navigation and screen readers— in every step of the process."
       ],
-      "release_year": "2021",
-      "release_month": "01",
+      "year": "2021",
       "src": "cornershop/cornershop-stores-landing",
       "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
@@ -400,8 +393,7 @@ export default function handler(req, res) {
         "While preserving its underlying Javascript foundations, the entire markup and CSS of the web app were reimagined and rebuilt from the ground up, taking advantage of modern CSS properties to achieve native-feeling interactions, visually polished elements, and a brand new, mobile-first component library—all while taking the opportunity to significantly improve accessibility for both screen readers and keyboard users throughout every point of the experience.",
         "Most Javascript-powered UI libraries were deprecated from the codebase afterwards, helping consolidate a mature, propietary, and flexible design and development environment."
       ],
-      "release_year": "2020",
-      "release_month": "03",
+      "year": "2020",
       "src": "cornershop/cornershop-web-app",
       "social_thumbnail": "cornershop-web-app-iphone-11-and-ipad-pro-11-inch.png",
       "thumbnails": [
@@ -458,8 +450,7 @@ export default function handler(req, res) {
         "Cornershop is an Uber-owned grocery delivery service that offers world-class digital products powered by software and design.",
         "All visual elements of the website were redesigned and rewritten from scratch using modern and native web standards to allow for better accessibility, lightning-fast load times, and enormous flexibility."
       ],
-      "release_year": "2020",
-      "release_month": "01",
+      "year": "2020",
       "src": "cornershop/cornershop-referral-landing",
       "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
@@ -514,8 +505,7 @@ export default function handler(req, res) {
         "100 physical copies of the map were printed and distributed in mid-2018.",
         "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
       ],
-      "release_year": "2018",
-      "release_month": "02",
+      "year": "2018",
       "src": "santiago-transit-map/2018",
       "social_thumbnail": "santiago-transit-map-s3-full.png",
       "thumbnails": [
@@ -530,8 +520,7 @@ export default function handler(req, res) {
       "description": [
         "Website redesign and development for Kappo's Cool Place to Bike program."
       ],
-      "release_year": "2019",
-      "release_month": "02",
+      "year": "2019",
       "featured": false,
       "src": "kappo/cool-place-to-bike-website",
       "social_thumbnail": ".png",
@@ -568,8 +557,7 @@ export default function handler(req, res) {
         "Based in Santiago de Chile, Kappo Bike aimed to become a global facilitator of tools for smart city development around sustainable mobility, with tools such as \"PedalHeat\", Kappo's government-oriented solution for mapping out bike lane usage, \"Cool Place to Bike\", Kappo's B2B solution for encouraging bicycle usage within companies, and many more.",
         "The development of this project resulted in a comprehensive Brand Book and internal websites and documents with guidance around the usage of the new Kappo brand."
       ],
-      "release_year": "2019",
-      "release_month": "03",
+      "year": "2019",
       "featured": false,
       "src": "kappo/kappo-brand-identity",
       "social_thumbnail": "kappo-brand-posters-1.png",
