@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './GlobalHeader.scss'
+import { useRouter } from 'next/router'
 
 export function GlobalHeader({
     sticky,
@@ -12,6 +13,8 @@ export function GlobalHeader({
     const [navOpen, setNavOpen] = useState(false)
     const [showHeaderBorder, setShowHeaderBorder] = useState(false)
     const headerElementRef = useRef(null)
+    const { asPath } = useRouter();
+    const cleanPath = asPath.split('#')[0].split('?')[0];
 
     useEffect(() => {
         const renderedHeaderMarginBottom = window
@@ -33,6 +36,21 @@ export function GlobalHeader({
     const _toggleNav = () => {
         setNavOpen(!navOpen)
     }
+
+    const links = [
+        {
+            title: "Work",
+            href: "/"
+        },
+        {
+            title: "About",
+            href: "/about"
+        },
+        {
+            title: "Résumé",
+            href: "/resume"
+        },
+    ]
 
     return (
         <header
@@ -82,30 +100,18 @@ export function GlobalHeader({
                 </div>
                 <nav data-open={navOpen.toString()}>
                     <ul>
-                        <li>
-                            <Link
-                                className="nav_item"
-                                href="/"
-                            >
-                                Work
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                className="nav_item"
-                                href="/about"
-                            >
-                                About
-                            </Link>
-                        </li>
-                        <li>
-                            <a
-                                className="nav_item"
-                                href="/resume"
-                            >
-                                Résumé
-                            </a>
-                        </li>
+                        {links.map((link, index) => {
+                            return (
+                                <li key={index}>
+                                    <Link
+                                        className={`nav_item ${cleanPath == link.href ? "active" : ""}`}
+                                        href={link.href}
+                                    >
+                                        {link.title}
+                                    </Link>
+                                </li>
+                            )
+                        })}
                     </ul>
                 </nav>
             </div>
