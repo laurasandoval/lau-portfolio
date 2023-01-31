@@ -1,0 +1,10 @@
+.generic_container {
+    width: 100%;
+    max-width: calc(1440px + 80px);
+    margin: 0 auto;
+    padding: 0 40px 40px 40px;
+
+    @media (max-width: 850px) {
+        padding: 20px 10px;
+    }
+}
