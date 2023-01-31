@@ -1,0 +1,195 @@
+.project_page_fallback {
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 1920px;
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    grid-gap: 40px;
+
+    @media (max-width: 1080px) {
+        grid-gap: 20px;
+    }
+
+    @media (max-width: 850px) {
+        padding: 20px 10px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, auto);
+    }
+
+    .project_gallery {
+        display: flex;
+        flex-flow: column;
+        border-bottom: 1px solid rgba(231, 232, 233, 0);
+        transition: border-bottom .4s ease;
+
+        .project_thumbnail {
+            &:not(:last-of-type) {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 850px) {
+            &[data-show-border="true"] {
+                border-bottom: 1px solid rgba(231, 232, 233, 1);
+            }
+
+            position: sticky;
+            top: 0;
+            flex-flow: row;
+            overflow: auto;
+            margin: -10px;
+            padding: 10px;
+            box-sizing: border-box;
+            background: white;
+            scroll-snap-type: x mandatory;
+
+            &:after {
+                content: "";
+                flex-shrink: 0;
+                display: block;
+                width: 10px;
+            }
+
+            .project_thumbnail {
+                scroll-snap-align: center;
+                width: 96%;
+                margin-right: 4px;
+                flex-shrink: 0;
+
+                &:not(:last-of-type) {
+                    margin-bottom: 0;
+                }
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+
+                &:only-of-type {
+                    width: 100%;
+                }
+            }
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+    }
+
+    .project_info {
+        position: sticky;
+        top: 40px;
+
+        @media (max-width: 1080px) {
+            top: 20px;
+        }
+
+        display: grid;
+        grid-auto-flow: row;
+        grid-gap: 60px;
+        height: fit-content;
+        padding: 0 10px;
+        box-sizing: border-box;
+
+        @media (max-width: 850px) {
+            & {
+                position: initial;
+            }
+        }
+
+        .main {
+            display: grid;
+            grid-auto-flow: row;
+            grid-gap: 40px;
+            height: fit-content;
+
+            .title,
+            .description {
+                margin: 0;
+                padding: 0;
+            }
+
+            .title {
+                font-size: 27px;
+                font-weight: 600;
+                letter-spacing: -0.03em;
+                line-height: 1.2em;
+            }
+
+            .description {
+                font-size: 16px;
+                font-weight: 400;
+                color: rgba(0, 0, 0, 1);
+                line-height: 1.4;
+
+                p {
+                    margin: 0;
+                    padding: 0;
+                    font: inherit;
+
+                    &:not(:first-child) {
+                        margin-top: 1em;
+                    }
+                }
+            }
+
+            .ctas {
+                line-height: 1.4;
+
+                .call_to_action {
+                    display: block;
+                    font-size: 16px;
+                    font-weight: 400;
+                    text-decoration: underline;
+                    color: rgba(16, 99, 238, 1);
+                    width: fit-content;
+                    transition: color 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
+
+                    .right_arrow {
+                        display: inline-block;
+                        margin-left: 0.2em;
+                        transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
+                        color: rgba(16, 99, 238, 1);
+                    }
+
+                    @media (hover: hover) {
+                        &:hover {
+                            color: rgba(0, 0, 0, 1);
+
+                            .right_arrow {
+                                transform: translateX(10px);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .credits {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 40px;
+
+            @media (max-width: 1080px) {
+                grid-template-columns: 1fr;
+                grid-gap: 20px;
+            }
+
+            .item {
+
+                h3,
+                p {
+                    font-size: 16px;
+                    font-weight: 400;
+                    line-height: 1.4;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                h3 {
+                    color: rgba(136, 138, 144, 1);
+                }
+            }
+        }
+    }
+}

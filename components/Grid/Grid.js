@@ -1,11 +1,11 @@
-import styles from './Grid.module.scss'
+import './Grid.scss'
 
 export default function Grid({
     featured,
     children,
 }) {
     return (
-        <section className={styles.projects_grid} data-featured={featured}>
+        <section className="projects_grid" data-featured={featured}>
             {children}
         </section>
     )

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel';
-import styles from './ProjectThumbnail.module.scss'
+import './ProjectThumbnail.scss'
 
 export function ProjectThumbnail({
     as,
@@ -59,7 +59,7 @@ export function ProjectThumbnail({
 
     return (
         <Tag
-            className={styles.project_thumbnail}
+            className="project_thumbnail"
             data-name={title}
             data-hover={hover}
             data-img-only={img_only}
@@ -67,18 +67,18 @@ export function ProjectThumbnail({
             data-fade-in={fadeIn}
         >
             {hover && (
-                <Link href={`/${src}`} className={styles.project_access}>
+                <Link href={`/${src}`} className="project_access">
                     <AccessibilityLabel role="text" as="span">
                         {title}
                     </AccessibilityLabel>
                 </Link>
             )}
-            <div className={styles.project_artwork} aria-hidden="true">
+            <div className="project_artwork" aria-hidden="true">
                 {_renderThumbnail(thumbnail ? thumbnail : thumbnails[0], src, title, autoplay)}
             </div>
             {!img_only && (
-                <div className={styles.project_info} aria-hidden={hover}>
-                    <h3 className={styles.title}>{title}</h3>
+                <div className="project_info" aria-hidden={hover}>
+                    <h3 className="title">{title}</h3>
                     {/* <Time year={release_year} month={release_month} /> */}
                 </div>
             )}

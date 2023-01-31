@@ -19,7 +19,9 @@ export function GlobalHeader({
             .getPropertyValue("margin-bottom")
             .replace("px", "");
         setHeaderMarginBottom(renderedHeaderMarginBottom)
-        window.addEventListener("scroll", _throttledScrollCheck);
+        window.addEventListener("scroll", _throttledScrollCheck)
+
+        return () => document.removeEventListener("scroll", _throttledScrollCheck)
     })
 
     const _throttledScrollCheck = throttle(() => {
