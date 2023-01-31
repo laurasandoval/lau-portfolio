@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './ProjectThumbnail.scss'
@@ -21,9 +22,10 @@ export function ProjectThumbnail({
 
         if (new RegExp(`[.](${imageFormats.join("|")})`).test(thumbnail)) {
             return (
-                <img
+                <Image
                     src={`/assets/design-work/${src}/${thumbnail}`}
                     alt={title}
+                    fill
                 />
             )
         } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(thumbnail)) {
