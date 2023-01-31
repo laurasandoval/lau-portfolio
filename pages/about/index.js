@@ -4,7 +4,7 @@ import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import { NextSeo } from 'next-seo';
 import './index.scss'
 
-export default function About(server) {
+export default function About({ server }) {
     const Age = "24";
 
     return (

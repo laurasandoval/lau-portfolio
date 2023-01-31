@@ -4,7 +4,7 @@ import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import { NextSeo } from 'next-seo'
 import './index.scss'
 
-export default function BalancePrivacyPolicy(server) {
+export default function BalancePrivacyPolicy({ server }) {
     return (
         <>
             <NextSeo
