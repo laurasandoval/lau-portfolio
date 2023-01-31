@@ -2,7 +2,7 @@ import { throttle } from 'lodash';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel';
-import styles from './GlobalHeader.module.scss'
+import './GlobalHeader.scss'
 
 export function GlobalHeader({
     sticky,
@@ -31,22 +31,12 @@ export function GlobalHeader({
     }, 250);
 
     const _toggleNav = () => {
-        if (navOpen === false && showHeaderBorder === false) {
-            setShowHeaderBorder(true)
-
-            setTimeout(() => {
-                setNavOpen(true)
-            }, 300);
-        } else {
-            setNavOpen((prevState) => ({
-                navOpen: !prevState.navOpen,
-            }));
-        }
+        setNavOpen(!navOpen)
     }
 
     return (
         <header
-            className={styles.global_header}
+            className="global_header"
             data-sticky={sticky}
             data-show-border={
                 showHeaderBorder === true
@@ -60,29 +50,29 @@ export function GlobalHeader({
             }}
             ref={headerElementRef}
         >
-            <div className={styles.header_content}>
-                <div className={styles.top_bar}>
-                    <div className={styles.sopaipilla_menu} data-open={navOpen}>
+            <div className="header_content">
+                <div className="top_bar">
+                    <div className="sopaipilla_menu" data-open={navOpen.toString()}>
                         <button
-                            className={styles.toggle}
+                            className="toggle"
                             onClick={_toggleNav}
                             aria-hidden="true"
                         >
                             <AccessibilityLabel>
-                                {navOpen === true ? "Close" : "Open"} menu
+                                {navOpen.toString() === true ? "Close menu" : "Open menu"}
                             </AccessibilityLabel>
                         </button>
-                        <span className={`${styles.sopaipilla} ${styles.top}`}>
-                            <span className={styles.inner_sopaipilla}></span>
+                        <span className="sopaipilla top">
+                            <span className="inner_sopaipilla"></span>
                         </span>
-                        <span className={`${styles.sopaipilla} ${styles.bottom}`}>
-                            <span className={styles.inner_sopaipilla}></span>
+                        <span className="sopaipilla bottom">
+                            <span className="inner_sopaipilla"></span>
                         </span>
                     </div>
-                    <h1 aria-hidden={navOpen}>
+                    <h1 aria-hidden={navOpen.toString()}>
                         <AccessibilityLabel>Laura Sandoval</AccessibilityLabel>
                         <Link
-                            className={styles.nav_item}
+                            className="nav_item"
                             href="/"
                             aria-hidden="true"
                         >
@@ -90,11 +80,11 @@ export function GlobalHeader({
                         </Link>
                     </h1>
                 </div>
-                <nav data-open={navOpen}>
+                <nav data-open={navOpen.toString()}>
                     <ul>
                         <li>
                             <Link
-                                className={styles.nav_item}
+                                className="nav_item"
                                 href="/"
                             >
                                 Work
@@ -102,7 +92,7 @@ export function GlobalHeader({
                         </li>
                         <li>
                             <Link
-                                className={styles.nav_item}
+                                className="nav_item"
                                 href="/about"
                             >
                                 About
@@ -110,7 +100,7 @@ export function GlobalHeader({
                         </li>
                         <li>
                             <a
-                                className={styles.nav_item}
+                                className="nav_item"
                                 href="/resume"
                             >
                                 Résumé

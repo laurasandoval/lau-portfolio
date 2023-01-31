@@ -18,7 +18,7 @@ export default function Project({ currentProject }) {
   const _throttledScrollCheck = throttle(() => {
     if (
       projectGallery &&
-      projectGallery.offsetTop <= window.scrollY
+      projectGallery.current.offsetTop <= window.scrollY
     ) {
       setShowGalleryBorder(true)
     } else {
