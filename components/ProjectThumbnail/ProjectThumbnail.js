@@ -15,6 +15,7 @@ export function ProjectThumbnail({
     autoplay,
     portrait,
     fadeIn,
+    priority,
 }) {
     const _renderThumbnail = (thumbnail, src, title, autoplay) => {
         const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"]
@@ -26,6 +27,7 @@ export function ProjectThumbnail({
                     src={`/assets/design-work/${src}/${thumbnail}`}
                     alt={title}
                     fill
+                    priority={priority ? priority : false}
                 />
             )
         } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(thumbnail)) {

@@ -6,7 +6,7 @@ import { NextSeo } from 'next-seo'
 
 export default function Home({ designWorkData, server }) {
 
-  const _renderThumbnail = (project, index, featured) => {
+  const _renderThumbnail = (project, index, featured, priority) => {
     return (
       <ProjectThumbnail
         {...project}
@@ -16,6 +16,7 @@ export default function Home({ designWorkData, server }) {
         key={index}
         portrait={featured}
         fadeIn
+        priority={priority}
       />
     )
   }
@@ -62,12 +63,12 @@ export default function Home({ designWorkData, server }) {
       <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
       <Grid featured>
         {featuredProjects.map((project, index) => {
-          return _renderThumbnail(project, index, true)
+          return _renderThumbnail(project, index, true, (index == 0 || index == 1))
         })}
       </Grid>
       <Grid>
         {remainingProjects.map((project, index) => {
-          return _renderThumbnail(project, index)
+          return _renderThumbnail(project, index, false, false)
         })}
       </Grid>
     </>
