@@ -1,20 +1,42 @@
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 import GenericContainer from '@/components/GenericContainer/GenericContainer'
 import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 import './index.scss'
 
 export default function BalancePrivacyPolicy() {
     return (
         <>
-            <Head>
-                <title>Privacy Policy – Balance</title>
-                <meta name="description" content="Balance's Privacy Policy describes how Balance collects, uses, and shares your personal data." />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name="image" content="/site-thumbnail.png" />
-                <link rel="icon" href="/favicon.ico" />
-                <link rel="apple-touch-icon" href="/logo192.png" />
-            </Head>
+            <NextSeo
+                title="Balance – Privacy Policy"
+                description="Balance's Privacy Policy describes how Balance collects, uses, and shares your personal data."
+                openGraph={{
+                    title: "Balance",
+                    description: "Balance's Privacy Policy describes how Balance collects, uses, and shares your personal data.",
+                    images: [
+                        {
+                            url: "/balance/social-thumbnail.png",
+                            width: 1200,
+                            height: 630,
+                            type: "image/png",
+                        }
+                    ],
+                }}
+                twitter={{
+                    handle: "@balanceappcl",
+                    cardType: "summary_large_image",
+                }}
+                additionalLinkTags={[
+                    {
+                        rel: "icon",
+                        href: "/favicon.ico",
+                    },
+                    {
+                        rel: "apple-touch-icon",
+                        href: "/logo192.png"
+                    }
+                ]}
+            />
 
             <GlobalHeader sticky backgroundColor="#fafafa" />
 

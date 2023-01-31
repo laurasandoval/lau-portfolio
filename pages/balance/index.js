@@ -1,16 +1,38 @@
-import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 
 export default function Balance() {
     return (
         <>
-            <Head>
-                <title>Balance</title>
-                <meta name="description" content="Agrega tus tarjetas de transporte público y obtén el saldo de tu Bip, viaja en el Metro de Santiago o en las micros Red con tu Bip QR, y más." />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name="image" content="/site-thumbnail.png" />
-                <link rel="icon" href="/favicon.ico" />
-                <link rel="apple-touch-icon" href="/logo192.png" />
-            </Head>
+            <NextSeo
+                title="Balance"
+                description="Agrega tus tarjetas de transporte público y obtén el saldo de tu Bip, viaja en el Metro de Santiago o en las micros Red con tu Bip QR, y más."
+                openGraph={{
+                    title: "Balance",
+                    description: "Agrega tus tarjetas de transporte público y obtén el saldo de tu Bip, viaja en el Metro de Santiago o en las micros Red con tu Bip QR, y más.",
+                    images: [
+                        {
+                            url: "/balance/social-thumbnail.png",
+                            width: 1200,
+                            height: 630,
+                            type: "image/png",
+                        }
+                    ],
+                }}
+                twitter={{
+                    handle: "@balanceappcl",
+                    cardType: "summary_large_image",
+                }}
+                additionalLinkTags={[
+                    {
+                        rel: "icon",
+                        href: "/favicon.ico",
+                    },
+                    {
+                        rel: "apple-touch-icon",
+                        href: "/logo192.png"
+                    }
+                ]}
+            />
         </>
     )
 }

@@ -1,10 +1,10 @@
 import './[...project].scss'
-import Head from 'next/head'
 import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import { throttle } from 'lodash'
 import { useEffect, useRef, useState } from 'react'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
+import { NextSeo } from 'next-seo'
 
 export default function Project({ currentProject }) {
   const [showGalleryBorder, setShowGalleryBorder] = useState(false)
@@ -28,25 +28,33 @@ export default function Project({ currentProject }) {
 
   return (
     <>
-      <Head>
-        <title>{`${currentProject?.title} — Laura Sandoval`}</title>
-        <meta name="description" content={`${currentProject?.description[0]}`} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="image" content={`/assets/design-work/${currentProject?.src}/${currentProject?.social_thumbnail}`} />
-
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/logo192.png" />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={`${currentProject?.title} — Laura Sandoval`} />
-        <meta property="og:description" content={`${currentProject?.description[0]}`} />
-        <meta property="og:image" content={`/assets/design-work/${currentProject?.src}/${currentProject?.social_thumbnail}`} />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${currentProject?.title} — Laura Sandoval`} />
-        <meta name="twitter:description" content={`${currentProject?.description[0]}`} />
-        <meta name="twitter:image" content={`/assets/design-work/${currentProject?.src}/${currentProject?.social_thumbnail}`} />
-      </Head>
+      <NextSeo
+        title={`${currentProject?.title} — Laura Sandoval`}
+        description={`${currentProject?.description[0]}`}
+        openGraph={{
+          title: `${currentProject?.title} — Laura Sandoval`,
+          description: `${currentProject?.description[0]}`,
+          images: [
+            {
+              url: `/assets/design-work/${currentProject?.src}/${currentProject?.social_thumbnail}`,
+            }
+          ],
+        }}
+        twitter={{
+          handle: "@laurasideral",
+          cardType: "summary_large_image",
+        }}
+        additionalLinkTags={[
+          {
+            rel: "icon",
+            href: "/favicon.ico",
+          },
+          {
+            rel: "apple-touch-icon",
+            href: "/logo192.png"
+          }
+        ]}
+      />
 
       <GlobalHeader />
       <article className="project_page_fallback" data-name={currentProject?.title}>

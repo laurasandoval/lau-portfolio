@@ -196,7 +196,7 @@ export default function handler(req, res) {
       }
     },
     {
-      "title": "Balance – Your transit cards in one place",
+      "title": "Balance — Your transit cards in one place",
       "client": null,
       "description": [
         "Formerly “Saldo Red”, Balance is Chile’s top-rated app for managing transit cards.",
