@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { GlobalHeader } from '@/components/GlobalHeader/GlobalHeader'
+import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import Grid from '@/components/Grid/Grid'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'

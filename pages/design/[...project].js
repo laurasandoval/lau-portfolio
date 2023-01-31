@@ -1,6 +1,6 @@
 import './[...project].scss'
 import Head from 'next/head'
-import { GlobalHeader } from '@/components/GlobalHeader/GlobalHeader'
+import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import { throttle } from 'lodash'
 import { useEffect, useRef, useState } from 'react'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'

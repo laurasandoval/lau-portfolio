@@ -1,6 +1,6 @@
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 import GenericContainer from '@/components/GenericContainer/GenericContainer'
-import { GlobalHeader } from '@/components/GlobalHeader/GlobalHeader'
+import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import Head from 'next/head'
 import './index.scss'
 
@@ -18,9 +18,9 @@ export default function BalancePrivacyPolicy() {
 
             <GlobalHeader sticky backgroundColor="#fafafa" />
 
-            <GenericContainer className="balance-privacy-policy">
+            <GenericContainer className="balance_privacy_policy">
                 <a href="/balance">
-                    <img className="app-icon" alt="App Icon" src="/assets/balance/app-icon.png" />
+                    <img className="app_icon" alt="App Icon" src="/assets/balance/app-icon.png" />
                     <AccessibilityLabel>Balance</AccessibilityLabel>
                 </a>
 

@@ -5,7 +5,7 @@ import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './GlobalHeader.scss'
 import { useRouter } from 'next/router'
 
-export function GlobalHeader({
+export default function GlobalHeader({
     sticky,
     backgroundColor,
 }) {

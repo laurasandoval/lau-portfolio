@@ -1,6 +1,6 @@
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 import GenericContainer from '@/components/GenericContainer/GenericContainer'
-import { GlobalHeader } from '@/components/GlobalHeader/GlobalHeader'
+import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import './index.scss'
 
 export default function About() {
