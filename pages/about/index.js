@@ -4,7 +4,7 @@ import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import { NextSeo } from 'next-seo';
 import './index.scss'
 
-export default function About() {
+export default function About(server) {
     const Age = "24";
 
     return (
@@ -17,7 +17,7 @@ export default function About() {
                     description: "I strive to design wonderful and accessible digital products that go unnoticed in day-to-day life, while staying true to their intended meaning.",
                     images: [
                         {
-                            url: "/social-thumbnail.png",
+                            url: `${server}/social-thumbnail.png`,
                             width: 1200,
                             height: 630,
                             type: "image/png",
@@ -31,11 +31,11 @@ export default function About() {
                 additionalLinkTags={[
                     {
                         rel: "icon",
-                        href: "/favicon.ico",
+                        href: `${server}/favicon.ico`,
                     },
                     {
                         rel: "apple-touch-icon",
-                        href: "/logo192.png"
+                        href: `${server}/logo192.png`
                     }
                 ]}
             />
@@ -117,4 +117,10 @@ export default function About() {
             </GenericContainer>
         </>
     )
+}
+
+export async function getServerSideProps(context) {
+    const dev = process.env.NODE_ENV !== 'production'
+    const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
+    return { props: { server } }
 }

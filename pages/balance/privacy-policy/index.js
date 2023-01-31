@@ -4,7 +4,7 @@ import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import { NextSeo } from 'next-seo'
 import './index.scss'
 
-export default function BalancePrivacyPolicy() {
+export default function BalancePrivacyPolicy(server) {
     return (
         <>
             <NextSeo
@@ -15,7 +15,7 @@ export default function BalancePrivacyPolicy() {
                     description: "Balance's Privacy Policy describes how Balance collects, uses, and shares your personal data.",
                     images: [
                         {
-                            url: "/balance/social-thumbnail.png",
+                            url: `${server}/balance/social-thumbnail.png`,
                             width: 1200,
                             height: 630,
                             type: "image/png",
@@ -29,11 +29,11 @@ export default function BalancePrivacyPolicy() {
                 additionalLinkTags={[
                     {
                         rel: "icon",
-                        href: "/favicon.ico",
+                        href: `${server}/favicon.ico`,
                     },
                     {
                         rel: "apple-touch-icon",
-                        href: "/logo192.png"
+                        href: `${server}/logo192.png`
                     }
                 ]}
             />
@@ -61,4 +61,10 @@ export default function BalancePrivacyPolicy() {
             </GenericContainer>
         </>
     )
+}
+
+export async function getServerSideProps(context) {
+    const dev = process.env.NODE_ENV !== 'production'
+    const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
+    return { props: { server } }
 }

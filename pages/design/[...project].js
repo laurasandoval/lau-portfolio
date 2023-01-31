@@ -6,7 +6,7 @@ import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 import { NextSeo } from 'next-seo'
 
-export default function Project({ currentProject }) {
+export default function Project({ currentProject, server }) {
   const [showGalleryBorder, setShowGalleryBorder] = useState(false)
   const projectGallery = useRef(null)
 
@@ -36,7 +36,7 @@ export default function Project({ currentProject }) {
           description: `${currentProject?.description[0]}`,
           images: [
             {
-              url: `/assets/design-work/${currentProject?.src}/${currentProject?.social_thumbnail}`,
+              url: `${server}/assets/design-work/${currentProject?.src}/${currentProject?.social_thumbnail}`,
             }
           ],
         }}
@@ -47,11 +47,11 @@ export default function Project({ currentProject }) {
         additionalLinkTags={[
           {
             rel: "icon",
-            href: "/favicon.ico",
+            href: `${server}/favicon.ico`,
           },
           {
             rel: "apple-touch-icon",
-            href: "/logo192.png"
+            href: `${server}/logo192.png`
           }
         ]}
       />
@@ -190,6 +190,6 @@ export async function getServerSideProps(context) {
   }
 
   return {
-    props: { currentProject }
+    props: { currentProject, server }
   }
 }

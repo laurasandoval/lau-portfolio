@@ -4,7 +4,7 @@ import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 import { NextSeo } from 'next-seo'
 
-export default function Home({ designWorkData }) {
+export default function Home({ designWorkData, server }) {
 
   const _renderThumbnail = (project, index, featured) => {
     return (
@@ -35,7 +35,7 @@ export default function Home({ designWorkData }) {
           description: "Digital Product Designer & Developer from Santiago, Chile. Featured clients include Uber, Cornershop, among others.",
           images: [
             {
-              url: "/social-thumbnail.png",
+              url: `${server}/social-thumbnail.png`,
               width: 1200,
               height: 630,
               type: "image/png",
@@ -49,11 +49,11 @@ export default function Home({ designWorkData }) {
         additionalLinkTags={[
           {
             rel: "icon",
-            href: "/favicon.ico",
+            href: `${server}/favicon.ico`,
           },
           {
             rel: "apple-touch-icon",
-            href: "/logo192.png"
+            href: `${server}/logo192.png`
           }
         ]}
       />
@@ -80,5 +80,5 @@ export async function getServerSideProps(context) {
   const url = `${server}/api/design-work`
   const res = await fetch(url)
   const designWorkData = await res.json()
-  return { props: { designWorkData } }
+  return { props: { designWorkData, server } }
 }
