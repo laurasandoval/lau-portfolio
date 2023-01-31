@@ -1,7 +1,6 @@
 .project_page_fallback {
     margin: 0 auto;
     padding: 0 20px;
-    box-sizing: border-box;
     max-width: 1600px;
     display: grid;
     grid-template-columns: 1fr 0.5fr;
@@ -40,7 +39,6 @@
             overflow: auto;
             margin: -10px;
             padding: 10px;
-            box-sizing: border-box;
             background: white;
             scroll-snap-type: x mandatory;
 
@@ -89,7 +87,6 @@
         grid-gap: 60px;
         height: fit-content;
         padding: 0 10px;
-        box-sizing: border-box;
 
         @media (max-width: 850px) {
             & {

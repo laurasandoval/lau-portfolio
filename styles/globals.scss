@@ -20,6 +20,19 @@ html {
       box-sizing: border-box;
     }
 
+    address,
+    article,
+    aside,
+    div,
+    footer,
+    header,
+    hgroup,
+    main,
+    nav,
+    section {
+      display: block;
+    }
+
     #nprogress .peg {
       box-shadow: none;
     }
