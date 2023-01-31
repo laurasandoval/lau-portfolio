@@ -19,5 +19,9 @@ html {
     * {
       box-sizing: border-box;
     }
+
+    #nprogress .peg {
+      box-shadow: none;
+    }
   }
 }
