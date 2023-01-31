@@ -1,4 +1,4 @@
-import styles from './GenericContainer.scss'
+import './GenericContainer.scss'
 
 export default function GenericContainer({
     as,

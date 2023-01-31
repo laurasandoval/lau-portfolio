@@ -9,7 +9,7 @@ export default function handler(req, res) {
       ],
       "year": "2023",
       "src": "cornershop/head-of-customers-product-design",
-      "social_thumbnail": "cornershop-order.png",
+      "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
         "cornershop-order.png",
         "cornershop-marketplace.png",
@@ -63,7 +63,7 @@ export default function handler(req, res) {
       ],
       "year": "2020",
       "src": "uber/uber-grocery-with-cornershop",
-      "social_thumbnail": "uber-grocery-home.png",
+      "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
         "uber-grocery-home.png",
         "uber-grocery-department.png",
@@ -205,7 +205,7 @@ export default function handler(req, res) {
       ],
       "year": "2019",
       "src": "balance/app",
-      "social_thumbnail": "balance-saved-cards.png",
+      "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
         "balance-bip-full.webm",
         "balance-saved-cards.png",
@@ -252,7 +252,7 @@ export default function handler(req, res) {
       ],
       "year": "2022",
       "src": "lintuaf",
-      "social_thumbnail": "lintuaf-goal-view.png",
+      "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
         "lintuaf-goal-view.png",
         "lintuaf-goals-view.png",
@@ -312,7 +312,7 @@ export default function handler(req, res) {
       ],
       "year": "2020",
       "src": "responsive-muller-brockmann",
-      "social_thumbnail": "responsive-muller-brockmann-01.png",
+      "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
         "responsive-muller-brockmann-01.png",
         "responsive-muller-brockmann-02.png",
@@ -395,7 +395,7 @@ export default function handler(req, res) {
       ],
       "year": "2020",
       "src": "cornershop/cornershop-web-app",
-      "social_thumbnail": "cornershop-web-app-iphone-11-and-ipad-pro-11-inch.png",
+      "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
         "cornershop-web-app-iphone-11-and-ipad-pro-11-inch.png",
         "cornershop-web-app-iphone-11-dark-mode.png",
@@ -523,7 +523,7 @@ export default function handler(req, res) {
       "year": "2019",
       "featured": false,
       "src": "kappo/cool-place-to-bike-website",
-      "social_thumbnail": ".png",
+      "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
         "web-cool-place-to-bike.webm"
       ],
@@ -560,7 +560,7 @@ export default function handler(req, res) {
       "year": "2019",
       "featured": false,
       "src": "kappo/kappo-brand-identity",
-      "social_thumbnail": "kappo-brand-posters-1.png",
+      "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
         "kappo-brand-identity.webm",
         "kappo-brand-identity-tote.png",
