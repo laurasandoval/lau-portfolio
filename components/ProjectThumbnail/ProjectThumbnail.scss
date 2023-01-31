@@ -1,7 +1,7 @@
 @mixin projectThumbnailFadeInDelays {
     @for $i from 1 through 20 {
         &:nth-child(#{$i}) {
-            animation-delay: #{$i * 0.07}s;
+            animation-delay: #{$i * 0.08}s;
         }
     }
 }

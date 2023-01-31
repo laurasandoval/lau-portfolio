@@ -22,7 +22,7 @@ export function ProjectThumbnail({
         if (new RegExp(`[.](${imageFormats.join("|")})`).test(thumbnail)) {
             return (
                 <img
-                    src={`/Work/${src}/thumbnails/${thumbnail}`}
+                    src={`/assets/design-work/${src}/${thumbnail}`}
                     alt={title}
                 />
             )
@@ -30,14 +30,14 @@ export function ProjectThumbnail({
             return (
                 <video playsInline muted autoPlay={autoplay} loop>
                     <source
-                        src={`/Work/${src}/thumbnails/${thumbnail.replace(
+                        src={`/assets/design-work/${src}/${thumbnail.replace(
                             ".mp4",
                             ".webm"
                         )}`}
                         type="video/webm"
                     />
                     <source
-                        src={`/Work/${src}/thumbnails/${thumbnail.replace(
+                        src={`/assets/design-work/${src}/${thumbnail.replace(
                             ".webm",
                             ".mp4"
                         )}`}
@@ -66,7 +66,7 @@ export function ProjectThumbnail({
             data-fade-in={fadeIn}
         >
             {hover && (
-                <Link href={`/${src}`} className="project_access">
+                <Link href={`/design/${src}`} className="project_access">
                     <AccessibilityLabel role="text" as="span">
                         {title}
                     </AccessibilityLabel>

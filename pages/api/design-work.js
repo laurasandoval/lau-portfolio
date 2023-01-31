@@ -311,7 +311,7 @@ export default function handler(req, res) {
         "Responsive and accessible Josef Müller-Brockmann posters using CSS Grid and native web technologies."
       ],
       "year": "2020",
-      "src": "open-source/responsive-muller-brockmann",
+      "src": "responsive-muller-brockmann",
       "social_thumbnail": "responsive-muller-brockmann-01.png",
       "thumbnails": [
         "responsive-muller-brockmann-01.png",
