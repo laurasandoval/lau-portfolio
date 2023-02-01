@@ -16,8 +16,9 @@ export function ProjectThumbnail({
     portrait,
     fadeIn,
     priority,
+    sizes,
 }) {
-    const _renderThumbnail = (thumbnail, src, title, autoplay) => {
+    const _renderThumbnail = (thumbnail, src, title, autoplay, priority, sizes) => {
         const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"]
         const videoFormats = ["mp4", "webm"]
 
@@ -28,6 +29,7 @@ export function ProjectThumbnail({
                     alt={title}
                     fill
                     priority={priority ? priority : false}
+                    sizes={sizes ? sizes : undefined}
                 />
             )
         } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(thumbnail)) {
@@ -77,7 +79,7 @@ export function ProjectThumbnail({
                 </Link>
             )}
             <div className="project_artwork" aria-hidden="true">
-                {_renderThumbnail(thumbnail ? thumbnail : thumbnails[0], src, title, autoplay)}
+                {_renderThumbnail(thumbnail ? thumbnail : thumbnails[0], src, title, autoplay, priority, sizes)}
             </div>
             {!img_only && (
                 <div className="project_info" aria-hidden={hover}>

@@ -17,6 +17,8 @@ export default function Home({ designWorkData, server }) {
         portrait={featured}
         fadeIn
         priority={priority}
+        sizes="(max-width: 1080px) 50vw,
+               100vw"
       />
     )
   }

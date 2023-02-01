@@ -71,6 +71,9 @@ export default function Project({ currentProject, server }) {
                 thumbnail={thumbnail}
                 key={index}
                 autoplay
+                priority={index == 0}
+                sizes="(max-width: 850px) 100vw,
+                       70vw"
               />
             )
           })}
