@@ -243,7 +243,7 @@ export default function handler(req, res) {
       }
     },
     {
-      "title": "Lintuaf – An unofficial Fintual client for iOS",
+      "title": "Lintuaf — An unofficial Fintual client for iOS",
       "client": null,
       "description": [
         "Lintuaf is a silly little side-project I made for myself because I didn't like the official Fintual client for iOS and I found some private Fintual APIs I could use to build my own.",
