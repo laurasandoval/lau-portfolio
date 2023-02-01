@@ -72,8 +72,6 @@ export default function Project({ currentProject, server }) {
                 key={index}
                 autoplay
                 priority={index == 0}
-                sizes="(max-width: 850px) 100vw,
-                       70vw"
               />
             )
           })}
