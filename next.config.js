@@ -18,6 +18,9 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
+  devIndicators: {
+    buildActivity: false
+  },
 }
 
 module.exports = nextConfig
