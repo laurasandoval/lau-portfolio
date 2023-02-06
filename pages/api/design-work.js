@@ -290,9 +290,9 @@ export default function handler(req, res) {
       "title": "Santiago Transit Map 2019",
       "client": null,
       "description": [
-        "Featured at the 2019 Iberoamerican Design Bienniale in Madrid, Spain, my 2019 unofficial transit map for Santiago de Chile's Metro & rail network explores a versatile graphic system that allows for expansion or compression based on the required levels of complexity.",
+        "Featured at the 2019 Iberoamerican Design Bienniale in Madrid, Chile's national news network \"TVN\", and La Tercera's \"MásDeco\" magazine, my 2019 unofficial transit map for Santiago de Chile's Metro & rail network explores a versatile graphic system that allows for expansion or compression based on the required levels of complexity.",
         "Embracing their interoperability, I decided to include local rail services between \"Alameda/Estación Central\" and \"Nos\", which had never been incorporated into the Metro map before. This idea was later embraced by the official Metro map.",
-        "40 physical copies of the map were printed, framed, and bought by beloved transit enthusiasts during 2019.",
+        "40 physical copies of the map were printed, framed, and acquired by beloved transit enthusiasts during 2019.",
         "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
       ],
       "year": "2019",
@@ -300,6 +300,7 @@ export default function handler(req, res) {
       "social_thumbnail": "santiago-transit-map-s4-print.png",
       "thumbnails": [
         "santiago-transit-map-s4-print.png",
+        "santiago-transit-map-2019-tvn-cut.webm",
         "santiago-transit-map-s4.png"
       ],
       "cta": null,
