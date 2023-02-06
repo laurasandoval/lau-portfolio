@@ -5,10 +5,10 @@ export default function Resume() {
     <>
       <NextSeo
         title="Laura Sandoval — Résumé"
-        description="Digital Product Designer & Developer from Santiago, Chile. Featured clients include Uber, Cornershop, among others."
+        description="Digital Product Designer & Engineer from Santiago, Chile. Featured clients include Uber, Cornershop, among others."
         openGraph={{
           title: "Laura Sandoval — Résumé",
-          description: "Digital Product Designer & Developer from Santiago, Chile. Featured clients include Uber, Cornershop, among others.",
+          description: "Digital Product Designer & Engineer from Santiago, Chile. Featured clients include Uber, Cornershop, among others.",
           images: [
             {
               url: "/social-thumbnail.png",
