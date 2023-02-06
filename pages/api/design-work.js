@@ -297,7 +297,7 @@ export default function handler(req, res) {
       ],
       "year": "2019",
       "src": "santiago-transit-map/2019",
-      "social_thumbnail": "santiago-transit-map-s4-print.png",
+      "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
         "santiago-transit-map-s4-print.png",
         "santiago-transit-map-2019-tvn-cut.webm",
