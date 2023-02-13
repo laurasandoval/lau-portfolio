@@ -8,10 +8,10 @@ export default function BalancePrivacyPolicy({ server }) {
     return (
         <>
             <NextSeo
-                title="Balance – Privacy Policy"
+                title="Balance — Privacy Policy"
                 description="Balance's Privacy Policy describes how Balance collects, uses, and shares your personal data."
                 openGraph={{
-                    title: "Balance",
+                    title: "Balance — Privacy Policy",
                     description: "Balance's Privacy Policy describes how Balance collects, uses, and shares your personal data.",
                     images: [
                         {

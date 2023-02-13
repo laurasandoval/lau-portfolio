@@ -1,0 +1,66 @@
+.balance_privacy_policy {
+    max-width: 500px;
+    --background-color-rgb: 250, 250, 250;
+    background-color: rgba(var(--background-color-rgb), 1);
+    box-shadow: 0 0 0 1000px rgba(var(--background-color-rgb), 1);
+
+    @media (max-width: 850px) {
+        & {
+            padding: var(--global-padding);
+        }
+    }
+
+    .app_icon {
+        display: block;
+        width: 50px;
+        margin: 0 auto 20px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 27px;
+        font-weight: 600;
+        letter-spacing: -.03em;
+        line-height: 1.2em;
+        margin: 0 0 40px;
+    }
+
+    h1+p {
+        margin: 0;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 27px;
+        font-weight: 600;
+        letter-spacing: -.03em;
+        line-height: 1.2em;
+        margin: 40px 0 40px;
+    }
+
+    h2+p {
+        margin: 0;
+    }
+
+    p {
+        font-size: 16px;
+        font-weight: 400;
+        color: #000;
+        margin: 1em 0 0;
+        text-indent: 1em;
+    }
+
+    a {
+        font-size: 16px;
+        font-weight: 400;
+        text-decoration: underline;
+        color: rgba(16, 99, 238, 1);
+        transition: color 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
+
+        @media (hover: hover) {
+            &:hover {
+                color: rgba(0, 0, 0, 1);
+            }
+        }
+    }
+}
