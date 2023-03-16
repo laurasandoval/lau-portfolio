@@ -1,0 +1,126 @@
+.billie {
+    --accent: #0000FF;
+
+    display: grid;
+    grid-auto-flow: row;
+    grid-gap: 40px;
+    padding: 60px 40px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 550px;
+    text-align: center;
+
+    @media (max-width: 850px) {
+        padding: 60px 20px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    span {
+        margin: 0;
+    }
+
+    a {
+        text-decoration: underline !important;
+        color: var(--accent);
+    }
+
+    header {
+        .header-typography {
+            display: grid;
+            grid-auto-flow: row;
+            margin-bottom: 40px;
+
+            font-family: 'Futura';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 60px;
+            line-height: 100%;
+            text-transform: uppercase;
+            color: var(--accent);
+
+            @media (max-width: 850px) {
+                font-size: 48px;
+            }
+        }
+
+        >.serif,
+        .header-typography>.serif {
+            font-family: 'Calendas Plus';
+            font-style: italic;
+            font-weight: 400;
+            font-size: 40px;
+            text-transform: none;
+            line-height: 100%;
+            color: black;
+        }
+
+        >.serif {
+            font-size: 20px;
+        }
+    }
+
+    main {
+        display: grid;
+        grid-auto-flow: row;
+        grid-gap: 40px;
+        padding: 40px 0;
+
+        section {
+            display: grid;
+            grid-auto-flow: row;
+            grid-gap: 20px;
+
+            >.title {
+                font-family: 'Futura';
+                font-style: normal;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 100%;
+                text-transform: uppercase;
+                color: var(--accent);
+            }
+
+            >.place {
+                display: grid;
+                grid-auto-flow: row;
+                grid-gap: 10px;
+
+                >.title {
+                    font-variant: small-caps;
+                    font-feature-settings: 'swsh' on;
+                    line-height: 100%;
+                    font-size: 20px;
+                }
+
+                >.description {
+                    line-height: 140%;
+                    font-size: 16px;
+                }
+
+                >.title,
+                >.description {
+                    font-family: 'Calendas Plus';
+                    font-style: normal;
+                    font-weight: 400;
+
+                    >a {
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+
+    .tickets-disclaimer {
+        font-family: 'Calendas Plus';
+        font-style: italic;
+        font-weight: 400;
+        font-size: 20px;
+        text-transform: none;
+        line-height: 140%;
+        color: black;
+    }
+}
