@@ -14,7 +14,7 @@ export default function Billie({ server }) {
                         <span>Billie Eilish<br />& Finneas<br />& Team</span>
                     </h1>
 
-                    <p className="serif curated-disclaimer">Curated with love by <a href="https://instagram.com/laurasideral" rel="noopener noreferrer">✿ Laura</a> and <a href="https://instagram.com/lifewithcolors" rel="noopener noreferrer">✿ Laura</a></p>
+                    <p className="serif curated-disclaimer">Curated with love by<br /><a href="https://instagram.com/laurasideral" rel="noopener noreferrer">✿ Laura Sandoval</a> and <br /><a href="https://instagram.com/lifewithcolors" rel="noopener noreferrer">✿ Laura Mardones</a></p>
                 </header>
 
                 <main>
