@@ -1,61 +1,65 @@
-body.photography_page {
-    background-color: #fff;
-    width: 100vw;
+.photography_page {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    padding: 0;
 
-    >#__next {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: 100%;
+    scroll-snap-type: y mandatory;
+    overflow: scroll;
+    justify-items: center;
+    // animation: fadeIn 1s cubic-bezier(0.28, 0.11, 0.32, 1) 0.3s;
+    // animation-fill-mode: backwards;
+    // margin-top: -40px; // To compensate for the GlobalHeader bottom margin.
+
+    @media (max-width: 850px) {
+        background: #000;
+    }
+
+    .slide {
+        scroll-snap-align: start;
         display: grid;
+        grid-gap: 20px;
         grid-template-columns: 100%;
-        grid-template-rows: auto auto;
-        overflow: hidden;
+        grid-template-rows: 1fr auto;
+        max-width: 1600px;
+        padding: 120px 40px;
+        width: 100%;
         height: 100%;
+        position: relative;
 
-        .fullscreen_sticky_scroll {
-            display: grid;
-            grid-auto-flow: row;
-            grid-auto-rows: 100%;
-            scroll-snap-type: y mandatory;
-            overflow: scroll;
-            justify-items: center;
+        @media (max-width: 850px) {
+            grid-template-rows: 100%;
+            grid-gap: 0;
+            padding: 0;
+        }
+
+        .image {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .caption_container {
+            font-size: 16px;
+            color: rgba(136, 138, 144, 1);
             text-align: center;
-            animation: fadeIn 1s cubic-bezier(0.28, 0.11, 0.32, 1) 0.3s;
-            animation-fill-mode: backwards;
-            margin-top: -40px; // To compensate for the GlobalHeader bottom margin.
 
-            .slide {
-                height: 100%;
-                display: flex;
-                scroll-snap-align: start;
+            .caption {
+                margin: 0;
+            }
 
-                .image_container {
-                    display: grid;
-                    grid-template-columns: 100%;
-                    grid-template-rows: auto auto;
-                    max-width: 1600px;
-                    padding: 40px;
-                    margin: auto;
-                    height: min-content;
-                    max-height: 100%;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        overflow: hidden;
-                        object-fit: contain;
-                        margin: 0;
-                    }
-
-                    p {
-                        font-size: 16px;
-                        color: rgba(136, 138, 144, 1);
-                        margin: 20px 0;
-                    }
-                }
+            @media (max-width: 850px) {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                text-align: left;
+                padding: 20px;
             }
         }
     }

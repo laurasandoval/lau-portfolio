@@ -1,18 +1,8 @@
-import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import { NextSeo } from 'next-seo';
 import './index.scss'
-import { useEffect } from 'react';
+import PhotographyPageHeader from './PhotographyPageHeader/PhotographyPageHeader';
 
 export default function Photography({ photographyWorkData, server }) {
-
-    useEffect(() => {
-        document.body.classList.add('photography_page');
-
-        return () => {
-            document.body.classList.remove('photography_page');
-        }
-    }, [])
-
     return (
         <>
             <NextSeo
@@ -46,16 +36,24 @@ export default function Photography({ photographyWorkData, server }) {
                 ]}
             />
 
-            <GlobalHeader />
+            <PhotographyPageHeader />
 
-            <div className="fullscreen_sticky_scroll">
+            <div className="photography_page">
                 {
                     photographyWorkData.map((image, index) => {
                         return (
-                            <div className="slide">
-                                <div className="image_container" key={index}>
-                                    <img className="app_icon" alt={image.alt} src={`/assets/photography-work/${image.src}`} />
-                                    <p>{image.place}, {image.year}</p>
+                            <div className="slide" key={index}>
+                                <div
+                                    className="image"
+                                    style={{
+                                        backgroundImage: `url(/assets/photography-work/${image.src})`,
+                                        backgroundPosition: "center",
+                                        backgroundSize: "contain",
+                                        backgroundRepeat: "no-repeat"
+                                    }}
+                                />
+                                <div className="caption_container">
+                                    <p className="caption">{image.place}, {image.year}</p>
                                 </div>
                             </div>
                         )

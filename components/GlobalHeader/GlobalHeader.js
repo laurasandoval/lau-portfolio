@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 export default function GlobalHeader({
     sticky,
     backgroundColor,
+    className,
 }) {
     const [headerMarginBottom, setHeaderMarginBottom] = useState(null)
     const [navOpen, setNavOpen] = useState(false)
@@ -58,7 +59,7 @@ export default function GlobalHeader({
 
     return (
         <header
-            className="global_header"
+            className={`global_header${className ? ` ${className}` : ""}`}
             data-sticky={sticky}
             data-show-border={
                 showHeaderBorder === true
