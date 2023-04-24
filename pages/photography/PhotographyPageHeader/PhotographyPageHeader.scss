@@ -3,7 +3,7 @@
 
     @media (max-width: 850px) {
 
-        a,
+        a:not(.active),
         p,
         span,
         h1,
