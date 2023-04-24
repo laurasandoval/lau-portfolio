@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 export default function GlobalHeader({
     sticky,
     backgroundColor,
+    dark,
 }) {
     const [headerMarginBottom, setHeaderMarginBottom] = useState(null)
     const [navOpen, setNavOpen] = useState(false)
@@ -39,8 +40,12 @@ export default function GlobalHeader({
 
     const links = [
         {
-            title: "Work",
+            title: "Design",
             href: "/"
+        },
+        {
+            title: "Photography",
+            href: "/photography"
         },
         {
             title: "About",
@@ -67,11 +72,16 @@ export default function GlobalHeader({
             style={{
                 "--background-color": backgroundColor
             }}
+            data-dark={dark}
             ref={headerElementRef}
         >
             <div className="header_content">
                 <div className="top_bar">
-                    <div className="sopaipilla_menu" data-open={navOpen.toString()}>
+                    <div
+                        className="sopaipilla_menu"
+                        data-open={navOpen.toString()}
+                        data-dark={dark}
+                    >
                         <button
                             className="toggle"
                             onClick={_toggleNav}
