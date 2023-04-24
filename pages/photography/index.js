@@ -1,5 +1,3 @@
-import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
-import GenericContainer from '@/components/GenericContainer/GenericContainer'
 import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import { NextSeo } from 'next-seo';
 import './index.scss'
@@ -8,10 +6,10 @@ import { useEffect } from 'react';
 export default function Photography({ photographyWorkData, server }) {
 
     useEffect(() => {
-        document.body.classList.add('black_background');
+        document.body.classList.add('photography_page');
 
         return () => {
-            document.body.classList.remove('black_background');
+            document.body.classList.remove('photography_page');
         }
     }, [])
 
@@ -48,26 +46,22 @@ export default function Photography({ photographyWorkData, server }) {
                 ]}
             />
 
-            <GlobalHeader sticky dark />
-            <GenericContainer className="photography_page">
-                <h2>
-                    <AccessibilityLabel>
-                        Photography — Laura Sandoval
-                    </AccessibilityLabel>
-                </h2>
-                <div className="fullscreen_sticky_scroll">
-                    {
-                        photographyWorkData.map((image, index) => {
-                            return (
+            <GlobalHeader dark />
+
+            <div className="fullscreen_sticky_scroll">
+                {
+                    photographyWorkData.map((image, index) => {
+                        return (
+                            <div className="slide">
                                 <div className="image_container" key={index}>
                                     <img className="app_icon" alt={image.alt} src={`/assets/photography-work/${image.src}`} />
                                     <p>{image.place}, {image.year}</p>
                                 </div>
-                            )
-                        })
-                    }
-                </div>
-            </GenericContainer>
+                            </div>
+                        )
+                    })
+                }
+            </div>
         </>
     )
 }
