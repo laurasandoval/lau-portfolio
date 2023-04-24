@@ -59,10 +59,6 @@
                 color: rgba(136, 138, 144, 1);
                 text-align: center;
 
-                .caption {
-                    margin: 0;
-                }
-
                 @media (max-width: 850px) {
                     position: absolute;
                     right: 0;
@@ -71,6 +67,52 @@
                     text-align: left;
                     padding: 20px;
                     font-size: 15px;
+                    color: rgba(255, 255, 255, 0.8);
+                    padding-top: 80px;
+                    // Eased gradient from https://non-boring-gradients.netlify.app
+                    background: linear-gradient(0deg, rgb(0% 0% 0% / 0.6) 0%, rgb(0% 0% 0% / 0.5625) 6.25%, rgb(0% 0% 0% / 0.525) 12.5%, rgb(0% 0% 0% / 0.4875) 18.75%, rgb(0% 0% 0% / 0.44999999999999996) 25%, rgb(0% 0% 0% / 0.4125) 31.25%, rgb(0% 0% 0% / 0.375) 37.5%, rgb(0% 0% 0% / 0.33749999999999997) 43.75%, rgb(0% 0% 0% / 0.3) 50%, rgb(0% 0% 0% / 0.2625) 56.25%, rgb(0% 0% 0% / 0.22499999999999998) 62.5%, rgb(0% 0% 0% / 0.1875) 68.75%, rgb(0% 0% 0% / 0.15000000000000002) 75%, rgb(0% 0% 0% / 0.11249999999999999) 81.25%, rgb(0% 0% 0% / 0.07499999999999996) 87.5%, rgb(0% 0% 0% / 0.03749999999999998) 93.75%, rgb(0% 0% 0% / 0) 100%);
+                }
+
+                .caption>p {
+                    margin: 0;
+
+                    a {
+                        font-weight: 500;
+                        color: rgba(0, 0, 0, 1);
+
+                        @media (max-width: 850px) {
+                            color: rgba(255, 255, 255, 1);
+                        }
+                    }
+                }
+
+                .metadata_container {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    margin-top: 10px;
+                    gap: 12px;
+                    justify-content: center;
+
+                    @media (max-width: 850px) {
+                        justify-content: start;
+                    }
+
+                    .metadata {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        color: rgba(136, 138, 144, 1);
+
+                        p {
+                            margin: 0 0 0 4px;
+                            font-size: 16px;
+
+                            @media (max-width: 850px) {
+                                font-size: 14px;
+                            }
+                        }
+                    }
                 }
             }
         }

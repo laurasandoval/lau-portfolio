@@ -1,6 +1,8 @@
 import { NextSeo } from 'next-seo';
 import './index.scss'
 import PhotographyPageHeader from './PhotographyPageHeader/PhotographyPageHeader';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
+import { IconCalendar, IconLocation } from '@tabler/icons-react';
 
 export default function Photography({ photographyWorkData, server }) {
     return (
@@ -54,7 +56,20 @@ export default function Photography({ photographyWorkData, server }) {
                                         }}
                                     />
                                     <div className="caption_container">
-                                        <p className="caption">{image.place}, {image.year}</p>
+                                        {
+                                            image.caption &&
+                                            <ReactMarkdown className="caption" children={image.caption} />
+                                        }
+                                        <div className="metadata_container">
+                                            <div className="metadata">
+                                                <IconCalendar size={14} />
+                                                <p>{image.year}</p>
+                                            </div>
+                                            <div className="metadata">
+                                                <IconLocation size={14} />
+                                                <p>{image.location}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             )

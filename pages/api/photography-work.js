@@ -3,20 +3,23 @@ export default function handler(req, res) {
     {
       "src": "2019/160419.jpg",
       "alt": "",
-      "place": "Santiago de Chile",
-      "year": 2019
+      "caption": "Featured in [Accidentally Wes Anderson (2020)](https://accidentallywesanderson.com/book/), by Wally & Amanda Koval.",
+      "year": 2019,
+      "location": "San Joaquín, Chile"
     },
     {
       "src": "2018/280818.jpg",
       "alt": "",
-      "place": "Santiago de Chile",
-      "year": 2018
+      "caption": null,
+      "year": 2018,
+      "location": "Santiago, Chile"
     },
     {
       "src": "2019/280319.jpg",
       "alt": "",
-      "place": "Santiago de Chile",
-      "year": 2019
+      "caption": "Santiago de Chile",
+      "year": 2019,
+      "location": "Santiago, Chile"
     },
   ])
 }
