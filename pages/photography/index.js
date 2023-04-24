@@ -50,7 +50,6 @@ export default function Photography({ photographyWorkData, server }) {
                                         className="image"
                                         style={{
                                             backgroundImage: `url(/assets/photography-work/${image.src})`,
-                                            backgroundPosition: "center",
                                             backgroundSize: "contain",
                                             backgroundRepeat: "no-repeat"
                                         }}
@@ -63,7 +62,7 @@ export default function Photography({ photographyWorkData, server }) {
                                         <div className="metadata_container">
                                             <div className="metadata">
                                                 <IconCalendar size={14} />
-                                                <p>{image.year}</p>
+                                                <p>{image.period}</p>
                                             </div>
                                             <div className="metadata">
                                                 <IconLocation size={14} />
