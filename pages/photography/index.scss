@@ -1,5 +1,5 @@
 body.photography_page {
-    background-color: #000000;
+    background-color: #fff;
     width: 100vw;
     position: absolute;
     top: 0;
@@ -15,10 +15,6 @@ body.photography_page {
         overflow: hidden;
         height: 100%;
 
-        .global_header {
-            margin: 0;
-        }
-
         .fullscreen_sticky_scroll {
             display: grid;
             grid-auto-flow: row;
@@ -27,6 +23,9 @@ body.photography_page {
             overflow: scroll;
             justify-items: center;
             text-align: center;
+            animation: fadeIn 1s cubic-bezier(0.28, 0.11, 0.32, 1) 0.3s;
+            animation-fill-mode: backwards;
+            margin-top: -40px; // To compensate for the GlobalHeader bottom margin.
 
             .slide {
                 height: 100%;
@@ -59,5 +58,17 @@ body.photography_page {
                 }
             }
         }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

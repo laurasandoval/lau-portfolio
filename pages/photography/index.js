@@ -46,7 +46,7 @@ export default function Photography({ photographyWorkData, server }) {
                 ]}
             />
 
-            <GlobalHeader dark />
+            <GlobalHeader />
 
             <div className="fullscreen_sticky_scroll">
                 {
