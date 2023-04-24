@@ -39,26 +39,28 @@ export default function Photography({ photographyWorkData, server }) {
             <PhotographyPageHeader />
 
             <div className="photography_page">
-                {
-                    photographyWorkData.map((image, index) => {
-                        return (
-                            <div className="slide" key={index}>
-                                <div
-                                    className="image"
-                                    style={{
-                                        backgroundImage: `url(/assets/photography-work/${image.src})`,
-                                        backgroundPosition: "center",
-                                        backgroundSize: "contain",
-                                        backgroundRepeat: "no-repeat"
-                                    }}
-                                />
-                                <div className="caption_container">
-                                    <p className="caption">{image.place}, {image.year}</p>
+                <div className="main_vertical_slider">
+                    {
+                        photographyWorkData.map((image, index) => {
+                            return (
+                                <div className="slide" key={index}>
+                                    <div
+                                        className="image"
+                                        style={{
+                                            backgroundImage: `url(/assets/photography-work/${image.src})`,
+                                            backgroundPosition: "center",
+                                            backgroundSize: "contain",
+                                            backgroundRepeat: "no-repeat"
+                                        }}
+                                    />
+                                    <div className="caption_container">
+                                        <p className="caption">{image.place}, {image.year}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        )
-                    })
-                }
+                            )
+                        })
+                    }
+                </div>
             </div>
         </>
     )
