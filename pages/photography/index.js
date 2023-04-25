@@ -51,14 +51,11 @@ export default function Photography({ photographyWorkData, server }) {
                                             {
                                                 series.images.map((image, index) => {
                                                     return (
-                                                        <div
+                                                        <img
                                                             key={index}
                                                             className="image"
-                                                            style={{
-                                                                backgroundImage: `url(/assets/photography-work/${image.src})`,
-                                                                backgroundSize: "contain",
-                                                                backgroundRepeat: "no-repeat"
-                                                            }}
+                                                            src={`/assets/photography-work/${image.src}`}
+                                                            alt={image.alt}
                                                         />
                                                     )
                                                 })
