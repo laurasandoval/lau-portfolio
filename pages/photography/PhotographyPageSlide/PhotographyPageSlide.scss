@@ -52,6 +52,7 @@
             display: flex;
             flex-flow: row;
             overflow-x: scroll;
+            scroll-behavior: smooth;
             scroll-snap-type: x mandatory;
             padding: 0 calc(((100% - $desktop-max-width) / 2) + $horizontal-padding) 20px;
             scroll-padding: 0 calc(((100% - $desktop-max-width) / 2) + $horizontal-padding);

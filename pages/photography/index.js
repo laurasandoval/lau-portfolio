@@ -1,8 +1,6 @@
 import { NextSeo } from 'next-seo';
 import './index.scss'
 import PhotographyPageHeader from './PhotographyPageHeader/PhotographyPageHeader';
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
-import { IconCalendar, IconLocation } from '@tabler/icons-react';
 import PhotographyPageSlide from './PhotographyPageSlide/PhotographyPageSlide';
 
 export default function Photography({ photographyWorkData, server }) {

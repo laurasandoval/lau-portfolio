@@ -4,7 +4,7 @@ import { IconCalendar, IconLocation } from '@tabler/icons-react'
 import { useState, useEffect, useRef } from 'react';
 
 export default function PhotographyPageSlide({
-    series
+    series,
 }) {
     const [currentImage, setCurrentImage] = useState(0);
     const imagesContainerRef = useRef(null);
@@ -36,10 +36,10 @@ export default function PhotographyPageSlide({
             <div className="images_container">
                 <div className="images" ref={imagesContainerRef} data-multiple-images={series.images.length > 1}>
                     {
-                        series.images.map((image, index) => {
+                        series.images.map((image, imageIndex) => {
                             return (
                                 <img
-                                    key={index}
+                                    key={imageIndex}
                                     className="image"
                                     src={`/assets/photography-work/${image.src}`}
                                     alt={image.alt}
@@ -56,7 +56,11 @@ export default function PhotographyPageSlide({
                         {
                             series.images.map((_, pageIndicatorIndex) => {
                                 return (
-                                    <div className="page_dot" data-current={pageIndicatorIndex == currentImage} />
+                                    <div
+                                        key={pageIndicatorIndex}
+                                        className="page_dot"
+                                        data-current={pageIndicatorIndex == currentImage}
+                                    />
                                 )
                             })
                         }
