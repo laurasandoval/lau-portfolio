@@ -8,13 +8,13 @@ export default function Photography({ photographyWorkData, server }) {
         <>
             <NextSeo
                 title="Laura Sandoval — Photography"
-                description="Selected photography work."
+                description="Selected photography works."
                 openGraph={{
-                    title: "Laura Sandoval — About",
-                    description: "Selected photography work.",
+                    title: "Laura Sandoval — Photography",
+                    description: "Selected photography works.",
                     images: [
                         {
-                            url: `${server}/social-thumbnail.png`,
+                            url: `${server}/photography-work/social-thumbnail.png`,
                             width: 1200,
                             height: 630,
                             type: "image/png",
