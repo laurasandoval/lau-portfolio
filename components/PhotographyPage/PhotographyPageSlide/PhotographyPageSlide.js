@@ -13,6 +13,8 @@ export function PhotographyPageSlide({
 
     useEffect(() => {
         const imagesContainer = imagesContainerRef.current;
+        const imagesContainerPaddingLeft = window.getComputedStyle(imagesContainer).getPropertyValue('padding-left').replace("px", "");
+
         const handleScroll = () => {
             const containerWidth = imagesContainer.offsetWidth;
             const images = imagesContainer.querySelectorAll('.image');
@@ -20,8 +22,9 @@ export function PhotographyPageSlide({
             for (i = 0; i < images.length; i++) {
                 const imageLeft = images[i].offsetLeft;
                 const imageWidth = images[i].offsetWidth;
-                if (imageLeft <= imagesContainer.scrollLeft + containerWidth / 2 &&
-                    imageLeft + imageWidth > imagesContainer.scrollLeft + containerWidth / 2) {
+
+                if (imageLeft <= (imagesContainer.scrollLeft - imagesContainerPaddingLeft) + containerWidth / 2 &&
+                    imageLeft + imageWidth > (imagesContainer.scrollLeft - imagesContainerPaddingLeft) + containerWidth / 2) {
                     setCurrentImage(i);
                     break;
                 }
