@@ -20,7 +20,7 @@ export function PhotographyPageSlide({
             const images = imagesContainer.querySelectorAll('.image');
             let i;
             for (i = 0; i < images.length; i++) {
-                const imageLeft = images[i].offsetLeft;
+                const imageLeft = images[i].offsetLeft + 40;
                 let imageWidth;
 
                 console.log(imagesContainerPaddingLeft);
