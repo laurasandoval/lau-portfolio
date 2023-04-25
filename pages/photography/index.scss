@@ -85,10 +85,8 @@
                 .images {
                     width: 100%;
                     height: 100%;
-                    display: grid;
-                    grid-auto-flow: column;
-                    grid-auto-columns: ($desktop-max-width - ($horizontal-padding * 4));
-                    grid-gap: 20px;
+                    display: flex;
+                    flex-flow: row;
                     overflow-x: scroll;
                     scroll-snap-type: x mandatory;
                     padding: 0 calc(((100% - $desktop-max-width) / 2) + $horizontal-padding) 20px;
@@ -111,10 +109,17 @@
                         scroll-snap-align: start;
                         width: 100%;
                         height: 100%;
-                        overflow: hidden;
-                        margin: 0;
+                        margin: 0 0 0 20px;
                         object-fit: contain;
                         object-position: 0;
+
+                        &:first-of-type {
+                            margin-left: 0;
+                        }
+
+                        &:last-of-type {
+                            min-width: 100%;
+                        }
 
                         @media (max-width: 850px) {
                             background-position: center;
