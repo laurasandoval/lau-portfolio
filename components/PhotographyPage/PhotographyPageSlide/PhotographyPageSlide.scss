@@ -96,6 +96,86 @@
         .images[data-multiple-images="false"] {
             grid-auto-columns: 100%;
         }
+
+        .slider_arrows_container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px 20px;
+            max-width: 1520px;
+            margin: 0 auto;
+            pointer-events: none;
+
+            @media (hover: none) or (max-width: 850px) {
+                & {
+                    display: none;
+                }
+            }
+
+            .arrow {
+                position: relative;
+                border: 1px solid rgba(136, 138, 144, 0.2);
+                background: rgba(255, 255, 255, 1);
+                width: 40px;
+                height: 40px;
+                border-radius: 20px;
+                display: flex;
+                box-shadow: 0px 2px 32px rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                pointer-events: all;
+                will-change: transform;
+                transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    box-shadow 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+                &[data-visible="false"] {
+                    opacity: 0;
+                    pointer-events: none;
+                }
+
+                @media (hover: hover) and (min-width: 850px) {
+                    &:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0px 4px 36px rgba(0, 0, 0, 0.1);
+                    }
+                }
+
+                &::before {
+                    content: "";
+                    background: transparent;
+                    position: absolute;
+                    top: -20px;
+                    right: -20px;
+                    bottom: -20px;
+                    left: -20px;
+                }
+
+                --chevron-icon-offset: 1px;
+
+                &.left {
+                    svg {
+                        margin-left: calc(var(--chevron-icon-offset) * -1);
+                    }
+                }
+
+                &.right {
+                    svg {
+                        margin-right: calc(var(--chevron-icon-offset) * -1);
+                    }
+                }
+
+                svg {
+                    width: 100%;
+                    height: auto;
+                    margin: auto;
+                }
+            }
+        }
     }
 
     .caption_container {

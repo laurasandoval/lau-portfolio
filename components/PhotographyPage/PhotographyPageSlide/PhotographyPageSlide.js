@@ -1,6 +1,6 @@
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import './PhotographyPageSlide.scss'
-import { IconCalendar, IconLocation } from '@tabler/icons-react'
+import { IconCalendar, IconChevronLeft, IconChevronRight, IconLocation } from '@tabler/icons-react'
 import { useState, useEffect, useRef } from 'react';
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel';
 
@@ -69,6 +69,24 @@ export function PhotographyPageSlide({
                             )
                         })
                     }
+                </div>
+                <div className="slider_arrows_container">
+                    <button
+                        className="arrow left"
+                        onClick={() => scrollToImage(currentImage - 1)}
+                        data-visible={currentImage > 0}
+                    >
+                        <IconChevronLeft />
+                        <AccessibilityLabel>Go to previous page</AccessibilityLabel>
+                    </button>
+                    <button
+                        className="arrow right"
+                        onClick={() => scrollToImage(currentImage + 1)}
+                        data-visible={currentImage < series.images.length - 1}
+                    >
+                        <IconChevronRight />
+                        <AccessibilityLabel>Go to next page</AccessibilityLabel>
+                    </button>
                 </div>
             </div>
             <div className="caption_container">
