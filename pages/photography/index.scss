@@ -44,10 +44,6 @@
             height: 100%;
             position: relative;
 
-            @media (max-width: $desktop-max-width) {
-                background: red;
-            }
-
             @media (max-width: 850px) {
                 grid-template-rows: 100%;
                 grid-gap: 0;
