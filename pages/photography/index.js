@@ -3,6 +3,7 @@ import './index.scss'
 import PhotographyPageHeader from './PhotographyPageHeader/PhotographyPageHeader';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import { IconCalendar, IconLocation } from '@tabler/icons-react';
+import PhotographyPageSlide from './PhotographyPageSlide/PhotographyPageSlide';
 
 export default function Photography({ photographyWorkData, server }) {
     return (
@@ -45,40 +46,10 @@ export default function Photography({ photographyWorkData, server }) {
                     {
                         photographyWorkData.map((series, index) => {
                             return (
-                                <div className="slide" key={index}>
-                                    <div className="images_container">
-                                        <div className="images" data-multiple-images={series.images.length > 1}>
-                                            {
-                                                series.images.map((image, index) => {
-                                                    return (
-                                                        <img
-                                                            key={index}
-                                                            className="image"
-                                                            src={`/assets/photography-work/${image.src}`}
-                                                            alt={image.alt}
-                                                        />
-                                                    )
-                                                })
-                                            }
-                                        </div>
-                                    </div>
-                                    <div className="caption_container">
-                                        {
-                                            series.caption &&
-                                            <ReactMarkdown className="caption" children={series.caption} />
-                                        }
-                                        <div className="metadata_container">
-                                            <div className="metadata">
-                                                <IconCalendar size={14} />
-                                                <p>{series.period}</p>
-                                            </div>
-                                            <div className="metadata">
-                                                <IconLocation size={14} />
-                                                <p>{series.location}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <PhotographyPageSlide
+                                    key={index}
+                                    series={series}
+                                />
                             )
                         })
                     }
