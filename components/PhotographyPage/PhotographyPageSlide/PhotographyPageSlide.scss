@@ -118,6 +118,12 @@
                 &:hover {
                     background-color: rgba(136, 138, 144, 0.2);
                     transform: scale(1.1);
+
+                    .page_dot[data-current="true"]:not(:hover) {
+                        &::after {
+                            background-color: rgba(136, 138, 144, 0.6);
+                        }
+                    }
                 }
             }
 
@@ -143,7 +149,7 @@
                 @media (hover: hover) and (min-width: 850px) {
                     &:hover {
                         &::after {
-                            background: rgba(0, 0, 0, 0.6);
+                            background: rgba(0, 0, 0, 0.8);
                         }
                     }
                 }
