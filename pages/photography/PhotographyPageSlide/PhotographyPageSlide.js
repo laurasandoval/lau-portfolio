@@ -4,7 +4,7 @@ import { IconCalendar, IconLocation } from '@tabler/icons-react'
 import { useState, useEffect, useRef } from 'react';
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel';
 
-export default function PhotographyPageSlide({
+export function PhotographyPageSlide({
     series,
 }) {
     const [currentImage, setCurrentImage] = useState(0);
@@ -46,7 +46,7 @@ export default function PhotographyPageSlide({
     return (
         <div className="photography_page_slide">
             <div className="images_container">
-                <div className="images" ref={imagesContainerRef} data-multiple-images={series.images.length > 1}>
+                <div className="images" ref={imagesContainerRef} data-multiple-images={series.images?.length > 1}>
                     {
                         series.images.map((image, imageIndex) => {
                             return (

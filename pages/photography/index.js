@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo';
 import './index.scss'
 import PhotographyPageHeader from './PhotographyPageHeader/PhotographyPageHeader';
-import PhotographyPageSlide from './PhotographyPageSlide/PhotographyPageSlide';
+import { PhotographyPageSlide } from './PhotographyPageSlide/PhotographyPageSlide';
 
 export default function Photography({ photographyWorkData, server }) {
     return (
@@ -42,10 +42,10 @@ export default function Photography({ photographyWorkData, server }) {
             <div className="photography_page">
                 <div className="main_vertical_slider">
                     {
-                        photographyWorkData.map((series, index) => {
+                        photographyWorkData.map((series, seriesIndex) => {
                             return (
                                 <PhotographyPageSlide
-                                    key={index}
+                                    key={seriesIndex}
                                     series={series}
                                 />
                             )
