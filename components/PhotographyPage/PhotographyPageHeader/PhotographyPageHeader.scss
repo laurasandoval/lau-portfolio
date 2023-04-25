@@ -1,0 +1,45 @@
+.global_header.photography_page_header {
+    background: transparent;
+
+    @media (max-width: 850px) {
+
+        a:not(.active),
+        p,
+        span,
+        h1,
+        h2 {
+            color: #FFF !important;
+        }
+    }
+
+    .header_content {
+        .top_bar {
+            .sopaipilla_menu {
+                .sopaipilla {
+                    .inner_sopaipilla {
+                        background: rgba(255, 255, 255, 1);
+                    }
+                }
+            }
+        }
+
+        nav[data-open="true"] {
+            @media (max-width: 850px) {
+                background: rgba(0, 0, 0, 1);
+            }
+        }
+    }
+
+    &::before {
+        background: transparent;
+        border-bottom: none;
+
+        @media (max-width: 850px) {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 90%);
+
+            @at-root [data-nav-open="true"]#{&} {
+                background: rgba(0, 0, 0, 1);
+            }
+        }
+    }
+}
