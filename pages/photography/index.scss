@@ -35,7 +35,6 @@
         // margin-top: -40px; // To compensate for the GlobalHeader bottom margin.
 
         .slide {
-            // These have to be SASS variables cause we'll use them in a media query.
             $horizontal-padding: 40px; // Same as site's header.
             $desktop-max-width: 1520px; // Same as site's header.
 
