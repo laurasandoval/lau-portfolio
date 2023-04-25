@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo';
 import './index.scss'
-import PhotographyPageHeader from './PhotographyPageHeader/PhotographyPageHeader';
-import { PhotographyPageSlide } from './PhotographyPageSlide/PhotographyPageSlide';
+import PhotographyPageHeader from '@/components/PhotographyPage/PhotographyPageHeader/PhotographyPageHeader';
+import { PhotographyPageSlide } from '@/components/PhotographyPage/PhotographyPageSlide/PhotographyPageSlide';
 
 export default function Photography({ photographyWorkData, server }) {
     return (
