@@ -21,7 +21,7 @@
     }
 
     @media (min-width: 850px) and (max-height: 1280px) {
-        padding: 120px 0 40px 0;
+        padding: 100px 0 40px 0;
     }
 
     .images_container {
@@ -98,8 +98,6 @@
     }
 
     .caption_container {
-        font-size: 16px;
-        color: rgba(0, 0, 0, 0.8);
         text-align: left;
         padding: 0 $horizontal-padding;
         margin-left: calc((100% - $desktop-max-width) / 2);
@@ -185,8 +183,6 @@
             bottom: 0;
             left: 0;
             padding: 20px;
-            font-size: 15px;
-            color: rgba(255, 255, 255, 0.8);
             padding-top: 80px;
             // Eased gradient from https://non-boring-gradients.netlify.app
             background: linear-gradient(0deg, rgb(0% 0% 0% / 0.6) 0%, rgb(0% 0% 0% / 0.5625) 6.25%, rgb(0% 0% 0% / 0.525) 12.5%, rgb(0% 0% 0% / 0.4875) 18.75%, rgb(0% 0% 0% / 0.44999999999999996) 25%, rgb(0% 0% 0% / 0.4125) 31.25%, rgb(0% 0% 0% / 0.375) 37.5%, rgb(0% 0% 0% / 0.33749999999999997) 43.75%, rgb(0% 0% 0% / 0.3) 50%, rgb(0% 0% 0% / 0.2625) 56.25%, rgb(0% 0% 0% / 0.22499999999999998) 62.5%, rgb(0% 0% 0% / 0.1875) 68.75%, rgb(0% 0% 0% / 0.15000000000000002) 75%, rgb(0% 0% 0% / 0.11249999999999999) 81.25%, rgb(0% 0% 0% / 0.07499999999999996) 87.5%, rgb(0% 0% 0% / 0.03749999999999998) 93.75%, rgb(0% 0% 0% / 0) 100%);
@@ -194,8 +190,14 @@
         }
 
         .caption>p {
+            font-size: 14px;
+            color: rgba(0, 0, 0, 0.8);
             margin: 0;
             max-width: 610px;
+
+            @media (max-width: 850px) {
+                color: rgba(255, 255, 255, 0.8);
+            }
 
             a {
                 font-weight: 500;
@@ -223,11 +225,7 @@
 
                 p {
                     margin: 0 0 0 4px;
-                    font-size: 16px;
-
-                    @media (max-width: 850px) {
-                        font-size: 13px;
-                    }
+                    font-size: 14px;
                 }
             }
         }
