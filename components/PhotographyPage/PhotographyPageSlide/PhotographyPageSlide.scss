@@ -117,7 +117,8 @@
             margin: 0 auto;
             pointer-events: none;
 
-            @media (hover: none) or (max-width: 850px) {
+            @media (hover: none),
+            (max-width: 850px) {
                 & {
                     display: none;
                 }
