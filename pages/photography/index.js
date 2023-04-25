@@ -46,22 +46,24 @@ export default function Photography({ photographyWorkData, server }) {
                         photographyWorkData.map((series, index) => {
                             return (
                                 <div className="slide" key={index}>
-                                    <div className="images" data-multiple-images={series.images.length > 1}>
-                                        {
-                                            series.images.map((image, index) => {
-                                                return (
-                                                    <div
-                                                        key={index}
-                                                        className="image"
-                                                        style={{
-                                                            backgroundImage: `url(/assets/photography-work/${image.src})`,
-                                                            backgroundSize: "contain",
-                                                            backgroundRepeat: "no-repeat"
-                                                        }}
-                                                    />
-                                                )
-                                            })
-                                        }
+                                    <div className="images_container">
+                                        <div className="images" data-multiple-images={series.images.length > 1}>
+                                            {
+                                                series.images.map((image, index) => {
+                                                    return (
+                                                        <div
+                                                            key={index}
+                                                            className="image"
+                                                            style={{
+                                                                backgroundImage: `url(/assets/photography-work/${image.src})`,
+                                                                backgroundSize: "contain",
+                                                                backgroundRepeat: "no-repeat"
+                                                            }}
+                                                        />
+                                                    )
+                                                })
+                                            }
+                                        </div>
                                     </div>
                                     <div className="caption_container">
                                         {
