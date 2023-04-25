@@ -43,30 +43,39 @@ export default function Photography({ photographyWorkData, server }) {
             <div className="photography_page">
                 <div className="main_vertical_slider">
                     {
-                        photographyWorkData.map((image, index) => {
+                        photographyWorkData.map((series, index) => {
                             return (
                                 <div className="slide" key={index}>
-                                    <div
-                                        className="image"
-                                        style={{
-                                            backgroundImage: `url(/assets/photography-work/${image.src})`,
-                                            backgroundSize: "contain",
-                                            backgroundRepeat: "no-repeat"
-                                        }}
-                                    />
+                                    <div className="images" data-multiple-images={series.images.length > 1}>
+                                        {
+                                            series.images.map((image, index) => {
+                                                return (
+                                                    <div
+                                                        key={index}
+                                                        className="image"
+                                                        style={{
+                                                            backgroundImage: `url(/assets/photography-work/${image.src})`,
+                                                            backgroundSize: "contain",
+                                                            backgroundRepeat: "no-repeat"
+                                                        }}
+                                                    />
+                                                )
+                                            })
+                                        }
+                                    </div>
                                     <div className="caption_container">
                                         {
-                                            image.caption &&
-                                            <ReactMarkdown className="caption" children={image.caption} />
+                                            series.caption &&
+                                            <ReactMarkdown className="caption" children={series.caption} />
                                         }
                                         <div className="metadata_container">
                                             <div className="metadata">
                                                 <IconCalendar size={14} />
-                                                <p>{image.period}</p>
+                                                <p>{series.period}</p>
                                             </div>
                                             <div className="metadata">
                                                 <IconLocation size={14} />
-                                                <p>{image.location}</p>
+                                                <p>{series.location}</p>
                                             </div>
                                         </div>
                                     </div>
