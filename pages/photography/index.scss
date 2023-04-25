@@ -56,6 +56,10 @@
                 padding: 0;
             }
 
+            @media (min-width: 850px) and (max-height: 1280px) {
+                padding: 120px 0 40px 0;
+            }
+
             .images_container {
                 position: relative;
                 width: 100%;
@@ -87,13 +91,13 @@
                     grid-gap: 20px;
                     overflow-x: scroll;
                     scroll-snap-type: x mandatory;
-                    padding: 40px calc(((100% - $desktop-max-width) / 2) + $horizontal-padding);
-                    scroll-padding: 40px calc(((100% - $desktop-max-width) / 2) + $horizontal-padding);
+                    padding: 0 calc(((100% - $desktop-max-width) / 2) + $horizontal-padding) 20px;
+                    scroll-padding: 0 calc(((100% - $desktop-max-width) / 2) + $horizontal-padding);
 
                     @media (max-width: $desktop-max-width) {
                         grid-auto-columns: calc(100% - ($horizontal-padding * 2));
-                        padding: 40px;
-                        scroll-padding: 40px;
+                        padding: 0 40px;
+                        scroll-padding: 0 40px;
                     }
 
                     @media (max-width: 850px) {
