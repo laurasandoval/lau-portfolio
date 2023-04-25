@@ -14,7 +14,7 @@ export default function Photography({ photographyWorkData, server }) {
                     description: "Selected photography works.",
                     images: [
                         {
-                            url: `${server}/photography-work/social-thumbnail.png`,
+                            url: `${server}/assets/photography-work/social-thumbnail.png`,
                             width: 1200,
                             height: 630,
                             type: "image/png",
