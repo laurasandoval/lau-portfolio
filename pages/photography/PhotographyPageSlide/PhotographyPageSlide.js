@@ -2,12 +2,14 @@ import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import './PhotographyPageSlide.scss'
 import { IconCalendar, IconLocation } from '@tabler/icons-react'
 import { useState, useEffect, useRef } from 'react';
+import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel';
 
 export default function PhotographyPageSlide({
     series,
 }) {
     const [currentImage, setCurrentImage] = useState(0);
     const imagesContainerRef = useRef(null);
+    const pageDotRefs = useRef([]);
 
     useEffect(() => {
         const imagesContainer = imagesContainerRef.current;
@@ -30,6 +32,16 @@ export default function PhotographyPageSlide({
             imagesContainer.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    const scrollToImage = (imageIndex) => {
+        const imagesContainer = imagesContainerRef.current;
+        const imageWidth = imagesContainer.querySelector('.image').offsetWidth;
+        imagesContainer.scroll({
+            left: imageWidth * imageIndex,
+            behavior: 'smooth'
+        });
+    };
+
 
     return (
         <div className="photography_page_slide">
@@ -56,11 +68,15 @@ export default function PhotographyPageSlide({
                         {
                             series.images.map((_, pageIndicatorIndex) => {
                                 return (
-                                    <div
+                                    <button
                                         key={pageIndicatorIndex}
                                         className="page_dot"
+                                        ref={ref => pageDotRefs.current[pageIndicatorIndex] = ref}
                                         data-current={pageIndicatorIndex == currentImage}
-                                    />
+                                        onClick={() => scrollToImage(pageIndicatorIndex)}
+                                    >
+                                        <AccessibilityLabel>{`Go to page ${pageIndicatorIndex + 1}`}</AccessibilityLabel>
+                                    </button>
                                 )
                             })
                         }
