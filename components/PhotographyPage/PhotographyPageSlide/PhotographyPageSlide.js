@@ -61,16 +61,17 @@ export function PhotographyPageSlide({
                     {
                         series.images.map((image, imageIndex) => {
                             return (
-                                <Image
-                                    key={imageIndex}
-                                    className="image"
-                                    src={`/assets/photography-work/${image.src}`}
-                                    alt={image.alt}
-                                    width={image.width}
-                                    height={image.height}
-                                    priority={imageIndex == 0 && !lazyLoad}
-                                    onLoadingComplete={() => { console.log("loaded"); }}
-                                />
+                                <div className="image_container">
+                                    <Image
+                                        key={imageIndex}
+                                        className="image"
+                                        src={`/assets/photography-work/${image.src}`}
+                                        alt={image.alt}
+                                        width={image.width}
+                                        height={image.height}
+                                        priority={imageIndex == 0 && !lazyLoad}
+                                    />
+                                </div>
                             )
                         })
                     }
