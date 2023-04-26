@@ -3,9 +3,11 @@ import './PhotographyPageSlide.scss'
 import { IconCalendar, IconChevronLeft, IconChevronRight, IconLocation } from '@tabler/icons-react'
 import { useState, useEffect, useRef } from 'react';
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel';
+import Image from 'next/image';
 
 export function PhotographyPageSlide({
     series,
+    lazyLoad,
 }) {
     const [currentImage, setCurrentImage] = useState(0);
     const imagesContainerRef = useRef(null);
@@ -17,8 +19,6 @@ export function PhotographyPageSlide({
 
         const handleScroll = () => {
             const containerWidth = imagesContainer.offsetWidth;
-
-            console.log(containerWidth);
 
             const images = imagesContainer.querySelectorAll('.image');
             let i;
@@ -61,11 +61,15 @@ export function PhotographyPageSlide({
                     {
                         series.images.map((image, imageIndex) => {
                             return (
-                                <img
+                                <Image
                                     key={imageIndex}
                                     className="image"
                                     src={`/assets/photography-work/${image.src}`}
                                     alt={image.alt}
+                                    width={image.width}
+                                    height={image.height}
+                                    priority={imageIndex == 0 && !lazyLoad}
+                                    onLoadingComplete={() => { console.log("loaded"); }}
                                 />
                             )
                         })

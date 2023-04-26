@@ -47,6 +47,7 @@ export default function Photography({ photographyWorkData, server }) {
                                 <PhotographyPageSlide
                                     key={seriesIndex}
                                     series={series}
+                                    lazyLoad={seriesIndex != 0}
                                 />
                             )
                         })
