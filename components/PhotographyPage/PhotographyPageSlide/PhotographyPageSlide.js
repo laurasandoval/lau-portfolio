@@ -13,17 +13,18 @@ export function PhotographyPageSlide({
 
     useEffect(() => {
         const imagesContainer = imagesContainerRef.current;
-        const imagesContainerPaddingLeft = parseInt(window.getComputedStyle(imagesContainer).getPropertyValue('padding-left'));
+        const imagesContainerPaddingLeft = 40;
 
         const handleScroll = () => {
             const containerWidth = imagesContainer.offsetWidth;
+
+            console.log(containerWidth);
+
             const images = imagesContainer.querySelectorAll('.image');
             let i;
             for (i = 0; i < images.length; i++) {
                 const imageLeft = images[i].offsetLeft + 40;
                 let imageWidth;
-
-                console.log(imagesContainerPaddingLeft);
 
                 if (i === 0) {
                     imageWidth = images[i].offsetWidth + imagesContainerPaddingLeft

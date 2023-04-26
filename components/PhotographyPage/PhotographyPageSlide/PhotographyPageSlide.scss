@@ -1,5 +1,5 @@
 .photography_page_slide {
-    $horizontal-padding: 40px; // Same as site's header.
+    $horizontal-padding: 40px; // Same as site's header. // ⚠️ If this value changes, you'll also have to change the value in the `handleScroll` function.
     $desktop-max-width: 1520px; // Same as site's header.
 
     scroll-snap-align: start;
