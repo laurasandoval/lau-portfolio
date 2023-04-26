@@ -74,16 +74,16 @@ export default function handler(req, res) {
           "alt": "Nostalgic, black and white image of a man walking his dog, seen from behind. The sillouette of the man contrasts heavily with the afternoon sun hitting the street (and the camera). The location of the image is very walkable and urban.",
         },
         {
-          "src": "interpretaciones-de-lo-cotidiano/040818.jpg",
-          "width": 3024,
-          "height": 4032,
-          "alt": "Nostalgic, black and white image of a man inside Santiago's subway. The picture is captured from a different subway car, and the small window of the man's car acts as an artificial frame for his body. The man's eyes are closed, and his body language seems to convey sadness, or tiredness.",
-        },
-        {
           "src": "interpretaciones-de-lo-cotidiano/261118.jpg",
           "width": 4032,
           "height": 3024,
           "alt": "Black and white image of a crowd of pedestrians crossing the street outside of the crosswalk. The sillouettes of the pedestrians, which were captured from the back, contrasts heavily with the afternoon sun hitting the street (and the camera).",
+        },
+        {
+          "src": "interpretaciones-de-lo-cotidiano/040818.jpg",
+          "width": 3024,
+          "height": 4032,
+          "alt": "Nostalgic, black and white image of a man inside Santiago's subway. The picture is captured from a different subway car, and the small window of the man's car acts as an artificial frame for his body. The man's eyes are closed, and his body language seems to convey sadness, or tiredness.",
         },
       ]
     },
