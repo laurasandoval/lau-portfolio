@@ -84,7 +84,7 @@
                     min-width: 100%;
                     height: fit-content;
                     font-size: 0;
-                    margin: auto;
+                    margin: auto 0 auto 20px; // ⚠️ If this value changes, you'll also have to change the value in the `handleScroll` function.
                 }
 
                 &:first-of-type {
