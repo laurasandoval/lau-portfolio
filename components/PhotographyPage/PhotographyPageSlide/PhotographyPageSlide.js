@@ -61,7 +61,10 @@ export function PhotographyPageSlide({
                     {
                         series.images.map((image, imageIndex) => {
                             return (
-                                <div className="image_container">
+                                <div
+                                    className="image_container"
+                                    data-orientation={image.width > image.height ? "landscape" : "portrait"}
+                                >
                                     <Image
                                         key={imageIndex}
                                         className="image"
