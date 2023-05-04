@@ -1,26 +1,27 @@
 import { useRef, useState, useEffect } from 'react';
 import './index.scss'
+import { IconVolume, IconVolumeOff } from '@tabler/icons-react';
 
 export default function SnappingFeedSlideVideo({
     asset,
-    tryToAutoPlay
+    current,
 }) {
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isMuted, setIsMuted] = useState(true);
 
-    function handlePlay() {
-        if (videoRef.current.paused) {
-            videoRef.current.play();
-            setIsPlaying(true);
+    function handleMute() {
+        if (videoRef.current.muted) {
+            videoRef.current.muted = false;
+            setIsMuted(false);
         } else {
-            videoRef.current.pause();
-            setIsPlaying(false);
+            videoRef.current.muted = true;
+            setIsMuted(true);
         }
     }
 
     useEffect(() => {
-        if (tryToAutoPlay) {
-            videoRef.current.muted = false;
+        if (current) {
             const playPromise = videoRef.current.play();
             if (playPromise !== undefined) {
                 playPromise.then(() => {
@@ -34,14 +35,15 @@ export default function SnappingFeedSlideVideo({
             videoRef.current.pause();
             setIsPlaying(false);
         }
-    }, [tryToAutoPlay]);
+    }, [current]);
 
     return (
-        <>
+        <div className="asset video_container">
             <video
                 ref={videoRef}
-                className="asset video"
+                className="video"
                 playsInline
+                muted
                 loop
             >
                 <source
@@ -49,7 +51,17 @@ export default function SnappingFeedSlideVideo({
                     type="video/mp4"
                 />
             </video>
-            <button onClick={handlePlay}>{isPlaying ? "Pause" : "Play"}</button>
-        </>
+            <button
+                onClick={handleMute}
+                className="unmute_button"
+            >
+                <div
+                    className="unmute_button_affordance"
+                    data-visible={isMuted}
+                >
+                    {isMuted ? <IconVolumeOff /> : <IconVolume />}
+                </div>
+            </button>
+        </div>
     )
 }

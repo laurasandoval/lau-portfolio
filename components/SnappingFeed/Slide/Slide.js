@@ -81,7 +81,7 @@ function SnappingFeedSlide({
             ref={slideRef}
             data-current={isIntersecting}
         >
-            <div className="assets_container">
+            <div className="assets_container" data-type={type}>
                 <div className="assets" ref={assetsContainerRef} data-multiple-assets={series.assets?.length > 1}>
                     {
                         series.assets.map((asset, assetIndex) => {
@@ -90,7 +90,6 @@ function SnappingFeedSlide({
                                 case "image":
                                     content = (
                                         <Image
-                                            key={assetIndex}
                                             className="asset img"
                                             src={`/assets/photography-work/${asset.src}`}
                                             alt={asset.alt}
@@ -103,9 +102,8 @@ function SnappingFeedSlide({
                                 case "video":
                                     content = (
                                         <SlideVideo
-                                            key={assetIndex}
                                             asset={asset}
-                                            tryToAutoPlay={isIntersecting}
+                                            current={isIntersecting}
                                         />
                                     );
                                     break;
@@ -117,7 +115,9 @@ function SnappingFeedSlide({
                             return (
                                 <div
                                     className="asset_container"
+                                    data-type={type}
                                     data-orientation={asset.width > asset.height ? "landscape" : "portrait"}
+                                    key={assetIndex}
                                 >
                                     {content}
                                 </div>

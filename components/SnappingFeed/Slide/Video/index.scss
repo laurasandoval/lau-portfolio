@@ -1,10 +1,57 @@
-.asset.video {
+.asset.video_container {
     height: 100%;
-    width: auto;
-    background-color: rgba(136, 138, 144, 0.2);
+    width: min-content;
+    position: relative;
 
     @media (max-width: 850px) {
         width: 100%;
-        height: auto;
+    }
+
+    .video {
+        height: 100%;
+        width: auto;
+        background-color: rgba(136, 138, 144, 0.2);
+
+        @media (max-width: 850px) {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .unmute_button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        pointer-events: all;
+        display: flex;
+        border: none;
+        outline: none;
+        background: transparent;
+        cursor: pointer;
+
+        .unmute_button_affordance {
+            margin: auto;
+            border: 1px solid rgba(136, 138, 144, 0.2);
+            background: rgba(255, 255, 255, 1);
+            color: rgba(0, 0, 0, 1);
+            width: 60px;
+            height: 60px;
+            border-radius: 40px;
+            display: flex;
+            box-shadow: 0px 2px 32px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition-delay: 0s;
+
+            &[data-visible="false"] {
+                opacity: 0;
+                transition-delay: 0.6s;
+            }
+
+            svg {
+                margin: auto;
+            }
+        }
     }
 }
