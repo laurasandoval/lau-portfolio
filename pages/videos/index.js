@@ -1,5 +1,4 @@
 import { NextSeo } from 'next-seo';
-import './index.scss'
 import SnappingFeed from '@/components/SnappingFeed/SnappingFeed';
 
 export default function Photography({ videoWorkData, server }) {
