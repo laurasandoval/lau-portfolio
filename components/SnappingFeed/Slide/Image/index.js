@@ -11,7 +11,7 @@ export default function SnappingFeedSlideVideo({
         <div
             className="asset_container"
             data-type="image"
-            data-orientation={asset.width > asset.height ? "landscape" : "portrait"}
+            data-orientation={asset.width > asset.height ? "landscape" : asset.width < asset.height ? "portrait" : "square"}
         >
             <Image
                 className="asset"

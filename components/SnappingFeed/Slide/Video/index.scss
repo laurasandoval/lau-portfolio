@@ -34,6 +34,14 @@
             }
         }
 
+        @at-root [data-orientation="square"]#{&} {
+            @media (max-width: 850px) {
+                width: 100%;
+                height: auto;
+                margin: auto;
+            }
+        }
+
         @media (max-width: 850px) {
             width: 100%;
             object-fit: cover;
