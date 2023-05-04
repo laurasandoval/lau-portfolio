@@ -20,8 +20,8 @@ export default function handler(req, res) {
       "assets": [
         {
           "src": "test/test-3.mp4",
-          "width": 576,
-          "height": 1024,
+          "width": 1024,
+          "height": 576,
           "alt": "",
         },
       ]

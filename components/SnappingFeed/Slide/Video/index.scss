@@ -1,16 +1,29 @@
-.asset.video_container {
-    height: 100%;
-    width: min-content;
+.asset_container[data-type="video"] {
+    @import '../AssetContainerStyles.scss';
+    @include asset-container-styles;
+
     position: relative;
 
-    @media (max-width: 850px) {
-        width: 100%;
+    &:last-of-type {
+        min-width: auto;
+        width: fit-content;
     }
 
-    .video {
+    &[data-orientation="landscape"] {
+        width: 100%;
+        height: fit-content;
+        margin: auto;
+    }
+
+    .asset {
         height: 100%;
         width: auto;
         background-color: rgba(136, 138, 144, 0.2);
+
+        @at-root [data-orientation="landscape"]#{&} {
+            width: 100%;
+            height: auto;
+        }
 
         @media (max-width: 850px) {
             width: 100%;

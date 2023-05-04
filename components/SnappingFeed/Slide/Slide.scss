@@ -68,63 +68,6 @@
                 padding: 0;
                 scroll-padding: 0;
             }
-
-            .asset_container {
-                scroll-snap-align: start;
-                width: 100%;
-                height: 100%;
-                margin: 0 0 0 20px; // ⚠️ If this value changes, you'll also have to change the value in the `handleScroll` function.
-                -webkit-user-drag: none;
-                -khtml-user-drag: none;
-                -moz-user-drag: none;
-                -o-user-drag: none;
-                user-drag: none;
-                user-select: none;
-                display: flex;
-                align-items: flex-end;
-
-                @media (max-width: 850px) {
-                    min-width: 100%;
-                    height: fit-content;
-                    font-size: 0;
-                    margin: auto 0 auto 20px; // ⚠️ If this value changes, you'll also have to change the value in the `handleScroll` function.
-
-                    &[data-type="video"] {
-                        height: 100%;
-                    }
-                }
-
-                &:first-of-type {
-                    margin-left: 0;
-                }
-
-                &:last-of-type {
-                    min-width: 100%;
-                }
-
-                .asset.img {
-                    height: 100%;
-                    width: fit-content;
-                    background-color: rgba(136, 138, 144, 0.2);
-
-                    @media (max-width: 850px) {
-                        width: 100%;
-                        height: auto;
-                    }
-                }
-
-                // This is horribly hardcoded
-                @media (min-height: 1480px) {
-                    &[data-orientation="landscape"] {
-                        min-width: 100%;
-
-                        .asset.img {
-                            width: 100%;
-                            height: fit-content;
-                        }
-                    }
-                }
-            }
         }
 
         .slider_arrows_container {

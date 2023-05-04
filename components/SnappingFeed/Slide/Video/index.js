@@ -5,6 +5,7 @@ import { IconVolume, IconVolumeOff } from '@tabler/icons-react';
 export default function SnappingFeedSlideVideo({
     asset,
     current,
+    priority,
 }) {
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -39,10 +40,14 @@ export default function SnappingFeedSlideVideo({
     }, [current]);
 
     return (
-        <div className="asset video_container">
+        <div
+            className="asset_container"
+            data-type="video"
+            data-orientation={asset.width > asset.height ? "landscape" : "portrait"}
+        >
             <video
                 ref={videoRef}
-                className="video"
+                className="asset"
                 playsInline
                 muted
                 loop
