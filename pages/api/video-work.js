@@ -52,19 +52,19 @@ export default function handler(req, res) {
         },
       ]
     },
-    {
-      "caption": "\"Luces, no bocina\" (Lights, not horn) was one of a series of educational videos I drafted for [Kappo Bike](/design/kappo/kappo-brand-identity) in 2019. The ultimate goal was to use those videos as a part of an educational campaign for bicycle safety, targeted towards car drivers to promote safe interaction between bicycles and cars on the road.",
-      "period": "2019",
-      "location": null,
-      "assets": [
-        {
-          "src": "kappo/luces-no-bocina-kappo.mp4",
-          "width": 1920,
-          "height": 720,
-          "alt": "",
-        },
-      ]
-    },
+    // {
+    //   "caption": "\"Luces, no bocina\" (Lights, not horn) was one of a series of educational videos I drafted for [Kappo Bike](/design/kappo/kappo-brand-identity) in 2019. The ultimate goal was to use those videos as a part of an educational campaign for bicycle safety, targeted towards car drivers to promote safe interaction between bicycles and cars on the road.",
+    //   "period": "2019",
+    //   "location": null,
+    //   "assets": [
+    //     {
+    //       "src": "kappo/luces-no-bocina-kappo.mp4",
+    //       "width": 1920,
+    //       "height": 720,
+    //       "alt": "",
+    //     },
+    //   ]
+    // },
     {
       "caption": "Promotional video for \"Saldo Red\", a now-defunct app (later replaced by [Balance](/design/balance/app)), highlighting the addition of Valparaíso's main transit card, \"MerVal\" to its list of supported transit cards.",
       "period": "2019",
