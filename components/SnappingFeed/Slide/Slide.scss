@@ -96,7 +96,7 @@
                     min-width: 100%;
                 }
 
-                .asset {
+                .asset.img {
                     height: 100%;
                     width: fit-content;
                     background-color: rgba(136, 138, 144, 0.2);
@@ -112,7 +112,7 @@
                     &[data-orientation="landscape"] {
                         min-width: 100%;
 
-                        .asset {
+                        .asset.img {
                             width: 100%;
                             height: fit-content;
                         }

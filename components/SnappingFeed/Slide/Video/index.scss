@@ -1,0 +1,10 @@
+.asset.video {
+    height: 100%;
+    width: auto;
+    background-color: rgba(136, 138, 144, 0.2);
+
+    @media (max-width: 850px) {
+        width: 100%;
+        height: auto;
+    }
+}

@@ -4,8 +4,10 @@ import { IconCalendar, IconChevronLeft, IconChevronRight, IconLocation } from '@
 import { useState, useEffect, useRef } from 'react';
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel';
 import Image from 'next/image';
+import SlideVideo from './Video';
 
-export default function SnappingFeedSlide({
+function SnappingFeedSlide({
+    type,
     series,
     lazyLoad,
 }) {
@@ -60,25 +62,46 @@ export default function SnappingFeedSlide({
                 <div className="assets" ref={assetsContainerRef} data-multiple-assets={series.assets?.length > 1}>
                     {
                         series.assets.map((asset, assetIndex) => {
+                            let content;
+                            switch (type) {
+                                case "image":
+                                    content = (
+                                        <Image
+                                            key={assetIndex}
+                                            className="asset img"
+                                            src={`/assets/photography-work/${asset.src}`}
+                                            alt={asset.alt}
+                                            width={asset.width}
+                                            height={asset.height}
+                                            priority={assetIndex == 0 && !lazyLoad}
+                                        />
+                                    );
+                                    break;
+                                case "video":
+                                    content = (
+                                        <SlideVideo
+                                            key={assetIndex}
+                                            asset={asset}
+                                        />
+                                    );
+                                    break;
+                                default:
+                                    content = (
+                                        <p>Undefined asset type.</p>
+                                    );
+                            }
                             return (
                                 <div
                                     className="asset_container"
                                     data-orientation={asset.width > asset.height ? "landscape" : "portrait"}
                                 >
-                                    <Image
-                                        key={assetIndex}
-                                        className="asset"
-                                        src={`/assets/photography-work/${asset.src}`}
-                                        alt={asset.alt}
-                                        width={asset.width}
-                                        height={asset.height}
-                                        priority={assetIndex == 0 && !lazyLoad}
-                                    />
+                                    {content}
                                 </div>
-                            )
+                            );
                         })
                     }
                 </div>
+
                 <div className="slider_arrows_container">
                     <button
                         className="arrow left"
@@ -137,3 +160,7 @@ export default function SnappingFeedSlide({
         </div>
     )
 }
+
+SnappingFeedSlide.Video = SlideVideo;
+
+export default SnappingFeedSlide;
