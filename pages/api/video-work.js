@@ -78,5 +78,18 @@ export default function handler(req, res) {
         },
       ]
     },
+    {
+      "caption": "Promotional video for \"Alertas Metro\", a now-defunct Facebook messenger bot that allowed you to get live information of Santiago de Chile's Metro network. The project was archived upon Metro de Santiago's request.",
+      "period": "2018",
+      "location": null,
+      "assets": [
+        {
+          "src": "alertas-metro/alertas-metro-2018-saldo-bip.mp4",
+          "width": 1080,
+          "height": 1920,
+          "alt": "",
+        },
+      ]
+    },
   ])
 }
