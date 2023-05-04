@@ -9,70 +9,70 @@ export default function SnappingFeedSlide({
     series,
     lazyLoad,
 }) {
-    const [currentImage, setCurrentImage] = useState(0);
-    const imagesContainerRef = useRef(null);
+    const [currentAsset, setCurrentAsset] = useState(0);
+    const assetsContainerRef = useRef(null);
     const pageDotRefs = useRef([]);
 
     useEffect(() => {
-        const imagesContainer = imagesContainerRef.current;
-        const imagesContainerPaddingLeft = 40;
+        const assetsContainer = assetsContainerRef.current;
+        const assetsContainerPaddingLeft = 40;
 
         const handleScroll = () => {
-            const containerWidth = imagesContainer.offsetWidth;
+            const containerWidth = assetsContainer.offsetWidth;
 
-            const images = imagesContainer.querySelectorAll('.image');
+            const assets = assetsContainer.querySelectorAll('.asset');
             let i;
-            for (i = 0; i < images.length; i++) {
-                const imageLeft = images[i].offsetLeft + 40;
-                let imageWidth;
+            for (i = 0; i < assets.length; i++) {
+                const assetLeft = assets[i].offsetLeft + 40;
+                let assetWidth;
 
                 if (i === 0) {
-                    imageWidth = images[i].offsetWidth + imagesContainerPaddingLeft
+                    assetWidth = assets[i].offsetWidth + assetsContainerPaddingLeft
                 } else {
-                    imageWidth = images[i].offsetWidth + 20
+                    assetWidth = assets[i].offsetWidth + 20
                 }
 
-                if (imageLeft <= (imagesContainer.scrollLeft - imagesContainerPaddingLeft) + containerWidth / 2 &&
-                    imageLeft + imageWidth > (imagesContainer.scrollLeft - imagesContainerPaddingLeft) + containerWidth / 2) {
-                    setCurrentImage(i);
+                if (assetLeft <= (assetsContainer.scrollLeft - assetsContainerPaddingLeft) + containerWidth / 2 &&
+                    assetLeft + assetWidth > (assetsContainer.scrollLeft - assetsContainerPaddingLeft) + containerWidth / 2) {
+                    setCurrentAsset(i);
                     break;
                 }
             }
         };
-        imagesContainer.addEventListener('scroll', handleScroll);
+        assetsContainer.addEventListener('scroll', handleScroll);
         return () => {
-            imagesContainer.removeEventListener('scroll', handleScroll);
+            assetsContainer.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
-    const scrollToImage = (imageIndex) => {
-        const imagesContainer = imagesContainerRef.current;
-        const imageWidth = imagesContainer.querySelector('.image').offsetWidth;
-        imagesContainer.scroll({
-            left: imageWidth * imageIndex,
+    const scrollToAsset = (assetIndex) => {
+        const assetsContainer = assetsContainerRef.current;
+        const assetWidth = assetsContainer.querySelector('.asset').offsetWidth;
+        assetsContainer.scroll({
+            left: assetWidth * assetIndex,
             behavior: 'smooth'
         });
     };
 
     return (
         <div className="snapping_feed_slide">
-            <div className="images_container">
-                <div className="images" ref={imagesContainerRef} data-multiple-images={series.images?.length > 1}>
+            <div className="assets_container">
+                <div className="assets" ref={assetsContainerRef} data-multiple-assets={series.assets?.length > 1}>
                     {
-                        series.images.map((image, imageIndex) => {
+                        series.assets.map((asset, assetIndex) => {
                             return (
                                 <div
-                                    className="image_container"
-                                    data-orientation={image.width > image.height ? "landscape" : "portrait"}
+                                    className="asset_container"
+                                    data-orientation={asset.width > asset.height ? "landscape" : "portrait"}
                                 >
                                     <Image
-                                        key={imageIndex}
-                                        className="image"
-                                        src={`/assets/photography-work/${image.src}`}
-                                        alt={image.alt}
-                                        width={image.width}
-                                        height={image.height}
-                                        priority={imageIndex == 0 && !lazyLoad}
+                                        key={assetIndex}
+                                        className="asset"
+                                        src={`/assets/photography-work/${asset.src}`}
+                                        alt={asset.alt}
+                                        width={asset.width}
+                                        height={asset.height}
+                                        priority={assetIndex == 0 && !lazyLoad}
                                     />
                                 </div>
                             )
@@ -82,16 +82,16 @@ export default function SnappingFeedSlide({
                 <div className="slider_arrows_container">
                     <button
                         className="arrow left"
-                        onClick={() => scrollToImage(currentImage - 1)}
-                        data-visible={currentImage > 0}
+                        onClick={() => scrollToAsset(currentAsset - 1)}
+                        data-visible={currentAsset > 0}
                     >
                         <IconChevronLeft />
                         <AccessibilityLabel>Go to previous page</AccessibilityLabel>
                     </button>
                     <button
                         className="arrow right"
-                        onClick={() => scrollToImage(currentImage + 1)}
-                        data-visible={currentImage < series.images.length - 1}
+                        onClick={() => scrollToAsset(currentAsset + 1)}
+                        data-visible={currentAsset < series.assets.length - 1}
                     >
                         <IconChevronRight />
                         <AccessibilityLabel>Go to next page</AccessibilityLabel>
@@ -100,17 +100,17 @@ export default function SnappingFeedSlide({
             </div>
             <div className="caption_container">
                 {
-                    series.images.length > 1 &&
+                    series.assets.length > 1 &&
                     <div className="page_indicator">
                         {
-                            series.images.map((_, pageIndicatorIndex) => {
+                            series.assets.map((_, pageIndicatorIndex) => {
                                 return (
                                     <button
                                         key={pageIndicatorIndex}
                                         className="page_dot"
                                         ref={ref => pageDotRefs.current[pageIndicatorIndex] = ref}
-                                        data-current={pageIndicatorIndex == currentImage}
-                                        onClick={() => scrollToImage(pageIndicatorIndex)}
+                                        data-current={pageIndicatorIndex == currentAsset}
+                                        onClick={() => scrollToAsset(pageIndicatorIndex)}
                                     >
                                         <AccessibilityLabel>{`Go to page ${pageIndicatorIndex + 1}`}</AccessibilityLabel>
                                     </button>

@@ -4,7 +4,7 @@ export default function handler(req, res) {
       "caption": "From the \"No peatones\" (No pedestrians) series, which captures a poignant critique of Santiago's emerging car-centric mega-infrastructures, emphasizing the erosion of public spaces as they morph into exclusive territories for vehicles, not people.",
       "period": "2019",
       "location": "Santiago, Chile",
-      "images": [
+      "assets": [
         {
           "src": "no-peatones/160619_1.jpg",
           "width": 3514,
@@ -35,7 +35,7 @@ export default function handler(req, res) {
       "caption": "Campus San Joaquín, Pontificia Universidad Católica de Chile. Featured in [Accidentally Wes Anderson (2020)](https://accidentallywesanderson.com/book/), by Wally & Amanda Koval.",
       "period": "2019",
       "location": "San Joaquín, Chile",
-      "images": [
+      "assets": [
         {
           "src": "accidentally-wes-anderson/160419.jpg",
           "width": 3024,
@@ -48,7 +48,7 @@ export default function handler(req, res) {
       "caption": "This series delves into everlasting struggles with belonging, exploring emotions and boundaries within one's own city, viewed from a distance, as an intimate questioning of identity and the concept of home.",
       "period": "2017 — 2019",
       "location": "Santiago, Chile",
-      "images": [
+      "assets": [
         {
           "src": "interpretaciones-de-lo-cotidiano/280319.jpg",
           "width": 4032,

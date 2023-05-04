@@ -24,7 +24,7 @@
         padding: 100px 0 40px 0;
     }
 
-    .images_container {
+    .assets_container {
         position: relative;
         width: 100%;
         height: 100%;
@@ -46,7 +46,7 @@
             }
         }
 
-        .images {
+        .assets {
             width: 100%;
             height: 100%;
             display: flex;
@@ -67,7 +67,7 @@
                 scroll-padding: 0;
             }
 
-            .image_container {
+            .asset_container {
                 scroll-snap-align: start;
                 width: 100%;
                 height: 100%;
@@ -96,7 +96,7 @@
                     min-width: 100%;
                 }
 
-                .image {
+                .asset {
                     height: 100%;
                     width: fit-content;
                     background-color: rgba(136, 138, 144, 0.2);
@@ -112,7 +112,7 @@
                     &[data-orientation="landscape"] {
                         min-width: 100%;
 
-                        .image {
+                        .asset {
                             width: 100%;
                             height: fit-content;
                         }
