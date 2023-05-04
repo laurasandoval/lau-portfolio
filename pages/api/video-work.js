@@ -72,7 +72,7 @@ export default function handler(req, res) {
       "assets": [
         {
           "src": "saldo-red/merval-saldo-red.mp4",
-          "width": 1920,
+          "width": 1080,
           "height": 1920,
           "alt": "",
         },
