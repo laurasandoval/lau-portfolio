@@ -23,22 +23,34 @@
             }
         }
 
-        nav[data-open="true"] {
-            @media (max-width: 850px) {
-                background: rgba(0, 0, 0, 1);
+        @media (max-width: 850px) {
+            nav {
+                transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s,
+                    background-color 0.4s ease 2s;
+
+                &[data-open="true"] {
+                    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s,
+                        background-color 0s ease 0s;
+                    background-color: rgba(0, 0, 0, 1);
+                }
             }
         }
     }
 
-    &::before {
+    &:before {
         background: transparent;
         border-bottom: none;
 
         @media (max-width: 850px) {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0) 90%);
 
+            @at-root [data-nav-open="false"]#{&} {
+                transition-delay: 2s;
+            }
+
             @at-root [data-nav-open="true"]#{&} {
                 background: rgba(0, 0, 0, 1);
+                transition-delay: 0s;
             }
         }
     }
