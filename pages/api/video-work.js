@@ -3,7 +3,7 @@ export default function handler(req, res) {
     {
       "caption": "video de balance campaña blabla",
       "period": "2022",
-      "location": "San Joaquín, Chile",
+      "location": null,
       "assets": [
         {
           "src": "test/test-1.mp4",
@@ -16,7 +16,7 @@ export default function handler(req, res) {
     {
       "caption": "adsfñldjkhg AAAA",
       "period": "2022",
-      "location": "San Joaquín, Chile",
+      "location": null,
       "assets": [
         {
           "src": "test/test-3.mp4",
@@ -29,7 +29,7 @@ export default function handler(req, res) {
     {
       "caption": "video de balansdñflkhdce campaña blabla",
       "period": "2022",
-      "location": "San Joaquín, Chile",
+      "location": null,
       "assets": [
         {
           "src": "test/test-2.mp4",

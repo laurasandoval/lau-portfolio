@@ -175,10 +175,13 @@ function SnappingFeedSlide({
                         <IconCalendar size={14} />
                         <p>{series.period}</p>
                     </div>
-                    <div className="metadata">
-                        <IconLocation size={14} />
-                        <p>{series.location}</p>
-                    </div>
+                    {
+                        series.location &&
+                        <div className="metadata">
+                            <IconLocation size={14} />
+                            <p>{series.location}</p>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
