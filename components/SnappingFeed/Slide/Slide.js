@@ -14,6 +14,25 @@ function SnappingFeedSlide({
     const [currentAsset, setCurrentAsset] = useState(0);
     const assetsContainerRef = useRef(null);
     const pageDotRefs = useRef([]);
+    const [isIntersecting, setIsIntersecting] = useState(false);
+    const slideRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsIntersecting(entry.isIntersecting),
+            { threshold: 0.5 }
+        );
+
+        if (slideRef.current) {
+            observer.observe(slideRef.current);
+        }
+
+        return () => {
+            if (slideRef.current) {
+                observer.unobserve(slideRef.current);
+            }
+        };
+    }, [slideRef]);
 
     useEffect(() => {
         const assetsContainer = assetsContainerRef.current;
@@ -57,7 +76,11 @@ function SnappingFeedSlide({
     };
 
     return (
-        <div className="snapping_feed_slide">
+        <div
+            className="snapping_feed_slide"
+            ref={slideRef}
+            data-current={isIntersecting}
+        >
             <div className="assets_container">
                 <div className="assets" ref={assetsContainerRef} data-multiple-assets={series.assets?.length > 1}>
                     {
@@ -82,6 +105,7 @@ function SnappingFeedSlide({
                                         <SlideVideo
                                             key={assetIndex}
                                             asset={asset}
+                                            tryToAutoPlay={isIntersecting}
                                         />
                                     );
                                     break;

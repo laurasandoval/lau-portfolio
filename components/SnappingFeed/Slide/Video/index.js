@@ -1,8 +1,9 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './index.scss'
 
 export default function SnappingFeedSlideVideo({
-    asset
+    asset,
+    tryToAutoPlay
 }) {
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -16,6 +17,24 @@ export default function SnappingFeedSlideVideo({
             setIsPlaying(false);
         }
     }
+
+    useEffect(() => {
+        if (tryToAutoPlay) {
+            videoRef.current.muted = false;
+            const playPromise = videoRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    setIsPlaying(true);
+                }).catch((error) => {
+                    setIsPlaying(false);
+                    console.error("Error attempting to auto-play video: ", error);
+                });
+            }
+        } else {
+            videoRef.current.pause();
+            setIsPlaying(false);
+        }
+    }, [tryToAutoPlay]);
 
     return (
         <>

@@ -79,7 +79,7 @@
                 user-drag: none;
                 user-select: none;
                 display: flex;
-                align-items: end;
+                align-items: flex-end;
 
                 @media (max-width: 850px) {
                     min-width: 100%;
