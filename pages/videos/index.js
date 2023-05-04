@@ -7,10 +7,10 @@ export default function Photography({ videoWorkData, server }) {
         <>
             <NextSeo
                 title="Laura Sandoval — Videos"
-                description="Selected video works."
+                description="Selected video works from 2018 onwards."
                 openGraph={{
                     title: "Laura Sandoval — Videos",
-                    description: "Selected video works.",
+                    description: "Selected video works from 2018 onwards.",
                     images: [
                         {
                             url: `${server}/assets/video-work/social-thumbnail.png`,
