@@ -13,6 +13,9 @@ function generateSiteMap(designWorkData, server) {
      <url>
        <loc>${server}/photography</loc>
      </url>
+     <url>
+       <loc>${server}/videos</loc>
+     </url>
      ${designWorkData.map((project, index) => {
     return `
        <url>

@@ -48,6 +48,10 @@ export default function GlobalHeader({
             href: "/photography"
         },
         {
+            title: "Videos",
+            href: "/videos"
+        },
+        {
             title: "About",
             href: "/about"
         },

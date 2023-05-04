@@ -1,0 +1,27 @@
+.asset_container[data-type="image"] {
+    @import '../AssetContainerStyles.scss';
+    @include asset-container-styles;
+
+    .asset {
+        height: 100%;
+        width: fit-content;
+        background-color: rgba(136, 138, 144, 0.2);
+
+        @media (max-width: 850px) {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    // This is horribly hardcoded
+    @media (min-height: 1480px) {
+        &[data-orientation="landscape"] {
+            min-width: 100%;
+
+            .asset {
+                width: 100%;
+                height: fit-content;
+            }
+        }
+    }
+}
