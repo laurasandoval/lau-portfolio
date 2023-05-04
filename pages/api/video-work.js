@@ -1,7 +1,7 @@
 export default function handler(req, res) {
   res.status(200).json([
     {
-      "caption": "\"Abstract\" transit card design launch video for [Balance](/design/balance/app), the most positively reviewed app for managing Chilean transit cards in the App Store.",
+      "caption": "\"Abstracta\" transit card design launch video for [Balance](/design/balance/app), the most positively reviewed app for managing Chilean transit cards on the App Store.",
       "period": "2022",
       "location": null,
       "assets": [
@@ -40,7 +40,7 @@ export default function handler(req, res) {
       ]
     },
     {
-      "caption": "Promotional video for my [Santiago Transit Map 2019](/design/santiago-transit-map/2019) design. Featured in Chile's national news network \"Televisión Nacional de Chile (TVN)\".",
+      "caption": "Promotional video for [Santiago Transit Map 2019](/design/santiago-transit-map/2019). Featured in Chile's national news network \"Televisión Nacional de Chile (TVN)\".",
       "period": "2019",
       "location": null,
       "assets": [
@@ -80,7 +80,7 @@ export default function handler(req, res) {
     },
     {
       "caption": "Promotional video for \"Alertas Metro\", a now-defunct Facebook messenger bot that allowed you to get live information of Santiago de Chile's Metro network. The project was archived upon Metro de Santiago's request.",
-      "period": "2018",
+      "period": "2017",
       "location": null,
       "assets": [
         {
