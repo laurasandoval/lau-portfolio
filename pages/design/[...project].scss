@@ -128,33 +128,9 @@
 
             .ctas {
                 line-height: 1.4;
-
-                .call_to_action {
-                    display: block;
-                    font-size: 16px;
-                    font-weight: 400;
-                    text-decoration: underline;
-                    color: rgba(16, 99, 238, 1);
-                    width: fit-content;
-                    transition: color 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
-
-                    .right_arrow {
-                        display: inline-block;
-                        margin-left: 0.2em;
-                        transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
-                        color: rgba(16, 99, 238, 1);
-                    }
-
-                    @media (hover: hover) {
-                        &:hover {
-                            color: rgba(0, 0, 0, 1);
-
-                            .right_arrow {
-                                transform: translateX(10px);
-                            }
-                        }
-                    }
-                }
+                display: grid;
+                grid-auto-flow: row;
+                grid-gap: 8px;
             }
         }
 

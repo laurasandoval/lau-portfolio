@@ -1,0 +1,20 @@
+.button {
+    display: block;
+    width: fit-content;
+    border: none;
+    outline: none;
+    padding: 12px 14px;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 500;
+
+    &[data-type="primary"] {
+        background: rgba(0, 0, 0, 1);
+        color: rgba(255, 255, 255, 1);
+    }
+
+    &[data-type="secondary"] {
+        background: rgba(136, 139, 144, 0.15);
+        color: rgba(0, 0, 0, 1);
+    }
+}

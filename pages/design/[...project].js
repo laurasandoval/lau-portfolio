@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 import { NextSeo } from 'next-seo'
+import Button from '@/components/Button/Button'
 
 export default function Project({ currentProject, server }) {
   const [showGalleryBorder, setShowGalleryBorder] = useState(false)
@@ -91,17 +92,13 @@ export default function Project({ currentProject, server }) {
               <div className="ctas">
                 {currentProject?.cta.map((cta, i) => {
                   return (
-                    <a
-                      className="call_to_action"
+                    <Button
+                      type="secondary"
                       key={i}
+                      link={true}
                       href={cta.url}
-                      rel="noopener noreferrer"
-                    >
-                      {cta.title}{" "}
-                      <span className="right_arrow" aria-hidden="true">
-                        →
-                      </span>
-                    </a>
+                      label={cta.title}
+                    />
                   )
                 })}
               </div>
