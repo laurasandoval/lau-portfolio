@@ -22,7 +22,6 @@ export default function SnappingFeedSlideVideo({
 
     useEffect(() => {
         if (current) {
-            videoRef.current.currentTime = 0;
             const playPromise = videoRef.current.play();
             if (playPromise !== undefined) {
                 playPromise.then(() => {
@@ -35,6 +34,7 @@ export default function SnappingFeedSlideVideo({
         } else {
             videoRef.current.pause();
             setIsPlaying(false);
+            videoRef.current.currentTime = 0;
         }
     }, [current]);
 
