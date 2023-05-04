@@ -93,6 +93,7 @@ function SnappingFeedSlide({
                                             asset={asset}
                                             current={isIntersecting}
                                             priority={assetIndex == 0 && !lazyLoad}
+                                            key={assetIndex}
                                         />
                                     );
                                     break;
@@ -101,12 +102,13 @@ function SnappingFeedSlide({
                                         <SlideVideo
                                             asset={asset}
                                             current={isIntersecting}
+                                            key={assetIndex}
                                         />
                                     );
                                     break;
                                 default:
                                     return (
-                                        <p>Undefined asset type.</p>
+                                        <p key={assetIndex}>Undefined asset type.</p>
                                     );
                             }
                         })
