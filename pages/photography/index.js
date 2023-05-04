@@ -1,7 +1,6 @@
 import { NextSeo } from 'next-seo';
 import './index.scss'
-import PhotographyPageHeader from '@/components/PhotographyPage/PhotographyPageHeader/PhotographyPageHeader';
-import { PhotographyPageSlide } from '@/components/PhotographyPage/PhotographyPageSlide/PhotographyPageSlide';
+import SnappingFeed from '@/components/SnappingFeed/SnappingFeed';
 
 export default function Photography({ photographyWorkData, server }) {
     return (
@@ -37,23 +36,19 @@ export default function Photography({ photographyWorkData, server }) {
                 ]}
             />
 
-            <PhotographyPageHeader />
-
-            <div className="photography_page">
-                <div className="main_vertical_slider">
-                    {
-                        photographyWorkData.map((series, seriesIndex) => {
-                            return (
-                                <PhotographyPageSlide
-                                    key={seriesIndex}
-                                    series={series}
-                                    lazyLoad={seriesIndex != 0}
-                                />
-                            )
-                        })
-                    }
-                </div>
-            </div>
+            <SnappingFeed>
+                {
+                    photographyWorkData.map((series, seriesIndex) => {
+                        return (
+                            <SnappingFeed.Slide
+                                key={seriesIndex}
+                                series={series}
+                                lazyLoad={seriesIndex != 0}
+                            />
+                        )
+                    })
+                }
+            </SnappingFeed>
         </>
     )
 }

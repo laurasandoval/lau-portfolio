@@ -1,11 +1,11 @@
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
-import './PhotographyPageSlide.scss'
+import './Slide.scss'
 import { IconCalendar, IconChevronLeft, IconChevronRight, IconLocation } from '@tabler/icons-react'
 import { useState, useEffect, useRef } from 'react';
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel';
 import Image from 'next/image';
 
-export function PhotographyPageSlide({
+export default function SnappingFeedSlide({
     series,
     lazyLoad,
 }) {
@@ -55,7 +55,7 @@ export function PhotographyPageSlide({
     };
 
     return (
-        <div className="photography_page_slide">
+        <div className="snapping_feed_slide">
             <div className="images_container">
                 <div className="images" ref={imagesContainerRef} data-multiple-images={series.images?.length > 1}>
                     {
