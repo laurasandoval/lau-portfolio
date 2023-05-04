@@ -22,6 +22,7 @@ export default function SnappingFeedSlideVideo({
 
     useEffect(() => {
         if (current) {
+            videoRef.current.currentTime = 0;
             const playPromise = videoRef.current.play();
             if (playPromise !== undefined) {
                 playPromise.then(() => {
