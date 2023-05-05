@@ -3,7 +3,6 @@ import './Slide.scss'
 import { IconCalendar, IconChevronLeft, IconChevronRight, IconLocation } from '@tabler/icons-react'
 import { useState, useEffect, useRef } from 'react';
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel';
-import Image from 'next/image';
 import SlideImage from './Image';
 import SlideVideo from './Video';
 
@@ -11,6 +10,8 @@ function SnappingFeedSlide({
     type,
     series,
     lazyLoad,
+    allVideosAreMuted,
+    setAllVideosAreMuted,
 }) {
     const [currentAsset, setCurrentAsset] = useState(0);
     const assetsContainerRef = useRef(null);
@@ -90,19 +91,21 @@ function SnappingFeedSlide({
                                 case "image":
                                     return (
                                         <SlideImage
+                                            key={assetIndex}
                                             asset={asset}
                                             current={isIntersecting}
                                             priority={assetIndex == 0 && !lazyLoad}
-                                            key={assetIndex}
                                         />
                                     );
                                     break;
                                 case "video":
                                     return (
                                         <SlideVideo
+                                            key={assetIndex}
                                             asset={asset}
                                             current={isIntersecting}
-                                            key={assetIndex}
+                                            allVideosAreMuted={allVideosAreMuted}
+                                            setAllVideosAreMuted={setAllVideosAreMuted}
                                         />
                                     );
                                     break;

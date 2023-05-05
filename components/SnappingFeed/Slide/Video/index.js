@@ -6,20 +6,31 @@ export default function SnappingFeedSlideVideo({
     asset,
     current,
     priority,
+    allVideosAreMuted,
+    setAllVideosAreMuted,
 }) {
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [isMuted, setIsMuted] = useState(true);
 
     function handleMute() {
         if (videoRef.current.muted) {
             videoRef.current.muted = false;
-            setIsMuted(false);
+            setAllVideosAreMuted(false);
         } else {
             videoRef.current.muted = true;
-            setIsMuted(true);
+            setAllVideosAreMuted(true);
         }
     }
+
+    useEffect(() => {
+        if (allVideosAreMuted) {
+            videoRef.current.muted = true;
+            setAllVideosAreMuted(true);
+        } else {
+            videoRef.current.muted = false;
+            setAllVideosAreMuted(false);
+        }
+    }, [allVideosAreMuted]);
 
     useEffect(() => {
         if (current) {
@@ -63,9 +74,9 @@ export default function SnappingFeedSlideVideo({
             >
                 <div
                     className="unmute_button_affordance"
-                    data-visible={isMuted}
+                    data-visible={allVideosAreMuted}
                 >
-                    {isMuted ? <IconVolumeOff /> : <IconVolume />}
+                    {allVideosAreMuted ? <IconVolumeOff /> : <IconVolume />}
                 </div>
             </button>
         </div>

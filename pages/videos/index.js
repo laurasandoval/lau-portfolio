@@ -1,7 +1,10 @@
 import { NextSeo } from 'next-seo';
 import SnappingFeed from '@/components/SnappingFeed/SnappingFeed';
+import { useState } from 'react';
 
 export default function Photography({ videoWorkData, server }) {
+    const [allVideosAreMuted, setAllVideosAreMuted] = useState(true);
+
     return (
         <>
             <NextSeo
@@ -44,6 +47,8 @@ export default function Photography({ videoWorkData, server }) {
                                 key={seriesIndex}
                                 series={series}
                                 lazyLoad={seriesIndex != 0}
+                                allVideosAreMuted={allVideosAreMuted}
+                                setAllVideosAreMuted={setAllVideosAreMuted}
                             />
                         )
                     })
