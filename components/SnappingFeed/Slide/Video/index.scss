@@ -14,14 +14,17 @@
         }
     }
 
-    &[data-orientation="landscape"] {
-        width: 100%;
-        height: fit-content;
-        margin: auto;
+    // This is horribly hardcoded
+    @media (min-height: 1480px) {
+        &[data-orientation="landscape"] {
+            width: 100%;
+            height: auto;
+            margin: auto;
 
-        @media (max-width: 850px) {
-            height: 100%;
-            object-fit: cover;
+            .asset {
+                width: 100%;
+                height: auto;
+            }
         }
     }
 
@@ -30,18 +33,21 @@
         width: auto;
         background-color: rgba(136, 138, 144, 0.2);
 
-        @at-root [data-orientation="landscape"]#{&} {
-            width: 100%;
-            height: auto;
-
-            @media (max-width: 850px) {
-                margin: auto;
-            }
-        }
+        // Weird hack to remove weird border.
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
 
         @at-root [data-orientation="square"]#{&} {
             @media (max-width: 850px) {
                 width: 100%;
+                height: auto;
+                margin: auto;
+            }
+        }
+
+        @at-root [data-orientation="landscape"]#{&} {
+            @media (max-width: 850px) {
                 height: auto;
                 margin: auto;
             }
