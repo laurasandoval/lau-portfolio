@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './ProjectThumbnail.scss'
+import { useEffect, useRef, useState } from 'react';
 
 export function ProjectThumbnail({
     as,
@@ -18,6 +19,46 @@ export function ProjectThumbnail({
     priority,
     sizes,
 }) {
+    const [isIntersecting, setIsIntersecting] = useState(false);
+    const videoRef = useRef(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => setIsIntersecting(entry.isIntersecting),
+            { threshold: 0.1 }
+        );
+
+        if (videoRef.current) {
+            observer.observe(videoRef.current);
+        }
+
+        return () => {
+            if (videoRef.current) {
+                observer.unobserve(videoRef.current);
+            }
+        };
+    }, [videoRef]);
+
+    useEffect(() => {
+        if (videoRef != null) {
+            if (isIntersecting) {
+                const playPromise = videoRef.current.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        setIsPlaying(true);
+                    }).catch((error) => {
+                        setIsPlaying(false);
+                        console.error("Error attempting to auto-play video: ", error);
+                    });
+                }
+            } else {
+                videoRef.current?.pause();
+                setIsPlaying(false);
+            }
+        }
+    }, [isIntersecting]);
+
     const _renderThumbnail = (thumbnail, src, title, autoplay, priority, sizes) => {
         const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"]
         const videoFormats = ["mp4", "webm"]
@@ -34,7 +75,13 @@ export function ProjectThumbnail({
             )
         } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(thumbnail)) {
             return (
-                <video playsInline muted autoPlay={autoplay} loop>
+                <video
+                    ref={videoRef}
+                    playsInline
+                    muted
+                    autoPlay={autoplay}
+                    loop
+                >
                     <source
                         src={`/assets/design-work/${src}/${thumbnail.replace(
                             ".mp4",
@@ -79,7 +126,7 @@ export function ProjectThumbnail({
                 </Link>
             )}
             <div className="project_artwork" aria-hidden="true">
-                {_renderThumbnail(thumbnail ? thumbnail : thumbnails[0], src, title, autoplay, priority, sizes)}
+                {_renderThumbnail(thumbnail ? thumbnail : thumbnails[0], src, title, priority, sizes)}
             </div>
             {!img_only && (
                 <div className="project_info" aria-hidden={hover}>
