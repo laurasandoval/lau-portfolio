@@ -101,6 +101,7 @@ export default function SnappingFeedSlideVideo({
             <button
                 onClick={handleMute}
                 className="unmute_button"
+                title={allVideosAreMuted ? "Unmute" : "Mute"}
             >
                 <div
                     className="unmute_button_affordance"
@@ -115,6 +116,7 @@ export default function SnappingFeedSlideVideo({
                     <button
                         onClick={handleFullscreen}
                         className="fullscreen_button"
+                        title="Full screen"
                     >
                         <IconMaximize />
                         <p>Full screen</p>
