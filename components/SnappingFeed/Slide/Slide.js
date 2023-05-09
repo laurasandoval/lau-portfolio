@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel';
 import SlideImage from './Image';
 import SlideVideo from './Video';
+import { Balancer } from 'react-wrap-balancer';
 
 function SnappingFeedSlide({
     type,
@@ -160,7 +161,21 @@ function SnappingFeedSlide({
                 }
                 {
                     series.caption &&
-                    <ReactMarkdown className="caption" children={series.caption} />
+                    <ReactMarkdown
+                        className="caption"
+                        children={series.caption}
+                        components={{
+                            p: props => {
+                                return (
+                                    <Balancer>
+                                        <p>
+                                            {props.children}
+                                        </p>
+                                    </Balancer>
+                                )
+                            }
+                        }}
+                    />
                 }
                 <div className="metadata_container">
                     <div className="metadata">

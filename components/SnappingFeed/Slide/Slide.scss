@@ -250,23 +250,26 @@
             pointer-events: none;
         }
 
-        .caption>p {
-            font-size: 14px;
-            color: rgba(0, 0, 0, 0.8);
-            margin: 0;
+        .caption {
             max-width: 520px;
 
-            @media (max-width: 850px) {
-                color: rgba(255, 255, 255, 0.8);
-            }
-
-            a {
-                font-weight: 500;
-                color: rgba(0, 0, 0, 1);
-                pointer-events: all;
+            p {
+                font-size: 14px;
+                color: rgba(0, 0, 0, 0.8);
+                margin: 0;
 
                 @media (max-width: 850px) {
-                    color: rgba(255, 255, 255, 1);
+                    color: rgba(255, 255, 255, 0.8);
+                }
+
+                a {
+                    font-weight: 500;
+                    color: rgba(0, 0, 0, 1);
+                    pointer-events: all;
+
+                    @media (max-width: 850px) {
+                        color: rgba(255, 255, 255, 1);
+                    }
                 }
             }
         }

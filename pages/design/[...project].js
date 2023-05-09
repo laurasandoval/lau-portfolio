@@ -6,6 +6,7 @@ import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 import { NextSeo } from 'next-seo'
 import Button from '@/components/Button/Button'
+import { Balancer } from 'react-wrap-balancer'
 
 export default function Project({ currentProject, server }) {
   const [showGalleryBorder, setShowGalleryBorder] = useState(false)
@@ -79,15 +80,23 @@ export default function Project({ currentProject, server }) {
         </div>
         <div className="project_info">
           <div className="header">
-            <h2 className="title">{currentProject?.title}</h2>
+            <h2 className="title">
+              <Balancer>
+                {currentProject?.title}
+              </Balancer>
+            </h2>
             <p className="period">{currentProject?.period}</p>
           </div>
           {
             currentProject?.description &&
             <div className="description">
-              {currentProject?.description.map((p, i) => {
-                return <p key={i}>{p}</p>
-              })}
+              <Balancer>
+                {currentProject?.description.map((paragraph, i) => {
+                  return (
+                    <p key={i}>{paragraph}</p>
+                  )
+                })}
+              </Balancer>
             </div>
           }
           {currentProject?.cta && (
