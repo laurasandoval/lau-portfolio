@@ -78,47 +78,34 @@ export default function Project({ currentProject, server }) {
           })}
         </div>
         <div className="project_info">
-          <div className="main">
+          <div className="header">
             <h2 className="title">{currentProject?.title}</h2>
-            {
-              currentProject?.description &&
-              <div className="description">
-                {currentProject?.description.map((p, i) => {
-                  return <p key={i}>{p}</p>
-                })}
-              </div>
-            }
-            {currentProject?.cta && (
-              <div className="ctas">
-                {currentProject?.cta.map((cta, i) => {
-                  return (
-                    <Button
-                      type="secondary"
-                      key={i}
-                      link={true}
-                      href={cta.url}
-                      label={cta.title}
-                    />
-                  )
-                })}
-              </div>
-            )}
+            <p className="period">{currentProject?.period}</p>
           </div>
-          <div className="credits">
-            {currentProject?.client && (
-              <div className="item" role="text">
-                <h3>
-                  Client<AccessibilityLabel>: </AccessibilityLabel>
-                </h3>
-                <p>{currentProject?.client}</p>
-              </div>
-            )}
-            <div className="item" role="text">
-              <h3>
-                Year<AccessibilityLabel>: </AccessibilityLabel>
-              </h3>
-              <p>{currentProject?.year}</p>
+          {
+            currentProject?.description &&
+            <div className="description">
+              {currentProject?.description.map((p, i) => {
+                return <p key={i}>{p}</p>
+              })}
             </div>
+          }
+          {currentProject?.cta && (
+            <div className="ctas">
+              {currentProject?.cta.map((cta, i) => {
+                return (
+                  <Button
+                    type="secondary"
+                    key={i}
+                    link={true}
+                    href={cta.url}
+                    label={cta.title}
+                  />
+                )
+              })}
+            </div>
+          )}
+          <div className="credits">
             {currentProject?.team &&
               Object.keys(currentProject?.team).map((item, i) => {
                 return (

@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 export function ProjectThumbnail({
     as,
     title,
-    year,
+    period,
     src,
     thumbnail,
     thumbnails,
@@ -131,7 +131,7 @@ export function ProjectThumbnail({
             {!img_only && (
                 <div className="project_info" aria-hidden={hover}>
                     <h3 className="title">{title}</h3>
-                    <span className="date">{year}</span>
+                    <span className="date">{period}</span>
                 </div>
             )}
         </Tag>
