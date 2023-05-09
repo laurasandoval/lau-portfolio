@@ -3,6 +3,7 @@
     @include asset-container-styles;
 
     position: relative;
+    align-items: center;
 
     &:last-of-type {
         min-width: auto;
@@ -47,6 +48,10 @@
         }
 
         @at-root [data-orientation="landscape"]#{&} {
+            width: 100%;
+            max-width: fit-content;
+            height: auto;
+
             @media (max-width: 850px) {
                 height: auto;
                 margin: auto;
