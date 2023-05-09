@@ -80,10 +80,17 @@ export default function SnappingFeedSlideVideo({
     useEffect(() => {
         function handleResize() {
             if (videoRef.current) {
-                const videoHeight = Math.round(videoRef.current.offsetHeight);
-                assetContainerRef.current.style.setProperty('--computed-video-height', `${videoHeight}px`);
+                const originalWidth = asset.width;
+                const originalHeight = asset.height;
+                const aspectRatio = originalHeight / originalWidth;
+
+                const viewportWidth = window.innerWidth;
+                const computedHeight = Math.round(viewportWidth * aspectRatio);
+
+                assetContainerRef.current.style.setProperty('--computed-video-height', `${computedHeight}px`);
             }
         }
+
 
         handleResize();
 
