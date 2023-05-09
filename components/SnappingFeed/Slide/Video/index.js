@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import './index.scss'
-import { IconVolume, IconVolumeOff } from '@tabler/icons-react';
+import { IconMaximize, IconVolume, IconVolumeOff } from '@tabler/icons-react';
 
 export default function SnappingFeedSlideVideo({
     asset,
@@ -9,6 +9,7 @@ export default function SnappingFeedSlideVideo({
     allVideosAreMuted,
     setAllVideosAreMuted,
 }) {
+    const assetContainerRef = useRef(null);
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
@@ -19,6 +20,16 @@ export default function SnappingFeedSlideVideo({
         } else {
             videoRef.current.muted = true;
             setAllVideosAreMuted(true);
+        }
+    }
+
+    function handleFullscreen() {
+        if (videoRef.current.requestFullscreen) {
+            videoRef.current.requestFullscreen();
+        } else if (videoRef.current.webkitRequestFullscreen) { /* Safari */
+            videoRef.current.webkitRequestFullscreen();
+        } else if (videoRef.current.msRequestFullscreen) { /* IE11 */
+            videoRef.current.msRequestFullscreen();
         }
     }
 
@@ -50,8 +61,27 @@ export default function SnappingFeedSlideVideo({
         }
     }, [current]);
 
+    useEffect(() => {
+        function handleResize() {
+            if (videoRef.current) {
+                const videoHeight = Math.round(videoRef.current.getBoundingClientRect().height);
+                assetContainerRef.current.style.setProperty('--computed-video-height', `${videoHeight}px`);
+            }
+        }
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+
     return (
         <div
+            ref={assetContainerRef}
             className="asset_container"
             data-type="video"
             data-orientation={asset.width > asset.height ? "landscape" : asset.width < asset.height ? "portrait" : "square"}
@@ -79,6 +109,18 @@ export default function SnappingFeedSlideVideo({
                     {allVideosAreMuted ? <IconVolumeOff /> : <IconVolume />}
                 </div>
             </button>
+            {
+                asset.width > asset.height &&
+                <div className="fullscreen_button_container">
+                    <button
+                        onClick={handleFullscreen}
+                        className="fullscreen_button"
+                    >
+                        <IconMaximize />
+                        <p>Full screen</p>
+                    </button>
+                </div>
+            }
         </div>
     )
 }

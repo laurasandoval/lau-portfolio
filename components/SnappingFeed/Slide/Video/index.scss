@@ -76,6 +76,7 @@
         outline: none;
         background: transparent;
         cursor: pointer;
+        z-index: 2;
 
         .unmute_button_affordance {
             margin: auto;
@@ -98,6 +99,66 @@
 
             svg {
                 margin: auto;
+            }
+        }
+    }
+
+    .fullscreen_button_container {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        bottom: 50%;
+        left: 0;
+        transform: translate(0%, -50%);
+        overflow: visible;
+        pointer-events: none;
+        height: var(--computed-video-height);
+        z-index: 3;
+
+        .fullscreen_button {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(40px);
+            color: rgba(255, 255, 255, 1);
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            line-height: 0;
+            pointer-events: all;
+            position: absolute;
+            cursor: pointer;
+            right: 16px;
+            bottom: 16px;
+
+            svg {
+                --size: 24px;
+                width: var(--size);
+                height: var(--size);
+            }
+
+            p {
+                display: none;
+            }
+
+            @media (max-width: 850px) {
+                right: initial;
+                left: 50%;
+                bottom: 0;
+                transform: translate(-50%, calc(100% + 16px));
+                background: rgba(255, 255, 255, 0.06);
+                padding: 8px 10px;
+
+                svg {
+                    --size: 14px;
+                }
+
+                p {
+                    display: block;
+                    margin: 0 0 0 6px;
+                }
             }
         }
     }

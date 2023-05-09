@@ -14,7 +14,7 @@ export default function handler(req, res) {
       ]
     },
     {
-      "caption": "Feature introduction video for \"[Ride with Balance](/design/balance/app)\", a new way to ride transit in Santiago de Chile.",
+      "caption": "Feature introduction video for [Ride with Balance](/design/balance/app), a new way to ride transit in Santiago de Chile.",
       "period": "2022",
       "location": null,
       "assets": [
