@@ -22,7 +22,7 @@ function generateSiteMap(designWorkData, server) {
            <loc>${`${server}/design/${project.src}`}</loc>
        </url>
      `;
-  }).join('')}}
+  }).join('')}
    </urlset>
  `;
 }
