@@ -87,7 +87,7 @@ export default function SnappingFeedSlideVideo({
 
         setTimeout(() => {
             handleResize();
-        }, 300);
+        }, 500);
 
         window.addEventListener('resize', handleResize);
 
