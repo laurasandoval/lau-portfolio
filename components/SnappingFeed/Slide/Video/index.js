@@ -118,10 +118,10 @@ export default function SnappingFeedSlideVideo({
             }, 300)
         }
 
-        videoRef.current.addEventListener("webkitendfullscreen", handleExitFullscreen);
+        videoRef.current?.addEventListener("webkitendfullscreen", handleExitFullscreen);
 
         return () => {
-            videoRef.current.removeEventListener("webkitendfullscreen", handleExitFullscreen);
+            videoRef.current?.removeEventListener("webkitendfullscreen", handleExitFullscreen);
         };
     }, []);
 
