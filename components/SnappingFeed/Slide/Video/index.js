@@ -24,12 +24,28 @@ export default function SnappingFeedSlideVideo({
     }
 
     function handleFullscreen() {
-        if (videoRef.current.requestFullscreen) {
-            videoRef.current.requestFullscreen();
-        } else if (videoRef.current.webkitRequestFullscreen) { /* Safari */
-            videoRef.current.webkitRequestFullscreen();
-        } else if (videoRef.current.msRequestFullscreen) { /* IE11 */
-            videoRef.current.msRequestFullscreen();
+        const video = videoRef.current;
+
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+            if (videoRef.current.muted) {
+                handleMute()
+            }
+        } else if (video.webkitRequestFullscreen) { /* Safari */
+            video.webkitRequestFullscreen();
+            if (videoRef.current.muted) {
+                handleMute()
+            }
+        } else if (video.msRequestFullscreen) { /* IE11 */
+            video.msRequestFullscreen();
+            if (videoRef.current.muted) {
+                handleMute()
+            }
+        } else if (video.webkitEnterFullscreen) { /* iOS Safari */
+            video.webkitEnterFullscreen();
+            if (videoRef.current.muted) {
+                handleMute()
+            }
         }
     }
 
@@ -78,6 +94,24 @@ export default function SnappingFeedSlideVideo({
         };
     }, []);
 
+    useEffect(() => {
+        function handleExitFullscreen() {
+            setTimeout(() => {
+                videoRef.current.play().then(() => {
+                    setIsPlaying(true);
+                }).catch((error) => {
+                    setIsPlaying(false);
+                    console.error("Error attempting to auto-play video: ", error);
+                });
+            }, 300)
+        }
+
+        videoRef.current.addEventListener("webkitendfullscreen", handleExitFullscreen);
+
+        return () => {
+            videoRef.current.removeEventListener("webkitendfullscreen", handleExitFullscreen);
+        };
+    }, []);
 
     return (
         <div
