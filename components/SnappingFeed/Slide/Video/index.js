@@ -11,6 +11,7 @@ export default function SnappingFeedSlideVideo({
 }) {
     const assetContainerRef = useRef(null);
     const videoRef = useRef(null);
+    const fullScreenButtonRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
 
     function handleMute() {
@@ -78,7 +79,7 @@ export default function SnappingFeedSlideVideo({
     }, [current]);
 
     useEffect(() => {
-        function handleResize() {
+        function getHeights() {
             if (videoRef.current) {
                 const originalWidth = asset.width;
                 const originalHeight = asset.height;
@@ -89,15 +90,19 @@ export default function SnappingFeedSlideVideo({
 
                 assetContainerRef.current.style.setProperty('--computed-video-height', `${computedHeight}px`);
             }
+            if (fullScreenButtonRef.current) {
+                const fullScreenButtonHeight = Math.round(fullScreenButtonRef.current.offsetHeight);
+                assetContainerRef.current.style.setProperty('--computed-full-screen-button-height', `${fullScreenButtonHeight}px`);
+            }
         }
 
 
-        handleResize();
+        getHeights();
 
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', getHeights);
 
         return () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', getHeights);
         };
     }, []);
 
@@ -154,14 +159,17 @@ export default function SnappingFeedSlideVideo({
             {
                 asset.width > asset.height &&
                 <div className="fullscreen_button_container">
-                    <button
-                        onClick={handleFullscreen}
-                        className="fullscreen_button"
-                        title="Full screen"
-                    >
-                        <IconMaximize />
-                        <p>Full screen</p>
-                    </button>
+                    <div className="fake_video_container">
+                        <button
+                            onClick={handleFullscreen}
+                            className="fullscreen_button"
+                            title="Full screen"
+                            ref={fullScreenButtonRef}
+                        >
+                            <IconMaximize />
+                            <p>Full screen</p>
+                        </button>
+                    </div>
                 </div>
             }
         </div>
