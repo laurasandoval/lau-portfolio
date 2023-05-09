@@ -80,14 +80,12 @@ export default function SnappingFeedSlideVideo({
     useEffect(() => {
         function handleResize() {
             if (videoRef.current) {
-                const videoHeight = Math.round(videoRef.current.getBoundingClientRect().height);
+                const videoHeight = Math.round(videoRef.current.offsetHeight);
                 assetContainerRef.current.style.setProperty('--computed-video-height', `${videoHeight}px`);
             }
         }
 
-        setTimeout(() => {
-            handleResize();
-        }, 500);
+        handleResize();
 
         window.addEventListener('resize', handleResize);
 
