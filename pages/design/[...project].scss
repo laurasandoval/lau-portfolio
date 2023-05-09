@@ -83,6 +83,7 @@
         grid-gap: 40px;
         height: fit-content;
         padding: 0 10px;
+        max-width: 420px;
 
         @media (max-width: 850px) {
             & {

@@ -167,11 +167,11 @@ function SnappingFeedSlide({
                         components={{
                             p: props => {
                                 return (
-                                    <Balancer>
-                                        <p>
+                                    <p>
+                                        <Balancer>
                                             {props.children}
-                                        </p>
-                                    </Balancer>
+                                        </Balancer>
+                                    </p>
                                 )
                             }
                         }}

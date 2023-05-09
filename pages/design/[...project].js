@@ -90,13 +90,13 @@ export default function Project({ currentProject, server }) {
           {
             currentProject?.description &&
             <div className="description">
-              <Balancer>
-                {currentProject?.description.map((paragraph, i) => {
-                  return (
-                    <p key={i}>{paragraph}</p>
-                  )
-                })}
-              </Balancer>
+              {currentProject?.description.map((paragraph, i) => {
+                return (
+                  <p key={i}>
+                    {paragraph}
+                  </p>
+                )
+              })}
             </div>
           }
           {currentProject?.cta && (
