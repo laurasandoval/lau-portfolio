@@ -12,6 +12,7 @@ export default function SnappingFeedSlideVideo({
     const assetContainerRef = useRef(null);
     const videoRef = useRef(null);
     const fullScreenButtonRef = useRef(null);
+    const [isFullScreen, setIsFullScreen] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
 
     function handleMute() {
@@ -61,7 +62,7 @@ export default function SnappingFeedSlideVideo({
     }, [allVideosAreMuted]);
 
     useEffect(() => {
-        if (current) {
+        if (current && !isFullScreen) {
             const playPromise = videoRef.current.play();
             if (playPromise !== undefined) {
                 playPromise.then(() => {
@@ -71,7 +72,7 @@ export default function SnappingFeedSlideVideo({
                     console.error("Error attempting to auto-play video: ", error);
                 });
             }
-        } else {
+        } else if (!isFullScreen) {
             videoRef.current.pause();
             setIsPlaying(false);
             videoRef.current.currentTime = 0;
@@ -80,7 +81,7 @@ export default function SnappingFeedSlideVideo({
 
     useEffect(() => {
         function getHeights() {
-            if (videoRef.current) {
+            if (videoRef.current && !isFullScreen) {
                 const originalWidth = asset.width;
                 const originalHeight = asset.height;
                 const aspectRatio = originalHeight / originalWidth;
@@ -90,7 +91,7 @@ export default function SnappingFeedSlideVideo({
 
                 assetContainerRef.current.style.setProperty('--computed-video-height', `${computedHeight}px`);
             }
-            if (fullScreenButtonRef.current) {
+            if (fullScreenButtonRef.current && !isFullScreen) {
                 const fullScreenButtonHeight = Math.round(fullScreenButtonRef.current.offsetHeight);
                 assetContainerRef.current.style.setProperty('--computed-full-screen-button-height', `${fullScreenButtonHeight}px`);
             }
@@ -107,7 +108,8 @@ export default function SnappingFeedSlideVideo({
     }, []);
 
     useEffect(() => {
-        function handleExitFullscreen() {
+        function handleExitFullScreen() {
+            setIsFullScreen(false);
             setTimeout(() => {
                 videoRef.current.play().then(() => {
                     setIsPlaying(true);
@@ -118,10 +120,25 @@ export default function SnappingFeedSlideVideo({
             }, 300)
         }
 
-        videoRef.current?.addEventListener("webkitendfullscreen", handleExitFullscreen);
+        function checkForFullScreen() {
+            if (document.fullscreenElement || document.webkitIsFullScreen || document.mozFullScreen) {
+                setIsFullScreen(true);
+            }
+            else {
+                setTimeout(() => {
+                    setIsFullScreen(false);
+                }, 300)
+            }
+        }
+
+        videoRef.current?.addEventListener("webkitendfullscreen", handleExitFullScreen);
+
+        ["fullscreenchange", "webkitfullscreenchange", "mozfullscreenchange", "msfullscreenchange"].forEach(
+            eventType => document.addEventListener(eventType, checkForFullScreen, false)
+        );
 
         return () => {
-            videoRef.current?.removeEventListener("webkitendfullscreen", handleExitFullscreen);
+            videoRef.current?.removeEventListener("webkitendfullscreen", handleExitFullScreen);
         };
     }, []);
 
