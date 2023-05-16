@@ -7,10 +7,14 @@ import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLab
 import { NextSeo } from 'next-seo'
 import Button from '@/components/Button/Button'
 import { Balancer } from 'react-wrap-balancer'
+import ImageCarousel from '@/components/ImageCarousel/ImageCarousel'
 
 export default function Project({ currentProject, server }) {
   const [showGalleryBorder, setShowGalleryBorder] = useState(false)
   const projectGallery = useRef(null)
+  const [showImageCarousel, setShowImageCarousel] = useState(false);
+  const [selectedThumbnailIndex, setSelectedThumbnailIndex] = useState(0);
+
 
   useEffect(() => {
     window.addEventListener("scroll", _throttledScrollCheck)
@@ -66,16 +70,24 @@ export default function Project({ currentProject, server }) {
           ref={projectGallery}
         >
           {currentProject?.thumbnails.map((thumbnail, index) => {
+            const handleClick = () => {
+              setSelectedThumbnailIndex(index);
+              setShowImageCarousel(true);
+            };
+
             return (
-              <ProjectThumbnail
-                {...currentProject}
-                img_only
-                thumbnail={thumbnail}
-                key={index}
-                autoplay
-                priority={index == 0}
-              />
-            )
+              <>
+                <ProjectThumbnail
+                  {...currentProject}
+                  img_only
+                  thumbnail={thumbnail}
+                  key={index}
+                  autoplay
+                  priority={index == 0}
+                />
+                <button onClick={handleClick}>Enlarge</button>
+              </>
+            );
           })}
         </div>
         <div className="project_info">
@@ -159,6 +171,16 @@ export default function Project({ currentProject, server }) {
               })}
           </div>
         </div>
+        {
+          showImageCarousel && (
+            <div className="image_carousel_container">
+              <ImageCarousel
+                currentProject={currentProject}
+                selectedIndex={selectedThumbnailIndex}
+              />
+            </div>
+          )
+        }
       </article>
     </>
   )
