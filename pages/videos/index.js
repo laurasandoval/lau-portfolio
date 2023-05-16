@@ -49,6 +49,7 @@ export default function Photography({ videoWorkData, server }) {
                                 lazyLoad={seriesIndex != 0}
                                 allVideosAreMuted={allVideosAreMuted}
                                 setAllVideosAreMuted={setAllVideosAreMuted}
+                                slideIndex={seriesIndex + 1}
                             />
                         )
                     })

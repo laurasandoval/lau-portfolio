@@ -6,6 +6,7 @@ import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLab
 import SlideImage from './Image';
 import SlideVideo from './Video';
 import { Balancer } from 'react-wrap-balancer';
+import { useRouter } from 'next/router';
 
 function SnappingFeedSlide({
     type,
@@ -13,12 +14,14 @@ function SnappingFeedSlide({
     lazyLoad,
     allVideosAreMuted,
     setAllVideosAreMuted,
+    slideIndex,
 }) {
     const [currentAsset, setCurrentAsset] = useState(0);
     const assetsContainerRef = useRef(null);
     const pageDotRefs = useRef([]);
     const [isIntersecting, setIsIntersecting] = useState(false);
     const slideRef = useRef(null);
+    const router = useRouter();
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -78,11 +81,36 @@ function SnappingFeedSlide({
         });
     };
 
+    useEffect(() => {
+        if (isIntersecting && slideRef.current) {
+            const slideId = slideRef.current.id;
+            if (slideId) {
+                const url = new URL(window.location.href);
+                url.searchParams.set("slide", slideId);
+                window.history.replaceState({}, "", url.toString());
+            }
+        }
+    }, [isIntersecting]);
+
+    useEffect(() => {
+        const slideToScroll = router.query.slide;
+        if (slideToScroll) {
+            const slideElement = document.getElementById(slideToScroll);
+            if (slideElement) {
+                slideElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+            }
+        }
+    }, [router.query.slide]);
+
     return (
         <div
             className="snapping_feed_slide"
             ref={slideRef}
             data-current={isIntersecting}
+            id={`${slideIndex}`}
         >
             <div className="assets_container" data-type={type}>
                 <div className="assets" ref={assetsContainerRef} data-multiple-assets={series.assets?.length > 1}>
