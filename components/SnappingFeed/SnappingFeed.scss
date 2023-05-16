@@ -20,19 +20,6 @@ body.snapping_feed {
     @media (max-width: 850px) {
         background: #000;
         overflow-x: hidden;
-
-        // iOS Mobile Devices
-        @supports (-webkit-touch-callout: none) {
-
-            /*
-                Completely unnecessary and based on lots of
-                assumptions (assumptions: this media query will always
-                work, most iOS people use the Safari address bar
-                at the bottom, etc) but looks hella cute so why not. 
-            */
-
-            border-radius: 12px 12px 0 0;
-        }
     }
 
     .snapping_feed {
