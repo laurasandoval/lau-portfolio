@@ -198,7 +198,7 @@ export default function handler(req, res) {
       "title": "Balance — Your transit cards in one place",
       "description": [
         "Formerly “Saldo Red”, Balance is Chile’s top-rated app for managing transit cards.",
-        "With its unique functionalities, native iOS look & feel, and deep attention to accessibility and details, Balance has consistently remained within the top 20 most downloaded navigation apps in Chile ever since its launch in 2019 —reaching up to the second most downloaded navigation app in 2021, right above similar apps like Moovit or Waze— and it’s by far the most positively reviewed one among its local alternatives.",
+        "With its unique functionalities, native iOS look & feel, and deep attention to accessibility and details, Balance has consistently remained within the most downloaded navigation apps in Chile ever since its launch in 2019 —reaching up to the #1 most downloaded Chilean navigation app in 2021, right above Google Maps, Moovit, and Waze— and it’s by far the most positively reviewed one among its local alternatives.",
         "This project was not commissioned by, and it's not directly related to any of Chile's official transit authorities."
       ],
       "period": "Since 2019",
