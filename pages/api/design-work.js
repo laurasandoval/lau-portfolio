@@ -244,7 +244,7 @@ export default function handler(req, res) {
       "title": "Lintuaf — An unofficial Fintual client for iOS",
       "description": [
         "Lintuaf is a silly little side-project I made for myself because I didn't like the official Fintual client for iOS and I found some private Fintual APIs I could use to build my own.",
-        "In real life, Fintual is a Chilean start-up that makes investments easy, and I've been using it for a couple of years now.",
+        "In real life, Fintual is a Chilean asset management startup that makes investments easy, and I've been using it for a couple of years now.",
         "This project was not commissioned, reviewed, or approved by, and it's not associated with Fintual in any way."
       ],
       "period": "Since 2022",
@@ -257,7 +257,7 @@ export default function handler(req, res) {
       ],
       "cta": [
         {
-          "title": "Tweet",
+          "title": "Open Tweet",
           "url": "https://twitter.com/laurasideral/status/1574174522499944450"
         },
         {
