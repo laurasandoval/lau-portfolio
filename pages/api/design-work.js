@@ -247,7 +247,7 @@ export default function handler(req, res) {
         "In real life, Fintual is a Chilean asset management startup that makes investments easy, and I've been using it for a couple of years now.",
         "This project was not commissioned, reviewed, or approved by, and it's not associated with Fintual in any way."
       ],
-      "period": "Since 2022",
+      "period": "Since 2021",
       "src": "lintuaf",
       "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
