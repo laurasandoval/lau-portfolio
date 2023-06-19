@@ -1,5 +1,6 @@
 import { NextSeo } from 'next-seo';
 import './index.scss'
+import Button from '@/components/Button/Button';
 
 export default function Vendo({ server }) {
     return (
@@ -68,6 +69,27 @@ export default function Vendo({ server }) {
                         <li>Puedes retirar tus compras en mi departamento actual (queda en Ñuñoa) o, si es algo pequeño y somos colegas, lo puedo llevar a la ofis.</li>
                     </ul>
                 </div>
+
+                <article className="item">
+                    <div className="image-gallery">
+                        <div className="image-container">
+                            <img src="/assets/📦/items/escritorio-200-70/1.jpg" />
+                        </div>
+                        <div className="image-container">
+                            <img src="/assets/📦/items/escritorio-200-70/2.jpg" />
+                        </div>
+                    </div>
+                    <div className="metadata">
+                        <h2>Escritorio 200 x 70 cms</h2>
+                        <p>Lorem ipsum dolor sit el veloz murciélago hindú comía feliz caudillo o algo así.</p>
+                        <Button
+                            type="primary"
+                            link={true}
+                            href="https://mercadopago.com"
+                            label="Comprar"
+                        />
+                    </div>
+                </article>
             </div>
         </>
     )
