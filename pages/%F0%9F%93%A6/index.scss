@@ -120,11 +120,20 @@ body.vendo {
         padding: 40px;
         background: #FFF;
 
+        @media (max-width: 850px) {
+            grid-template-columns: 1fr;
+            padding: 20px;
+        }
+
         .image_gallery {
             width: 100%;
             display: flex;
             flex-direction: column;
             transform: scale(0.95);
+
+            @media (max-width: 850px) {
+                transform: scale(1);
+            }
 
             .image_container {
                 --radius: 12px;
