@@ -1,8 +1,17 @@
 import { NextSeo } from 'next-seo';
 import './index.scss'
 import Button from '@/components/Button/Button';
+import { useEffect } from 'react';
 
 export default function Vendo({ server }) {
+    useEffect(() => {
+        document.body.classList.add("vendo");
+
+        return () => {
+            document.body.classList.remove("vendo");
+        }
+    }, [])
+
     return (
         <>
             <NextSeo
@@ -58,17 +67,17 @@ export default function Vendo({ server }) {
 
                 <header>
                     <h1>¡Hola!</h1>
-                    <p>Me estoy cambiando de casa y estoy aprovechando de vender/regalar algunas cosas.</p>
+                    <p>Me estoy cambiando de casa así que decidí aprovechar de vender/regalar algunas cosas.</p>
                 </header>
 
-                <div className="rules">
+                {/* <div className="rules">
                     <span className="emoji" aria-hidden="true">🌈</span>
                     <h2>Reglas claras mantienen la amistad</h2>
                     <ul>
-                        <li>La primera persona en comprarlo por acá se lo lleva. En esta ocasión no reservaré cosas.</li>
+                        <li>La primera persona en pagar por algo se lo lleva. En esta ocasión no reservaré cosas.</li>
                         <li>Puedes retirar tus compras en mi departamento actual (queda en Ñuñoa) o, si es algo pequeño y somos colegas, lo puedo llevar a la ofis.</li>
                     </ul>
-                </div>
+                </div> */}
 
                 <article className="item">
                     <div className="image-gallery">
@@ -80,8 +89,13 @@ export default function Vendo({ server }) {
                         </div>
                     </div>
                     <div className="metadata">
-                        <h2>Escritorio 200 x 70 cms</h2>
-                        <p>Lorem ipsum dolor sit el veloz murciélago hindú comía feliz caudillo o algo así.</p>
+                        <h2 className="title">Escritorio 200 x 70 cms</h2>
+                        <div className="description">
+                            <p>Lorem ipsum dolor sit el veloz murciélago hindú comía feliz caudillo o algo así.</p>
+                            <p>Lorem ipsum dolor sit el veloz murciélago hindú comía feliz caudillo o algo así.</p>
+                            <p>Lorem ipsum dolor sit el veloz murciélago hindú comía feliz caudillo o algo así.</p>
+                            <p>Lorem ipsum dolor sit el veloz murciélago hindú comía feliz caudillo o algo así.</p>
+                        </div>
                         <Button
                             type="primary"
                             link={true}
