@@ -1,7 +1,8 @@
 import { NextSeo } from 'next-seo';
 import './index.scss'
-import Button from '@/components/Button/Button';
 import { useEffect } from 'react';
+import { IconBriefcase, IconBuilding } from '@tabler/icons-react';
+import { Balancer } from 'react-wrap-balancer';
 
 export default function Vendo({ server }) {
     useEffect(() => {
@@ -68,6 +69,8 @@ export default function Vendo({ server }) {
                 <header>
                     <h1>¡Hola!</h1>
                     <p>Me estoy cambiando de casa así que decidí aprovechar de vender/regalar algunas cosas.</p>
+                    <p><b>La primera persona en pagar por algo se lo lleva ✨.</b> En esta ocasión no reservaré cosas.</p>
+                    <p>Puedes retirar tus compras en mi departamento actual (queda en <a href="/assets/📦/ñuñoa.jpg" target="_blank">Ñuñoa</a>) o, si es algo pequeño y somos colegas, lo puedo llevar a la ofis.</p>
                 </header>
 
                 {/* <div className="rules">
@@ -80,28 +83,42 @@ export default function Vendo({ server }) {
                 </div> */}
 
                 <article className="item">
-                    <div className="image-gallery">
-                        <div className="image-container">
+                    <div className="image_gallery">
+                        <div className="image_container">
                             <img src="/assets/📦/items/escritorio-200-70/1.jpg" />
                         </div>
-                        <div className="image-container">
+                        <div className="image_container">
                             <img src="/assets/📦/items/escritorio-200-70/2.jpg" />
                         </div>
                     </div>
                     <div className="metadata">
-                        <h2 className="title">Escritorio 200 x 70 cms</h2>
-                        <div className="description">
-                            <p>Lorem ipsum dolor sit el veloz murciélago hindú comía feliz caudillo o algo así.</p>
-                            <p>Lorem ipsum dolor sit el veloz murciélago hindú comía feliz caudillo o algo así.</p>
-                            <p>Lorem ipsum dolor sit el veloz murciélago hindú comía feliz caudillo o algo así.</p>
-                            <p>Lorem ipsum dolor sit el veloz murciélago hindú comía feliz caudillo o algo así.</p>
+                        <div>
+                            <h2 className="title">Escritorio 200x70 cms</h2>
+                            <p className="price">$20.000</p>
                         </div>
-                        <Button
-                            type="primary"
-                            link={true}
-                            href="https://mercadopago.com"
-                            label="Comprar"
-                        />
+
+                        <div className="features">
+                            <div className="feature">
+                                <IconBuilding />
+                                <Balancer>Retiro a coordinar en mi departamento</Balancer>
+                            </div>
+                            <div className="feature">
+                                <IconBriefcase />
+                                <Balancer>Si somos colegas, te lo puedo llevar a la ofi</Balancer>
+                            </div>
+                        </div>
+
+                        <div className="description">
+                            <p>Mi fiel y confiable escritorio. Para ser una puerta sobre un par de caballetes, ha aguantado muy bien.</p>
+                            <p>Ensamblado el 2016 y barnizado por mí misma el 2017, este escritorio ha estado conmigo ya 7 años. Si este escritorio hablara, probablemente me vería y diría "oye que estái grande!". En fin.</p>
+                            <p>Lo vendo barato porque bueno, digamos, no es un escritorio hecho y derecho, pero estoy segura que estará feliz de aguantar otros 7 años con alguien más.</p>
+                            <p>Incluye: Escritorio y caballetes. Todo lo demás se vende por separado.</p>
+                        </div>
+
+                        <div className="button_container">
+                            <a className="button" href="https://mercadopago.com">Comprar</a>
+                            <p className="disclaimer">Compra a través de Mercado Pago. Puedes pagar en cuotas si quieres.</p>
+                        </div>
                     </div>
                 </article>
             </div>
