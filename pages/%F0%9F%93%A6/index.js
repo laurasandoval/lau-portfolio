@@ -1,10 +1,10 @@
 import { NextSeo } from 'next-seo';
 import './index.scss'
 import { useEffect } from 'react';
-import { IconBriefcase, IconBuilding } from '@tabler/icons-react';
+import { IconBrandWhatsapp, IconBriefcase, IconBuilding, IconDiscountCheckFilled } from '@tabler/icons-react';
 import { Balancer } from 'react-wrap-balancer';
 
-export default function Vendo({ server }) {
+export default function Vendo({ itemsForSaleData, server }) {
     useEffect(() => {
         document.body.classList.add("vendo");
 
@@ -46,7 +46,7 @@ export default function Vendo({ server }) {
                 ]}
             />
 
-            <div className="📦">
+            <div className="📦" lang="es">
                 <div className="intro_video_container">
                     <div className="intro_video_inner_container">
                         <video
@@ -73,54 +73,79 @@ export default function Vendo({ server }) {
                     <p>Puedes retirar tus compras en mi departamento actual (queda en <a href="/assets/📦/ñuñoa.jpg" target="_blank">Ñuñoa</a>) o, si es algo pequeño y somos colegas, lo puedo llevar a la ofis.</p>
                 </header>
 
-                {/* <div className="rules">
-                    <span className="emoji" aria-hidden="true">🌈</span>
-                    <h2>Reglas claras mantienen la amistad</h2>
-                    <ul>
-                        <li>La primera persona en pagar por algo se lo lleva. En esta ocasión no reservaré cosas.</li>
-                        <li>Puedes retirar tus compras en mi departamento actual (queda en Ñuñoa) o, si es algo pequeño y somos colegas, lo puedo llevar a la ofis.</li>
-                    </ul>
-                </div> */}
+                {
+                    itemsForSaleData.map((item, itemIndex) => {
+                        return (
+                            <article className="item" key={itemIndex} data-sold={item.sold}>
+                                <div className="image_gallery">
+                                    {
+                                        item.images_src.map((itemImageSrc, imageIndex) => {
+                                            return (
+                                                <div className="image_container" key={imageIndex} data-sold={item.sold}>
+                                                    <img src={itemImageSrc} />
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                                <div className="item_info">
+                                    <h2 className="title">{item.title}</h2>
 
-                <article className="item">
-                    <div className="image_gallery">
-                        <div className="image_container">
-                            <img src="/assets/📦/items/escritorio-200-70/1.jpg" />
-                        </div>
-                        <div className="image_container">
-                            <img src="/assets/📦/items/escritorio-200-70/2.jpg" />
-                        </div>
-                    </div>
-                    <div className="metadata">
-                        <div>
-                            <h2 className="title">Escritorio 200x70 cms</h2>
-                            <p className="price">$20.000</p>
-                        </div>
+                                    <div className="price_container">
+                                        {
+                                            item.original_price &&
+                                            <p className="original_price">Precio original: {item.original_price}</p>
+                                        }
+                                        <p className="price">{item.price}</p>
+                                    </div>
 
-                        <div className="features">
-                            <div className="feature">
-                                <IconBuilding />
-                                <Balancer>Retiro a coordinar en mi departamento</Balancer>
-                            </div>
-                            <div className="feature">
-                                <IconBriefcase />
-                                <Balancer>Si somos colegas, te lo puedo llevar a la ofi</Balancer>
-                            </div>
-                        </div>
+                                    <div className="button_container">
+                                        <a
+                                            className="button"
+                                            href={`https://wa.me/${encodeURIComponent(+56968640535)}?text=${encodeURIComponent(`Hola! Quiero comprar tu \"${item.title}\"`)}`}
+                                            target="_blank"
+                                            data-disabled={item.sold}
+                                            aria-disabled={item.sold}
+                                        >
+                                            <IconBrandWhatsapp /> Comprar
+                                        </a>
+                                        <p className="disclaimer">Si somos colegas, puedes hablarme por Slack también si prefieres.</p>
+                                    </div>
 
-                        <div className="description">
-                            <p>Mi fiel y confiable escritorio. Para ser una puerta sobre un par de caballetes, ha aguantado muy bien.</p>
-                            <p>Ensamblado el 2016 y barnizado por mí misma el 2017, este escritorio ha estado conmigo ya 7 años. Si este escritorio hablara, probablemente me vería y diría "oye que estái grande!". En fin.</p>
-                            <p>Lo vendo barato porque bueno, digamos, no es un escritorio hecho y derecho, pero estoy segura que estará feliz de aguantar otros 7 años con alguien más.</p>
-                            <p>Incluye: Escritorio y caballetes. Todo lo demás se vende por separado.</p>
-                        </div>
+                                    <div className="metadata_container">
+                                        {
+                                            item.brand &&
+                                            <div className="metadata">
+                                                <h3>Marca</h3>
+                                                <p>{item.brand}</p>
+                                            </div>
+                                        }
+                                        {
+                                            item.model_name &&
+                                            <div className="metadata">
+                                                <h3>Modelo</h3>
+                                                <p>{item.model_name}</p>
+                                            </div>
+                                        }
+                                    </div>
 
-                        <div className="button_container">
-                            <a className="button" href="https://mercadopago.com">Comprar</a>
-                            <p className="disclaimer">Compra a través de Mercado Pago. Puedes pagar en cuotas si quieres.</p>
-                        </div>
-                    </div>
-                </article>
+                                    <div className="description">
+                                        {
+                                            item.description.map((paragraph, paragraphIndex) => {
+                                                return <p key={paragraphIndex}>{paragraph}</p>
+                                            })
+                                        }
+                                    </div>
+                                </div>
+
+                                {
+                                    item.sold &&
+                                    <img className="sold_stamp" src="/assets/📦/vendido.png" alt="Vendido" />
+                                }
+                            </article>
+                        )
+                    })
+                }
             </div>
         </>
     )
@@ -129,5 +154,8 @@ export default function Vendo({ server }) {
 export async function getServerSideProps(context) {
     const dev = process.env.NODE_ENV !== 'production'
     const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
-    return { props: { server } }
+    const url = `${server}/api/mudanza`
+    const res = await fetch(url)
+    const itemsForSaleData = await res.json()
+    return { props: { itemsForSaleData, server } }
 }
