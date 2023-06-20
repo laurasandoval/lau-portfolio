@@ -13,7 +13,8 @@ export default function handler(req, res) {
         "/assets/📦/items/escritorio-200-70/1.jpg",
         "/assets/📦/items/escritorio-200-70/2.jpg"
       ],
-      "brand": "Samsung",
+      "brand": null,
+      "model_name": null,
       "original_price": "$40.000",
       "price": "$20.000",
       "payment_url": "https://mercadopago.com"

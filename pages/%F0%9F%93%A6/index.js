@@ -112,22 +112,25 @@ export default function Vendo({ itemsForSaleData, server }) {
                                         <p className="disclaimer">Si somos colegas, puedes hablarme por Slack también si prefieres.</p>
                                     </div>
 
-                                    <div className="metadata_container">
-                                        {
-                                            item.brand &&
-                                            <div className="metadata">
-                                                <h3>Marca</h3>
-                                                <p>{item.brand}</p>
-                                            </div>
-                                        }
-                                        {
-                                            item.model_name &&
-                                            <div className="metadata">
-                                                <h3>Modelo</h3>
-                                                <p>{item.model_name}</p>
-                                            </div>
-                                        }
-                                    </div>
+                                    {
+                                        (item.brand || item.model_name) &&
+                                        <div className="metadata_container">
+                                            {
+                                                item.brand &&
+                                                <div className="metadata">
+                                                    <h3>Marca</h3>
+                                                    <p>{item.brand}</p>
+                                                </div>
+                                            }
+                                            {
+                                                item.model_name &&
+                                                <div className="metadata">
+                                                    <h3>Modelo</h3>
+                                                    <p>{item.model_name}</p>
+                                                </div>
+                                            }
+                                        </div>
+                                    }
 
                                     <div className="description">
                                         {
