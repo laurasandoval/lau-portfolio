@@ -1,7 +1,7 @@
 import { NextSeo } from 'next-seo';
 import './index.scss'
 import { useEffect } from 'react';
-import { IconBrandWhatsapp } from '@tabler/icons-react';
+import { IconBrandWhatsapp, IconBuilding } from '@tabler/icons-react';
 
 export default function Vendo({ itemsForSaleData, server }) {
     useEffect(() => {
@@ -97,6 +97,13 @@ export default function Vendo({ itemsForSaleData, server }) {
                                 </div>
                                 <div className="item_info">
                                     <h2 className="title">{item.title}</h2>
+
+                                    <div className="features">
+                                        <div className="feature">
+                                            <IconBuilding />
+                                            <p><b>Retiro</b> en mi departamento en Ñuñoa</p>
+                                        </div>
+                                    </div>
 
                                     <div className="price_container">
                                         {

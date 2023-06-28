@@ -187,6 +187,22 @@ body.vendo {
             }
         }
 
+        &[data-sold="true"] {
+            .item_info {
+                .feature {
+                    background: rgba(136, 138, 144, 0.05);
+
+                    b {
+                        color: rgba(136, 138, 144, 1);
+                    }
+
+                    svg {
+                        color: rgba(136, 138, 144, 1);
+                    }
+                }
+            }
+        }
+
         .item_info {
             display: grid;
             grid-auto-flow: row;
