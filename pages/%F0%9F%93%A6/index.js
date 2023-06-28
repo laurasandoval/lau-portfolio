@@ -1,8 +1,7 @@
 import { NextSeo } from 'next-seo';
 import './index.scss'
 import { useEffect } from 'react';
-import { IconBrandWhatsapp, IconBriefcase, IconBuilding, IconDiscountCheckFilled } from '@tabler/icons-react';
-import { Balancer } from 'react-wrap-balancer';
+import { IconBrandWhatsapp } from '@tabler/icons-react';
 
 export default function Vendo({ itemsForSaleData, server }) {
     useEffect(() => {
@@ -12,6 +11,14 @@ export default function Vendo({ itemsForSaleData, server }) {
             document.body.classList.remove("vendo");
         }
     }, [])
+
+    const availableItems = itemsForSaleData.filter(itemForSale => {
+        return itemForSale.sold == false
+    })
+    const unavailableItems = itemsForSaleData.filter(itemForSale => {
+        return itemForSale.sold == true
+    })
+    const orderedItemList = availableItems.concat(unavailableItems)
 
     return (
         <>
@@ -74,7 +81,7 @@ export default function Vendo({ itemsForSaleData, server }) {
                 </header>
 
                 {
-                    itemsForSaleData.map((item, itemIndex) => {
+                    orderedItemList.map((item, itemIndex) => {
                         return (
                             <article className="item" key={itemIndex} data-sold={item.sold}>
                                 <div className="image_gallery">
