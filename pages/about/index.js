@@ -3,9 +3,22 @@ import GenericContainer from '@/components/GenericContainer/GenericContainer'
 import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import { NextSeo } from 'next-seo';
 import './index.scss'
+import { useEffect, useState } from 'react';
 
 export default function About({ server }) {
-    const Age = "24";
+    const [age, setAge] = useState('');
+
+    useEffect(() => {
+        const calculateAge = (dob) => {
+            const diff_ms = Date.now() - dob.getTime();
+            const age_dt = new Date(diff_ms);
+
+            return Math.abs(age_dt.getUTCFullYear() - 1970);
+        };
+
+        const dob = new Date(1998, 6, 5);
+        setAge(calculateAge(dob));
+    }, []);
 
     return (
         <>
@@ -83,7 +96,7 @@ export default function About({ server }) {
                 <p className="big_statement_subtitle">(Hopefully at least)</p>
                 <div className="about_me_paragraphs">
                     <p role="text">
-                        Born in Peru {Age} years ago. Moved to Chile a year after that. Then
+                        Born in Peru {age} years ago. Moved to Chile a year after that. Then
                         back to Peru in 2014. And back to Chile again two years later. So
                         here I am.
                     </p>
