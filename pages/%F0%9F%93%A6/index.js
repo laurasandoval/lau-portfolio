@@ -67,6 +67,10 @@ export default function Vendo({ itemsForSaleData, server }) {
                                 src="/assets/📦/intro-video.mp4"
                                 type="video/mp4"
                             />
+                            <source
+                                src="/assets/📦/intro-video.webm"
+                                type="video/webm"
+                            />
                         </video>
                     </div>
                     <img src="/assets/📦/highest-quality.png" lang="en" alt="Highest quality!" />
@@ -76,7 +80,7 @@ export default function Vendo({ itemsForSaleData, server }) {
                 <header>
                     <h1>¡Hola!</h1>
                     <p>Me estoy cambiando de casa así que decidí aprovechar de vender/regalar algunas cosas.</p>
-                    <p><b>La primera persona en pagar por algo se lo lleva ✨.</b> En esta ocasión no reservaré cosas.</p>
+                    <p><b>La primera persona en pagar por algo se lo lleva.</b> En esta ocasión no reservaré cosas.</p>
                     <p>Puedes retirar tus compras en mi departamento actual (queda en <a href="/assets/📦/ñuñoa.jpg" target="_blank">Ñuñoa</a>) o, si es algo pequeño y somos colegas, lo puedo llevar a la ofis.</p>
                 </header>
 
@@ -89,7 +93,7 @@ export default function Vendo({ itemsForSaleData, server }) {
                                         item.images_src.map((itemImageSrc, imageIndex) => {
                                             return (
                                                 <div className="image_container" key={imageIndex} data-sold={item.sold}>
-                                                    <img src={itemImageSrc} />
+                                                    <img src={itemImageSrc} loading="lazy" />
                                                 </div>
                                             )
                                         })
