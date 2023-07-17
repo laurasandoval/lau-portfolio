@@ -19,7 +19,7 @@ export default function handler(req, res) {
       "price": "$119.990"
     },
     {
-      "sold": false,
+      "sold": true,
       "title": "Televisor Samsung Smart TV 43\" Crystal Uhd 4k HDR10+ 120hz",
       "description": [
         "Vendo mi Smart TV 4K marca Samsung. Lo compré el 2019 y me gustó tanto que el 2022 me compré otro para mi pieza (que también tengo a la venta 👀).",
@@ -41,7 +41,10 @@ export default function handler(req, res) {
       "sold": false,
       "title": "Televisor Samsung Smart TV 43\" Crystal Uhd 4k HDR10+ 120hz",
       "description": [
-        "Exactamente el mismo de arriba. Pero sin sus patitas porque no logro recordar dónde las dejé 🥺"
+        "Vendo mi Smart TV 4K marca Samsung. Lo compré el 2019 y me gustó tanto que el 2022 me compré otro para mi pieza (que también tengo a la venta 👀).",
+        "Mi única razón para venderlos es que en mi depto nuevo pondré televisores The Frame. Si no fuera por eso no los vendería.",
+        "La calidad de imagen es re buena y tiene todas las apps que necesitas. Además, este modelo soporta AirPlay 2 sin necesidad de un Apple TV. Qué mejor.",
+        "Un mini detalle: Está TV viene sin patitas porque no logro recordar dónde las dejé 🥺"
       ],
       "images_src": [
         "/assets/📦/items/tv-samsung-43-2/1.jpg"
