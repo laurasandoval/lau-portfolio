@@ -4,6 +4,7 @@ import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import { NextSeo } from 'next-seo';
 import './index.scss'
 import { useEffect, useState } from 'react';
+import GlobalFooter from '@/components/GlobalFooter/GlobalFooter';
 
 export default function About({ server }) {
     const [age, setAge] = useState('');
@@ -126,6 +127,8 @@ export default function About({ server }) {
                     </AccessibilityLabel>
                 </div>
             </GenericContainer>
+
+            <GlobalFooter />
         </>
     )
 }
