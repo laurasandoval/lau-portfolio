@@ -4,6 +4,8 @@ import './GlobalFooter.scss'
 export default function GlobalFooter({
     statement,
 }) {
+    let year = new Date().getFullYear();
+
     return (
         <footer
             className="global_footer"
@@ -15,7 +17,7 @@ export default function GlobalFooter({
             }
             <div className="boring_stuff">
                 <div className="copyright_thingy">
-                    <p>© 1998—2023</p>
+                    <p>© 1998—{year}</p>
                     <p>Laura Sandoval</p>
                 </div>
                 <div className="socials">
