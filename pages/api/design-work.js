@@ -4,7 +4,7 @@ export default function handler(req, res) {
       "title": "Cornershop by Uber",
       "description": [
         "From 2020 to 2023, led the design division of Cornershop by Uber's customer-facing products.",
-        "This included hiring, managing and mentoring a team of 8 Product Designers and Design Managers, overseeing the design of over 100 projects, and working closely with Engineering and Product teams to deliver new features and continuously improve Cornershop by Uber’s customer-facing products.",
+        "This included hiring, managing and mentoring a team of Product Designers and Design Managers, overseeing the design of over 100 projects, and working closely with Engineering and Product teams to deliver new features and continuously improve Cornershop by Uber’s customer-facing products.",
         "Cornershop is an Uber-owned grocery delivery service that offers world-class digital products powered by software and design."
       ],
       "period": "2020 — 2023",
@@ -19,11 +19,11 @@ export default function handler(req, res) {
       "cta": [
         {
           "title": "About Cornershop by Uber",
-          "url": "https://cornershopapp.com/"
+          "url": "https://es.wikipedia.org/wiki/Cornershop_(aplicación)"
         }
       ],
       "team": {
-        "Team": [
+        "Design": [
           {
             "name": "Boris Pinto"
           },
@@ -50,6 +50,34 @@ export default function handler(req, res) {
           },
           {
             "name": "René Morales"
+          }
+        ],
+        "Cross-Functional Design": [
+          {
+            "name": "Matías Martínez"
+          },
+          {
+            "name": "Laura Sandoval"
+          },
+          {
+            "name": "Varsha Ashok"
+          },
+          {
+            "name": "Bárbara Molina"
+          },
+          {
+            "name": "Josefina Nagel"
+          },
+          {
+            "name": "Gonzalo Castillo"
+          }
+        ],
+        "Product": [
+          {
+            "name": "Chaq Cuevas"
+          },
+          {
+            "name": "Oskar Hjertonsson"
           }
         ]
       }
@@ -79,15 +107,13 @@ export default function handler(req, res) {
         }
       ],
       "team": {
-        "Cornershop Product Design": [
+        "Design": [
           {
             "name": "Laura Sandoval"
           },
           {
             "name": "Matías Martínez"
-          }
-        ],
-        "Uber Product Design": [
+          },
           {
             "name": "Angela Wen"
           },
@@ -95,12 +121,38 @@ export default function handler(req, res) {
             "name": "Angie Kwan"
           }
         ],
-        "Cornershop Frontend Engineering": [
+        "Product": [
+          {
+            "name": "Lawrence Luk"
+          },
+          {
+            "name": "Jennifer Yang Wong"
+          },
+          {
+            "name": "Osvaldo Mena"
+          },
+          {
+            "name": "Chaq Cuevas"
+          },
+          {
+            "name": "Oskar Hjertonsson"
+          }
+        ],
+        "Engineering": [
           {
             "name": "Erasmo Marin"
           },
           {
             "name": "Laura Sandoval"
+          },
+          {
+            "name": "Osvaldo Mena"
+          },
+          {
+            "name": "Alejandra Fernández"
+          },
+          {
+            "name": "Ricardo Oyarzun"
           },
           {
             "name": "Abel Fernández"
@@ -118,24 +170,7 @@ export default function handler(req, res) {
             "name": "Franciso Yáñez"
           },
           {
-            "name": "Jorge Pernia"
-          }
-        ],
-        "Uber Engineering": [
-          {
-            "name": "Ashish Gupta"
-          },
-          {
-            "name": "Yi Zhang"
-          },
-          {
-            "name": "Damon Toal-Rossi"
-          },
-          {
             "name": "Erin Gallagher"
-          },
-          {
-            "name": "Esco Obong"
           },
           {
             "name": "Hosung Lee"
@@ -157,39 +192,6 @@ export default function handler(req, res) {
           },
           {
             "name": "Stefan Gavrilovic"
-          }
-        ],
-        "Cornershop Backend Engineering": [
-          {
-            "name": "Osvaldo Mena"
-          },
-          {
-            "name": "Alejandra Fernández"
-          },
-          {
-            "name": "Ricardo Oyarzun"
-          }
-        ],
-        "Cornershop QA": [
-          {
-            "name": "Lili Achji"
-          },
-          {
-            "name": "Daiana Spengler"
-          },
-          {
-            "name": "Marcos Galeano"
-          },
-          {
-            "name": "Christian I. Muñoz"
-          }
-        ],
-        "Uber Technical Program Managment": [
-          {
-            "name": "Lawrence Luk"
-          },
-          {
-            "name": "Jennifer Yang Wong"
           }
         ]
       }
@@ -220,7 +222,7 @@ export default function handler(req, res) {
         }
       ],
       "team": {
-        "Product Design": [
+        "Design": [
           {
             "name": "Laura Sandoval"
           }
@@ -266,7 +268,7 @@ export default function handler(req, res) {
         }
       ],
       "team": {
-        "Product Design": [
+        "Design": [
           {
             "name": "Laura Sandoval"
           }
@@ -360,7 +362,7 @@ export default function handler(req, res) {
         }
       ],
       "team": {
-        "Product Design": [
+        "Design": [
           {
             "name": "Laura Sandoval"
           },
@@ -368,15 +370,13 @@ export default function handler(req, res) {
             "name": "Bárbara Molina"
           }
         ],
-        "Frontend Engineering": [
+        "Engineering": [
           {
             "name": "Coniele Lastra"
           },
           {
             "name": "Matías Verdejo"
-          }
-        ],
-        "Backend Engineering": [
+          },
           {
             "name": "Saher Piñero"
           }
@@ -407,7 +407,7 @@ export default function handler(req, res) {
         }
       ],
       "team": {
-        "Product Design": [
+        "Design": [
           {
             "name": "Laura Sandoval"
           },
@@ -421,7 +421,7 @@ export default function handler(req, res) {
             "name": "Gonzalo Castillo"
           }
         ],
-        "Frontend Engineering": [
+        "Engineering": [
           {
             "name": "Laura Sandoval"
           },
@@ -464,7 +464,7 @@ export default function handler(req, res) {
         }
       ],
       "team": {
-        "Product Design": [
+        "Design": [
           {
             "name": "Matías Martínez"
           },
@@ -478,12 +478,10 @@ export default function handler(req, res) {
             "name": "Laura Sandoval"
           }
         ],
-        "Frontend Engineering": [
+        "Engineering": [
           {
             "name": "Laura Sandoval"
-          }
-        ],
-        "Backend Engineering": [
+          },
           {
             "name": "Alejandra Fernández"
           },
