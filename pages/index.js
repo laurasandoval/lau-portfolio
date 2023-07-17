@@ -3,6 +3,7 @@ import Grid from '@/components/Grid/Grid'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 import { NextSeo } from 'next-seo'
+import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 
 export default function Home({ designWorkData, server }) {
 
@@ -71,6 +72,7 @@ export default function Home({ designWorkData, server }) {
           return _renderThumbnail(project, index, false, false)
         })}
       </Grid>
+      <GlobalFooter />
     </>
   )
 }
