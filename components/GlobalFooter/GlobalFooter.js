@@ -32,15 +32,15 @@ export default function GlobalFooter({
                     </Link>
                     <Link
                         className="social_link"
-                        href="https://linkedin.com/in/laurasideral"
-                    >
-                        LinkedIn
-                    </Link>
-                    <Link
-                        className="social_link"
                         href="https://threads.net/@laurasideral"
                     >
                         Threads
+                    </Link>
+                    <Link
+                        className="social_link"
+                        href="https://linkedin.com/in/laurasideral"
+                    >
+                        LinkedIn
                     </Link>
                 </div>
             </div>
