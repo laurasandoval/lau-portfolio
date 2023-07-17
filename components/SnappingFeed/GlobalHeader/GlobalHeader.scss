@@ -33,6 +33,34 @@
                         background-color 0s ease 0s;
                     background-color: rgba(0, 0, 0, 1);
                 }
+
+                .global_footer {
+
+                    p,
+                    a {
+                        color: rgb(136, 139, 144) !important;
+                    }
+
+                    a {
+                        @media (hover: hover) {
+                            &:hover {
+                                color: rgba(255, 255, 255, 1) !important;
+                            }
+                        }
+                    }
+
+                    .portfolio_statement {
+                        a {
+                            color: rgba(255, 255, 255, 1) !important;
+
+                            @media (hover: hover) {
+                                &:hover {
+                                    color: rgba(136, 139, 144, 1) !important;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
