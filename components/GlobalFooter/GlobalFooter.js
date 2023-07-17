@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import './GlobalFooter.scss'
+import { Balancer } from 'react-wrap-balancer';
 
 export default function GlobalFooter({
     statement,
@@ -13,7 +14,9 @@ export default function GlobalFooter({
         >
             {
                 statement &&
-                <p className="portfolio_statement">This portfolio website was custom-made made in <a href="https://goo.gl/maps/9YY1jQzkETsz5cJ7A" target="_blank">Santiago de Chile</a>. You can explore the code on <a href="https://github.com/laurasandoval/lau-portfolio" target="_blank">GitHub</a>.</p>
+                <Balancer>
+                    <p className="portfolio_statement">This portfolio website was custom-made in <a href="https://goo.gl/maps/9YY1jQzkETsz5cJ7A" target="_blank">Santiago de Chile</a>. Available on <a href="https://github.com/laurasandoval/lau-portfolio" target="_blank">GitHub</a>.</p>
+                </Balancer>
             }
             <div className="boring_stuff">
                 <div className="copyright_thingy">
