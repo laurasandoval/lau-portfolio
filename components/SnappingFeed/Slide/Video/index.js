@@ -85,7 +85,19 @@ export default function SnappingFeedSlideVideo({
     useEffect(() => {
         const getHeights = throttle(() => {
             if (videoRef.current && !isFullScreen) {
-                const computedHeight = videoRef.current.offsetHeight;
+                let computedHeight;
+
+                if (getWindowSize().innerWidth > 850) {
+                    computedHeight = videoRef.current.offsetHeight;
+                } else {
+                    const originalWidth = asset.width;
+                    const originalHeight = asset.height;
+                    const aspectRatio = originalHeight / originalWidth;
+
+                    const viewportWidth = window.innerWidth;
+                    computedHeight = Math.round(viewportWidth * aspectRatio);
+                }
+
                 assetContainerRef.current.style.setProperty('--computed-video-height', `${computedHeight}px`);
                 setVideoComputedHeight(computedHeight);
             }
@@ -189,4 +201,9 @@ export default function SnappingFeedSlideVideo({
             }
         </div>
     )
+}
+
+function getWindowSize() {
+    const { innerWidth, innerHeight } = window;
+    return { innerWidth, innerHeight };
 }
