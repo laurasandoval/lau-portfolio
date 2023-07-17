@@ -11,8 +11,9 @@ body.vendo {
     width: 100%;
     height: auto;
     padding: 60px 20px;
-    display: grid;
-    grid-gap: 40px;
+    display: flex;
+    flex-flow: column;
+    gap: 40px;
     overflow-x: hidden;
 
     h1,
