@@ -30,7 +30,7 @@ export default function Vendo({ itemsForSaleData, server }) {
                     description: "¡Hola! Me estoy mudando así que decidí aprovechar de vender/regalar algunas cosas. Encuentra todo lo que estoy vendiendo y regalando acá ✨",
                     images: [
                         {
-                            url: `${server}/social-thumbnail.png`,
+                            url: `${server}/assets/📦/social-thumbnail.png`,
                             width: 1200,
                             height: 630,
                             type: "image/png",
