@@ -14,9 +14,11 @@ export default function GlobalFooter({
         >
             {
                 statement &&
-                <Balancer>
-                    <p className="portfolio_statement">This portfolio website was custom-made in <a href="https://goo.gl/maps/9YY1jQzkETsz5cJ7A" target="_blank">Santiago de Chile</a>. Available on <a href="https://github.com/laurasandoval/lau-portfolio" target="_blank">GitHub</a>.</p>
-                </Balancer>
+                <p className="portfolio_statement">
+                    <Balancer>
+                        This portfolio website was custom-made in <a href="https://goo.gl/maps/9YY1jQzkETsz5cJ7A" target="_blank">Santiago de Chile</a>. Available on <a href="https://github.com/laurasandoval/lau-portfolio" target="_blank">GitHub</a>.
+                    </Balancer>
+                </p>
             }
             <div className="boring_stuff">
                 <div className="copyright_thingy">
