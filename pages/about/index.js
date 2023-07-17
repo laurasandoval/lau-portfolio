@@ -103,7 +103,7 @@ export default function About({ server }) {
                     <p>
                         I strive to design wonderful and accessible digital products that go
                         unnoticed in day-to-day life, while staying true to their intended
-                        meaning. Currently doing that at Uber.
+                        meaning. Currently doing that as a Product Designer at Uber.
                     </p>
                     <p role="text">
                         Taught myself to code, studied Design at Pontificia Universidad Católica de Chile, and you
