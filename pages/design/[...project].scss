@@ -47,6 +47,7 @@
 
             .project_thumbnail {
                 scroll-snap-align: center;
+                scroll-snap-stop: always;
                 width: 96%;
                 margin-right: 4px;
                 flex-shrink: 0;
