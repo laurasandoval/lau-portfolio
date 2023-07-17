@@ -6,6 +6,7 @@ import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLab
 import SlideImage from './Image';
 import SlideVideo from './Video';
 import { useRouter } from 'next/router';
+import { throttle } from 'lodash';
 
 function SnappingFeedSlide({
     type,
@@ -16,6 +17,7 @@ function SnappingFeedSlide({
     slideIndex,
 }) {
     const [currentAsset, setCurrentAsset] = useState(0);
+    const [assetsContainerComputedHeight, setAssetsContainerComputedHeight] = useState(0);
     const assetsContainerRef = useRef(null);
     const pageDotRefs = useRef([]);
     const [isIntersecting, setIsIntersecting] = useState(false);
@@ -105,6 +107,25 @@ function SnappingFeedSlide({
         }
     }, [router.query.slide]);
 
+    useEffect(() => {
+        const getHeights = throttle(() => {
+            const assetsContainerClientHeight = assetsContainerRef.current.clientHeight;
+            const assetsContainerComputedStyles = window.getComputedStyle(assetsContainerRef.current);
+            const assetsContainerPaddingBottom = parseInt(assetsContainerComputedStyles.getPropertyValue('padding-bottom'), 10);
+            const assetsContainerComputedHeight = assetsContainerClientHeight - assetsContainerPaddingBottom;
+            setAssetsContainerComputedHeight(assetsContainerComputedHeight);
+        }, 200);
+
+        getHeights();
+
+        window.addEventListener('resize', getHeights);
+
+        return () => {
+            window.removeEventListener('resize', getHeights);
+            getHeights.cancel(); // cancel the throttle when component unmounts
+        };
+    }, []);
+
     return (
         <div
             className="snapping_feed_slide"
@@ -124,6 +145,7 @@ function SnappingFeedSlide({
                                             asset={asset}
                                             current={isIntersecting}
                                             priority={assetIndex == 0 && !lazyLoad}
+                                            assetsContainerComputedHeight={assetsContainerComputedHeight}
                                         />
                                     );
                                     break;
@@ -135,6 +157,7 @@ function SnappingFeedSlide({
                                             current={isIntersecting}
                                             allVideosAreMuted={allVideosAreMuted}
                                             setAllVideosAreMuted={setAllVideosAreMuted}
+                                            assetsContainerComputedHeight={assetsContainerComputedHeight}
                                         />
                                     );
                                     break;

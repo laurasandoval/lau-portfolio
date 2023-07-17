@@ -1,11 +1,13 @@
 import { useRef, useState, useEffect } from 'react';
 import './index.scss'
 import { IconMaximize, IconVolume, IconVolumeOff } from '@tabler/icons-react';
+import { throttle } from 'lodash';
 
 export default function SnappingFeedSlideVideo({
     asset,
     current,
     priority,
+    assetsContainerComputedHeight,
     allVideosAreMuted,
     setAllVideosAreMuted,
 }) {
@@ -14,6 +16,7 @@ export default function SnappingFeedSlideVideo({
     const fullScreenButtonRef = useRef(null);
     const [isFullScreen, setIsFullScreen] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [videoComputedHeight, setVideoComputedHeight] = useState(0);
 
     function handleMute() {
         if (videoRef.current.muted) {
@@ -80,23 +83,17 @@ export default function SnappingFeedSlideVideo({
     }, [current]);
 
     useEffect(() => {
-        function getHeights() {
+        const getHeights = throttle(() => {
             if (videoRef.current && !isFullScreen) {
-                const originalWidth = asset.width;
-                const originalHeight = asset.height;
-                const aspectRatio = originalHeight / originalWidth;
-
-                const viewportWidth = window.innerWidth;
-                const computedHeight = Math.round(viewportWidth * aspectRatio);
-
+                const computedHeight = videoRef.current.offsetHeight;
                 assetContainerRef.current.style.setProperty('--computed-video-height', `${computedHeight}px`);
+                setVideoComputedHeight(computedHeight);
             }
             if (fullScreenButtonRef.current && !isFullScreen) {
-                const fullScreenButtonHeight = Math.round(fullScreenButtonRef.current.offsetHeight);
+                const fullScreenButtonHeight = Math.round(fullScreenButtonRef.current.clientHeight);
                 assetContainerRef.current.style.setProperty('--computed-full-screen-button-height', `${fullScreenButtonHeight}px`);
             }
-        }
-
+        }, 200);
 
         getHeights();
 
@@ -148,6 +145,7 @@ export default function SnappingFeedSlideVideo({
             className="asset_container"
             data-type="video"
             data-orientation={asset.width > asset.height ? "landscape" : asset.width < asset.height ? "portrait" : "square"}
+            data-video-is-taller-than-container={assetsContainerComputedHeight < videoComputedHeight}
         >
             <video
                 ref={videoRef}

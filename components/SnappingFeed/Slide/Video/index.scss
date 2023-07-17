@@ -12,19 +12,8 @@
         --radius: 0px;
     }
 
-    &:last-of-type {
-        min-width: auto;
-        width: fit-content;
-
-        @media (max-width: 850px) {
-            width: 100%;
-            height: 100%;
-        }
-    }
-
-    // This is horribly hardcoded
-    @media (min-height: 1480px) {
-        &[data-orientation="landscape"] {
+    @media (min-width: 851px) {
+        &[data-orientation="landscape"][data-video-is-taller-than-container="false"] {
             width: 100%;
             height: auto;
             margin: auto;
@@ -33,6 +22,16 @@
                 width: 100%;
                 height: auto;
             }
+        }
+    }
+
+    &:last-of-type {
+        min-width: auto;
+        width: fit-content;
+
+        @media (max-width: 850px) {
+            width: 100%;
+            height: 100%;
         }
     }
 
