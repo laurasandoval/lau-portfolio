@@ -72,7 +72,7 @@ export default function Home({ designWorkData, server }) {
           return _renderThumbnail(project, index, false, false)
         })}
       </Grid>
-      <GlobalFooter />
+      <GlobalFooter statement />
     </>
   )
 }

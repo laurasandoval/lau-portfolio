@@ -7,6 +7,7 @@ import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLab
 import { NextSeo } from 'next-seo'
 import Button from '@/components/Button/Button'
 import { Balancer } from 'react-wrap-balancer'
+import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 
 export default function Project({ currentProject, server }) {
   const [showGalleryBorder, setShowGalleryBorder] = useState(false)
@@ -160,6 +161,8 @@ export default function Project({ currentProject, server }) {
           </div>
         </div>
       </article>
+
+      <GlobalFooter />
     </>
   )
 }
