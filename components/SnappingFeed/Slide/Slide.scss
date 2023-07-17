@@ -56,6 +56,7 @@
             overflow-x: scroll;
             scroll-behavior: smooth;
             scroll-snap-type: x mandatory;
+            scroll-snap-stop: always;
             padding: 0 calc(((100% - $desktop-max-width) / 2) + $horizontal-padding) 20px;
             scroll-padding: 0 calc(((100% - $desktop-max-width) / 2) + $horizontal-padding);
 

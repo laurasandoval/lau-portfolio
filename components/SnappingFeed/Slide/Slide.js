@@ -5,7 +5,6 @@ import { useState, useEffect, useRef } from 'react';
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel';
 import SlideImage from './Image';
 import SlideVideo from './Video';
-import { Balancer } from 'react-wrap-balancer';
 import { useRouter } from 'next/router';
 
 function SnappingFeedSlide({
@@ -41,36 +40,37 @@ function SnappingFeedSlide({
     }, [slideRef]);
 
     useEffect(() => {
-        const assetsContainer = assetsContainerRef.current;
-        const assetsContainerPaddingLeft = 40;
-
-        const handleScroll = () => {
-            const containerWidth = assetsContainer.offsetWidth;
-
-            const assets = assetsContainer.querySelectorAll('.asset');
-            let i;
-            for (i = 0; i < assets.length; i++) {
-                const assetLeft = assets[i].offsetLeft + 40;
-                let assetWidth;
-
-                if (i === 0) {
-                    assetWidth = assets[i].offsetWidth + assetsContainerPaddingLeft
-                } else {
-                    assetWidth = assets[i].offsetWidth + 20
+        let observer;
+        const handleIntersect = (entries, obs) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setCurrentAsset(parseInt(entry.target.getAttribute('data-index'), 10));
                 }
+            });
+        };
+        const options = {
+            root: assetsContainerRef.current,
+            rootMargin: '0px',
+            threshold: 0.5,
+        };
 
-                if (assetLeft <= (assetsContainer.scrollLeft - assetsContainerPaddingLeft) + containerWidth / 2 &&
-                    assetLeft + assetWidth > (assetsContainer.scrollLeft - assetsContainerPaddingLeft) + containerWidth / 2) {
-                    setCurrentAsset(i);
-                    break;
-                }
+        observer = new IntersectionObserver(handleIntersect, options);
+        const assets = assetsContainerRef.current.querySelectorAll('.asset_container');
+
+        assets.forEach((asset, index) => {
+            asset.setAttribute('data-index', index);
+            observer.observe(asset);
+        });
+
+        return () => {
+            if (observer) {
+                assets.forEach((asset) => {
+                    observer.unobserve(asset);
+                });
             }
         };
-        assetsContainer.addEventListener('scroll', handleScroll);
-        return () => {
-            assetsContainer.removeEventListener('scroll', handleScroll);
-        };
     }, []);
+
 
     const scrollToAsset = (assetIndex) => {
         const assetsContainer = assetsContainerRef.current;
@@ -195,11 +195,7 @@ function SnappingFeedSlide({
                         components={{
                             p: props => {
                                 return (
-                                    <p>
-                                        <Balancer>
-                                            {props.children}
-                                        </Balancer>
-                                    </p>
+                                    <p>{props.children}</p>
                                 )
                             }
                         }}
