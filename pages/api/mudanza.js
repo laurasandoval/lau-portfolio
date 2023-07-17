@@ -55,7 +55,7 @@ export default function handler(req, res) {
       "price": "$159.990"
     },
     {
-      "sold": false,
+      "sold": true,
       "title": "Microondas Thomas 20 Litros",
       "description": [
         "Un microondas común y corriente.",
