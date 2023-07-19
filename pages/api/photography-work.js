@@ -32,7 +32,7 @@ export default function handler(req, res) {
       ]
     },
     {
-      "caption": "Campus San Joaquín, Pontificia Universidad Católica de Chile. Featured in [Accidentally Wes Anderson (2020)](https://accidentallywesanderson.com/book/), by Wally & Amanda Koval.",
+      "caption": "Campus San Joaquín, Pontificia Universidad Católica de Chile. Featured in the New York Times Best Seller, [Accidentally Wes Anderson (2020)](https://accidentallywesanderson.com/book/), by Wally & Amanda Koval.",
       "period": "2019",
       "location": "San Joaquín, Chile",
       "assets": [
@@ -40,7 +40,7 @@ export default function handler(req, res) {
           "src": "accidentally-wes-anderson/160419.jpg",
           "width": 3024,
           "height": 4032,
-          "alt": "Bright, cozy and colorful image of an empty classroom. The bold, brick-colored chairs form an interesting texture in the bottom third of the image, contrasting with the light tones of the wooden wall at the back of the room. Competing with the intentional symmetry of the image, one of the chairs is slighty angled.",
+          "alt": "Bright, cozy and colorful image of an empty classroom. The bold, brick-colored chairs form an interesting texture in the bottom one third of the image, contrasting with the light tones of the wooden wall at the back of the room. Competing with the intentional symmetry of the image, one of the chairs at the bottom is slighty angled.",
         },
       ]
     },
