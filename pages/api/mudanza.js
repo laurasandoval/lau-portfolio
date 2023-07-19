@@ -1,7 +1,7 @@
 export default function handler(req, res) {
   res.status(200).json([
     {
-      "sold": false,
+      "sold": true,
       "title": "Refrigerador Libero Frío Directo 244 Litros",
       "description": [
         "Vendo mi refrigerador Libero de 244 litros. Lo compré el 2019 y desde entonces nunca me ha fallado. El refrigerador es ideal para una persona que vive sola como yo, e incluso en mis momentos de sacarme harto la casa (donde suele estar más lleno por picoteos y cosas así) ha aguantado súper bien.",
