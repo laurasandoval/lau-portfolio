@@ -38,7 +38,7 @@ export default function handler(req, res) {
       "price": "$189.990"
     },
     {
-      "sold": false,
+      "sold": true,
       "title": "Televisor Samsung Smart TV 43\" Crystal Uhd 4k HDR10+ 120hz",
       "description": [
         "Vendo mi Smart TV 4K marca Samsung. Lo compré el 2019 y me gustó tanto que el 2022 me compré otro para mi pieza (que también tengo a la venta 👀).",
