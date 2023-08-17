@@ -78,6 +78,9 @@ export default function handler(req, res) {
           },
           {
             "name": "Oskar Hjertonsson"
+          },
+          {
+            "name": "Daniel Undurraga"
           }
         ]
       }
@@ -321,6 +324,9 @@ export default function handler(req, res) {
           },
           {
             "name": "Oskar Hjertonsson"
+          },
+          {
+            "name": "Daniel Undurraga"
           }
         ],
         "Engineering": [
