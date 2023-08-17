@@ -83,115 +83,40 @@ export default function handler(req, res) {
       }
     },
     {
-      "title": "Uber Grocery with Cornershop",
+      "title": "Uber Connect Home Page",
       "description": [
-        "In 5 months, designed, developed, and shipped a grocery delivery service for Uber Eats from scratch.",
-        "By leveraging existing products and expertise from Cornershop, Uber Grocery has helped Uber Eats add more than 24,000 grocery stores around the world into its catalog —including Albertsons, Carrefour, Costco and Woolworths—, and has allowed Uber Eats customers to order at least 100,000 bunches of bananas each month."
+        "Uber Connect —also known as \"Uber Flash\"— is Uber’s customer-facing “Delivery as a Service” product. It allows people to send items the same day, whether it’s a care item for a loved one, a gift for a friend’s birthday, an item sold online, or a business document.",
+        "In 2023, Uber Connect introduced post office dropoffs, allowing people to easily return their online purchases or deliver any type of prepaid package via Fedex, UPS or USPS without leaving the Uber app.",
+        "To make room for this new feature, we decided to redesign the entire Connect Home Page, providing a clear mental model for customers using Connect, and improving the overall understanding on Connect's products and services."
       ],
-      "period": "2020",
-      "src": "uber/uber-grocery-with-cornershop",
+      "period": "2023",
+      "src": "uber/uber-connect-home-page",
       "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
-        "uber-grocery-home.png",
-        "uber-grocery-department.png",
-        "uber-grocery-product.png"
+        "uber-connect-home-page.webm",
+        "uber-connect-home-page-detail.png"
       ],
       "cta": [
         {
-          "title": "Press Release",
-          "url": "https://www.uber.com/newsroom/introducing-grocery-delivery/"
-        },
-        {
-          "title": "About Cornershop",
-          "url": "https://cornershopapp.com/"
+          "title": "About Uber Connect",
+          "url": "https://www.uber.com/item-delivery/"
         }
       ],
       "team": {
-        "Design": [
+        "Product Design": [
           {
-            "name": "Laura Sandoval"
+            "name": "Kenny Iyoya"
           },
           {
-            "name": "Matías Martínez"
-          },
-          {
-            "name": "Angela Wen"
-          },
-          {
-            "name": "Angie Kwan"
-          }
-        ],
-        "Product": [
-          {
-            "name": "Lawrence Luk"
-          },
-          {
-            "name": "Jennifer Yang Wong"
-          },
-          {
-            "name": "Osvaldo Mena"
-          },
-          {
-            "name": "Chaq Cuevas"
-          },
-          {
-            "name": "Oskar Hjertonsson"
-          }
-        ],
-        "Engineering": [
-          {
-            "name": "Erasmo Marin"
+            "name": "Marion Sayado"
           },
           {
             "name": "Laura Sandoval"
-          },
+          }
+        ],
+        "Product Management": [
           {
-            "name": "Osvaldo Mena"
-          },
-          {
-            "name": "Alejandra Fernández"
-          },
-          {
-            "name": "Ricardo Oyarzun"
-          },
-          {
-            "name": "Abel Fernández"
-          },
-          {
-            "name": "Mercedes Rodriguez"
-          },
-          {
-            "name": "Gonzalo Castillo"
-          },
-          {
-            "name": "Francisco García"
-          },
-          {
-            "name": "Franciso Yáñez"
-          },
-          {
-            "name": "Erin Gallagher"
-          },
-          {
-            "name": "Hosung Lee"
-          },
-          {
-            "name": "Jakob Holdgaard Thomsen"
-          },
-          {
-            "name": "Kristian Lassen"
-          },
-          {
-            "name": "Kun Bao"
-          },
-          {
-            "name": "Martin Ickowicz"
-          },
-          {
-            "name": "Rene Schmidt"
-          },
-          {
-            "name": "Stefan Gavrilovic"
+            "name": "Benjamin Ghosh"
           }
         ]
       }
@@ -341,6 +266,120 @@ export default function handler(req, res) {
         }
       ],
       "team": null
+    },
+    {
+      "title": "Uber Grocery with Cornershop",
+      "description": [
+        "In 5 months, designed, developed, and shipped a grocery delivery service for Uber Eats from scratch.",
+        "By leveraging existing products and expertise from Cornershop, Uber Grocery has helped Uber Eats add more than 24,000 grocery stores around the world into its catalog —including Albertsons, Carrefour, Costco and Woolworths—, and has allowed Uber Eats customers to order at least 100,000 bunches of bananas each month."
+      ],
+      "period": "2020",
+      "src": "uber/uber-grocery-with-cornershop",
+      "social_thumbnail": "social-thumbnail.png",
+      "thumbnails": [
+        "uber-grocery-home.png",
+        "uber-grocery-department.png",
+        "uber-grocery-product.png"
+      ],
+      "cta": [
+        {
+          "title": "Press Release",
+          "url": "https://www.uber.com/newsroom/introducing-grocery-delivery/"
+        },
+        {
+          "title": "About Cornershop",
+          "url": "https://cornershopapp.com/"
+        }
+      ],
+      "team": {
+        "Design": [
+          {
+            "name": "Laura Sandoval"
+          },
+          {
+            "name": "Matías Martínez"
+          },
+          {
+            "name": "Angela Wen"
+          },
+          {
+            "name": "Angie Kwan"
+          }
+        ],
+        "Product": [
+          {
+            "name": "Lawrence Luk"
+          },
+          {
+            "name": "Jennifer Yang Wong"
+          },
+          {
+            "name": "Osvaldo Mena"
+          },
+          {
+            "name": "Chaq Cuevas"
+          },
+          {
+            "name": "Oskar Hjertonsson"
+          }
+        ],
+        "Engineering": [
+          {
+            "name": "Erasmo Marin"
+          },
+          {
+            "name": "Laura Sandoval"
+          },
+          {
+            "name": "Osvaldo Mena"
+          },
+          {
+            "name": "Alejandra Fernández"
+          },
+          {
+            "name": "Ricardo Oyarzun"
+          },
+          {
+            "name": "Abel Fernández"
+          },
+          {
+            "name": "Mercedes Rodriguez"
+          },
+          {
+            "name": "Gonzalo Castillo"
+          },
+          {
+            "name": "Francisco García"
+          },
+          {
+            "name": "Franciso Yáñez"
+          },
+          {
+            "name": "Erin Gallagher"
+          },
+          {
+            "name": "Hosung Lee"
+          },
+          {
+            "name": "Jakob Holdgaard Thomsen"
+          },
+          {
+            "name": "Kristian Lassen"
+          },
+          {
+            "name": "Kun Bao"
+          },
+          {
+            "name": "Martin Ickowicz"
+          },
+          {
+            "name": "Rene Schmidt"
+          },
+          {
+            "name": "Stefan Gavrilovic"
+          }
+        ]
+      }
     },
     {
       "title": "Cornershop for Stores Landing",
@@ -516,7 +555,6 @@ export default function handler(req, res) {
         "Website redesign and development for Kappo's Cool Place to Bike program."
       ],
       "period": "2019",
-      "featured": false,
       "src": "kappo/cool-place-to-bike-website",
       "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
@@ -552,7 +590,6 @@ export default function handler(req, res) {
         "The development of this project resulted in a comprehensive Brand Book and internal websites and documents with guidance around the usage of the new Kappo brand."
       ],
       "period": "2019",
-      "featured": false,
       "src": "kappo/kappo-brand-identity",
       "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
