@@ -106,7 +106,7 @@ export default function handler(req, res) {
         }
       ],
       "team": {
-        "Product Design": [
+        "Design": [
           {
             "name": "Kenny Iyoya"
           },
@@ -117,9 +117,57 @@ export default function handler(req, res) {
             "name": "Laura Sandoval"
           }
         ],
-        "Product Management": [
+        "Product": [
           {
             "name": "Benjamin Ghosh"
+          },
+          {
+            "name": "Dustin Wang"
+          }
+        ],
+        "Data Science": [
+          {
+            "name": "Albert Lee"
+          }
+        ],
+        "TPM": [
+          {
+            "name": "Chelsea Chen"
+          }
+        ],
+        "Engineering": [
+          {
+            "name": "Jimmy Zhen"
+          },
+          {
+            "name": "Ronald Barrera"
+          },
+          {
+            "name": "Vishal Modi"
+          },
+          {
+            "name": "Maoting Ren"
+          },
+          {
+            "name": "Tim Mui"
+          },
+          {
+            "name": "Felipe Azevedo"
+          },
+          {
+            "name": "Tianning Li"
+          },
+          {
+            "name": "Yury Butrymovich"
+          },
+          {
+            "name": "Chris Wissmach"
+          },
+          {
+            "name": "Jiang Xu"
+          },
+          {
+            "name": "Rohit Verma"
           }
         ]
       }
@@ -127,8 +175,8 @@ export default function handler(req, res) {
     {
       "title": "Balance — Your transit cards in one place",
       "description": [
-        "Formerly “Saldo Red”, Balance is Chile’s top-rated app for managing transit cards.",
-        "With its unique functionalities, native iOS look & feel, and deep attention to accessibility and details, Balance has consistently remained within the most downloaded navigation apps in Chile ever since its launch in 2019 —reaching up to the #1 most downloaded Chilean navigation app in 2021, right above Google Maps, Moovit, and Waze— and it’s by far the most positively reviewed one among its local alternatives.",
+        "Balance is Chile’s top-rated app for managing transit cards — that I design and develop during my free time.",
+        "With its unique functionalities, native iOS look & feel, and deep attention to accessibility and details, Balance has consistently remained within the most downloaded navigation apps in Chile ever since its launch in 2019 —reaching up to the #1 most downloaded Chilean navigation app in 2021 and 2023, right above Google Maps, Moovit, and Waze— and it’s by far the most positively reviewed one among its local alternatives.",
         "This project was not commissioned by, and it's not directly related to any of Chile's official transit authorities."
       ],
       "period": "Since 2019",
@@ -297,28 +345,19 @@ export default function handler(req, res) {
       "team": {
         "Design": [
           {
-            "name": "Laura Sandoval"
-          },
-          {
-            "name": "Matías Martínez"
-          },
-          {
             "name": "Angela Wen"
           },
           {
             "name": "Angie Kwan"
+          },
+          {
+            "name": "Laura Sandoval"
+          },
+          {
+            "name": "Matías Martínez"
           }
         ],
         "Product": [
-          {
-            "name": "Lawrence Luk"
-          },
-          {
-            "name": "Jennifer Yang Wong"
-          },
-          {
-            "name": "Osvaldo Mena"
-          },
           {
             "name": "Chaq Cuevas"
           },
@@ -327,6 +366,17 @@ export default function handler(req, res) {
           },
           {
             "name": "Daniel Undurraga"
+          }
+        ],
+        "TPM": [
+          {
+            "name": "Lawrence Luk"
+          },
+          {
+            "name": "Jennifer Yang Wong"
+          },
+          {
+            "name": "Osvaldo Mena"
           }
         ],
         "Engineering": [
@@ -556,39 +606,6 @@ export default function handler(req, res) {
       "team": null
     },
     {
-      "title": "Cool Place to Bike Website",
-      "description": [
-        "Website redesign and development for Kappo's Cool Place to Bike program."
-      ],
-      "period": "2019",
-      "src": "kappo/cool-place-to-bike-website",
-      "social_thumbnail": "social-thumbnail.png",
-      "thumbnails": [
-        "web-cool-place-to-bike.webm"
-      ],
-      "cta": null,
-      "team": {
-        "Web Design": [
-          {
-            "name": "Laura Sandoval"
-          }
-        ],
-        "Frontend Engineering": [
-          {
-            "name": "Laura Sandoval"
-          }
-        ],
-        "Kappo Counterparts": [
-          {
-            "name": "Iván Paéz Mora"
-          },
-          {
-            "name": "Mónica Berrios"
-          }
-        ]
-      }
-    },
-    {
       "title": "Kappo Bike – Brand Identity Redesign",
       "description": [
         "Led, designed, and implemented a complete brand identity redesign for Kappo Bike, a now-defunct app for logging your bicycle trips around the city.",
@@ -607,6 +624,39 @@ export default function handler(req, res) {
       "cta": null,
       "team": {
         "Graphic Design": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "Kappo Counterparts": [
+          {
+            "name": "Iván Paéz Mora"
+          },
+          {
+            "name": "Mónica Berrios"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Cool Place to Bike Website",
+      "description": [
+        "Website redesign and development for Kappo's Cool Place to Bike program."
+      ],
+      "period": "2019",
+      "src": "kappo/cool-place-to-bike-website",
+      "social_thumbnail": "social-thumbnail.png",
+      "thumbnails": [
+        "web-cool-place-to-bike.webm"
+      ],
+      "cta": null,
+      "team": {
+        "Web Design": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "Frontend Engineering": [
           {
             "name": "Laura Sandoval"
           }
