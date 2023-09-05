@@ -289,9 +289,9 @@ export default function handler(req, res) {
       "src": "responsive-muller-brockmann",
       "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
-        "responsive-muller-brockmann-01.png",
         "responsive-muller-brockmann-02.png",
         "responsive-muller-brockmann-03.png",
+        "responsive-muller-brockmann-01.png",
         "responsive-muller-brockmann-04.png"
       ],
       "cta": [
@@ -437,47 +437,47 @@ export default function handler(req, res) {
         ]
       }
     },
-    {
-      "title": "Cornershop for Stores Landing",
-      "description": [
-        "Website redesign for \"Cornershop for Stores\" landing page.",
-        "Cornershop is an Uber-owned grocery delivery service that offers world-class digital products powered by software and design.",
-        "The entire website was redesigned and rewritten from the ground up, providing first-class support for assistive technologies —such as keyboard navigation and screen readers— in every step of the process."
-      ],
-      "period": "2021",
-      "src": "cornershop/cornershop-stores-landing",
-      "social_thumbnail": "social-thumbnail.png",
-      "thumbnails": [
-        "cornershop-stores-landing-redesign.webm"
-      ],
-      "cta": [
-        {
-          "title": "Visit Website",
-          "url": "https://corner.shop/stores"
-        }
-      ],
-      "team": {
-        "Design": [
-          {
-            "name": "Laura Sandoval"
-          },
-          {
-            "name": "Bárbara Molina"
-          }
-        ],
-        "Engineering": [
-          {
-            "name": "Coniele Lastra"
-          },
-          {
-            "name": "Matías Verdejo"
-          },
-          {
-            "name": "Saher Piñero"
-          }
-        ]
-      }
-    },
+    // {
+    //   "title": "Cornershop for Stores Landing",
+    //   "description": [
+    //     "Website redesign for \"Cornershop for Stores\" landing page.",
+    //     "Cornershop is an Uber-owned grocery delivery service that offers world-class digital products powered by software and design.",
+    //     "The entire website was redesigned and rewritten from the ground up, providing first-class support for assistive technologies —such as keyboard navigation and screen readers— in every step of the process."
+    //   ],
+    //   "period": "2021",
+    //   "src": "cornershop/cornershop-stores-landing",
+    //   "social_thumbnail": "social-thumbnail.png",
+    //   "thumbnails": [
+    //     "cornershop-stores-landing-redesign.webm"
+    //   ],
+    //   "cta": [
+    //     {
+    //       "title": "Visit Website",
+    //       "url": "https://corner.shop/stores"
+    //     }
+    //   ],
+    //   "team": {
+    //     "Design": [
+    //       {
+    //         "name": "Laura Sandoval"
+    //       },
+    //       {
+    //         "name": "Bárbara Molina"
+    //       }
+    //     ],
+    //     "Engineering": [
+    //       {
+    //         "name": "Coniele Lastra"
+    //       },
+    //       {
+    //         "name": "Matías Verdejo"
+    //       },
+    //       {
+    //         "name": "Saher Piñero"
+    //       }
+    //     ]
+    //   }
+    // },
     {
       "title": "Cornershop by Uber Web App",
       "description": [
