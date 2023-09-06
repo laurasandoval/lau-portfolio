@@ -3,6 +3,7 @@ import Link from 'next/link'
 import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './ProjectThumbnail.scss'
 import { useEffect, useRef, useState } from 'react';
+import { IconPlayerPauseFilled, IconPlayerPlayFilled } from '@tabler/icons-react';
 
 export function ProjectThumbnail({
     as,
@@ -22,6 +23,7 @@ export function ProjectThumbnail({
     const [isIntersecting, setIsIntersecting] = useState(false);
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [manuallyPaused, setManuallyPaused] = useState(false);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -42,7 +44,7 @@ export function ProjectThumbnail({
 
     useEffect(() => {
         if (videoRef != null) {
-            if (isIntersecting) {
+            if (isIntersecting && !manuallyPaused) {
                 const playPromise = videoRef.current.play();
                 if (playPromise !== undefined) {
                     playPromise.then(() => {
@@ -57,7 +59,8 @@ export function ProjectThumbnail({
                 setIsPlaying(false);
             }
         }
-    }, [isIntersecting]);
+    }, [isIntersecting, manuallyPaused]);
+
 
     const _renderThumbnail = (thumbnail, src, title, autoplay, priority, sizes) => {
         const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"]
@@ -75,28 +78,48 @@ export function ProjectThumbnail({
             )
         } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(thumbnail)) {
             return (
-                <video
-                    ref={videoRef}
-                    playsInline
-                    muted
-                    autoPlay={autoplay}
-                    loop
-                >
-                    <source
-                        src={`/assets/design-work/${src}/${thumbnail.replace(
-                            ".mp4",
-                            ".webm"
-                        )}`}
-                        type="video/webm"
-                    />
-                    <source
-                        src={`/assets/design-work/${src}/${thumbnail.replace(
-                            ".webm",
-                            ".mp4"
-                        )}`}
-                        type="video/mp4"
-                    />
-                </video>
+                <>
+                    <video
+                        ref={videoRef}
+                        playsInline
+                        muted
+                        autoPlay={autoplay}
+                        loop
+                    >
+                        <source
+                            src={`/assets/design-work/${src}/${thumbnail.replace(
+                                ".mp4",
+                                ".webm"
+                            )}`}
+                            type="video/webm"
+                        />
+                        <source
+                            src={`/assets/design-work/${src}/${thumbnail.replace(
+                                ".webm",
+                                ".mp4"
+                            )}`}
+                            type="video/mp4"
+                        />
+                    </video>
+                    <button
+                        onClick={() => {
+                            const video = videoRef.current;
+                            if (video.paused) {
+                                video.play();
+                                setIsPlaying(true);
+                                setManuallyPaused(false);
+                            } else {
+                                video.pause();
+                                setIsPlaying(false);
+                                setManuallyPaused(true);
+                            }
+                        }}
+                        className="playpause_button"
+                        title={isPlaying ? "Pause" : "Play"}
+                    >
+                        {isPlaying ? <IconPlayerPauseFilled /> : <IconPlayerPlayFilled />}
+                    </button>
+                </>
             )
         } else {
             return (
