@@ -30,11 +30,11 @@ export default function Home({ designWorkData, server }) {
   return (
     <>
       <NextSeo
-        title="Laura Sandoval — Work, Résumé"
-        description="Digital Product Designer & Engineer from Santiago, Chile. Featured clients include Uber, Cornershop, among others."
+        title="Laura Sandoval — Design, Photography, About"
+        description="Digital Product Designer & Engineer. Featured works include projects for Uber, Uber Eats, Cornershop, among others."
         openGraph={{
-          title: "Laura Sandoval — Work, Résumé",
-          description: "Digital Product Designer & Engineer from Santiago, Chile. Featured clients include Uber, Cornershop, among others.",
+          title: "Laura Sandoval — Design, Photography, About",
+          description: "Digital Product Designer & Engineer. Featured works include projects for Uber, Uber Eats, Cornershop, among others.",
           images: [
             {
               url: `${server}/social-thumbnail.png`,
