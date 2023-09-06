@@ -73,7 +73,6 @@ export default function Project({ currentProject, server }) {
                 img_only
                 thumbnail={thumbnail}
                 key={index}
-                autoplay
                 priority={index == 0}
               />
             )

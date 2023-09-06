@@ -14,7 +14,6 @@ export function ProjectThumbnail({
     thumbnails,
     hover,
     img_only,
-    autoplay,
     portrait,
     fadeIn,
     priority,
@@ -62,7 +61,7 @@ export function ProjectThumbnail({
     }, [isIntersecting, manuallyPaused]);
 
 
-    const _renderThumbnail = (thumbnail, src, title, autoplay, priority, sizes) => {
+    const _renderThumbnail = (thumbnail, src, title, priority, sizes) => {
         const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"]
         const videoFormats = ["mp4", "webm"]
 
@@ -83,7 +82,6 @@ export function ProjectThumbnail({
                         ref={videoRef}
                         playsInline
                         muted
-                        autoPlay={autoplay}
                         loop
                     >
                         <source

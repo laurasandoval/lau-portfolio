@@ -13,7 +13,6 @@ export default function Home({ designWorkData, server }) {
         {...project}
         as="article"
         hover
-        autoplay
         key={index}
         portrait={featured}
         fadeIn
