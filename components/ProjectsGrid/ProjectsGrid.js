@@ -1,6 +1,6 @@
-import './Grid.scss'
+import './ProjectsGrid.scss'
 
-export default function Grid({
+export default function ProjectsGrid({
     featured,
     children,
 }) {
