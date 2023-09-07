@@ -7,6 +7,7 @@ import SlideImage from './Image';
 import SlideVideo from './Video';
 import { useRouter } from 'next/router';
 import { throttle } from 'lodash';
+import PageIndicator from '@/components/PageIndicator/PageIndicator';
 
 function SnappingFeedSlide({
     type,
@@ -192,23 +193,21 @@ function SnappingFeedSlide({
             <div className="caption_container">
                 {
                     series.assets.length > 1 &&
-                    <div className="page_indicator">
+                    <PageIndicator>
                         {
                             series.assets.map((_, pageIndicatorIndex) => {
                                 return (
-                                    <button
-                                        key={pageIndicatorIndex}
-                                        className="page_dot"
-                                        ref={ref => pageDotRefs.current[pageIndicatorIndex] = ref}
-                                        data-current={pageIndicatorIndex == currentAsset}
+                                    <PageIndicator.Dot
                                         onClick={() => scrollToAsset(pageIndicatorIndex)}
-                                    >
-                                        <AccessibilityLabel>{`Go to page ${pageIndicatorIndex + 1}`}</AccessibilityLabel>
-                                    </button>
+                                        current={pageIndicatorIndex == currentAsset}
+                                        index={pageIndicatorIndex}
+                                        key={pageIndicatorIndex}
+                                        ref={ref => pageDotRefs.current[pageIndicatorIndex] = ref}
+                                    />
                                 )
                             })
                         }
-                    </div>
+                    </PageIndicator>
                 }
                 {
                     series.caption &&
