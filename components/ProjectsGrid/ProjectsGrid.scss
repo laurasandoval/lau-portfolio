@@ -43,7 +43,8 @@
             @at-root [data-featured="true"]#{&} {
                 grid-auto-flow: column;
                 grid-template-columns: unset;
-                grid-auto-columns: 100%;
+                grid-auto-columns: 94%;
+                grid-gap: 10px;
                 overflow: auto;
                 padding-bottom: 38px;
                 margin-bottom: -20px;
