@@ -72,12 +72,12 @@
     }
 
     .project_info {
-        position: sticky;
-        top: 40px;
+        // position: sticky;
+        // top: 40px;
 
-        @media (max-width: 1080px) {
-            top: 20px;
-        }
+        // @media (max-width: 1080px) {
+        //     top: 20px;
+        // }
 
         display: grid;
         grid-auto-flow: row;
@@ -86,11 +86,11 @@
         padding: 0 10px;
         max-width: 420px;
 
-        @media (max-width: 850px) {
-            & {
-                position: initial;
-            }
-        }
+        // @media (max-width: 850px) {
+        //     & {
+        //         position: initial;
+        //     }
+        // }
 
         .title,
         .description {
