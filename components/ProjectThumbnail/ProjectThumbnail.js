@@ -134,7 +134,7 @@ export function ProjectThumbnail({
         <Tag
             className="project_thumbnail"
             data-name={title}
-            data-hover={hover}
+            data-hover={hover ? "true" : "false"}
             data-img-only={img_only}
             data-portrait={portrait}
             data-fade-in={fadeIn}

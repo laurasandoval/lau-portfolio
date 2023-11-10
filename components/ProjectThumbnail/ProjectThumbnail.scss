@@ -79,9 +79,10 @@
             right: 0;
             bottom: 0;
             left: 0;
-            box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.1);
-            transition: opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            opacity: 0;
+
+            @at-root [data-hover="false"]#{&} {
+                pointer-events: all;
+            }
         }
 
         .playpause_button {
