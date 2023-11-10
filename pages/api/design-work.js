@@ -606,7 +606,7 @@ export default function handler(req, res) {
       "team": null
     },
     {
-      "title": "Kappo Bik — Brand Identity Redesign",
+      "title": "Kappo Bike — Brand Identity Redesign",
       "description": [
         "Led, designed, and implemented a complete brand identity redesign for Kappo Bike, a now-defunct app for logging your bicycle trips around the city.",
         "Based in Santiago de Chile, Kappo Bike aimed to become a global facilitator of tools for smart city development around sustainable mobility, with tools such as \"PedalHeat\", Kappo's government-oriented solution for mapping out bike lane usage, \"Cool Place to Bike\", Kappo's B2B solution for encouraging bicycle usage within companies, and many more.",
