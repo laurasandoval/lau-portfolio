@@ -5,7 +5,7 @@ export default function handler(req, res) {
       "description": [
         "From 2020 to 2023, led the design division of Cornershop by Uber's customer-facing products.",
         "This included hiring, managing and mentoring a team of Product Designers and Design Managers, overseeing the design of over 100 projects, and working closely with Engineering and Product teams to deliver new features and continuously improve Cornershop by Uber’s customer-facing products.",
-        "Cornershop was an Uber-owned grocery delivery service that offerd world-class digital products powered by software and design. It launched in 2015 and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide."
+        "Cornershop was an Uber-owned grocery delivery service that offerd world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2020, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide."
       ],
       "period": "2020 — 2023",
       "src": "cornershop/head-of-customers-product-design",
@@ -441,7 +441,7 @@ export default function handler(req, res) {
       "title": "Cornershop for Stores Landing",
       "description": [
         "Website redesign for \"Cornershop for Stores\" landing page.",
-        "Cornershop was an Uber-owned grocery delivery service that offerd world-class digital products powered by software and design. It launched in 2015 and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
+        "Cornershop was an Uber-owned grocery delivery service that offerd world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2020, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
         "The entire website was redesigned and rewritten from the ground up, providing first-class support for assistive technologies —such as keyboard navigation and screen readers— in every step of the process."
       ],
       "period": "2021",
@@ -539,7 +539,7 @@ export default function handler(req, res) {
       "title": "Cornershop by Uber Referral Landing",
       "description": [
         "Website redesign for Cornershop's referral landing page.",
-        "Cornershop was an Uber-owned grocery delivery service that offerd world-class digital products powered by software and design. It launched in 2015 and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
+        "Cornershop was an Uber-owned grocery delivery service that offerd world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2020, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
         "All visual elements of the website were redesigned and rewritten from scratch using modern and native web standards to allow for better accessibility, lightning-fast load times, and enormous flexibility."
       ],
       "period": "2020",
