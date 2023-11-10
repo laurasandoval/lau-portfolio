@@ -57,10 +57,10 @@
         font-weight: 600;
         text-transform: uppercase;
         background: transparent;
-        cursor: pointer;
         text-align: center;
         transition: color 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
         color: rgba(136, 139, 144, 1);
+        cursor: pointer;
 
         svg {
             display: block;

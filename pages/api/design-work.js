@@ -606,7 +606,7 @@ export default function handler(req, res) {
       "team": null
     },
     {
-      "title": "Kappo Bike – Brand Identity Redesign",
+      "title": "Kappo Bik — Brand Identity Redesign",
       "description": [
         "Led, designed, and implemented a complete brand identity redesign for Kappo Bike, a now-defunct app for logging your bicycle trips around the city.",
         "Based in Santiago de Chile, Kappo Bike aimed to become a global facilitator of tools for smart city development around sustainable mobility, with tools such as \"PedalHeat\", Kappo's government-oriented solution for mapping out bike lane usage, \"Cool Place to Bike\", Kappo's B2B solution for encouraging bicycle usage within companies, and many more.",
@@ -670,6 +670,142 @@ export default function handler(req, res) {
           }
         ]
       }
-    }
+    },
+    {
+      "title": "Guemil — Icons for Emergency",
+      "description": [
+        "Designed and implemented multiple internal tools and APIs to automate icon testing and visualization for \"Guemil, Icons for Emergency\".",
+        "Guemil is an initiative of open-source icons with a focus on making the discussion about disaster risk and emergency more accessible and inclusive."
+      ],
+      "period": "2018",
+      "src": "guemil",
+      "social_thumbnail": "social-thumbnail.png",
+      "thumbnails": [
+        "guemil-uploader.png"
+      ],
+      "cta": [
+        {
+          "title": "About Guemil",
+          "url": "https://guemil.info"
+        }
+      ],
+      "team": {
+        "Project Owner": [
+          {
+            "name": "Rodrigo Ramírez"
+          }
+        ],
+        "Engineering": [
+          {
+            "name": "Felipe Cortez"
+          },
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "Graphic Design": [
+          {
+            "name": "Rodrigo Ramírez"
+          },
+          {
+            "name": "Valentina Morales"
+          },
+          {
+            "name": "Sofía Pizarro"
+          },
+          {
+            "name": "Felipe Vilches"
+          },
+          {
+            "name": "Laura Sandoval"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Chilean Ministry of Health & LIPUC",
+      "description": [
+        "Designed a cohesive printable system to help reduce waiting time perception by giving citizens access to simplified information about their status within the waitlist bureaucracy of public hospitals in Chile.",
+        "Commissioned by the Chilean Ministry of Health."
+      ],
+      "period": "2019",
+      "src": "chilean-ministry-of-health",
+      "social_thumbnail": "social-thumbnail.png",
+      "thumbnails": [
+        "ministerio-de-salud-lip-variant.png",
+        "ministerio-de-salud-lip.png"
+      ],
+      "cta": null,
+      "team": {
+        "Graphic Design": [
+          {
+            "name": "Jose Allard"
+          },
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "Project Management": [
+          {
+            "name": "Cristobal Tello"
+          }
+        ],
+        "PUC's Public Innovation Lab Design Research": [
+          {
+            "name": "Sara Riveros"
+          },
+          {
+            "name": "Javiera Parra"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Y4PT 2nd Transport Hackathon Chile 2017",
+      "description": [
+        "Branding and graphic design for Y4PT’s 2nd Chilean National Transport Hackathon.",
+        "The vector-based illustration developed for the event reassembled key landmarks of both Santiago and Concepción —the two chilean cities in which the event took place—, contained in a 2-shaped grid to symbolize the 2nd edition."
+      ],
+      "period": "2017",
+      "src": "y4pt",
+      "social_thumbnail": "social-thumbnail.png",
+      "thumbnails": [
+        "y4pt-2nd-national-transport-hackathon-chile-2017.png",
+        "y4pt-2nd-national-transport-hackathon-chile-2017-sketch.png"
+      ],
+      "cta": [
+        {
+          "title": "About Y4PT",
+          "url": "https://www.y4pt.org"
+        }
+      ],
+      "team": {
+        "Graphic Design": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "Y4PT Volunteers": [
+          {
+            "name": "Lluís Vidal"
+          },
+          {
+            "name": "Jeannette Orozco"
+          },
+          {
+            "name": "Carolina Sánchez"
+          },
+          {
+            "name": "Rolando Álvarez"
+          },
+          {
+            "name": "Sebastián Díaz"
+          },
+          {
+            "name": "Laura Sandoval"
+          }
+        ]
+      }
+    },
   ])
 }
