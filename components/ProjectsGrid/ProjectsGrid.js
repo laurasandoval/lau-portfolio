@@ -38,9 +38,7 @@ export default function ProjectsGrid({ featured, children }) {
     };
 
     const updateUrlPage = (newPage) => {
-        const url = new URL(window.location.href);
-        url.searchParams.set("page", newPage);
-        window.history.replaceState({}, "", url.toString());
+        router.push(`?page=${newPage}`, undefined, { shallow: true });
     };
 
     const loadMoreItems = () => {
