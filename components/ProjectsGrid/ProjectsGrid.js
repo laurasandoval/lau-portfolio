@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './ProjectsGrid.scss';
 import { IconArrowDown } from '@tabler/icons-react';
+import { useRouter } from 'next/router';
 
 export default function ProjectsGrid({ featured, children }) {
     const gridRef = useRef(null);
     const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+    const [itemsToShow, setItemsToShow] = useState(0);
     const prevWidthRef = useRef(windowWidth);
+    const router = useRouter();
 
     const getComputedStyleColumnCount = () => {
         if (gridRef.current) {
@@ -18,19 +21,32 @@ export default function ProjectsGrid({ featured, children }) {
     };
 
     const getInitialItemCount = () => {
-        if (featured) return React.Children.count(children);
         const columnCount = getComputedStyleColumnCount();
-        return columnCount === 1 ? 0 : 6;
+        if (featured) {
+            return React.Children.count(children);
+        } if (columnCount === 1) {
+            return 0;
+        } else {
+            return columnCount * 1;
+        }
     };
 
-    const [itemsToShow, setItemsToShow] = useState(getInitialItemCount);
+    const getItemsToAddCount = () => {
+        const columnCount = getComputedStyleColumnCount();
+        const itemsToAdd = columnCount === 1 ? 4 : columnCount * 2;
+        return itemsToAdd
+    };
+
+    const updateUrlPage = (newPage) => {
+        const url = new URL(window.location.href);
+        url.searchParams.set("page", newPage);
+        window.history.replaceState({}, "", url.toString());
+    };
 
     const loadMoreItems = () => {
-        const columnCount = getComputedStyleColumnCount();
-        if (!featured) {
-            const itemsToAdd = columnCount === 1 ? 4 : columnCount * 2;
-            setItemsToShow((prevItemsToShow) => prevItemsToShow + itemsToAdd);
-        }
+        setItemsToShow((prevItemsToShow) => prevItemsToShow + getItemsToAddCount());
+        const newPage = parseInt(router.query.page || 1) + 1;
+        updateUrlPage(newPage);
     };
 
     useEffect(() => {
@@ -51,16 +67,15 @@ export default function ProjectsGrid({ featured, children }) {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
+    // Sets the initial number of items to render
     useEffect(() => {
-        const columnCount = getComputedStyleColumnCount();
-        if (featured) {
-            setItemsToShow(React.Children.count(children));
-        } else if (columnCount === 1) {
-            setItemsToShow(0);
+        if (router.query.page >= 2) {
+            let itemsToShow = getInitialItemCount() + (getItemsToAddCount() * (router.query.page - 1));
+            setItemsToShow(itemsToShow);
         } else {
-            setItemsToShow(columnCount * 1);
+            setItemsToShow(getInitialItemCount());
         }
-    }, [featured, windowWidth]);
+    }, [featured, windowWidth, router.query.page]);
 
     const displayedChildren = React.Children.toArray(children).slice(0, itemsToShow);
 
