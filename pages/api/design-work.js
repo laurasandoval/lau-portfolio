@@ -587,6 +587,44 @@ export default function handler(req, res) {
       }
     },
     {
+      "title": "Chilean Ministry of Health & LIPUC",
+      "description": [
+        "Designed a cohesive printable system to help reduce waiting time perception by giving citizens access to simplified information about their status within the waitlist bureaucracy of public hospitals in Chile.",
+        "Commissioned by the Chilean Ministry of Health."
+      ],
+      "period": "2019",
+      "src": "chilean-ministry-of-health",
+      "social_thumbnail": "social-thumbnail.png",
+      "thumbnails": [
+        "chilean-ministry-of-health-1.png",
+        "chilean-ministry-of-health-2.png",
+      ],
+      "cta": null,
+      "team": {
+        "Graphic Design": [
+          {
+            "name": "Jose Allard"
+          },
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "Project Management": [
+          {
+            "name": "Cristobal Tello"
+          }
+        ],
+        "PUC's Public Innovation Lab Design Research": [
+          {
+            "name": "Sara Riveros"
+          },
+          {
+            "name": "Javiera Parra"
+          }
+        ]
+      }
+    },
+    {
       "title": "Santiago Transit Map 2018",
       "description": [
         "Transit map for Santiago's Transit system.",
@@ -718,44 +756,6 @@ export default function handler(req, res) {
           },
           {
             "name": "Laura Sandoval"
-          }
-        ]
-      }
-    },
-    {
-      "title": "Chilean Ministry of Health & LIPUC",
-      "description": [
-        "Designed a cohesive printable system to help reduce waiting time perception by giving citizens access to simplified information about their status within the waitlist bureaucracy of public hospitals in Chile.",
-        "Commissioned by the Chilean Ministry of Health."
-      ],
-      "period": "2019",
-      "src": "chilean-ministry-of-health",
-      "social_thumbnail": "social-thumbnail.png",
-      "thumbnails": [
-        "ministerio-de-salud-lip-variant.png",
-        "ministerio-de-salud-lip.png"
-      ],
-      "cta": null,
-      "team": {
-        "Graphic Design": [
-          {
-            "name": "Jose Allard"
-          },
-          {
-            "name": "Laura Sandoval"
-          }
-        ],
-        "Project Management": [
-          {
-            "name": "Cristobal Tello"
-          }
-        ],
-        "PUC's Public Innovation Lab Design Research": [
-          {
-            "name": "Sara Riveros"
-          },
-          {
-            "name": "Javiera Parra"
           }
         ]
       }
