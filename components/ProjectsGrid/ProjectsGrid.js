@@ -5,6 +5,7 @@ import { IconArrowDown } from '@tabler/icons-react';
 export default function ProjectsGrid({ featured, children }) {
     const gridRef = useRef(null);
     const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+    const prevWidthRef = useRef(windowWidth);
 
     const getComputedStyleColumnCount = () => {
         if (gridRef.current) {
@@ -16,7 +17,6 @@ export default function ProjectsGrid({ featured, children }) {
         return 0;
     };
 
-    // Determine initial item count based on the column count
     const getInitialItemCount = () => {
         if (featured) return React.Children.count(children);
         const columnCount = getComputedStyleColumnCount();
@@ -34,35 +34,32 @@ export default function ProjectsGrid({ featured, children }) {
     };
 
     useEffect(() => {
-        // Ensure window is defined before using it
         if (typeof window === 'undefined') {
             return;
         }
 
-        const updateItemsToShow = () => {
-            const columnCount = getComputedStyleColumnCount();
-            if (featured) {
-                setItemsToShow(React.Children.count(children));
-            } else if (columnCount === 1) {
-                setItemsToShow(0);
-            } else {
-                setItemsToShow(columnCount * 1);
-            }
-        };
-
-        updateItemsToShow();
-
         const handleResize = () => {
             const newWidth = window.innerWidth;
-            if (newWidth !== windowWidth) {
+            if (newWidth !== prevWidthRef.current) {
+                prevWidthRef.current = newWidth; // Update the previous width
                 setWindowWidth(newWidth);
-                updateItemsToShow();
             }
         };
 
         window.addEventListener('resize', handleResize);
 
         return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    useEffect(() => {
+        const columnCount = getComputedStyleColumnCount();
+        if (featured) {
+            setItemsToShow(React.Children.count(children));
+        } else if (columnCount === 1) {
+            setItemsToShow(0);
+        } else {
+            setItemsToShow(columnCount * 1);
+        }
     }, [featured, windowWidth]);
 
     const displayedChildren = React.Children.toArray(children).slice(0, itemsToShow);
