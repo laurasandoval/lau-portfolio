@@ -27,7 +27,7 @@ export function ProjectThumbnail({
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => setIsIntersecting(entry.isIntersecting),
-            { threshold: 0.1 }
+            { threshold: 0.3 }
         );
 
         if (videoRef.current) {
