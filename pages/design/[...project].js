@@ -60,7 +60,7 @@ export default function Project({ currentProject, server }) {
         additionalMetaTags={[
           {
             name: "theme-color",
-            content: "#000000",
+            content: `${currentProject.custom_theme_color_hex ?? "#000000"}`,
           },
         ]}
       />
