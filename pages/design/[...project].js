@@ -11,12 +11,19 @@ import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 
 export default function Project({ currentProject, server }) {
   const [showGalleryBorder, setShowGalleryBorder] = useState(false)
+  const [projectInfoChildCount, setProjectInfoChildCount] = useState(0)
   const projectGallery = useRef(null)
+  const projectInfo = useRef(null);
 
   useEffect(() => {
     window.addEventListener("scroll", _throttledScrollCheck)
+
+    if (projectInfo) {
+      setProjectInfoChildCount(projectInfo.current.childNodes.length + 2);
+    }
+
     return () => document.removeEventListener("scroll", _throttledScrollCheck)
-  })
+  }, []);
 
   const _throttledScrollCheck = throttle(() => {
     if (
@@ -71,6 +78,9 @@ export default function Project({ currentProject, server }) {
           className="project_gallery"
           data-show-border={showGalleryBorder}
           ref={projectGallery}
+          style={{
+            "--project-info-child-count": projectInfoChildCount
+          }}
         >
           {currentProject?.thumbnails.map((thumbnail, index) => {
             return (
@@ -84,7 +94,10 @@ export default function Project({ currentProject, server }) {
             )
           })}
         </div>
-        <div className="project_info">
+        <div
+          className="project_info"
+          ref={projectInfo}
+        >
           <div className="header">
             <h2 className="title">
               <Balancer>
