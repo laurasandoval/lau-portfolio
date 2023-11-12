@@ -286,42 +286,23 @@ export default function handler(req, res) {
       "team": null
     },
     {
-      "title": "Responsive Müller-Brockmann",
+      "title": "Santiago Transit Map 2018",
       "description": [
-        "Responsive and accessible Josef Müller-Brockmann posters using CSS Grid and native web technologies."
+        "Transit map for Santiago's Transit system.",
+        "The map was specially designed with color-blinded individuals and newcomers to Santiago's transit system in mind, incorporing redundant and accessible iconography —that doesn't really on color alone—, while still maintaning a flexible and approachable design language.",
+        "100 physical copies of the map were printed and distributed in mid-2018.",
+        "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
       ],
-      "period": "2020",
-      "src": "responsive-muller-brockmann",
+      "period": "2018",
+      "src": "santiago-transit-map/2018",
       "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
-        "responsive-muller-brockmann-02.png",
-        "responsive-muller-brockmann-03.png",
-        "responsive-muller-brockmann-01.png",
-        "responsive-muller-brockmann-04.png"
+        "santiago-transit-map-s3-full.png",
+        "santiago-transit-map-s3.png",
+        "santiago-transit-map-s3-variant.png"
       ],
-      "custom_theme_color_hex": "#F3BA48",
-      "cta": [
-        {
-          "title": "See the code on GitHub",
-          "url": "https://github.com/laurasandoval/ResponsiveMullerBrockmann"
-        },
-        {
-          "title": "Musica Viva (1959)",
-          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1959/"
-        },
-        {
-          "title": "Musica Viva (1961)",
-          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1961/"
-        },
-        {
-          "title": "Brockmann (1967)",
-          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/brockmann-1967/"
-        },
-        {
-          "title": "Musica Viva (1970)",
-          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1970/"
-        }
-      ],
+      "custom_theme_color_hex": "#D8222B",
+      "cta": null,
       "team": null
     },
     {
@@ -445,48 +426,6 @@ export default function handler(req, res) {
       }
     },
     {
-      "title": "Cornershop for Stores Landing",
-      "description": [
-        "Website redesign for \"Cornershop for Stores\" landing page.",
-        "Cornershop was an Uber-owned grocery delivery service that offerd world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2020, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
-        "The entire website was redesigned and rewritten from the ground up, providing first-class support for assistive technologies —such as keyboard navigation and screen readers— in every step of the process."
-      ],
-      "period": "2021",
-      "src": "cornershop/cornershop-stores-landing",
-      "social_thumbnail": "social-thumbnail.png",
-      "thumbnails": [
-        "cornershop-stores-landing-redesign.webm"
-      ],
-      "custom_theme_color_hex": "#A8ADB7",
-      "cta": [
-        {
-          "title": "Visit Website",
-          "url": "https://corner.shop/stores"
-        }
-      ],
-      "team": {
-        "Design": [
-          {
-            "name": "Laura Sandoval"
-          },
-          {
-            "name": "Bárbara Molina"
-          }
-        ],
-        "Engineering": [
-          {
-            "name": "Coniele Lastra"
-          },
-          {
-            "name": "Matías Verdejo"
-          },
-          {
-            "name": "Saher Piñero"
-          }
-        ]
-      }
-    },
-    {
       "title": "Cornershop by Uber Web App",
       "description": [
         "Originally aimed at making Cornershop's web application suitable for smaller screen sizes, multiple discussions between the Product Design and Engineering teams snowballed the project into a complete redesign and development of the website.",
@@ -597,6 +536,87 @@ export default function handler(req, res) {
       }
     },
     {
+      "title": "Cornershop for Stores Landing",
+      "description": [
+        "Website redesign for \"Cornershop for Stores\" landing page.",
+        "Cornershop was an Uber-owned grocery delivery service that offerd world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2020, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
+        "The entire website was redesigned and rewritten from the ground up, providing first-class support for assistive technologies —such as keyboard navigation and screen readers— in every step of the process."
+      ],
+      "period": "2021",
+      "src": "cornershop/cornershop-stores-landing",
+      "social_thumbnail": "social-thumbnail.png",
+      "thumbnails": [
+        "cornershop-stores-landing-redesign.webm"
+      ],
+      "custom_theme_color_hex": "#A8ADB7",
+      "cta": [
+        {
+          "title": "Visit Website",
+          "url": "https://corner.shop/stores"
+        }
+      ],
+      "team": {
+        "Design": [
+          {
+            "name": "Laura Sandoval"
+          },
+          {
+            "name": "Bárbara Molina"
+          }
+        ],
+        "Engineering": [
+          {
+            "name": "Coniele Lastra"
+          },
+          {
+            "name": "Matías Verdejo"
+          },
+          {
+            "name": "Saher Piñero"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Responsive Müller-Brockmann",
+      "description": [
+        "Responsive and accessible Josef Müller-Brockmann posters using CSS Grid and native web technologies."
+      ],
+      "period": "2020",
+      "src": "responsive-muller-brockmann",
+      "social_thumbnail": "social-thumbnail.png",
+      "thumbnails": [
+        "responsive-muller-brockmann-02.png",
+        "responsive-muller-brockmann-03.png",
+        "responsive-muller-brockmann-01.png",
+        "responsive-muller-brockmann-04.png"
+      ],
+      "custom_theme_color_hex": "#F3BA48",
+      "cta": [
+        {
+          "title": "See the code on GitHub",
+          "url": "https://github.com/laurasandoval/ResponsiveMullerBrockmann"
+        },
+        {
+          "title": "Musica Viva (1959)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1959/"
+        },
+        {
+          "title": "Musica Viva (1961)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1961/"
+        },
+        {
+          "title": "Brockmann (1967)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/brockmann-1967/"
+        },
+        {
+          "title": "Musica Viva (1970)",
+          "url": "https://laurasandoval.github.io/ResponsiveMullerBrockmann/musica-viva-1970/"
+        }
+      ],
+      "team": null
+    },
+    {
       "title": "Chilean Ministry of Health & LIPUC",
       "description": [
         "Designed a cohesive printable system to help reduce waiting time perception by giving citizens access to simplified information about their status within the waitlist bureaucracy of public hospitals in Chile.",
@@ -634,26 +654,6 @@ export default function handler(req, res) {
           }
         ]
       }
-    },
-    {
-      "title": "Santiago Transit Map 2018",
-      "description": [
-        "Transit map for Santiago's Transit system.",
-        "The map was specially designed with color-blinded individuals and newcomers to Santiago's transit system in mind, incorporing redundant and accessible iconography —that doesn't really on color alone—, while still maintaning a flexible and approachable design language.",
-        "100 physical copies of the map were printed and distributed in mid-2018.",
-        "This project was not commissioned by, and it's not directly related to any of Santiago's official transit authorities."
-      ],
-      "period": "2018",
-      "src": "santiago-transit-map/2018",
-      "social_thumbnail": "social-thumbnail.png",
-      "thumbnails": [
-        "santiago-transit-map-s3-full.png",
-        "santiago-transit-map-s3.png",
-        "santiago-transit-map-s3-variant.png"
-      ],
-      "custom_theme_color_hex": "#D8222B",
-      "cta": null,
-      "team": null
     },
     {
       "title": "Kappo Bike — Brand Identity Redesign",
