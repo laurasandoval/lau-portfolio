@@ -57,6 +57,12 @@ export default function Home({ designWorkData, server }) {
             href: `${server}/logo192.png`
           }
         ]}
+        additionalMetaTags={[
+          {
+            name: "theme-color",
+            content: "#000000",
+          },
+        ]}
       />
 
       <GlobalHeader sticky />

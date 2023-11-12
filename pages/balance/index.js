@@ -32,6 +32,12 @@ export default function Balance() {
                         href: "/logo192.png"
                     }
                 ]}
+                additionalMetaTags={[
+                    {
+                        name: "theme-color",
+                        content: "#000000",
+                    },
+                ]}
             />
         </>
     )

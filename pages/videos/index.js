@@ -36,6 +36,12 @@ export default function Photography({ videoWorkData, server }) {
                         href: `${server}/logo192.png`
                     }
                 ]}
+                additionalMetaTags={[
+                    {
+                        name: "theme-color",
+                        content: "#000000",
+                    },
+                ]}
             />
 
             <SnappingFeed>

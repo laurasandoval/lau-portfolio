@@ -57,6 +57,12 @@ export default function Project({ currentProject, server }) {
             href: `${server}/logo192.png`
           }
         ]}
+        additionalMetaTags={[
+          {
+            name: "theme-color",
+            content: "#000000",
+          },
+        ]}
       />
 
       <GlobalHeader />
