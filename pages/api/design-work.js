@@ -16,6 +16,7 @@ export default function handler(req, res) {
         "cornershop-storefront.png",
         "projects-grid-infinite-carousel.webm"
       ],
+      "custom_theme_color_hex": "#FF404C",
       "cta": [
         {
           "title": "About Cornershop by Uber",
@@ -99,6 +100,7 @@ export default function handler(req, res) {
         "uber-connect-home-page.webm",
         "uber-connect-home-page-detail.png"
       ],
+      "custom_theme_color_hex": "#000000",
       "cta": [
         {
           "title": "About Uber Connect",
@@ -187,6 +189,7 @@ export default function handler(req, res) {
         "balance-saved-cards.png",
         "balance-card-artworks.png"
       ],
+      "custom_theme_color_hex": "#F2F2F7",
       "cta": [
         {
           "title": "Download on the App Store",
@@ -233,6 +236,7 @@ export default function handler(req, res) {
         "lintuaf-goals-view.png",
         "lintuaf-rename-goal-view.png"
       ],
+      "custom_theme_color_hex": "#73A7EF",
       "cta": [
         {
           "title": "Open Tweet",
@@ -277,6 +281,7 @@ export default function handler(req, res) {
         "santiago-transit-map-2019-tvn-cut.webm",
         "santiago-transit-map-s4.png"
       ],
+      "custom_theme_color_hex": "#000000",
       "cta": null,
       "team": null
     },
@@ -294,6 +299,7 @@ export default function handler(req, res) {
         "responsive-muller-brockmann-01.png",
         "responsive-muller-brockmann-04.png"
       ],
+      "custom_theme_color_hex": "#F3BA48",
       "cta": [
         {
           "title": "See the code on GitHub",
@@ -332,6 +338,7 @@ export default function handler(req, res) {
         "uber-grocery-department.png",
         "uber-grocery-product.png"
       ],
+      "custom_theme_color_hex": "#000000",
       "cta": [
         {
           "title": "Press Release",
@@ -450,6 +457,7 @@ export default function handler(req, res) {
       "thumbnails": [
         "cornershop-stores-landing-redesign.webm"
       ],
+      "custom_theme_color_hex": "#A8ADB7",
       "cta": [
         {
           "title": "Visit Website",
@@ -495,6 +503,7 @@ export default function handler(req, res) {
         "cornershop-web-app-iphone-11-fruits-and-vegetables.png",
         "cornershop-web-app-iphone-11-and-iphone-se-2.png"
       ],
+      "custom_theme_color_hex": "#FF404C",
       "cta": [
         {
           "title": "Open Cornershop by Uber",
@@ -548,6 +557,7 @@ export default function handler(req, res) {
       "thumbnails": [
         "cornershop-raf-links.webm"
       ],
+      "custom_theme_color_hex": "#A8ABDF",
       "cta": [
         {
           "title": "Visit Website",
@@ -599,6 +609,7 @@ export default function handler(req, res) {
         "chilean-ministry-of-health-1.png",
         "chilean-ministry-of-health-2.png",
       ],
+      "custom_theme_color_hex": "#FFCC00",
       "cta": null,
       "team": {
         "Graphic Design": [
@@ -636,10 +647,11 @@ export default function handler(req, res) {
       "src": "santiago-transit-map/2018",
       "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
-        "santiago-transit-map-s3.png",
         "santiago-transit-map-s3-full.png",
+        "santiago-transit-map-s3.png",
         "santiago-transit-map-s3-variant.png"
       ],
+      "custom_theme_color_hex": "#D8222B",
       "cta": null,
       "team": null
     },
@@ -659,6 +671,7 @@ export default function handler(req, res) {
         "kappo-brand-posters-1.png",
         "kappo-brand-pillars-simplified.png"
       ],
+      "custom_theme_color_hex": "#0047BB",
       "cta": null,
       "team": {
         "Graphic Design": [
@@ -687,6 +700,7 @@ export default function handler(req, res) {
       "thumbnails": [
         "web-cool-place-to-bike.webm"
       ],
+      "custom_theme_color_hex": "#EA5728",
       "cta": null,
       "team": {
         "Web Design": [
@@ -721,6 +735,7 @@ export default function handler(req, res) {
       "thumbnails": [
         "guemil-uploader.png"
       ],
+      "custom_theme_color_hex": "#C2AEE1",
       "cta": [
         {
           "title": "About Guemil",
@@ -773,6 +788,7 @@ export default function handler(req, res) {
         "y4pt-2nd-national-transport-hackathon-chile-2017.png",
         "y4pt-2nd-national-transport-hackathon-chile-2017-sketch.png"
       ],
+      "custom_theme_color_hex": "#2960DB",
       "cta": [
         {
           "title": "About Y4PT",
