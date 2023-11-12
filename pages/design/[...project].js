@@ -8,18 +8,25 @@ import { NextSeo } from 'next-seo'
 import Button from '@/components/Button/Button'
 import { Balancer } from 'react-wrap-balancer'
 import ImageCarousel from '@/components/ImageCarousel/ImageCarousel'
+import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 
 export default function Project({ currentProject, server }) {
   const [showGalleryBorder, setShowGalleryBorder] = useState(false)
-  const projectGallery = useRef(null)
   const [showImageCarousel, setShowImageCarousel] = useState(false);
+  const [projectInfoChildCount, setProjectInfoChildCount] = useState(0)
   const [selectedThumbnailIndex, setSelectedThumbnailIndex] = useState(0);
-
+  const projectGallery = useRef(null)
+  const projectInfo = useRef(null);
 
   useEffect(() => {
     window.addEventListener("scroll", _throttledScrollCheck)
+
+    if (projectInfo) {
+      setProjectInfoChildCount(projectInfo.current.childNodes.length + 2);
+    }
+
     return () => document.removeEventListener("scroll", _throttledScrollCheck)
-  })
+  }, []);
 
   const _throttledScrollCheck = throttle(() => {
     if (
@@ -60,6 +67,12 @@ export default function Project({ currentProject, server }) {
             href: `${server}/logo192.png`
           }
         ]}
+        additionalMetaTags={[
+          {
+            name: "theme-color",
+            content: `${currentProject.custom_theme_color_hex ?? "#000000"}`,
+          },
+        ]}
       />
 
       <GlobalHeader />
@@ -68,6 +81,9 @@ export default function Project({ currentProject, server }) {
           className="project_gallery"
           data-show-border={showGalleryBorder}
           ref={projectGallery}
+          style={{
+            "--project-info-child-count": projectInfoChildCount
+          }}
         >
           {currentProject?.thumbnails.map((thumbnail, index) => {
             const handleClick = () => {
@@ -82,7 +98,6 @@ export default function Project({ currentProject, server }) {
                   img_only
                   thumbnail={thumbnail}
                   key={index}
-                  autoplay
                   priority={index == 0}
                 />
                 <button onClick={handleClick}>Enlarge</button>
@@ -90,7 +105,10 @@ export default function Project({ currentProject, server }) {
             );
           })}
         </div>
-        <div className="project_info">
+        <div
+          className="project_info"
+          ref={projectInfo}
+        >
           <div className="header">
             <h2 className="title">
               <Balancer>
@@ -182,6 +200,8 @@ export default function Project({ currentProject, server }) {
           )
         }
       </article>
+
+      <GlobalFooter />
     </>
   )
 }

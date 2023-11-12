@@ -1,8 +1,9 @@
 import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
-import Grid from '@/components/Grid/Grid'
+import ProjectsGrid from '@/components/ProjectsGrid/ProjectsGrid'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 import { NextSeo } from 'next-seo'
+import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 
 export default function Home({ designWorkData, server }) {
 
@@ -12,7 +13,6 @@ export default function Home({ designWorkData, server }) {
         {...project}
         as="article"
         hover
-        autoplay
         key={index}
         portrait={featured}
         fadeIn
@@ -21,7 +21,7 @@ export default function Home({ designWorkData, server }) {
     )
   }
 
-  const maxFeaturedCount = 6
+  const maxFeaturedCount = 4
 
   const featuredProjects = designWorkData.slice(0, maxFeaturedCount)
   const remainingProjects = designWorkData.slice(maxFeaturedCount, featuredProjects.lenght)
@@ -29,11 +29,11 @@ export default function Home({ designWorkData, server }) {
   return (
     <>
       <NextSeo
-        title="Laura Sandoval — Work, Résumé"
-        description="Digital Product Designer & Engineer from Santiago, Chile. Featured clients include Uber, Cornershop, among others."
+        title="Laura Sandoval — Design, Photography, About"
+        description="Digital Product Designer & Engineer. Featured works include projects for Uber, Uber Eats, Cornershop, among others."
         openGraph={{
-          title: "Laura Sandoval — Work, Résumé",
-          description: "Digital Product Designer & Engineer from Santiago, Chile. Featured clients include Uber, Cornershop, among others.",
+          title: "Laura Sandoval — Design, Photography, About",
+          description: "Digital Product Designer & Engineer. Featured works include projects for Uber, Uber Eats, Cornershop, among others.",
           images: [
             {
               url: `${server}/social-thumbnail.png`,
@@ -57,20 +57,27 @@ export default function Home({ designWorkData, server }) {
             href: `${server}/logo192.png`
           }
         ]}
+        additionalMetaTags={[
+          {
+            name: "theme-color",
+            content: "#000000",
+          },
+        ]}
       />
 
       <GlobalHeader sticky />
       <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
-      <Grid featured>
+      <ProjectsGrid featured>
         {featuredProjects.map((project, index) => {
           return _renderThumbnail(project, index, true, (index == 0 || index == 1))
         })}
-      </Grid>
-      <Grid>
+      </ProjectsGrid>
+      <ProjectsGrid>
         {remainingProjects.map((project, index) => {
           return _renderThumbnail(project, index, false, false)
         })}
-      </Grid>
+      </ProjectsGrid>
+      <GlobalFooter statement />
     </>
   )
 }

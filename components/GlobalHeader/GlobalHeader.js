@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './GlobalHeader.scss'
 import { useRouter } from 'next/router'
+import GlobalFooter from '../GlobalFooter/GlobalFooter'
 
 export default function GlobalHeader({
     sticky,
@@ -123,6 +124,8 @@ export default function GlobalHeader({
                             )
                         })}
                     </ul>
+
+                    <GlobalFooter />
                 </nav>
             </div>
         </header>

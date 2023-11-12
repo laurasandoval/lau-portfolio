@@ -6,6 +6,7 @@ export default function SnappingFeedSlideVideo({
     asset,
     current,
     priority,
+    assetsContainerComputedHeight,
 }) {
     return (
         <div

@@ -33,6 +33,12 @@ export default function Photography({ photographyWorkData, server }) {
                         href: `${server}/logo192.png`
                     }
                 ]}
+                additionalMetaTags={[
+                    {
+                        name: "theme-color",
+                        content: "#000000",
+                    },
+                ]}
             />
 
             <SnappingFeed>
