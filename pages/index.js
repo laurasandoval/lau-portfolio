@@ -4,8 +4,40 @@ import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail
 import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 import { NextSeo } from 'next-seo'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
+import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 
 export default function Home({ designWorkData, server }) {
+  const router = useRouter();
+
+  // set scroll restoration to manual
+  useEffect(() => {
+    if ('scrollRestoration' in history && history.scrollRestoration !== 'manual') {
+      history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  // handle and store scroll position
+  useEffect(() => {
+    const handleRouteChange = () => {
+      sessionStorage.setItem('scrollPosition', window.scrollY.toString());
+    };
+
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeStart', handleRouteChange);
+    };
+  }, [router.events]);
+
+  // restore scroll position
+  useEffect(() => {
+    setTimeout(() => {
+      if ('scrollPosition' in sessionStorage) {
+        window.scrollTo(0, Number(sessionStorage.getItem('scrollPosition')));
+        sessionStorage.removeItem('scrollPosition');
+      }
+    }, 10)
+  }, []);
 
   const _renderThumbnail = (project, index, featured, priority) => {
     return (

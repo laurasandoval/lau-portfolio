@@ -15,9 +15,6 @@ const nextConfig = {
     })
     return config;
   },
-  experimental: {
-    scrollRestoration: true,
-  },
   devIndicators: {
     buildActivity: false
   },
