@@ -2,12 +2,9 @@
     margin: 0 auto;
     padding: 0 20px 0 20px;
     max-width: 1600px;
-    grid-gap: 20px;
     position: relative;
 
     .divider {
-        grid-column: 1 / -1;
-
         >hr {
             width: 100%;
             height: 1px;
@@ -29,15 +26,33 @@
         }
     }
 
+    @media (hover: hover) {
+        &:hover {
+            .project_info {
+
+                .project_thumbnail_container,
+                .header {
+                    transform: translateY(0px);
+                }
+            }
+        }
+    }
+
+    --additional-peek-hover-margin: 10px;
+
     .project_info {
         display: grid;
         grid-template-columns: 1fr 0.5fr;
         grid-gap: 20px;
-        margin-top: 20px;
+        margin-top: calc(20px - var(--additional-peek-hover-margin));
+        height: calc(200px + var(--additional-peek-hover-margin));
+        overflow: hidden;
 
-        .project_thumbnail_container {
-            height: 200px;
-            overflow: hidden;
+        .project_thumbnail_container,
+        .header {
+            will-change: transform;
+            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+            transform: translateY(var(--additional-peek-hover-margin));
         }
 
         .header {
