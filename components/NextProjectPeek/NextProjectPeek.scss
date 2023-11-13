@@ -36,6 +36,10 @@
         }
     }
 
+    @media (max-width: 850px) {
+        padding: 20px 10px 0 10px;
+    }
+
     --additional-peek-hover-margin: 10px;
 
     .project_info {
