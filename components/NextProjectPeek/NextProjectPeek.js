@@ -17,7 +17,7 @@ export default function NextProjectPeek({
 
     useEffect(() => {
         const getProjectInfoHeaderHeight = throttle(() => {
-            setProjectInfoHeaderHeight(projectInfoHeaderRef.current.clientHeight);
+            setProjectInfoHeaderHeight(projectInfoHeaderRef.current?.clientHeight);
         }, 200);
 
         getProjectInfoHeaderHeight();
