@@ -43,8 +43,12 @@ export function ProjectThumbnail({
     }, [videoRef]);
 
     useEffect(() => {
-        if (videoRef != null) {
-            if (isIntersecting && !manuallyPaused && autoplay != false) {
+        if (videoRef.current != null) {
+            if (autoplay == false) {
+                videoRef.current.currentTime = 1;
+                videoRef.current.play();
+                videoRef.current.pause();
+            } else if (isIntersecting && !manuallyPaused && autoplay != false) {
                 const playPromise = videoRef.current.play();
                 if (playPromise !== undefined) {
                     playPromise.then(() => {
