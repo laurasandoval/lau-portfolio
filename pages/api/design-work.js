@@ -282,8 +282,19 @@ export default function handler(req, res) {
         "santiago-transit-map-s4.png"
       ],
       "custom_theme_color_hex": "#000000",
-      "cta": null,
-      "team": null
+      "cta": [
+        {
+          "title": "Read Article (Spanish)",
+          "url": "https://medium.com/@lausandoval/dise%C3%B1ando-un-mapa-para-el-transporte-de-santiago-14cce36ef4e5"
+        },
+      ],
+      "team": {
+        "Design": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+      }
     },
     {
       "title": "Santiago Transit Map 2018",
@@ -302,8 +313,19 @@ export default function handler(req, res) {
         "santiago-transit-map-s3-variant.png"
       ],
       "custom_theme_color_hex": "#D8222B",
-      "cta": null,
-      "team": null
+      "cta": [
+        {
+          "title": "Read Article (Spanish)",
+          "url": "https://medium.com/@lausandoval/lamentablemente-no-basta-con-ascensores-d52b81257ca1"
+        },
+      ],
+      "team": {
+        "Design": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+      }
     },
     {
       "title": "Uber Grocery with Cornershop",
