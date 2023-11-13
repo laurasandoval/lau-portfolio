@@ -25,7 +25,7 @@ export default function Project({ currentProject, nextProject, server }) {
     }
 
     return () => document.removeEventListener("scroll", _throttledScrollCheck)
-  }, []);
+  }, [currentProject]);
 
   useEffect(() => {
     projectGallery.current.scroll({
