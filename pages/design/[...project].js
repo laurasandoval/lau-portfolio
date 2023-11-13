@@ -8,8 +8,9 @@ import { NextSeo } from 'next-seo'
 import Button from '@/components/Button/Button'
 import { Balancer } from 'react-wrap-balancer'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
+import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
 
-export default function Project({ currentProject, server }) {
+export default function Project({ currentProject, nextProject, server }) {
   const [showGalleryBorder, setShowGalleryBorder] = useState(false)
   const [projectInfoChildCount, setProjectInfoChildCount] = useState(0)
   const projectGallery = useRef(null)
@@ -88,8 +89,9 @@ export default function Project({ currentProject, server }) {
                 {...currentProject}
                 img_only
                 thumbnail={thumbnail}
-                key={index}
+                key={`${currentProject.src.replace("/", "-")}-${index}`}
                 priority={index == 0}
+                placeholder={false}
               />
             )
           })}
@@ -181,6 +183,11 @@ export default function Project({ currentProject, server }) {
       </article>
 
       <GlobalFooter />
+
+      {
+        nextProject != null &&
+        <NextProjectPeek {...nextProject} />
+      }
     </>
   )
 }
@@ -194,10 +201,15 @@ export async function getServerSideProps(context) {
 
   const projectSrc = context.query.project.join('/') || []
   let currentProject
+  let nextProject = null
 
   const i = designWorkData.findIndex(e => e.src === projectSrc)
   if (i > -1) {
     currentProject = designWorkData[i]
+
+    if (designWorkData[i + 1] != null) {
+      nextProject = designWorkData[i + 1]
+    }
   } else {
     return {
       notFound: true,
@@ -205,6 +217,6 @@ export async function getServerSideProps(context) {
   }
 
   return {
-    props: { currentProject, server }
+    props: { currentProject, nextProject, server }
   }
 }

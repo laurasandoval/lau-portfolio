@@ -18,6 +18,7 @@ export function ProjectThumbnail({
     fadeIn,
     priority,
     sizes,
+    autoplay,
 }) {
     const [isIntersecting, setIsIntersecting] = useState(false);
     const videoRef = useRef(null);
@@ -43,7 +44,7 @@ export function ProjectThumbnail({
 
     useEffect(() => {
         if (videoRef != null) {
-            if (isIntersecting && !manuallyPaused) {
+            if (isIntersecting && !manuallyPaused && autoplay != false) {
                 const playPromise = videoRef.current.play();
                 if (playPromise !== undefined) {
                     playPromise.then(() => {
