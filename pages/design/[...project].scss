@@ -66,18 +66,11 @@
                 background: white;
                 scroll-snap-type: x mandatory;
 
-                &:after {
-                    content: "";
-                    flex-shrink: 0;
-                    display: block;
-                    width: 10px;
-                }
-
                 .project_thumbnail {
                     scroll-snap-align: center;
                     scroll-snap-stop: always;
                     width: 96%;
-                    margin-right: 4px;
+                    margin-right: 5px;
                     flex-shrink: 0;
 
                     &:not(:last-of-type) {
