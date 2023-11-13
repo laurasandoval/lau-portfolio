@@ -60,7 +60,7 @@ export default function Home({ designWorkData, server }) {
         additionalMetaTags={[
           {
             name: "theme-color",
-            content: "#000000",
+            content: "#FFFFFF",
           },
         ]}
       />

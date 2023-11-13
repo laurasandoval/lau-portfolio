@@ -95,6 +95,7 @@ export default function Project({ currentProject, nextProject, server }) {
               />
             )
           })}
+          <hr />
         </div>
         <div
           className="project_info"
