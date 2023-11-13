@@ -14,6 +14,7 @@ export default function Project({ currentProject, nextProject, server }) {
   const [showGalleryBorder, setShowGalleryBorder] = useState(false)
   const [projectInfoChildCount, setProjectInfoChildCount] = useState(0)
   const projectGalleryContainer = useRef(null)
+  const projectGallery = useRef(null)
   const projectInfo = useRef(null);
 
   useEffect(() => {
@@ -25,6 +26,12 @@ export default function Project({ currentProject, nextProject, server }) {
 
     return () => document.removeEventListener("scroll", _throttledScrollCheck)
   }, []);
+
+  useEffect(() => {
+    projectGallery.current.scroll({
+      left: 0
+    });
+  }, [currentProject])
 
   const _throttledScrollCheck = throttle(() => {
     if (
@@ -83,7 +90,10 @@ export default function Project({ currentProject, nextProject, server }) {
             "--project-info-child-count": projectInfoChildCount
           }}
         >
-          <div className="project_gallery">
+          <div
+            className="project_gallery"
+            ref={projectGallery}
+          >
             {currentProject?.thumbnails.map((thumbnail, index) => {
               return (
                 <ProjectThumbnail
