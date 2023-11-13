@@ -89,7 +89,7 @@ export default function Project({ currentProject, nextProject, server }) {
                 {...currentProject}
                 img_only
                 thumbnail={thumbnail}
-                key={`${currentProject.src.replace("/", "-")}-${index}`}
+                key={thumbnail}
                 priority={index == 0}
                 placeholder={false}
               />

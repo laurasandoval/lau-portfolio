@@ -23,8 +23,10 @@ export default function NextProjectPeek({
                         period={period}
                         src={src}
                         img_only={true}
-                        thumbnails={thumbnails}
+                        thumbnail={thumbnails[0]}
                         placeholder={true}
+                        autoplay={false}
+                        key={thumbnails[0]}
                     />
                 </div>
                 <div className="header">
