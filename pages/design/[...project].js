@@ -13,7 +13,7 @@ import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
 export default function Project({ currentProject, nextProject, server }) {
   const [showGalleryBorder, setShowGalleryBorder] = useState(false)
   const [projectInfoChildCount, setProjectInfoChildCount] = useState(0)
-  const projectGallery = useRef(null)
+  const projectGalleryContainer = useRef(null)
   const projectInfo = useRef(null);
 
   useEffect(() => {
@@ -28,8 +28,8 @@ export default function Project({ currentProject, nextProject, server }) {
 
   const _throttledScrollCheck = throttle(() => {
     if (
-      projectGallery.current &&
-      projectGallery.current.offsetTop <= window.scrollY
+      projectGalleryContainer.current &&
+      projectGalleryContainer.current.offsetTop <= window.scrollY
     ) {
       setShowGalleryBorder(true)
     } else {
@@ -76,25 +76,27 @@ export default function Project({ currentProject, nextProject, server }) {
       <GlobalHeader />
       <article className="project_page_fallback" data-name={currentProject?.title}>
         <div
-          className="project_gallery"
+          className="project_gallery_container"
+          ref={projectGalleryContainer}
           data-show-border={showGalleryBorder}
-          ref={projectGallery}
           style={{
             "--project-info-child-count": projectInfoChildCount
           }}
         >
-          {currentProject?.thumbnails.map((thumbnail, index) => {
-            return (
-              <ProjectThumbnail
-                {...currentProject}
-                img_only
-                thumbnail={thumbnail}
-                key={thumbnail}
-                priority={index == 0}
-                placeholder={false}
-              />
-            )
-          })}
+          <div className="project_gallery">
+            {currentProject?.thumbnails.map((thumbnail, index) => {
+              return (
+                <ProjectThumbnail
+                  {...currentProject}
+                  img_only
+                  thumbnail={thumbnail}
+                  key={thumbnail}
+                  priority={index == 0}
+                  placeholder={false}
+                />
+              )
+            })}
+          </div>
           <hr />
         </div>
         <div

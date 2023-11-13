@@ -12,16 +12,8 @@
         grid-template-rows: repeat(2, auto);
     }
 
-    .project_gallery {
-        display: flex;
-        flex-flow: column;
+    .project_gallery_container {
         grid-row: 1 / var(--project-info-child-count);
-
-        .project_thumbnail {
-            &:not(:last-of-type) {
-                margin-bottom: 20px;
-            }
-        }
 
         hr {
             display: none;
@@ -43,51 +35,67 @@
         }
 
         @media (max-width: 850px) {
+            grid-row: 1;
+            position: sticky;
+            top: 0;
+            margin: -10px;
+            padding: 10px;
+
             &[data-show-border="true"] {
                 hr {
                     opacity: 1;
                 }
             }
+        }
 
-            position: sticky;
-            top: 0;
-            flex-flow: row;
-            overflow: auto;
-            margin: -10px;
-            padding: 10px;
-            background: white;
-            scroll-snap-type: x mandatory;
-            grid-row: 1;
-
-            &:after {
-                content: "";
-                flex-shrink: 0;
-                display: block;
-                width: 10px;
-            }
+        .project_gallery {
+            display: flex;
+            flex-flow: column;
 
             .project_thumbnail {
-                scroll-snap-align: center;
-                scroll-snap-stop: always;
-                width: 96%;
-                margin-right: 4px;
-                flex-shrink: 0;
-
                 &:not(:last-of-type) {
-                    margin-bottom: 0;
-                }
-
-                &:last-of-type {
-                    margin-right: 0;
-                }
-
-                &:only-of-type {
-                    width: 100%;
+                    margin-bottom: 20px;
                 }
             }
 
-            &::-webkit-scrollbar {
-                display: none;
+            @media (max-width: 850px) {
+                flex-flow: row;
+                overflow: auto;
+                margin: -10px;
+                padding: 10px;
+                background: white;
+                scroll-snap-type: x mandatory;
+
+                &:after {
+                    content: "";
+                    flex-shrink: 0;
+                    display: block;
+                    width: 10px;
+                }
+
+                .project_thumbnail {
+                    scroll-snap-align: center;
+                    scroll-snap-stop: always;
+                    width: 96%;
+                    margin-right: 4px;
+                    flex-shrink: 0;
+
+                    &:not(:last-of-type) {
+                        margin-bottom: 0;
+                    }
+
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+
+                    &:only-of-type {
+                        width: 100%;
+                    }
+                }
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
             }
         }
     }
