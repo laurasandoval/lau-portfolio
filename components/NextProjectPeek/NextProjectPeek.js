@@ -37,10 +37,7 @@ export default function NextProjectPeek({
                 "--project-info-header-computed-height": `${projectInfoHeaderHeight}px`
             }}
         >
-            <div className="divider">
-                <hr />
-                <h3 className="title">Next project</h3>
-            </div>
+            <hr />
             <div className="project_info">
                 <div className="project_thumbnail_container">
                     <ProjectThumbnail
