@@ -193,12 +193,8 @@ export default function handler(req, res) {
       "cta": [
         {
           "title": "Download on the App Store",
-          "url": "https://apps.apple.com/app/balance-for-your-bip-card/id1532939978"
+          "url": "https://apps.apple.com/cl/app/balance-for-your-bip-card/id1532939978"
         },
-        {
-          "title": "Visit Website",
-          "url": "https://balanceapp.cl"
-        }
       ],
       "team": {
         "Design": [
