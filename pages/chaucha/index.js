@@ -46,7 +46,7 @@ export default function Chaucha() {
 export async function getServerSideProps() {
     return {
         redirect: {
-            destination: "https://apps.apple.com/cl/app/balance-for-your-bip-card/id1532939978",
+            destination: "https://apps.apple.com/cl/app/chaucha-transfiere-m%C3%A1s-r%C3%A1pido/id6477750470",
             permanent: true,
         },
     }
