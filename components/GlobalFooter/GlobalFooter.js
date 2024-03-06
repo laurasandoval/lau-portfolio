@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import './GlobalFooter.scss'
-import { Balancer } from 'react-wrap-balancer';
+import BigParagraph from '../BigParagraph/BigParagraph';
 
 export default function GlobalFooter({
     statement,
@@ -14,11 +14,9 @@ export default function GlobalFooter({
         >
             {
                 statement &&
-                <p className="portfolio_statement">
-                    <Balancer>
-                        This portfolio website was custom-made in <a href="https://goo.gl/maps/9YY1jQzkETsz5cJ7A" target="_blank">Santiago de Chile</a>. Available on <a href="https://github.com/laurasandoval/lau-portfolio" target="_blank">GitHub</a>.
-                    </Balancer>
-                </p>
+                <BigParagraph
+                    statement={`This portfolio website was custom-made in [Santiago de Chile](https://goo.gl/maps/9YY1jQzkETsz5cJ7A). Available on [GitHub](https://github.com/laurasandoval/lau-portfolio).`}
+                />
             }
             <div className="boring_stuff">
                 <div className="copyright_thingy">

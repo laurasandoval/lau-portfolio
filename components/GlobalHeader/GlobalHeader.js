@@ -53,10 +53,6 @@ export default function GlobalHeader({
             href: "/videos"
         },
         {
-            title: "About",
-            href: "/about"
-        },
-        {
             title: "Résumé",
             href: "/resume"
         },

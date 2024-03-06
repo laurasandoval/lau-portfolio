@@ -6,6 +6,7 @@ import { NextSeo } from 'next-seo'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import BigParagraph from '@/components/BigParagraph/BigParagraph'
 
 export default function Home({ designWorkData, server }) {
   const router = useRouter();
@@ -58,6 +59,11 @@ export default function Home({ designWorkData, server }) {
   const featuredProjects = designWorkData.slice(0, maxFeaturedCount)
   const remainingProjects = designWorkData.slice(maxFeaturedCount, featuredProjects.lenght)
 
+  const markdown = `I'm a multi-disciplinary, curiosity _~~and fun~~_ driven designer and engineer, currently working as a [Product Designer at Uber](https://linkedin.com/in/laurasideral) and creating [Balance](https://balanceapp.cl) and [Chaucha](https://lau.work/chaucha), my two independent apps. 
+  
+  In past lives, I've also led all consumer-facing products at [Cornershop (acq. by Uber)](https://latamlist.com/uber-acquires-cornershop-at-3b-valuation/) and worked with a wide variety of clients on [Design](/), [Photography](/photography), and [Filmmaking](/videos) work.
+  `
+
   return (
     <>
       <NextSeo
@@ -98,6 +104,9 @@ export default function Home({ designWorkData, server }) {
       />
 
       <GlobalHeader sticky />
+      <BigParagraph
+        statement={markdown}
+      />
       <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
       <ProjectsGrid featured>
         {featuredProjects.map((project, index) => {
