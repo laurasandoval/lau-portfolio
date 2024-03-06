@@ -44,6 +44,21 @@ export default function Project({ currentProject, nextProject, server }) {
     }
   }, 250)
 
+  const getColorLuminance = (color) => {
+    const hex = color.replace("#", "");
+    const r = parseInt(hex.substring(0, 2), 16) / 255;
+    const g = parseInt(hex.substring(2, 4), 16) / 255;
+    const b = parseInt(hex.substring(4, 6), 16) / 255;
+
+    const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+
+    return luminance;
+  }
+
+  const projectThemeColor = currentProject.custom_theme_color_hex ?? "#000000";
+  const luminance = getColorLuminance(projectThemeColor);
+  const textColor = luminance > 0.5 ? "#000000" : "#FFFFFF";
+
   return (
     <>
       <NextSeo
@@ -75,13 +90,26 @@ export default function Project({ currentProject, nextProject, server }) {
         additionalMetaTags={[
           {
             name: "theme-color",
-            content: `${currentProject.custom_theme_color_hex ?? "#000000"}`,
+            content: projectThemeColor,
           },
         ]}
       />
 
       <GlobalHeader />
-      <article className="project_page_fallback" data-name={currentProject?.title}>
+
+      <style>
+        {`
+          ::selection {
+              background: ${projectThemeColor}!important;
+              color: ${textColor}!important;
+          }
+        `}
+      </style>
+
+      <article
+        className="project_page_fallback"
+        data-name={currentProject?.title}
+      >
         <div
           className="project_gallery_container"
           ref={projectGalleryContainer}

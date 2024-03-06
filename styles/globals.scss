@@ -38,4 +38,9 @@ html {
       box-shadow: none;
     }
   }
+
+  ::selection {
+    background: #c72836;
+    color: #fff
+  }
 }
