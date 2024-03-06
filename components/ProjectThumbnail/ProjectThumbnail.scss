@@ -1,7 +1,7 @@
 @mixin projectThumbnailFadeInDelays {
     @for $i from 1 through 20 {
         &:nth-child(#{$i}) {
-            animation-delay: #{$i * 0.1}s;
+            animation-delay: #{0.4 + ($i * 0.1)}s;
         }
     }
 }
@@ -14,7 +14,7 @@
     will-change: transform;
 
     &[data-fade-in="true"] {
-        animation: fadeIn 0.4s cubic-bezier(0.28, 0.11, 0.32, 1);
+        animation: fadeIn 1s cubic-bezier(0.28, 0.11, 0.32, 1);
         animation-fill-mode: backwards;
         @include projectThumbnailFadeInDelays;
     }

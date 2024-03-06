@@ -57,6 +57,9 @@
         transition: color 0.4s cubic-bezier(0.2, 0.9, 0.42, 1), opacity 0.3s ease;
         color: rgba(136, 139, 144, 1);
         cursor: pointer;
+        animation: dissolveIn 1s cubic-bezier(0.28, 0.11, 0.32, 1);
+        animation-fill-mode: backwards;
+        animation-delay: 1s;
 
         svg {
             display: block;
@@ -96,5 +99,15 @@
 
     100% {
         transform: translate3d(0, -20%, 0)
+    }
+}
+
+@keyframes dissolveIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

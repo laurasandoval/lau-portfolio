@@ -1,3 +1,11 @@
+@mixin paragraphAnimationDelays {
+    @for $i from 1 through 20 {
+        &:nth-child(#{$i}) {
+            animation-delay: #{($i * 0.1)}s;
+        }
+    }
+}
+
 .big_statement {
     font-size: 16px;
     font-weight: 400;
@@ -10,6 +18,10 @@
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
+
+    @media (max-width: 850px) {
+        padding: 120px 20px;
+    }
 
     a {
         transition: color 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
@@ -24,9 +36,24 @@
 
     p {
         margin: 0;
+        animation: fadeIn 1s cubic-bezier(0.28, 0.11, 0.32, 1);
+        animation-fill-mode: backwards;
+        @include paragraphAnimationDelays;
 
         &:not(:first-of-type) {
             margin-top: 2em;
         }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
     }
 }

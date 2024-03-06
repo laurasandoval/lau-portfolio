@@ -8,6 +8,9 @@
     line-height: 1.4;
     color: rgba(136, 139, 144, 1);
     text-align: center;
+    animation: dissolveIn 1s cubic-bezier(0.28, 0.11, 0.32, 1);
+    animation-fill-mode: backwards;
+    animation-delay: 1s;
 
     @media (max-width: 850px) {
         padding: 0 20px 20px;
@@ -86,5 +89,15 @@
                 }
             }
         }
+    }
+}
+
+@keyframes dissolveIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
