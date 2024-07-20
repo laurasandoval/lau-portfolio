@@ -104,9 +104,9 @@ export default function Home({ designWorkData, server }) {
       />
 
       <GlobalHeader sticky />
-      <BigParagraph
+      {/* <BigParagraph
         statement={markdown}
-      />
+      /> */}
       <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
       <ProjectsGrid featured>
         {featuredProjects.map((project, index) => {

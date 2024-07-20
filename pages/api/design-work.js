@@ -87,6 +87,49 @@ export default function handler(req, res) {
       }
     },
     {
+      "title": "Balance — Your transit cards in one place",
+      "description": [
+        "Balance is Chile’s top-rated app for managing transit cards — that I design and develop during my free time.",
+        "With its unique functionalities, native iOS look & feel, and deep attention to accessibility and details, Balance has consistently remained within the most downloaded navigation apps in Chile ever since its launch in 2019 —reaching up to the #1 most downloaded Chilean navigation app in 2021 and 2023, right above Google Maps, Moovit, and Waze— and it’s by far the most positively reviewed one among its local alternatives.",
+        "This project was not commissioned by, and it's not directly related to any of Chile's official transit authorities."
+      ],
+      "period": "Since 2019",
+      "src": "balance/app",
+      "social_thumbnail": "social-thumbnail.png",
+      "thumbnails": [
+        "balance-bip-full.webm",
+        "balance-saved-cards.png",
+        "balance-card-artworks.png"
+      ],
+      "custom_theme_color_hex": "#F2F2F7",
+      "cta": [
+        {
+          "title": "Download on the App Store",
+          "url": "https://apps.apple.com/cl/app/balance-for-your-bip-card/id1532939978"
+        },
+      ],
+      "team": {
+        "Design": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "iOS Engineering": [
+          {
+            "name": "Laura Sandoval"
+          }
+        ],
+        "Backend Engineering": [
+          {
+            "name": "Eduardo Riveros"
+          },
+          {
+            "name": "Laura Sandoval"
+          }
+        ]
+      }
+    },
+    {
       "title": "Uber Connect Home Page",
       "description": [
         "Uber Connect —also known as \"Uber Flash\"— is Uber’s customer-facing “Delivery as a Service” product. It allows people to send items the same day, whether it’s a care item for a loved one, a gift for a friend’s birthday, an item sold online, or a business document.",
@@ -175,25 +218,21 @@ export default function handler(req, res) {
       }
     },
     {
-      "title": "Balance — Your transit cards in one place",
+      "title": "Chaucha — Transfiere más rápido",
       "description": [
-        "Balance is Chile’s top-rated app for managing transit cards — that I design and develop during my free time.",
-        "With its unique functionalities, native iOS look & feel, and deep attention to accessibility and details, Balance has consistently remained within the most downloaded navigation apps in Chile ever since its launch in 2019 —reaching up to the #1 most downloaded Chilean navigation app in 2021 and 2023, right above Google Maps, Moovit, and Waze— and it’s by far the most positively reviewed one among its local alternatives.",
-        "This project was not commissioned by, and it's not directly related to any of Chile's official transit authorities."
+        "Chaucha is a Chilean app to transcribe incorrectly formatted wire transfer details —both from text & images— into clean, banking-app-friendly information. Chaucha was the #1 most downloaded paid Chilean app during its launch."
       ],
-      "period": "Since 2019",
-      "src": "balance/app",
+      "period": "Since 2024",
+      "src": "chaucha",
       "social_thumbnail": "social-thumbnail.png",
       "thumbnails": [
-        "balance-bip-full.webm",
-        "balance-saved-cards.png",
-        "balance-card-artworks.png"
+        "chaucha-cover.png"
       ],
-      "custom_theme_color_hex": "#F2F2F7",
+      "custom_theme_color_hex": "#BC7C47",
       "cta": [
         {
           "title": "Download on the App Store",
-          "url": "https://apps.apple.com/cl/app/balance-for-your-bip-card/id1532939978"
+          "url": "https://apps.apple.com/cl/app/chaucha-transfiere-más-rápido/id6477750470"
         },
       ],
       "team": {
@@ -207,12 +246,12 @@ export default function handler(req, res) {
             "name": "Laura Sandoval"
           }
         ],
-        "Backend Engineering": [
+        "Special thanks to": [
           {
-            "name": "Eduardo Riveros"
+            "name": "Daniel López Rivas"
           },
           {
-            "name": "Laura Sandoval"
+            "name": "René Morales"
           }
         ]
       }
