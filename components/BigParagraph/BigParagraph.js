@@ -17,10 +17,10 @@ export default function BigParagraph({
     if (!mounted) return <></>;
 
     return (
-        <p className="big_statement" data-centered={centered}>
+        <div className="big_statement" data-centered={centered}>
             <Balancer>
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{statement}</ReactMarkdown>
             </Balancer>
-        </p>
+        </div>
     )
 }
