@@ -5,7 +5,7 @@ export default function handler(req, res) {
       "description": [
         "From 2020 to 2023, led the design division of Cornershop by Uber's customer-facing products.",
         "This included hiring, managing and mentoring a team of Product Designers and Design Managers, overseeing the design of over 100 projects, and working closely with Engineering and Product teams to deliver new features and continuously improve Cornershop by Uber’s customer-facing products.",
-        "Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2020, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide."
+        "Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2021, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide."
       ],
       "period": "2020 — 2023",
       "src": "cornershop/head-of-customers-product-design",
@@ -367,7 +367,7 @@ export default function handler(req, res) {
       "description": [
         "In 5 months, designed, developed, and shipped a grocery delivery service for Uber Eats from scratch.",
         "By leveraging existing products and expertise from Cornershop, Uber Grocery has helped Uber Eats add more than 24,000 grocery stores around the world into its catalog —including Albertsons, Carrefour, Costco and Woolworths—, and has allowed Uber Eats customers to order at least 100,000 bunches of bananas each month.",
-        "Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2020, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
+        "Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2021, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
       ],
       "period": "2020",
       "src": "uber/uber-grocery-with-cornershop",
@@ -489,7 +489,7 @@ export default function handler(req, res) {
         "Originally aimed at making Cornershop's web application suitable for smaller screen sizes, multiple discussions between the Product Design and Engineering teams snowballed the project into a complete redesign and development of the website.",
         "While preserving its underlying Javascript foundations, the entire markup and CSS of the web app were reimagined and rebuilt from the ground up, taking advantage of modern CSS properties to achieve native-feeling interactions, visually polished elements, and a brand new, mobile-first component library—all while taking the opportunity to significantly improve accessibility for both screen readers and keyboard users throughout every point of the experience.",
         "Most Javascript-powered UI libraries were deprecated from the codebase afterwards, helping consolidate a mature, propietary, and flexible design and development environment.",
-        "Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2020, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
+        "Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2021, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
       ],
       "period": "2020",
       "src": "cornershop/cornershop-web-app",
@@ -547,7 +547,7 @@ export default function handler(req, res) {
       "description": [
         "Website redesign for Cornershop's referral landing page.",
         "All visual elements of the website were redesigned and rewritten from scratch using modern and native web standards to allow for better accessibility, lightning-fast load times, and enormous flexibility.",
-        "Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2020, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
+        "Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2021, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
       ],
       "period": "2020",
       "src": "cornershop/cornershop-referral-landing",
@@ -595,7 +595,7 @@ export default function handler(req, res) {
       "description": [
         "Website redesign for \"Cornershop for Stores\" landing page.",
         "The entire website was redesigned and rewritten from the ground up, providing first-class support for assistive technologies —such as keyboard navigation and screen readers— in every step of the process.",
-        "Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2020, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
+        "Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2021, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.",
       ],
       "period": "2021",
       "src": "cornershop/cornershop-stores-landing",
