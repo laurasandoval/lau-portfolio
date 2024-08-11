@@ -59,9 +59,13 @@ export default function Home({ designWorkData, server }) {
   const featuredProjects = designWorkData.slice(0, maxFeaturedCount)
   const remainingProjects = designWorkData.slice(maxFeaturedCount, featuredProjects.lenght)
 
-  const markdown = `I'm a multi-disciplinary, curiosity _~~and fun~~_ driven designer and engineer, currently working as a [Product Designer at Uber](https://linkedin.com/in/laurasideral) and creating [Balance](https://balanceapp.cl) and [Chaucha](https://lau.work/chaucha), my two independent apps. 
+  const markdown = `Hola! I was born in [Lima, Perú](https://maps.app.goo.gl/PNS84iTKmBmCixB19) and currently live in [Santiago, Chile](https://goo.gl/maps/9YY1jQzkETsz5cJ7A). 
   
-  In past lives, I've also led all consumer-facing products at [Cornershop (acq. by Uber)](https://latamlist.com/uber-acquires-cornershop-at-3b-valuation/) and worked with a wide variety of clients on [Design](/), [Photography](/photography), and [Filmmaking](/videos) work.
+  For two years, I led consumer-facing product design at [Cornershop](https://latamlist.com/uber-acquires-cornershop-at-3b-valuation/), a grocery delivery startup acquired by Uber in 2021 for $3B. Following the acquisition, I joined Uber's Grocery & Retail team as a Product Designer, where I continue to drive Uber's Delivery vision forward.
+
+  I also founded [Balance](http://lau.work/design/balance/app), the best-rated consumer transit app in Chile, and [Chaucha](http://lau.work/design/chaucha), which makes Chilean bank transfers easier.
+
+  You can reach me at [@laurasideral](https://x.com/laurasideral) or [hi@lau.work](mailto:hi@lau.work).
   `
 
   return (
@@ -104,9 +108,9 @@ export default function Home({ designWorkData, server }) {
       />
 
       <GlobalHeader sticky />
-      {/* <BigParagraph
+      <BigParagraph
         statement={markdown}
-      /> */}
+      />
       <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
       <ProjectsGrid featured>
         {featuredProjects.map((project, index) => {

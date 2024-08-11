@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 
 export default function BigParagraph({
     statement,
+    centered,
 }) {
     // Terrible hack…
     const [mounted, setMounted] = useState(false);
@@ -16,7 +17,7 @@ export default function BigParagraph({
     if (!mounted) return <></>;
 
     return (
-        <p className="big_statement">
+        <p className="big_statement" data-centered={centered}>
             <Balancer>
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{statement}</ReactMarkdown>
             </Balancer>

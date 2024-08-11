@@ -11,21 +11,25 @@
     font-weight: 400;
     line-height: 1.4;
     color: rgb(136, 139, 144);
-    padding: 160px 20px;
+    padding: 80px 20px;
     width: fit-content;
-    text-align: center;
+    text-align: left;
     display: block;
-    width: 100%;
-    max-width: 800px;
+    max-width: 480px;
     margin: 0 auto;
 
+    &[data-centered="true"] {
+        text-align: center;
+    }
+
     @media (max-width: 850px) {
-        padding: 120px 20px;
+        padding: 80px 20px;
     }
 
     a {
         transition: color 0.4s cubic-bezier(0.2, 0.9, 0.42, 1);
         color: rgba(0, 0, 0, 1);
+        font-weight: 500;
 
         @media (hover: hover) {
             &:hover {
@@ -41,7 +45,7 @@
         @include paragraphAnimationDelays;
 
         &:not(:first-of-type) {
-            margin-top: 2em;
+            margin-top: 1rem;
         }
     }
 }
