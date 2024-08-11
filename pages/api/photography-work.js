@@ -1,6 +1,37 @@
 export default function handler(req, res) {
   res.status(200).json([
     {
+      "caption": "Stills from the Andes. Shot on iPhone from the road to [Sewell](https://en.wikipedia.org/wiki/Sewell,_Chile).",
+      "period": "2024",
+      "location": "Chile",
+      "assets": [
+        {
+          "src": "andes/andes_1.jpg",
+          "width": 3024,
+          "height": 4032,
+          "alt": "Pink-toned, dreamy-looking picture of the Andes mountains in Chile.",
+        },
+        {
+          "src": "andes/andes_2.jpg",
+          "width": 3024,
+          "height": 4032,
+          "alt": "Pink-toned, dreamy-looking picture of the Andes mountains in Chile.",
+        },
+        {
+          "src": "andes/andes_3.jpg",
+          "width": 3024,
+          "height": 4032,
+          "alt": "Pink-toned, dreamy-looking picture of the Andes mountains in Chile.",
+        },
+        {
+          "src": "andes/andes_4.jpg",
+          "width": 3024,
+          "height": 4032,
+          "alt": "Pink-toned, dreamy-looking picture of the Andes mountains in Chile.",
+        },
+      ]
+    },
+    {
       "caption": "From the \"No peatones\" (No pedestrians) series, which captures a poignant critique of Santiago's emerging car-centric mega-infrastructures, emphasizing the erosion of public spaces as they morph into exclusive territories for vehicles, not people.",
       "period": "2019",
       "location": "Santiago, Chile",
