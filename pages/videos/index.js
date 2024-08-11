@@ -1,9 +1,24 @@
 import { NextSeo } from 'next-seo';
 import SnappingFeed from '@/components/SnappingFeed/SnappingFeed';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import MobileRedirect from '@/components/MobileRedirect/MobileRedirect';
 
 export default function Photography({ videoWorkData, server }) {
     const [allVideosAreMuted, setAllVideosAreMuted] = useState(true);
+    const [isMobile, setIsMobile] = useState(true);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 851);
+        };
+
+        handleResize(); // Set initial value
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     return (
         <>
@@ -44,23 +59,34 @@ export default function Photography({ videoWorkData, server }) {
                 ]}
             />
 
-            <SnappingFeed>
-                {
-                    videoWorkData.map((series, seriesIndex) => {
-                        return (
-                            <SnappingFeed.Slide
-                                type="video"
-                                key={seriesIndex}
-                                series={series}
-                                lazyLoad={seriesIndex != 0}
-                                allVideosAreMuted={allVideosAreMuted}
-                                setAllVideosAreMuted={setAllVideosAreMuted}
-                                slideIndex={seriesIndex + 1}
-                            />
-                        )
-                    })
-                }
-            </SnappingFeed>
+            {isMobile ? (
+                <SnappingFeed>
+                    {
+                        videoWorkData.map((series, seriesIndex) => {
+                            return (
+                                <SnappingFeed.Slide
+                                    type="video"
+                                    key={seriesIndex}
+                                    series={series}
+                                    lazyLoad={seriesIndex != 0}
+                                    allVideosAreMuted={allVideosAreMuted}
+                                    setAllVideosAreMuted={setAllVideosAreMuted}
+                                    slideIndex={seriesIndex + 1}
+                                />
+                            )
+                        })
+                    }
+                </SnappingFeed>
+            ) : (
+                <>
+                    <SnappingFeed.GlobalHeader />
+                    <MobileRedirect
+                        title="Continue on your phone"
+                        body="Please continue on your phone for the best experience."
+                        url="https://lau.work/videos"
+                    />
+                </>
+            )}
         </>
     )
 }

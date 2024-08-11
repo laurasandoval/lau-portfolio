@@ -1060,6 +1060,11 @@
   "resolved" "https://registry.npmjs.org/property-information/-/property-information-6.2.0.tgz"
   "version" "6.2.0"
 
+"qr.js@0.0.0":
+  "integrity" "sha512-c4iYnWb+k2E+vYpRimHqSu575b1/wKl4XFeJGpFmrJQz5I88v9aY2czh7s0w36srfCM1sXgC/xpoJz5dJfq+OQ=="
+  "resolved" "https://registry.npmjs.org/qr.js/-/qr.js-0.0.0.tgz"
+  "version" "0.0.0"
+
 "react-dom@^18.2.0", "react-dom@>=16.0.0", "react-dom@18.2.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
@@ -1099,12 +1104,20 @@
     "unist-util-visit" "^4.0.0"
     "vfile" "^5.0.0"
 
+"react-qr-code@^2.0.15":
+  "integrity" "sha512-MkZcjEXqVKqXEIMVE0mbcGgDpkfSdd8zhuzXEl9QzYeNcw8Hq2oVIzDLWuZN2PQBwM5PWjc2S31K8Q1UbcFMfw=="
+  "resolved" "https://registry.npmjs.org/react-qr-code/-/react-qr-code-2.0.15.tgz"
+  "version" "2.0.15"
+  dependencies:
+    "prop-types" "^15.8.1"
+    "qr.js" "0.0.0"
+
 "react-wrap-balancer@^0.5.0":
   "integrity" "sha512-5vwe5QDczQ9zwAtv3iEVj8hdMbNwQtM/QlSNLJfDUzRE9noPtxevb+Kon916Mu2RUorCrAtashQ1F9BVBjdeZg=="
   "resolved" "https://registry.npmjs.org/react-wrap-balancer/-/react-wrap-balancer-0.5.0.tgz"
   "version" "0.5.0"
 
-"react@^16.5.1 || ^17.0.0 || ^18.0.0", "react@^16.8||^17||^18", "react@^18.2.0", "react@>= 16.0.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@>=16.0.0", "react@>=16.8.0 || ^17.0.0 || ^18", "react@18.2.0":
+"react@*", "react@^16.5.1 || ^17.0.0 || ^18.0.0", "react@^16.8||^17||^18", "react@^18.2.0", "react@>= 16.0.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", "react@>=16", "react@>=16.0.0", "react@>=16.8.0 || ^17.0.0 || ^18", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"

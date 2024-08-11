@@ -1,0 +1,56 @@
+body.mobile_redirect_body {
+    background: #000;
+
+    #nprogress .bar {
+        background: #FFF;
+    }
+}
+
+.mobile_redirect {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 240px;
+    text-align: center;
+
+    svg {
+        --size: 140px;
+        width: var(--size);
+        height: var(--size);
+        background-color: white;
+        padding: 8px;
+        margin-bottom: 20px;
+
+        --radius: 12px;
+        -webkit-mask-box-image: url("data:image/svg+xml,%3C!-- %3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 25.6C0 16.6392 0 12.1587 1.7439 8.73615C3.27787 5.72556 5.72556 3.27787 8.73615 1.7439C12.1587 0 16.6392 0 25.6 0H74.4C83.3608 0 87.8413 0 91.2638 1.7439C94.2744 3.27787 96.7221 5.72556 98.2561 8.73615C100 12.1587 100 16.6392 100 25.6V74.4C100 83.3608 100 87.8413 98.2561 91.2638C96.7221 94.2744 94.2744 96.7221 91.2638 98.2561C87.8413 100 83.3608 100 74.4 100H25.6C16.6392 100 12.1587 100 8.73615 98.2561C5.72556 96.7221 3.27787 94.2744 1.7439 91.2638C0 87.8413 0 83.3608 0 74.4V25.6Z' fill='black'/%3E%3C/svg%3E --%3E%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50C0 33.2094 0 24.8142 3.07234 18.3182C6.23769 11.6257 11.6257 6.23769 18.3182 3.07234C24.8142 0 33.2094 0 50 0C66.7906 0 75.1858 0 81.6818 3.07234C88.3743 6.23769 93.7623 11.6257 96.9277 18.3182C100 24.8142 100 33.2094 100 50C100 66.7906 100 75.1858 96.9277 81.6818C93.7623 88.3743 88.3743 93.7623 81.6818 96.9277C75.1858 100 66.7906 100 50 100C33.2094 100 24.8142 100 18.3182 96.9277C11.6257 93.7623 6.23769 88.3743 3.07234 81.6818C0 75.1858 0 66.7906 0 50Z' fill='black'/%3E%3C/svg%3E") 32 / var(--radius) / 0px;
+        border-radius: var(--radius);
+    }
+
+    h2,
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    h2 {
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+    }
+
+    p {
+        font-size: 16px;
+        font-weight: 400;
+        color: rgba(136, 139, 144, 1);
+        margin-top: 4px;
+    }
+}
