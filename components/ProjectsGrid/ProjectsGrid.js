@@ -5,8 +5,12 @@ import { useRouter } from 'next/router';
 
 export default function ProjectsGrid({ featured, children }) {
     const gridRef = useRef(null);
+    const loadMoreButtonRef = useRef(null);
     const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
     const [itemsToShow, setItemsToShow] = useState(0);
+    const [loadMoreButtonComputedHeight, setLoadMoreButtonComputedHeight] = useState(0);
+    const [loadingOverlayHeight, setLoadingOverlayHeight] = useState(0);
+    const [loadingMoreItems, setLoadingMoreItems] = useState(false);
     const prevWidthRef = useRef(windowWidth);
     const router = useRouter();
 
@@ -19,6 +23,27 @@ export default function ProjectsGrid({ featured, children }) {
         }
         return 0;
     };
+
+    const getLoadMoreButtonComputedHeight = () => {
+        if (loadMoreButtonRef.current) {
+            const computedStyle = window.getComputedStyle(loadMoreButtonRef.current);
+            const computedHeight = loadMoreButtonRef.current.offsetHeight;
+            const paddingTop = parseFloat(computedStyle.paddingTop);
+            return Math.round(computedHeight - paddingTop);
+        }
+        return 0;
+    };
+
+    const getLoadingOverlayHeight = () => {
+        if (gridRef.current) {
+            const rect = gridRef.current.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const pixelsBelow = viewportHeight - rect.bottom;
+
+            return Math.round(pixelsBelow + loadMoreButtonComputedHeight);
+        }
+        return 0;
+    }
 
     const getInitialItemCount = () => {
         const columnCount = getComputedStyleColumnCount();
@@ -42,15 +67,24 @@ export default function ProjectsGrid({ featured, children }) {
     };
 
     const loadMoreItems = () => {
-        setItemsToShow((prevItemsToShow) => prevItemsToShow + getItemsToAddCount());
-        const newPage = parseInt(router.query.page || 1) + 1;
-        updateUrlPage(newPage);
+        setLoadMoreButtonComputedHeight(getLoadMoreButtonComputedHeight());
+        setLoadingOverlayHeight(getLoadingOverlayHeight())
+
+        setLoadingMoreItems(true);
+        setTimeout(() => {
+            setItemsToShow((prevItemsToShow) => prevItemsToShow + getItemsToAddCount());
+            const newPage = parseInt(router.query.page || 1) + 1;
+            updateUrlPage(newPage);
+            setLoadingMoreItems(false);
+        }, 400);
     };
 
     useEffect(() => {
         if (typeof window === 'undefined') {
             return;
         }
+
+        setLoadMoreButtonComputedHeight(getLoadMoreButtonComputedHeight());
 
         const handleResize = () => {
             const newWidth = window.innerWidth;
@@ -78,10 +112,23 @@ export default function ProjectsGrid({ featured, children }) {
     const displayedChildren = React.Children.toArray(children).slice(0, itemsToShow);
 
     return (
-        <section ref={gridRef} className="projects_grid" data-featured={featured}>
+        <section
+            ref={gridRef}
+            className="projects_grid"
+            data-featured={featured}
+            data-loading-more-items={loadingMoreItems}
+            style={{
+                "--load-more-button-height": `${loadMoreButtonComputedHeight}px`,
+                "--loading-overlay-height": `${loadingOverlayHeight}px`
+            }}
+        >
             {displayedChildren}
             {!featured && children.length > itemsToShow && (
-                <button className="load_more" onClick={loadMoreItems}>
+                <button
+                    ref={loadMoreButtonRef}
+                    className="load_more"
+                    onClick={loadMoreItems}
+                >
                     <span>Load More</span>
                     <IconArrowDown />
                 </button>

@@ -11,9 +11,35 @@
     grid-auto-rows: auto;
     grid-auto-flow: dense;
     grid-gap: 28px 20px;
+    position: relative;
 
     &[data-featured="true"] {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    &:not([data-featured="true"]) {
+        &:before {
+            content: "";
+            position: absolute;
+            background: white;
+            opacity: 0;
+            transition: opacity 0.4s ease 0s;
+            pointer-events: none;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: var(--loading-overlay-height);
+            transform: translateY(calc(100% - var(--load-more-button-height)));
+            z-index: 2;
+
+            @at-root [data-loading-more-items="true"]#{&} {
+                opacity: 1;
+            }
+        }
+    }
+
+    .project_thumbnail {
+        z-index: 3;
     }
 
     &:not(:first-of-type) {
@@ -60,6 +86,7 @@
         animation: dissolveIn 1s cubic-bezier(0.28, 0.11, 0.32, 1);
         animation-fill-mode: backwards;
         animation-delay: 1s;
+        z-index: 1;
 
         svg {
             display: block;
