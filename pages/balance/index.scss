@@ -38,7 +38,7 @@
             display: flex;
             flex-flow: row;
             font-size: 36px;
-            font-weight: 600;
+            font-weight: 560;
             letter-spacing: -0.03em;
             line-height: var(--line-height);
 
@@ -95,8 +95,8 @@
         }
 
         .subtitle {
-            font-size: 16px;
-            font-weight: 400;
+            font-size: 15px;
+            font-weight: 460;
             margin: 18px 0 0;
         }
     }
@@ -114,8 +114,8 @@
 
     .call-to-action {
         display: block;
-        font-size: 16px;
-        font-weight: 400;
+        font-size: 15px;
+        font-weight: 460;
         text-decoration: underline;
         color: rgba(16, 99, 238, 1);
         width: fit-content;
