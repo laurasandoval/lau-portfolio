@@ -27,7 +27,7 @@
                 .nav_item.home {
                     .name_and_role {
                         .role {
-                            color: rgb(136, 139, 144) !important;
+                            color: rgba(255, 255, 255, 0.4) !important;
                         }
                     }
                 }
@@ -46,12 +46,6 @@
             }
 
             .global_footer {
-                // @at-root [data-nav-open="false"]#{&} {
-                //     display: none;
-                //     transition: display 1s ease;
-                //     transition-delay: 2s;
-                // }
-                animation: none;
 
                 p,
                 a {

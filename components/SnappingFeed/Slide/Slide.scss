@@ -177,7 +177,7 @@
 
                     .page_dot[data-current="true"]:not(:hover) {
                         &::after {
-                            background-color: rgba(136, 138, 144, 0.6);
+                            background-color: rgba(255, 255, 255, 0.3);
                         }
                     }
                 }
@@ -216,11 +216,11 @@
                     width: 6px;
                     height: 6px;
                     border-radius: 6px;
-                    background-color: rgba(136, 138, 144, 0.6);
+                    background-color: rgba(255, 255, 255, 0.3);
                     transition: background-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
                     @media (max-width: 850px) {
-                        background: rgba(136, 138, 144, 0.6);
+                        background: rgba(255, 255, 255, 0.3);
                     }
                 }
 
