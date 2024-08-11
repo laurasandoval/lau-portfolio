@@ -59,13 +59,15 @@ export default function Home({ designWorkData, server }) {
   const featuredProjects = designWorkData.slice(0, maxFeaturedCount)
   const remainingProjects = designWorkData.slice(maxFeaturedCount, featuredProjects.lenght)
 
-  const markdown = `Hola! I was born in [Lima, Perú](https://maps.app.goo.gl/PNS84iTKmBmCixB19) and currently live in [Santiago, Chile](https://goo.gl/maps/9YY1jQzkETsz5cJ7A). 
+  const markdown = `Hola! I am a curiosity-driven designer currently shaping the grocery shopping experience at [Uber](https://uber.com).
   
   For two years, I led consumer-facing product design at [Cornershop](https://latamlist.com/uber-acquires-cornershop-at-3b-valuation/), a grocery delivery startup acquired by Uber in 2021 for $3B. Following the acquisition, I joined Uber's Grocery & Retail team as a Product Designer, where I continue to drive Uber's Delivery vision forward.
 
   I also founded [Balance](http://lau.work/design/balance/app), the best-rated consumer transit app in Chile, and [Chaucha](http://lau.work/design/chaucha), which makes Chilean bank transfers easier.
 
-  You can reach me at [@laurasideral](https://x.com/laurasideral) or [hi@lau.work](mailto:hi@lau.work).
+  I am deeply passionate about the intersection of design and engineering, and building highly polished products.
+  
+  You can reach me at [@laurasideral](https://x.com/laurasideral) or [hi@lau.work](mailto:hi@lau.work), and browse some of my work below.
   `
 
   return (
