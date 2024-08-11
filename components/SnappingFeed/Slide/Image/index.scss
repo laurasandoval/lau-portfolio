@@ -1,6 +1,7 @@
 .asset_container[data-type="image"] {
     @import '../AssetContainerStyles.scss';
     @include asset-container-styles;
+    position: relative;
 
     .asset {
         --radius: 8px;
@@ -14,6 +15,15 @@
             width: 100%;
             height: auto;
         }
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
     }
 
     // This is horribly hardcoded
