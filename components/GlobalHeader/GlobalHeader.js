@@ -94,14 +94,18 @@ export default function GlobalHeader({
                             <span className="inner_sopaipilla"></span>
                         </span>
                     </div>
-                    <h1 aria-hidden={navOpen.toString()}>
-                        <AccessibilityLabel>Laura Sandoval</AccessibilityLabel>
+                    <h1 className="home" aria-hidden={navOpen.toString()}>
+                        <AccessibilityLabel>Laura Sandoval. Product Designer at Uber</AccessibilityLabel>
                         <Link
-                            className="nav_item"
+                            className="nav_item home"
                             href="/"
                             aria-hidden="true"
                         >
-                            Laura Sandoval
+                            <img className="profile_pic" alt="App Icon" src="/assets/profile-pic.jpg" />
+                            <div className="name_and_role">
+                                <span className="name">Laura Sandoval</span>
+                                <span className="role">Product Designer at Uber</span>
+                            </div>
                         </Link>
                     </h1>
                 </div>
