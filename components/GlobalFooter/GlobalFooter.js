@@ -39,6 +39,12 @@ export default function GlobalFooter({
                     </Link>
                     <Link
                         className="social_link"
+                        href="https://x.com/laurasideral"
+                    >
+                        X
+                    </Link>
+                    <Link
+                        className="social_link"
                         href="https://linkedin.com/in/laurasideral"
                     >
                         LinkedIn
