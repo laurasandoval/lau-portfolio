@@ -1,6 +1,19 @@
 export default function handler(req, res) {
   res.status(200).json([
     {
+      "caption": "Short film about Chilean bank transfers —and how one of my independent apps, [Chaucha](/design/chaucha), solves one of their biggest issues— I made for an internal Uber Design \"Show & Tell\" meeting. Featured on [Uber's LinkedIn page](https://www.linkedin.com/feed/update/urn:li:activity:7183910504656961537/),",
+      "period": "2024",
+      "location": null,
+      "assets": [
+        {
+          "src": "chaucha/show_and_tell_video.mp4",
+          "width": 1280,
+          "height": 720,
+          "alt": "",
+        },
+      ]
+    },
+    {
       "caption": "\"Abstracta\" transit card design launch video for [Balance](/design/balance/app), the most positively reviewed app for managing Chilean transit cards on the App Store.",
       "period": "2022",
       "location": null,
