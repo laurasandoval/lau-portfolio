@@ -9,6 +9,7 @@ import GlobalFooter from '../GlobalFooter/GlobalFooter'
 export default function GlobalHeader({
     sticky,
     backgroundColor,
+    fadeIn,
     className,
 }) {
     const [headerMarginBottom, setHeaderMarginBottom] = useState(null)
@@ -62,6 +63,7 @@ export default function GlobalHeader({
         <header
             className={`global_header${className ? ` ${className}` : ""}`}
             data-sticky={sticky}
+            data-fade-in={fadeIn}
             data-show-border={
                 showHeaderBorder === true
                     ? sticky

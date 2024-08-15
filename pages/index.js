@@ -109,7 +109,7 @@ export default function Home({ designWorkData, server }) {
         ]}
       />
 
-      <GlobalHeader sticky />
+      <GlobalHeader sticky fadeIn />
       <BigParagraph
         statement={markdown}
       />

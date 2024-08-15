@@ -35,6 +35,11 @@
         top: 0px;
     }
 
+    &[data-fade-in="true"] {
+        animation: headerFadeIn 1s cubic-bezier(0.28, 0.11, 0.32, 1) 0.8s;
+        animation-fill-mode: backwards;
+    }
+
     &:before {
         content: "";
         position: absolute;
@@ -433,5 +438,15 @@
                 }
             }
         }
+    }
+}
+
+@keyframes headerFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }
