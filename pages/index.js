@@ -6,9 +6,10 @@ import { NextSeo } from 'next-seo'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import { getSortedPostsData } from '../lib/posts';
 import BigParagraph from '@/components/BigParagraph/BigParagraph'
 
-export default function Home({ designWorkData, server }) {
+export default function Home({ designWorkData, allPostsData, server }) {
   const router = useRouter();
 
   // set scroll restoration to manual
@@ -114,6 +115,17 @@ export default function Home({ designWorkData, server }) {
         statement={markdown}
       />
       <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
+
+      {allPostsData.map(({ id, date, title }) => (
+        <li key={id}>
+          {title}
+          <br />
+          {id}
+          <br />
+          {date}
+        </li>
+      ))}
+
       <ProjectsGrid featured>
         {featuredProjects.map((project, index) => {
           return _renderThumbnail(project, index, true, (index == 0 || index == 1))
@@ -135,5 +147,14 @@ export async function getServerSideProps(context) {
   const url = `${server}/api/design-work`
   const res = await fetch(url)
   const designWorkData = await res.json()
-  return { props: { designWorkData, server } }
+
+  const allPostsData = getSortedPostsData();
+
+  return {
+    props: {
+      designWorkData,
+      allPostsData,
+      server
+    }
+  }
 }

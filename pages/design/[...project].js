@@ -7,69 +7,70 @@ import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLab
 import { NextSeo } from 'next-seo'
 import Button from '@/components/Button/Button'
 import { Balancer } from 'react-wrap-balancer'
+import { getAllPostIds, getPostData } from '../../lib/posts'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
 
-export default function Project({ currentProject, nextProject, server }) {
-  const [showGalleryBorder, setShowGalleryBorder] = useState(false)
-  const [projectInfoChildCount, setProjectInfoChildCount] = useState(0)
-  const projectGalleryContainer = useRef(null)
-  const projectGallery = useRef(null)
-  const projectInfo = useRef(null);
+export default function Project({ server, postData }) {
+  // const [showGalleryBorder, setShowGalleryBorder] = useState(false)
+  // const [projectInfoChildCount, setProjectInfoChildCount] = useState(0)
+  // const projectGalleryContainer = useRef(null)
+  // const projectGallery = useRef(null)
+  // const projectInfo = useRef(null);
 
-  useEffect(() => {
-    window.addEventListener("scroll", _throttledScrollCheck)
+  // useEffect(() => {
+  //   window.addEventListener("scroll", _throttledScrollCheck)
 
-    if (projectInfo) {
-      setProjectInfoChildCount(projectInfo.current.childNodes.length + 2);
-    }
+  //   if (projectInfo) {
+  //     setProjectInfoChildCount(projectInfo.current.childNodes.length + 2);
+  //   }
 
-    return () => document.removeEventListener("scroll", _throttledScrollCheck)
-  }, [currentProject]);
+  //   return () => document.removeEventListener("scroll", _throttledScrollCheck)
+  // }, [currentProject]);
 
-  useEffect(() => {
-    projectGallery.current.scroll({
-      left: 0
-    });
-  }, [currentProject])
+  // useEffect(() => {
+  //   projectGallery.current.scroll({
+  //     left: 0
+  //   });
+  // }, [currentProject])
 
-  const _throttledScrollCheck = throttle(() => {
-    if (
-      projectGalleryContainer.current &&
-      projectGalleryContainer.current.offsetTop <= window.scrollY
-    ) {
-      setShowGalleryBorder(true)
-    } else {
-      setShowGalleryBorder(false)
-    }
-  }, 250)
+  // const _throttledScrollCheck = throttle(() => {
+  //   if (
+  //     projectGalleryContainer.current &&
+  //     projectGalleryContainer.current.offsetTop <= window.scrollY
+  //   ) {
+  //     setShowGalleryBorder(true)
+  //   } else {
+  //     setShowGalleryBorder(false)
+  //   }
+  // }, 250)
 
-  const getColorLuminance = (color) => {
-    const hex = color.replace("#", "");
-    const r = parseInt(hex.substring(0, 2), 16) / 255;
-    const g = parseInt(hex.substring(2, 4), 16) / 255;
-    const b = parseInt(hex.substring(4, 6), 16) / 255;
+  // const getColorLuminance = (color) => {
+  //   const hex = color.replace("#", "");
+  //   const r = parseInt(hex.substring(0, 2), 16) / 255;
+  //   const g = parseInt(hex.substring(2, 4), 16) / 255;
+  //   const b = parseInt(hex.substring(4, 6), 16) / 255;
 
-    const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  //   const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
 
-    return luminance;
-  }
+  //   return luminance;
+  // }
 
-  const projectThemeColor = currentProject.custom_theme_color_hex ?? "#000000";
-  const luminance = getColorLuminance(projectThemeColor);
-  const textColor = luminance > 0.5 ? "#000000" : "#FFFFFF";
+  // const projectThemeColor = currentProject.custom_theme_color_hex ?? "#000000";
+  // const luminance = getColorLuminance(projectThemeColor);
+  // const textColor = luminance > 0.5 ? "#000000" : "#FFFFFF";
 
   return (
     <>
-      <NextSeo
-        title={`${currentProject?.title} — Laura Sandoval`}
-        description={`${currentProject?.description[0]}`}
+      {/* <NextSeo
+        title={`${postData.title} — Laura Sandoval`}
+        description={`${postData.description[0]}`}
         openGraph={{
-          title: `${currentProject?.title} — Laura Sandoval`,
-          description: `${currentProject?.description[0]}`,
+          title: `${postData.title} — Laura Sandoval`,
+          description: `${postData.description[0]}`,
           images: [
             {
-              url: `${server}/assets/design-work/${currentProject?.src}/${currentProject?.social_thumbnail}`,
+              url: `${server}/assets/design-work/${postData.src}/${postData.social_thumbnail}`,
             }
           ],
         }}
@@ -87,30 +88,29 @@ export default function Project({ currentProject, nextProject, server }) {
             href: `${server}/logo192.png`
           }
         ]}
-        additionalMetaTags={[
-          {
-            name: "theme-color",
-            content: projectThemeColor,
-          },
-        ]}
-      />
+      /> */}
 
       <GlobalHeader />
 
-      <style>
+      {/* <style>
         {`
           ::selection {
               background: ${projectThemeColor}!important;
               color: ${textColor}!important;
           }
         `}
-      </style>
+      </style> */}
 
       <article
         className="project_page_fallback"
-        data-name={currentProject?.title}
+        data-name={postData?.title}
       >
-        <div
+        {postData.title}
+        <br />
+        {postData.project}
+        <br />
+        {postData.date}
+        {/* <div
           className="project_gallery_container"
           ref={projectGalleryContainer}
           data-show-border={showGalleryBorder}
@@ -220,44 +220,32 @@ export default function Project({ currentProject, nextProject, server }) {
                 )
               })}
           </div>
-        </div>
+        </div> */}
       </article>
 
       <GlobalFooter />
 
-      {
+      {/* {
         nextProject != null &&
         <NextProjectPeek {...nextProject} />
-      }
+      } */}
     </>
   )
 }
 
-export async function getServerSideProps(context) {
-  const dev = process.env.NODE_ENV !== 'production'
-  const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
-  const url = `${server}/api/design-work`
-  const res = await fetch(url)
-  const designWorkData = await res.json()
-
-  const projectSrc = context.query.project.join('/') || []
-  let currentProject
-  let nextProject = null
-
-  const i = designWorkData.findIndex(e => e.src === projectSrc)
-  if (i > -1) {
-    currentProject = designWorkData[i]
-
-    if (designWorkData[i + 1] != null) {
-      nextProject = designWorkData[i + 1]
-    }
-  } else {
-    return {
-      notFound: true,
-    }
-  }
-
+export async function getStaticPaths() {
+  const paths = getAllPostIds();
   return {
-    props: { currentProject, nextProject, server }
-  }
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const postData = getPostData(params.project.join('/'));
+  return {
+    props: {
+      postData,
+    },
+  };
 }
