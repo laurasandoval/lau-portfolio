@@ -7,10 +7,11 @@ import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLab
 import { NextSeo } from 'next-seo'
 import Button from '@/components/Button/Button'
 import { Balancer } from 'react-wrap-balancer'
+import { getAllPostIds, getPostData, getSortedPostsData } from '../../lib/posts'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
 
-export default function Project({ currentProject, nextProject, server }) {
+export default function Project({ currentPostData, nextPostData, server }) {
   const [showGalleryBorder, setShowGalleryBorder] = useState(false)
   const [projectInfoChildCount, setProjectInfoChildCount] = useState(0)
   const projectGalleryContainer = useRef(null)
@@ -25,13 +26,13 @@ export default function Project({ currentProject, nextProject, server }) {
     }
 
     return () => document.removeEventListener("scroll", _throttledScrollCheck)
-  }, [currentProject]);
+  }, [currentPostData]);
 
   useEffect(() => {
     projectGallery.current.scroll({
       left: 0
     });
-  }, [currentProject])
+  }, [currentPostData])
 
   const _throttledScrollCheck = throttle(() => {
     if (
@@ -55,21 +56,21 @@ export default function Project({ currentProject, nextProject, server }) {
     return luminance;
   }
 
-  const projectThemeColor = currentProject.custom_theme_color_hex ?? "#000000";
+  const projectThemeColor = currentPostData.customThemeColorHex ?? "#000000";
   const luminance = getColorLuminance(projectThemeColor);
   const textColor = luminance > 0.5 ? "#000000" : "#FFFFFF";
 
   return (
     <>
       <NextSeo
-        title={`${currentProject?.title} — Laura Sandoval`}
-        description={`${currentProject?.description[0]}`}
+        title={`${currentPostData.title} — Laura Sandoval`}
+        description={`${currentPostData.excerpt}`}
         openGraph={{
-          title: `${currentProject?.title} — Laura Sandoval`,
-          description: `${currentProject?.description[0]}`,
+          title: `${currentPostData.title} — Laura Sandoval`,
+          description: `${currentPostData.excerpt}`,
           images: [
             {
-              url: `${server}/assets/design-work/${currentProject?.src}/${currentProject?.social_thumbnail}`,
+              url: `${server}${currentPostData.ogImage}`,
             }
           ],
         }}
@@ -87,12 +88,6 @@ export default function Project({ currentProject, nextProject, server }) {
             href: `${server}/logo192.png`
           }
         ]}
-        additionalMetaTags={[
-          {
-            name: "theme-color",
-            content: projectThemeColor,
-          },
-        ]}
       />
 
       <GlobalHeader />
@@ -108,7 +103,7 @@ export default function Project({ currentProject, nextProject, server }) {
 
       <article
         className="project_page_fallback"
-        data-name={currentProject?.title}
+        data-name={currentPostData?.title}
       >
         <div
           className="project_gallery_container"
@@ -122,18 +117,24 @@ export default function Project({ currentProject, nextProject, server }) {
             className="project_gallery"
             ref={projectGallery}
           >
-            {currentProject?.thumbnails.map((thumbnail, index) => {
-              return (
-                <ProjectThumbnail
-                  {...currentProject}
-                  img_only
-                  thumbnail={thumbnail}
-                  key={thumbnail}
-                  priority={index == 0}
-                  placeholder={false}
-                />
-              )
-            })}
+            <ProjectThumbnail
+              {...currentPostData}
+              img_only
+              placeholder={false}
+            />
+            {currentPostData.otherImages &&
+              currentPostData.otherImages.map((src, index) => {
+                return (
+                  <ProjectThumbnail
+                    {...currentPostData}
+                    coverImage={src}
+                    key={src}
+                    priority={false}
+                    img_only
+                    placeholder={false}
+                  />
+                )
+              })}
           </div>
           <hr />
         </div>
@@ -144,26 +145,30 @@ export default function Project({ currentProject, nextProject, server }) {
           <div className="header">
             <h2 className="title">
               <Balancer>
-                {currentProject?.title}
+                {currentPostData.title}
               </Balancer>
             </h2>
-            <p className="period">{currentProject?.period}</p>
+            <p className="period">
+              {
+                currentPostData.startYear && currentPostData.endYear ?
+                  currentPostData.startYear == currentPostData.endYear ?
+                    `${currentPostData.startYear}` :
+                    `${currentPostData.startYear} — ${currentPostData.endYear}`
+                  : currentPostData.startYear && currentPostData.endYear === null
+                    ? `Since ${currentPostData.startYear}`
+                    : currentPostData.endYear && currentPostData.startYear === null
+                      ? `Until ${currentPostData.endYear}`
+                      : null
+              }
+            </p>
           </div>
-          {
-            currentProject?.description &&
-            <div className="description">
-              {currentProject?.description.map((paragraph, i) => {
-                return (
-                  <p key={i}>
-                    {paragraph}
-                  </p>
-                )
-              })}
-            </div>
-          }
-          {currentProject?.cta && (
+          <div
+            className="description"
+            dangerouslySetInnerHTML={{ __html: currentPostData.contentHtml }}
+          />
+          {currentPostData?.cta && (
             <div className="ctas">
-              {currentProject?.cta.map((cta, i) => {
+              {currentPostData?.cta.map((cta, i) => {
                 return (
                   <Button
                     type="secondary"
@@ -176,88 +181,58 @@ export default function Project({ currentProject, nextProject, server }) {
               })}
             </div>
           )}
-          <div className="credits">
-            {currentProject?.team &&
-              Object.keys(currentProject?.team).map((item, i) => {
-                return (
-                  <div className="item" key={i} role="text">
-                    <h3>
-                      {item}
-                      <AccessibilityLabel>: </AccessibilityLabel>
-                    </h3>
-                    {currentProject?.team[item].map((person, i) => {
-                      if (currentProject?.team[item].length > 1) {
-                        if (i + 1 === currentProject?.team[item].length) {
-                          return (
-                            <p key={i}>
-                              {person.name}
-                              <AccessibilityLabel>.</AccessibilityLabel>
-                            </p>
-                          )
-                        } else if (
-                          i + 1 ===
-                          currentProject?.team[item].length - 1
-                        ) {
-                          return (
-                            <p key={i}>
-                              {person.name}
-                              <AccessibilityLabel> and </AccessibilityLabel>
-                            </p>
-                          )
-                        } else {
-                          return (
-                            <p key={i}>
-                              {person.name}
-                              <AccessibilityLabel>, </AccessibilityLabel>
-                            </p>
-                          )
-                        }
-                      } else {
-                        return <p key={i}>{person.name}</p>
-                      }
-                    })}
-                  </div>
-                )
-              })}
-          </div>
+          {currentPostData.team && (
+            <div className="credits">
+              {Object.entries(currentPostData.team).map(([teamName, members]) => (
+                <div className="item" key={teamName}>
+                  <h3>{teamName}</h3>
+                  {members.map((member, index) => (
+                    <p key={index}>{member}</p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </article>
 
       <GlobalFooter />
 
       {
-        nextProject != null &&
-        <NextProjectPeek {...nextProject} />
+        nextPostData != null &&
+        <NextProjectPeek id={nextPostData.project} {...nextPostData} />
       }
     </>
   )
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticPaths() {
+  const paths = getAllPostIds();
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
   const dev = process.env.NODE_ENV !== 'production'
-  const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
-  const url = `${server}/api/design-work`
-  const res = await fetch(url)
-  const designWorkData = await res.json()
+  const server = dev ? `http://localhost:3000` : `https://lau.work`
+  const allPosts = getSortedPostsData(); // Fetch and sort all posts
+  const currentPostIndex = allPosts.findIndex(post => post.id === params.project.join('/'));
 
-  const projectSrc = context.query.project.join('/') || []
-  let currentProject
-  let nextProject = null
+  const currentPostData = await getPostData(params.project.join('/'));
 
-  const i = designWorkData.findIndex(e => e.src === projectSrc)
-  if (i > -1) {
-    currentProject = designWorkData[i]
-
-    if (designWorkData[i + 1] != null) {
-      nextProject = designWorkData[i + 1]
-    }
-  } else {
-    return {
-      notFound: true,
-    }
+  let nextPostData = null;
+  if (currentPostIndex !== -1 && currentPostIndex < allPosts.length - 1) {
+    const nextPost = allPosts[currentPostIndex + 1];
+    nextPostData = await getPostData(nextPost.id);
   }
 
   return {
-    props: { currentProject, nextProject, server }
-  }
+    props: {
+      currentPostData,
+      nextPostData,
+      server
+    },
+  };
 }

@@ -12,6 +12,7 @@
     "@next/font": "13.1.6",
     "@tabler/icons-react": "^2.17.0",
     "@vercel/analytics": "^0.1.8",
+    "gray-matter": "^4.0.3",
     "lodash": "^4.17.21",
     "next": "13.1.6",
     "next-seo": "^5.15.0",
@@ -21,7 +22,8 @@
     "react-markdown": "^8.0.7",
     "react-qr-code": "^2.0.15",
     "react-wrap-balancer": "^0.5.0",
-    "remark-gfm": "^4.0.0"
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
   },
   "devDependencies": {
     "sass": "^1.57.1"

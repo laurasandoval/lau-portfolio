@@ -6,9 +6,10 @@ import { NextSeo } from 'next-seo'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import { getSortedPostsData } from '../lib/posts';
 import BigParagraph from '@/components/BigParagraph/BigParagraph'
 
-export default function Home({ designWorkData, server }) {
+export default function Home({ allPostsData, server }) {
   const router = useRouter();
 
   // set scroll restoration to manual
@@ -44,6 +45,7 @@ export default function Home({ designWorkData, server }) {
     return (
       <ProjectThumbnail
         {...project}
+        id={project.id}
         as="article"
         hover
         key={index}
@@ -56,8 +58,8 @@ export default function Home({ designWorkData, server }) {
 
   const maxFeaturedCount = 4
 
-  const featuredProjects = designWorkData.slice(0, maxFeaturedCount)
-  const remainingProjects = designWorkData.slice(maxFeaturedCount, featuredProjects.lenght)
+  const featuredProjects = allPostsData.slice(0, maxFeaturedCount)
+  const remainingProjects = allPostsData.slice(maxFeaturedCount, featuredProjects.lenght)
 
   const markdown = `Hola! I am a curiosity-driven designer currently shaping the grocery shopping experience at [Uber](https://uber.com).
   
@@ -132,8 +134,12 @@ export default function Home({ designWorkData, server }) {
 export async function getServerSideProps(context) {
   const dev = process.env.NODE_ENV !== 'production'
   const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
-  const url = `${server}/api/design-work`
-  const res = await fetch(url)
-  const designWorkData = await res.json()
-  return { props: { designWorkData, server } }
+  const allPostsData = getSortedPostsData();
+
+  return {
+    props: {
+      allPostsData,
+      server
+    }
+  }
 }

@@ -6,12 +6,12 @@ import { useEffect, useRef, useState } from 'react';
 import { IconPlayerPauseFilled, IconPlayerPlayFilled } from '@tabler/icons-react';
 
 export function ProjectThumbnail({
+    id,
     as,
     title,
-    period,
-    src,
-    thumbnail,
-    thumbnails,
+    startYear,
+    endYear,
+    coverImage,
     hover,
     img_only,
     portrait,
@@ -19,6 +19,7 @@ export function ProjectThumbnail({
     priority,
     sizes,
     autoplay,
+    ...props
 }) {
     const [isIntersecting, setIsIntersecting] = useState(false);
     const videoRef = useRef(null);
@@ -66,21 +67,21 @@ export function ProjectThumbnail({
     }, [isIntersecting, manuallyPaused]);
 
 
-    const _renderThumbnail = (thumbnail, src, title, priority, sizes) => {
+    const _renderThumbnail = (coverImage, title, priority, sizes) => {
         const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"]
         const videoFormats = ["mp4", "webm"]
 
-        if (new RegExp(`[.](${imageFormats.join("|")})`).test(thumbnail)) {
+        if (new RegExp(`[.](${imageFormats.join("|")})`).test(coverImage)) {
             return (
                 <Image
-                    src={`/assets/design-work/${src}/${thumbnail}`}
+                    src={coverImage}
                     alt={title}
                     fill
                     priority={priority ? priority : false}
                     sizes={sizes ? sizes : undefined}
                 />
             )
-        } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(thumbnail)) {
+        } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(coverImage)) {
             return (
                 <>
                     <video
@@ -90,14 +91,14 @@ export function ProjectThumbnail({
                         loop
                     >
                         <source
-                            src={`/assets/design-work/${src}/${thumbnail.replace(
+                            src={`${coverImage.replace(
                                 ".mp4",
                                 ".webm"
                             )}`}
                             type="video/webm"
                         />
                         <source
-                            src={`/assets/design-work/${src}/${thumbnail.replace(
+                            src={`${coverImage.replace(
                                 ".webm",
                                 ".mp4"
                             )}`}
@@ -145,19 +146,31 @@ export function ProjectThumbnail({
             data-fade-in={fadeIn}
         >
             {hover && (
-                <Link href={`/design/${src}`} className="project_access">
+                <Link href={`/design/${id}`} className="project_access">
                     <AccessibilityLabel role="text" as="span">
                         {title}
                     </AccessibilityLabel>
                 </Link>
             )}
             <div className="project_artwork" aria-hidden="true">
-                {_renderThumbnail(thumbnail ? thumbnail : thumbnails[0], src, title, priority, sizes)}
+                {_renderThumbnail(coverImage, title, priority, sizes)}
             </div>
             {!img_only && (
                 <div className="project_info" aria-hidden={hover}>
                     <h3 className="title">{title}</h3>
-                    <span className="date">{period}</span>
+                    <span className="date">
+                        {
+                            startYear && endYear ?
+                                startYear == endYear ?
+                                    `${startYear}` :
+                                    `${startYear} — ${endYear}`
+                                : startYear && endYear === null
+                                    ? `Since ${startYear}`
+                                    : endYear && startYear === null
+                                        ? `Until ${endYear}`
+                                        : null
+                        }
+                    </span>
                 </div>
             )}
         </Tag>

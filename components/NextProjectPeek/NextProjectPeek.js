@@ -7,10 +7,13 @@ import { useEffect, useRef, useState } from 'react'
 import { throttle } from 'lodash'
 
 export default function NextProjectPeek({
+    id,
     title,
-    period,
-    src,
-    thumbnails,
+    excerpt,
+    categories,
+    startYear,
+    endYear,
+    coverImage,
 }) {
     const projectInfoHeaderRef = useRef(null);
     const [projectInfoHeaderHeight, setProjectInfoHeaderHeight] = useState(0);
@@ -41,14 +44,14 @@ export default function NextProjectPeek({
             <div className="project_info">
                 <div className="project_thumbnail_container">
                     <ProjectThumbnail
+                        id={id}
                         title={title}
-                        period={period}
-                        src={src}
+                        startYear={startYear}
+                        endYear={endYear}
                         img_only={true}
-                        thumbnail={thumbnails[0]}
+                        coverImage={coverImage}
                         placeholder={true}
                         autoplay={false}
-                        key={thumbnails[0]}
                     />
                 </div>
                 <div
@@ -60,11 +63,23 @@ export default function NextProjectPeek({
                             {title}
                         </Balancer>
                     </h2>
-                    <p className="period">{period}</p>
+                    <p className="period">
+                        {
+                            startYear && endYear ?
+                                startYear == endYear ?
+                                    `${startYear}` :
+                                    `${startYear} — ${endYear}`
+                                : startYear && endYear === null
+                                    ? `Since ${startYear}`
+                                    : endYear && startYear === null
+                                        ? `Until ${endYear}`
+                                        : null
+                        }
+                    </p>
                 </div>
             </div>
 
-            <Link href={`/design/${src}`} prefetch={false} className="project_access">
+            <Link href={`/design/${id}`} prefetch={false} className="project_access">
                 <AccessibilityLabel role="text" as="span">
                     {title}
                 </AccessibilityLabel>
