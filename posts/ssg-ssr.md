@@ -3,7 +3,7 @@ title: "Cornershop by Uber"
 excerpt: "Lorem ipsum dolor sit amet"
 categories: "Product Design, Engineering"
 companies: "Cornershop, Uber"
-startYear: 2020
+startYear: 
 endYear: 2023
 coverImage: "/assets/design-work/cornershop/head-of-customers-product-design/cornershop-order.png"
 ogImage: "/assets/design-work/cornershop/head-of-customers-product-design/social-thumbnail.png"

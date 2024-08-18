@@ -19,6 +19,7 @@ export default function Project({ currentPostData, nextPostData, server }) {
   const projectInfo = useRef(null);
 
   useEffect(() => {
+    console.log(currentPostData)
     window.addEventListener("scroll", _throttledScrollCheck)
 
     if (projectInfo) {
@@ -105,14 +106,6 @@ export default function Project({ currentPostData, nextPostData, server }) {
         className="project_page_fallback"
         data-name={currentPostData?.title}
       >
-        {/* {currentPostData.title}
-        <br />
-        {currentPostData.project}
-        <br />
-        {currentPostData.startYear}
-        <br />
-        <div dangerouslySetInnerHTML={{ __html: currentPostData.contentHtml }} /> */}
-
         <div
           className="project_gallery_container"
           ref={projectGalleryContainer}
@@ -130,6 +123,19 @@ export default function Project({ currentPostData, nextPostData, server }) {
               img_only
               placeholder={false}
             />
+            {currentPostData.otherImages &&
+              currentPostData.otherImages.map((src, index) => {
+                return (
+                  <ProjectThumbnail
+                    {...currentPostData}
+                    coverImage={src}
+                    key={src}
+                    priority={false}
+                    img_only
+                    placeholder={false}
+                  />
+                )
+              })}
           </div>
           <hr />
         </div>
@@ -143,12 +149,36 @@ export default function Project({ currentPostData, nextPostData, server }) {
                 {currentPostData.title}
               </Balancer>
             </h2>
-            <p className="period">{currentPostData.period}</p>
+            <p className="period">
+              {currentPostData.startYear && currentPostData.endYear
+                ? `${currentPostData.startYear} — ${currentPostData.endYear}`
+                : currentPostData.startYear && currentPostData.endYear === null
+                  ? `Since ${currentPostData.startYear}`
+                  : currentPostData.endYear && currentPostData.startYear === null
+                    ? `Until ${currentPostData.endYear}`
+                    : null
+              }
+            </p>
           </div>
           <div
             className="description"
             dangerouslySetInnerHTML={{ __html: currentPostData.contentHtml }}
           />
+          {currentPostData?.cta && (
+            <div className="ctas">
+              {currentPostData?.cta.map((cta, i) => {
+                return (
+                  <Button
+                    type="secondary"
+                    key={i}
+                    link={true}
+                    href={cta.url}
+                    label={cta.title}
+                  />
+                )
+              })}
+            </div>
+          )}
           {currentPostData.team && (
             <div className="credits">
               {Object.entries(currentPostData.team).map(([teamName, members]) => (

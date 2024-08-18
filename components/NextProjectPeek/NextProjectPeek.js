@@ -63,7 +63,16 @@ export default function NextProjectPeek({
                             {title}
                         </Balancer>
                     </h2>
-                    <p className="period">{startYear}</p>
+                    <p className="period">
+                        {startYear && endYear
+                            ? `${startYear} — ${endYear}`
+                            : startYear && endYear === null
+                                ? `Since ${startYear}`
+                                : endYear && startYear === null
+                                    ? `Until ${endYear}`
+                                    : null
+                        }
+                    </p>
                 </div>
             </div>
 
