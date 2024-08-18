@@ -22,7 +22,8 @@
     "react-markdown": "^8.0.7",
     "react-qr-code": "^2.0.15",
     "react-wrap-balancer": "^0.5.0",
-    "remark-gfm": "^4.0.0"
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
   },
   "devDependencies": {
     "sass": "^1.57.1"

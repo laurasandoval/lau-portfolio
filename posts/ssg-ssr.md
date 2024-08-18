@@ -1,9 +1,43 @@
 ---
-title: 'When to Use Static Generation v.s. Server-side Rendering'
-date: '2020-01-02'
+title: "Cornershop by Uber"
+excerpt: "Lorem ipsum dolor sit amet"
+categories: "Product Design, Engineering"
+companies: "Cornershop, Uber"
+startYear: 2020
+endYear: 2023
+coverImage: "/assets/design-work/cornershop/head-of-customers-product-design/cornershop-order.png"
+ogImage: "/assets/design-work/cornershop/head-of-customers-product-design/social-thumbnail.png"
+team:
+  Design:
+    - "Boris Pinto"
+    - "Camila Navarrete"
+    - "Fernanda Quiroz"
+    - "Francisco Bulnes"
+    - "Gricelle Bouvier"
+    - "Javiera Sanhueza"
+    - "Laura Sandoval"
+    - "Nataly Medina"
+    - "René Morales"
+  Cross-Functional Design:
+    - "Matías Martínez"
+    - "Laura Sandoval"
+    - "Varsha Ashok"
+    - "Bárbara Molina"
+    - "Josefina Nagel"
+    - "Gonzalo Castillo"
+  Product:
+    - "Chaq Cuevas"
+    - "Oskar Hjertonsson"
+    - "Daniel Undurraga"
 ---
 
 We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.
+
+| hello | hey there | how's it going |   |   |
+|-------|-----------|----------------|---|---|
+| !!!!  | mehgh     | dope dope dope |   |   |
+|       | ahahahha  | yesa           |   |   |
+|       |           |                |   |   |
 
 You can use Static Generation for many types of pages, including:
 

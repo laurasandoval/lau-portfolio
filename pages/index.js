@@ -9,7 +9,7 @@ import { useEffect } from 'react'
 import { getSortedPostsData } from '../lib/posts';
 import BigParagraph from '@/components/BigParagraph/BigParagraph'
 
-export default function Home({ designWorkData, allPostsData, server }) {
+export default function Home({ allPostsData, server }) {
   const router = useRouter();
 
   // set scroll restoration to manual
@@ -45,6 +45,7 @@ export default function Home({ designWorkData, allPostsData, server }) {
     return (
       <ProjectThumbnail
         {...project}
+        id={project.id}
         as="article"
         hover
         key={index}
@@ -57,8 +58,8 @@ export default function Home({ designWorkData, allPostsData, server }) {
 
   const maxFeaturedCount = 4
 
-  const featuredProjects = designWorkData.slice(0, maxFeaturedCount)
-  const remainingProjects = designWorkData.slice(maxFeaturedCount, featuredProjects.lenght)
+  const featuredProjects = allPostsData.slice(0, maxFeaturedCount)
+  const remainingProjects = allPostsData.slice(maxFeaturedCount, featuredProjects.lenght)
 
   const markdown = `Hola! I am a curiosity-driven designer currently shaping the grocery shopping experience at [Uber](https://uber.com).
   
@@ -115,17 +116,6 @@ export default function Home({ designWorkData, allPostsData, server }) {
         statement={markdown}
       />
       <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
-
-      {allPostsData.map(({ id, date, title }) => (
-        <li key={id}>
-          {title}
-          <br />
-          {id}
-          <br />
-          {date}
-        </li>
-      ))}
-
       <ProjectsGrid featured>
         {featuredProjects.map((project, index) => {
           return _renderThumbnail(project, index, true, (index == 0 || index == 1))
@@ -144,15 +134,10 @@ export default function Home({ designWorkData, allPostsData, server }) {
 export async function getServerSideProps(context) {
   const dev = process.env.NODE_ENV !== 'production'
   const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
-  const url = `${server}/api/design-work`
-  const res = await fetch(url)
-  const designWorkData = await res.json()
-
   const allPostsData = getSortedPostsData();
 
   return {
     props: {
-      designWorkData,
       allPostsData,
       server
     }

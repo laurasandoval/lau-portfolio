@@ -1,5 +1,4 @@
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm'
 import './BigParagraph.scss'
 import { Balancer } from 'react-wrap-balancer';
 import { useEffect, useState } from 'react';
@@ -19,7 +18,7 @@ export default function BigParagraph({
     return (
         <div className="big_statement" data-centered={centered}>
             <Balancer>
-                <ReactMarkdown remarkPlugins={[remarkGfm]}>{statement}</ReactMarkdown>
+                <ReactMarkdown>{statement}</ReactMarkdown>
             </Balancer>
         </div>
     )
