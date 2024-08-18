@@ -214,9 +214,9 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ context, params }) {
+export async function getStaticProps({ params }) {
   const dev = process.env.NODE_ENV !== 'production'
-  const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
+  const server = dev ? `http://localhost:3000` : `https://lau.work`
   const allPosts = getSortedPostsData(); // Fetch and sort all posts
   const currentPostIndex = allPosts.findIndex(post => post.id === params.project.join('/'));
 
