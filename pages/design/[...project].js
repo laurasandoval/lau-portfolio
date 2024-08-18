@@ -150,13 +150,16 @@ export default function Project({ currentPostData, nextPostData, server }) {
               </Balancer>
             </h2>
             <p className="period">
-              {currentPostData.startYear && currentPostData.endYear
-                ? `${currentPostData.startYear} — ${currentPostData.endYear}`
-                : currentPostData.startYear && currentPostData.endYear === null
-                  ? `Since ${currentPostData.startYear}`
-                  : currentPostData.endYear && currentPostData.startYear === null
-                    ? `Until ${currentPostData.endYear}`
-                    : null
+              {
+                currentPostData.startYear && currentPostData.endYear ?
+                  currentPostData.startYear == currentPostData.endYear ?
+                    `${currentPostData.startYear}` :
+                    `${currentPostData.startYear} — ${currentPostData.endYear}`
+                  : currentPostData.startYear && currentPostData.endYear === null
+                    ? `Since ${currentPostData.startYear}`
+                    : currentPostData.endYear && currentPostData.startYear === null
+                      ? `Until ${currentPostData.endYear}`
+                      : null
               }
             </p>
           </div>

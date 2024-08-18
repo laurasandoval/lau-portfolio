@@ -159,13 +159,16 @@ export function ProjectThumbnail({
                 <div className="project_info" aria-hidden={hover}>
                     <h3 className="title">{title}</h3>
                     <span className="date">
-                        {startYear && endYear
-                            ? `${startYear} — ${endYear}`
-                            : startYear && endYear === null
-                                ? `Since ${startYear}`
-                                : endYear && startYear === null
-                                    ? `Until ${endYear}`
-                                    : null
+                        {
+                            startYear && endYear ?
+                                startYear == endYear ?
+                                    `${startYear}` :
+                                    `${startYear} — ${endYear}`
+                                : startYear && endYear === null
+                                    ? `Since ${startYear}`
+                                    : endYear && startYear === null
+                                        ? `Until ${endYear}`
+                                        : null
                         }
                     </span>
                 </div>
