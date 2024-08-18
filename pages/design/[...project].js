@@ -214,7 +214,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ context, params }) {
   const dev = process.env.NODE_ENV !== 'production'
   const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
   const allPosts = getSortedPostsData(); // Fetch and sort all posts
