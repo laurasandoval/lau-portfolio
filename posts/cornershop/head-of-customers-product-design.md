@@ -1,8 +1,6 @@
 ---
 title: "Cornershop by Uber"
 excerpt: "From 2020 to 2023, led the design division of Cornershop by Uber's customer-facing products."
-categories: "Product Design, Engineering"
-companies: "Cornershop, Uber"
 startYear: 2020
 endYear: 2023
 coverImage: "/assets/design-work/cornershop/head-of-customers-product-design/cornershop-order.png"
