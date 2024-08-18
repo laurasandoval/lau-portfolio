@@ -19,7 +19,6 @@ export default function Project({ currentPostData, nextPostData, server }) {
   const projectInfo = useRef(null);
 
   useEffect(() => {
-    console.log(currentPostData)
     window.addEventListener("scroll", _throttledScrollCheck)
 
     if (projectInfo) {
