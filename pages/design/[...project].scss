@@ -1,125 +1,49 @@
-.project_page_fallback {
+.design_project_article {
     margin: 0 auto;
-    padding: 20px;
+    padding: 80px 40px 0px;
     max-width: 1600px;
-    display: grid;
-    grid-template-columns: 1fr 0.5fr;
-    grid-gap: 20px;
+    display: block;
 
     @media (max-width: 850px) {
-        padding: 10px;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, auto);
+        padding: 40px 20px 0 20px;
     }
 
-    .project_gallery_container {
-        grid-row: 1 / var(--project-info-child-count);
+    p,
+    h1,
+    h2,
+    h3,
+    span,
+    a {
+        margin: 0;
+    }
 
-        hr {
-            display: none;
+    >*:not(:first-child) {
+        padding-top: 40px;
+    }
 
-            @media (max-width: 850px) {
-                display: block;
-                position: absolute;
-                right: 10px;
-                bottom: 0;
-                left: 10px;
-                border: none;
-                outline: none;
-                margin: 0;
-                height: 1px;
-                background: rgba(231, 232, 233, 1);
-                opacity: 0;
-                transition: opacity 0.4s ease;
-            }
-        }
+    >.header {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 40px;
 
         @media (max-width: 850px) {
-            grid-row: 1;
-            position: sticky;
-            top: 0;
-            margin: -10px;
-            padding: 10px;
-
-            &[data-show-border="true"] {
-                hr {
-                    opacity: 1;
-                }
-            }
+            grid-template-columns: auto;
+            grid-auto-flow: row;
+            grid-gap: 20px;
         }
 
-        .project_gallery {
-            display: flex;
-            flex-flow: column;
-
-            .project_thumbnail {
-                &:not(:last-of-type) {
-                    margin-bottom: 20px;
-                }
-            }
+        // This is the cover image, but let's not hardcode classnames we don't control here.
+        >*:not(.basic_info):not(.excerpt):not(hr) {
+            grid-column: 1 / -1;
 
             @media (max-width: 850px) {
-                flex-flow: row;
-                overflow: auto;
-                margin: -10px;
-                padding: 10px;
-                background: white;
-                scroll-snap-type: x mandatory;
-
-                .project_thumbnail {
-                    scroll-snap-align: center;
-                    scroll-snap-stop: always;
-                    width: 96%;
-                    margin-right: 5px;
-                    flex-shrink: 0;
-
-                    &:not(:last-of-type) {
-                        margin-bottom: 0;
-                    }
-
-                    &:last-of-type {
-                        margin-right: 0;
-                    }
-
-                    &:only-of-type {
-                        width: 100%;
-                    }
-                }
-
-                &::-webkit-scrollbar {
-                    display: none;
-                }
-            }
-        }
-    }
-
-    .project_info {
-        display: contents;
-
-        >* {
-            padding-right: 10px;
-            padding-left: 10px;
-            max-width: 420px;
-            grid-column: 2;
-            height: fit-content;
-
-            @media (max-width: 850px) {
-                grid-column: 1;
+                grid-row: 2;
             }
         }
 
-        > :not(:first-child) {
-            padding-top: 20px;
-        }
-
-        .title,
-        .description {
-            margin: 0;
-        }
-
-        .header {
+        .basic_info {
             .title {
-                font-size: 27px;
+                font-size: 30px;
                 font-weight: 560;
                 letter-spacing: -0.03em;
                 line-height: 1.2em;
@@ -135,34 +59,89 @@
             }
         }
 
-        .description {
-            font-size: 15px;
+        .excerpt {
+            font-size: 22px;
             font-weight: 460;
-            color: rgba(0, 0, 0, 1);
+            letter-spacing: -0.03em;
             line-height: 1.4;
+        }
 
-            p {
-                margin: 0;
-                padding: 0;
-                font: inherit;
+        hr {
+            grid-column: 1 / -1;
+            width: 100%;
+            height: 1px;
+            background: rgb(231, 232, 233);
+            border: none;
+            outline: none;
+            margin: 20px 0 0;
+            display: none;
 
-                &:not(:first-child) {
-                    margin-top: 1em;
+            @media (max-width: 1080px) {
+                display: block;
+            }
+        }
+    }
+
+    .body {
+        font-size: 15px;
+        font-weight: 460;
+        color: rgba(0, 0, 0, 1);
+        line-height: 1.6;
+
+        figure {
+            padding: 40px 0;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+
+            figcaption {
+                display: block;
+                color: rgba(136, 138, 144, 1);
+                font-size: 14px;
+                font-weight: 460;
+                line-height: 1.4;
+                margin: 8px 0 0;
+                padding: 0 20px;
+
+                @media (max-width: 1080px) {
+                    padding: 0;
                 }
             }
         }
 
+        >figure+figure {
+            padding-top: 0;
+        }
+
+        p {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 0;
+            font: inherit;
+
+            &:not(:first-child):not(figure + p) {
+                margin-top: 1em;
+            }
+        }
+
         .ctas {
+            padding-top: 40px;
             line-height: 1.4;
             display: grid;
             grid-auto-flow: row;
             grid-gap: 8px;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
         }
 
         .credits {
-            position: sticky;
-            top: 0px;
-
+            padding-top: 40px;
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 40px;

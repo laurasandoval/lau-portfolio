@@ -3,48 +3,15 @@ import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import { throttle } from 'lodash'
 import { useEffect, useRef, useState } from 'react'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
-import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 import { NextSeo } from 'next-seo'
 import Button from '@/components/Button/Button'
 import { Balancer } from 'react-wrap-balancer'
+import parse, { domToReact } from 'html-react-parser';
 import { getAllPostIds, getPostData, getSortedPostsData } from '../../lib/posts'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
 
 export default function Project({ currentPostData, nextPostData, server }) {
-  const [showGalleryBorder, setShowGalleryBorder] = useState(false)
-  const [projectInfoChildCount, setProjectInfoChildCount] = useState(0)
-  const projectGalleryContainer = useRef(null)
-  const projectGallery = useRef(null)
-  const projectInfo = useRef(null);
-
-  useEffect(() => {
-    window.addEventListener("scroll", _throttledScrollCheck)
-
-    if (projectInfo) {
-      setProjectInfoChildCount(projectInfo.current.childNodes.length + 2);
-    }
-
-    return () => document.removeEventListener("scroll", _throttledScrollCheck)
-  }, [currentPostData]);
-
-  useEffect(() => {
-    projectGallery.current.scroll({
-      left: 0
-    });
-  }, [currentPostData])
-
-  const _throttledScrollCheck = throttle(() => {
-    if (
-      projectGalleryContainer.current &&
-      projectGalleryContainer.current.offsetTop <= window.scrollY
-    ) {
-      setShowGalleryBorder(true)
-    } else {
-      setShowGalleryBorder(false)
-    }
-  }, 250)
-
   const getColorLuminance = (color) => {
     const hex = color.replace("#", "");
     const r = parseInt(hex.substring(0, 2), 16) / 255;
@@ -55,6 +22,52 @@ export default function Project({ currentPostData, nextPostData, server }) {
 
     return luminance;
   }
+
+  const renderContent = (htmlString) => {
+    const options = {
+      replace: (domNode) => {
+        // Check if the current node is a <p> tag containing only an <img> tag
+        if (domNode.name === 'p' && domNode.children.length === 1 && domNode.children[0].name === 'img') {
+          const { src, alt } = domNode.children[0].attribs; // Get src and alt from the img tag
+          return (
+            <figure>
+              <ProjectThumbnail
+                coverImage={src}
+                autoplay={true}
+                img_only
+                placeholder={false}
+              />
+              <figcaption>{alt}</figcaption>
+            </figure>
+          );
+        }
+      },
+    };
+
+    return parse(htmlString, options);
+  };
+
+  const formatYears = (startYear, endYear) => {
+    if (startYear && endYear) {
+      return startYear === endYear ? `${startYear}` : `${startYear} — ${endYear}`;
+    } else if (startYear && endYear === null) {
+      return `Since ${startYear}`;
+    } else if (endYear && startYear === null) {
+      return `Until ${endYear}`;
+    } else {
+      return null;
+    }
+  };
+
+  const formatCategories = (categories) => {
+    if (!categories || categories.length === 0) return null;
+
+    if (categories.length === 1) {
+      return categories[0];
+    } else {
+      return categories.slice(0, 3).join(', ');
+    }
+  };
 
   const projectThemeColor = currentPostData.customThemeColorHex ?? "#000000";
   const luminance = getColorLuminance(projectThemeColor);
@@ -102,70 +115,33 @@ export default function Project({ currentPostData, nextPostData, server }) {
       </style>
 
       <article
-        className="project_page_fallback"
+        className="design_project_article"
         data-name={currentPostData?.title}
       >
-        <div
-          className="project_gallery_container"
-          ref={projectGalleryContainer}
-          data-show-border={showGalleryBorder}
-          style={{
-            "--project-info-child-count": projectInfoChildCount
-          }}
-        >
-          <div
-            className="project_gallery"
-            ref={projectGallery}
-          >
-            <ProjectThumbnail
-              {...currentPostData}
-              img_only
-              placeholder={false}
-            />
-            {currentPostData.otherImages &&
-              currentPostData.otherImages.map((src, index) => {
-                return (
-                  <ProjectThumbnail
-                    {...currentPostData}
-                    coverImage={src}
-                    key={src}
-                    priority={false}
-                    img_only
-                    placeholder={false}
-                  />
-                )
-              })}
-          </div>
-          <hr />
-        </div>
-        <div
-          className="project_info"
-          ref={projectInfo}
-        >
-          <div className="header">
+        <div className="header">
+          <div className="basic_info">
             <h2 className="title">
               <Balancer>
                 {currentPostData.title}
               </Balancer>
             </h2>
-            <p className="period">
-              {
-                currentPostData.startYear && currentPostData.endYear ?
-                  currentPostData.startYear == currentPostData.endYear ?
-                    `${currentPostData.startYear}` :
-                    `${currentPostData.startYear} — ${currentPostData.endYear}`
-                  : currentPostData.startYear && currentPostData.endYear === null
-                    ? `Since ${currentPostData.startYear}`
-                    : currentPostData.endYear && currentPostData.startYear === null
-                      ? `Until ${currentPostData.endYear}`
-                      : null
-              }
-            </p>
+            <p className="period">{formatYears(currentPostData.startYear, currentPostData.endYear)} · {formatCategories(currentPostData.categories)}</p>
           </div>
-          <div
-            className="description"
-            dangerouslySetInnerHTML={{ __html: currentPostData.contentHtml }}
+          <p className="excerpt">
+            <Balancer>
+              {currentPostData.excerpt}
+            </Balancer>
+          </p>
+          <ProjectThumbnail
+            coverImage={currentPostData.coverImage}
+            autoplay={true}
+            img_only
+            placeholder={false}
           />
+          <hr />
+        </div>
+        <div className="body">
+          {renderContent(currentPostData.contentHtml)}
           {currentPostData?.cta && (
             <div className="ctas">
               {currentPostData?.cta.map((cta, i) => {

@@ -1,11 +1,13 @@
 ---
 title: "Chaucha — Transfiere más rápido"
 excerpt: "Chaucha is a Chilean app to transcribe incorrectly formatted wire transfer details —both from text & images— into clean, banking-app-friendly information. Chaucha was the #1 most downloaded paid Chilean app during its launch."
+categories:
+  - "Product Design"
+  - "Engineering"
+  - "Independent Apps"
 startYear: 2024
 endYear: 
 coverImage: "/assets/design-work/chaucha/chaucha-cover.png"
-otherImages:
-
 ogImage: "/assets/design-work/chaucha/social-thumbnail.png"
 customThemeColorHex: "#BC7C47"
 cta:
@@ -22,3 +24,9 @@ team:
 ---
 
 Chaucha is a Chilean app to transcribe incorrectly formatted wire transfer details —both from text & images— into clean, banking-app-friendly information. Chaucha was the #1 most downloaded paid Chilean app during its launch.
+
+![The San Juan Mountains are beautiful!](/assets/design-work/chaucha/chaucha-cover.png "San Juan Mountains")
+
+This is some test content.
+
+Oh yeah let's goooo
