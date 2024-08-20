@@ -37,7 +37,7 @@ export default function Project({ currentPostData, nextPostData, server }) {
                 img_only
                 placeholder={false}
               />
-              <figcaption>{alt}</figcaption>
+              {alt && <figcaption>{alt}</figcaption>}
             </figure>
           );
         }
