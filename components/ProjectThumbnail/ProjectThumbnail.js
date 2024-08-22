@@ -67,6 +67,11 @@ export function ProjectThumbnail({
         }
     }, [isIntersecting, manuallyPaused]);
 
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.load();
+        }
+    }, [coverImage]);
 
     const _renderThumbnail = (coverImage, title, priority, sizes) => {
         const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"]
