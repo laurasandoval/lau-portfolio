@@ -1,12 +1,10 @@
 import './[...project].scss'
 import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
-import { throttle } from 'lodash'
-import { useEffect, useRef, useState } from 'react'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
 import { NextSeo } from 'next-seo'
 import Button from '@/components/Button/Button'
 import { Balancer } from 'react-wrap-balancer'
-import parse, { domToReact } from 'html-react-parser';
+import parse from 'html-react-parser';
 import { getAllPostIds, getPostData, getSortedPostsData } from '../../lib/posts'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
