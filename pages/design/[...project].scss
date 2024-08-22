@@ -26,60 +26,64 @@
         font-weight: 460;
         color: rgba(0, 0, 0, 1);
         line-height: 1.6;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 40px;
 
-        figure {
-            padding: 40px 0;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            display: block;
-
-            figcaption {
+        .content {
+            figure {
+                padding: 40px 0;
+                width: 100%;
+                max-width: 800px;
+                margin: 0 auto;
                 display: block;
-                color: rgba(136, 138, 144, 1);
-                font-size: 14px;
-                font-weight: 460;
-                line-height: 1.4;
-                margin: 8px 0 0;
-                padding: 0 20px;
 
-                @media (max-width: 1080px) {
-                    padding: 0;
+                figcaption {
+                    display: block;
+                    color: rgba(136, 138, 144, 1);
+                    font-size: 14px;
+                    font-weight: 460;
+                    line-height: 1.4;
+                    margin: 8px 0 0;
+                    padding: 0 20px;
+
+                    @media (max-width: 1080px) {
+                        padding: 0;
+                    }
                 }
             }
-        }
 
-        >figure+figure {
-            padding-top: 0;
-        }
-
-        p {
-            width: 100%;
-            max-width: 480px;
-            margin: 0 auto;
-            padding: 0;
-            font: inherit;
-
-            &:not(:first-child):not(figure + p) {
-                margin-top: 1em;
+            >figure+figure {
+                padding-top: 0;
             }
-        }
 
-        .ctas {
-            padding-top: 40px;
-            line-height: 1.4;
-            display: grid;
-            grid-auto-flow: row;
-            grid-gap: 8px;
-            width: 100%;
-            max-width: 480px;
-            margin: 0 auto;
+            p {
+                width: 100%;
+                margin: 0 auto;
+                padding: 0;
+                font-size: 17px;
+
+                &:not(:first-child):not(figure + p) {
+                    margin-top: 1em;
+                }
+            }
+
+            .ctas {
+                padding-top: 40px;
+                line-height: 1.4;
+                display: grid;
+                grid-auto-flow: row;
+                grid-gap: 8px;
+                width: 100%;
+                margin: 0 auto;
+            }
         }
 
         .credits {
-            padding-top: 40px;
+            position: sticky;
+            top: 40px;
             width: 100%;
-            max-width: 480px;
+            height: min-content;
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(2, 1fr);

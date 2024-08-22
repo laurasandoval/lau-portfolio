@@ -1,11 +1,11 @@
 .next_project_peek {
-    margin: 0 auto;
+    margin: 40px 0 auto;
     padding: 0 40px;
     max-width: 1600px;
     position: relative;
     transition: opacity 0.3s ease;
 
-    --additional-peek-hover-margin: 10px;
+    --additional-peek-hover-margin: 20px;
     --project-info-header-computed-height: 300px;
 
     &:active {
@@ -36,7 +36,7 @@
     }
 
     .project_article_header_container {
-        margin-top: calc(40px - var(--additional-peek-hover-margin));
+        margin-top: calc(80px - var(--additional-peek-hover-margin));
         height: calc(var(--project-info-header-computed-height) + var(--additional-peek-hover-margin));
         overflow: hidden;
 
