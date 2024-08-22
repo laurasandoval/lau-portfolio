@@ -9,6 +9,7 @@ import { getAllPostIds, getPostData, getSortedPostsData } from '../../lib/posts'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
 import { ProjectArticleHeader } from '@/components/ProjectArticleHeader/ProjectArticleHeader'
+import ProjectArticleAsset from '@/components/ProjectArticleAsset/ProjectArticleAsset'
 
 export default function Project({ currentPostData, nextPostData, server }) {
   const getColorLuminance = (color) => {
@@ -29,15 +30,10 @@ export default function Project({ currentPostData, nextPostData, server }) {
         if (domNode.name === 'p' && domNode.children.length === 1 && domNode.children[0].name === 'img') {
           const { src, alt } = domNode.children[0].attribs; // Get src and alt from the img tag
           return (
-            <figure>
-              <ProjectThumbnail
-                coverImage={src}
-                autoplay={true}
-                img_only
-                placeholder={false}
-              />
-              {alt && <figcaption>{alt}</figcaption>}
-            </figure>
+            <ProjectArticleAsset
+              src={src}
+              caption={alt}
+            />
           );
         }
       },

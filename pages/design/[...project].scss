@@ -22,7 +22,7 @@
     }
 
     .body {
-        font-size: 15px;
+        font-size: 17px;
         font-weight: 460;
         color: rgba(0, 0, 0, 1);
         line-height: 1.6;
@@ -41,40 +41,28 @@
                 grid-column: 1;
             }
 
-            figure {
-                padding: 40px 0;
-                width: 100%;
-                max-width: 800px;
-                margin: 0 auto;
-                display: block;
-
-                figcaption {
-                    display: block;
-                    color: rgba(136, 138, 144, 1);
-                    font-size: 14px;
-                    font-weight: 460;
-                    line-height: 1.4;
-                    margin: 8px 0 0;
-                    padding: 0;
-
-                    @media (max-width: 1080px) {
-                        padding: 0;
-                    }
-                }
-            }
-
-            >figure+figure {
-                padding-top: 0;
-            }
-
             p {
                 width: 100%;
                 margin: 0 auto;
                 padding: 0;
-                font-size: 17px;
 
                 &:not(:first-child):not(figure + p) {
                     margin-top: 1em;
+                }
+
+                strong {
+                    font-weight: 560;
+                }
+            }
+
+            h2 {
+                font-size: 23px;
+                font-weight: 560;
+                letter-spacing: -0.03em;
+                line-height: 1.2em;
+
+                &:not(:first-child):not(figure + h2) {
+                    margin-top: 2em;
                 }
             }
 

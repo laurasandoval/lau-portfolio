@@ -1,0 +1,78 @@
+.project_article_asset {
+    padding: 40px 0;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    font-size: 0;
+
+    .project_article_video,
+    .project_article_image {
+        --radius: 8px;
+        border-radius: var(--radius);
+        -webkit-mask-box-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 25.6C0 16.6392 0 12.1587 1.7439 8.73615C3.27787 5.72556 5.72556 3.27787 8.73615 1.7439C12.1587 0 16.6392 0 25.6 0H74.4C83.3608 0 87.8413 0 91.2638 1.7439C94.2744 3.27787 96.7221 5.72556 98.2561 8.73615C100 12.1587 100 16.6392 100 25.6V74.4C100 83.3608 100 87.8413 98.2561 91.2638C96.7221 94.2744 94.2744 96.7221 91.2638 98.2561C87.8413 100 83.3608 100 74.4 100H25.6C16.6392 100 12.1587 100 8.73615 98.2561C5.72556 96.7221 3.27787 94.2744 1.7439 91.2638C0 87.8413 0 83.3608 0 74.4V25.6Z" fill="black"/></svg>') 16 / var(--radius) / 0px;
+    }
+
+    figcaption {
+        display: block;
+        color: rgba(136, 138, 144, 1);
+        font-size: 14px;
+        font-weight: 460;
+        line-height: 1.4;
+        margin: 8px 0 0;
+        padding: 0;
+
+        @media (max-width: 1080px) {
+            padding: 0;
+        }
+    }
+
+    &+& {
+        padding-top: 0;
+    }
+
+    h2+& {
+        padding-top: 20px;
+        margin-top: 1em;
+    }
+
+    .video_container {
+        width: 100%;
+        height: auto;
+        position: relative;
+
+        .project_article_video {
+            width: 100%;
+            height: auto;
+        }
+
+        .playpause_button {
+            z-index: 99;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(40px);
+            color: rgba(255, 255, 255, 1);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            line-height: 0;
+            pointer-events: all;
+            position: absolute;
+            cursor: pointer;
+            left: 16px;
+            bottom: 16px;
+
+            svg {
+                --size: 16px;
+                width: var(--size);
+                height: var(--size);
+            }
+        }
+    }
+
+    .project_article_image {
+        width: 100%;
+        height: auto;
+    }
+}
