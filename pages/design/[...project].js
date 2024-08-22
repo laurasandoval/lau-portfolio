@@ -8,6 +8,7 @@ import parse from 'html-react-parser';
 import { getAllPostIds, getPostData, getSortedPostsData } from '../../lib/posts'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
+import { ProjectArticleHeader } from '@/components/ProjectArticleHeader/ProjectArticleHeader'
 
 export default function Project({ currentPostData, nextPostData, server }) {
   const getColorLuminance = (color) => {
@@ -43,28 +44,6 @@ export default function Project({ currentPostData, nextPostData, server }) {
     };
 
     return parse(htmlString, options);
-  };
-
-  const formatYears = (startYear, endYear) => {
-    if (startYear && endYear) {
-      return startYear === endYear ? `${startYear}` : `${startYear} — ${endYear}`;
-    } else if (startYear && endYear === null) {
-      return `Since ${startYear}`;
-    } else if (endYear && startYear === null) {
-      return `Until ${endYear}`;
-    } else {
-      return null;
-    }
-  };
-
-  const formatCategories = (categories) => {
-    if (!categories || categories.length === 0) return null;
-
-    if (categories.length === 1) {
-      return categories[0];
-    } else {
-      return categories.slice(0, 3).join(', ');
-    }
   };
 
   const projectThemeColor = currentPostData.customThemeColorHex ?? "#000000";
@@ -116,28 +95,7 @@ export default function Project({ currentPostData, nextPostData, server }) {
         className="design_project_article"
         data-name={currentPostData?.title}
       >
-        <div className="header">
-          <div className="basic_info">
-            <h2 className="title">
-              <Balancer>
-                {currentPostData.title}
-              </Balancer>
-            </h2>
-            <p className="period">{formatYears(currentPostData.startYear, currentPostData.endYear)} · {formatCategories(currentPostData.categories)}</p>
-          </div>
-          <p className="excerpt">
-            <Balancer>
-              {currentPostData.excerpt}
-            </Balancer>
-          </p>
-          <ProjectThumbnail
-            coverImage={currentPostData.coverImage}
-            autoplay={true}
-            img_only
-            placeholder={false}
-          />
-          <hr />
-        </div>
+        <ProjectArticleHeader postData={currentPostData} />
         <div className="body">
           {renderContent(currentPostData.contentHtml)}
           {currentPostData?.cta && (
@@ -174,7 +132,7 @@ export default function Project({ currentPostData, nextPostData, server }) {
 
       {
         nextPostData != null &&
-        <NextProjectPeek id={nextPostData.project} {...nextPostData} />
+        <NextProjectPeek nextPostData={nextPostData} />
       }
     </>
   )

@@ -1,9 +1,12 @@
 .next_project_peek {
     margin: 0 auto;
-    padding: 0 20px 0 20px;
+    padding: 0 40px;
     max-width: 1600px;
     position: relative;
     transition: opacity 0.3s ease;
+
+    --additional-peek-hover-margin: 10px;
+    --project-info-header-computed-height: 300px;
 
     &:active {
         opacity: 0.4;
@@ -20,16 +23,8 @@
 
     @media (hover: hover) {
         &:hover {
-            .divider {
-                .title {
-                    opacity: 0;
-                }
-            }
-
-            .project_info {
-
-                .project_thumbnail_container,
-                .header {
+            .project_article_header_container {
+                .project_article_header {
                     transform: translateY(0px);
                 }
             }
@@ -40,58 +35,15 @@
         padding: 20px 10px 0 10px;
     }
 
-    --additional-peek-hover-margin: 10px;
-
-    .project_info {
-        display: grid;
-        grid-template-columns: 1fr 0.5fr;
-        grid-gap: 20px;
+    .project_article_header_container {
         margin-top: calc(40px - var(--additional-peek-hover-margin));
         height: calc(var(--project-info-header-computed-height) + var(--additional-peek-hover-margin));
         overflow: hidden;
 
-        @media (max-width: 850px) {
-            & {
-                grid-template-columns: auto;
-                height: calc(var(--project-info-header-computed-height) + 120px + var(--additional-peek-hover-margin));
-            }
-        }
-
-        .project_thumbnail_container,
-        .header {
+        .project_article_header {
             will-change: transform;
-            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+            transition: transform .3s cubic-bezier(.25, .46, .45, .94) 0s;
             transform: translateY(var(--additional-peek-hover-margin));
-        }
-
-        .header {
-            padding: 0 10px 80px;
-            height: fit-content;
-
-            @media (max-width: 850px) {
-                & {
-                    grid-row: 1;
-                    padding-bottom: 0;
-                }
-            }
-
-            .title {
-                font-size: 27px;
-                font-weight: 560;
-                letter-spacing: -0.03em;
-                line-height: 1.2em;
-                color: rgba(0, 0, 0, 1);
-                margin: 0;
-            }
-
-            .period {
-                color: rgba(136, 138, 144, 1);
-                font-size: 15px;
-                font-weight: 460;
-                line-height: 1.4;
-                margin: 8px 0 0;
-                padding: 0;
-            }
         }
     }
 
