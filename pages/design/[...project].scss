@@ -30,7 +30,17 @@
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 40px;
 
+        @media (max-width: 850px) {
+            grid-template-columns: 1fr;
+        }
+
         .content {
+            grid-column: 2;
+
+            @media (max-width: 850px) {
+                grid-column: 1;
+            }
+
             figure {
                 padding: 40px 0;
                 width: 100%;
@@ -45,7 +55,7 @@
                     font-weight: 460;
                     line-height: 1.4;
                     margin: 8px 0 0;
-                    padding: 0 20px;
+                    padding: 0;
 
                     @media (max-width: 1080px) {
                         padding: 0;
@@ -88,6 +98,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 40px;
+            grid-row: 1;
 
             @media (max-width: 1080px) {
                 grid-template-columns: 1fr;
@@ -95,9 +106,8 @@
             }
 
             @media (max-width: 850px) {
-                & {
-                    position: initial;
-                }
+                position: initial;
+                grid-row: initial;
             }
 
             .item {

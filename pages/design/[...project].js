@@ -97,6 +97,24 @@ export default function Project({ currentPostData, nextPostData, server }) {
       >
         <ProjectArticleHeader postData={currentPostData} />
         <div className="body">
+          <div className="content">
+            {renderContent(currentPostData.contentHtml)}
+            {currentPostData?.cta && (
+              <div className="ctas">
+                {currentPostData?.cta.map((cta, i) => {
+                  return (
+                    <Button
+                      type="secondary"
+                      key={i}
+                      link={true}
+                      href={cta.url}
+                      label={cta.title}
+                    />
+                  )
+                })}
+              </div>
+            )}
+          </div>
           <div className="credits">
             {currentPostData.client &&
               <div className="item">
@@ -136,24 +154,6 @@ export default function Project({ currentPostData, nextPostData, server }) {
                 ))}
               </div>
             ))}
-          </div>
-          <div className="content">
-            {renderContent(currentPostData.contentHtml)}
-            {currentPostData?.cta && (
-              <div className="ctas">
-                {currentPostData?.cta.map((cta, i) => {
-                  return (
-                    <Button
-                      type="secondary"
-                      key={i}
-                      link={true}
-                      href={cta.url}
-                      label={cta.title}
-                    />
-                  )
-                })}
-              </div>
-            )}
           </div>
         </div>
       </article>

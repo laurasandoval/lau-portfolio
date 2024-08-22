@@ -14,7 +14,7 @@ export function ProjectArticleHeader({
                         {postData.title}
                     </Balancer>
                 </h2>
-                <p className="period">{formatYears(postData.startYear, postData.endYear)} · {formatCategories(postData.categories)}</p>
+                <p className="period">{formatYears(postData.startYear, postData.endYear)} · {formatCategories(postData.workType)}</p>
             </div>
             <p className="excerpt">
                 <Balancer>

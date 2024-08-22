@@ -32,11 +32,17 @@
     }
 
     @media (max-width: 850px) {
-        padding: 20px 10px 0 10px;
+        padding: 0 20px 0;
     }
 
     .project_article_header_container {
-        margin-top: calc(80px - var(--additional-peek-hover-margin));
+        --margin-top: 70px;
+
+        @media (max-width: 850px) {
+            --margin-top: 50px;
+        }
+
+        margin-top: calc(var(--margin-top) - var(--additional-peek-hover-margin));
         height: calc(var(--project-info-header-computed-height) + var(--additional-peek-hover-margin));
         overflow: hidden;
 
