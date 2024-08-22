@@ -1,6 +1,13 @@
 ---
 title: "Uber Connect Home Page"
 excerpt: "Uber Connect —also known as \"Uber Flash\"— is Uber’s customer-facing “Delivery as a Service” product."
+client:
+  - "Uber"
+clientSector:
+  - "Delivery"
+  - "Corporate"
+workType:
+  - "Product Design"
 startYear: 2023
 endYear: 2023
 coverImage: "/assets/design-work/uber/uber-connect-home-page/uber-connect-home-page.webm"

@@ -1,7 +1,11 @@
 ---
 title: "Balance — Your transit cards in one place"
 excerpt: "Balance is Chile’s top-rated transit app, that I design and develop during my free time."
-categories:
+client:
+  - "Balance"
+clientSector:
+  - "Transport"
+workType:
   - "Product Design"
   - "Engineering"
   - "Independent Apps"

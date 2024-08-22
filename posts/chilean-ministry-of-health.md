@@ -1,9 +1,12 @@
 ---
 title: "Chilean Ministry of Health & LIPUC"
 excerpt: "Designed a cohesive printable system to help reduce waiting time perception by giving citizens access to simplified information about their status within the waitlist bureaucracy of public hospitals in Chile."
-categories:
-  - "Graphic Design"
+client:
+  - "Chilean Ministry of Health"
+clientSector:
   - "Civic & Public"
+workType:
+  - "Graphic Design"
 startYear: 2019
 endYear: 2019
 coverImage: "/assets/design-work/chilean-ministry-of-health/chilean-ministry-of-health-1.png"

@@ -97,18 +97,46 @@ export default function Project({ currentPostData, nextPostData, server }) {
       >
         <ProjectArticleHeader postData={currentPostData} />
         <div className="body">
-          {currentPostData.team && (
-            <div className="credits">
-              {Object.entries(currentPostData.team).map(([teamName, members]) => (
-                <div className="item" key={teamName}>
-                  <h3>{teamName}</h3>
-                  {members.map((member, index) => (
-                    <p key={index}>{member}</p>
-                  ))}
-                </div>
-              ))}
-            </div>
-          )}
+          <div className="credits">
+            {currentPostData.client &&
+              <div className="item">
+                <h3>Client</h3>
+                {currentPostData.client.map((client, i) => {
+                  return (
+                    <p key={i}>{client}</p>
+                  )
+                })}
+              </div>
+            }
+            {currentPostData.clientSector &&
+              <div className="item">
+                <h3>Sector</h3>
+                {currentPostData.clientSector.map((clientSector, i) => {
+                  return (
+                    <p key={i}>{clientSector}</p>
+                  )
+                })}
+              </div>
+            }
+            {currentPostData.workType &&
+              <div className="item">
+                <h3>Discipline</h3>
+                {currentPostData.workType.map((workType, i) => {
+                  return (
+                    <p key={i}>{workType}</p>
+                  )
+                })}
+              </div>
+            }
+            {currentPostData.team && Object.entries(currentPostData.team).map(([teamName, members]) => (
+              <div className="item" key={teamName}>
+                <h3>{teamName}</h3>
+                {members.map((member, index) => (
+                  <p key={index}>{member}</p>
+                ))}
+              </div>
+            ))}
+          </div>
           <div className="content">
             {renderContent(currentPostData.contentHtml)}
             {currentPostData?.cta && (
