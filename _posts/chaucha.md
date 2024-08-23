@@ -72,3 +72,11 @@ Chaucha was launched in early 2023 for roughly $2.99 USD on the App Store. It te
 ![The app launch went viral on Twitter, TikTok and Instagram.](/assets/design-work/chaucha/tweet.png)
 
 ![What people said. Translated from Spanish.](/assets/design-work/chaucha/chaucha-user-posts.png)
+
+## The Video
+
+Thanks to the support of my colleagues Dylan Babbs and Jenny Morrice, at the beginning of 2024, I had the opportunity to present Chaucha to my teammates at Uber Design during a design-wide all-hands meeting called "Show & Tell."
+
+See the full video I presented below.
+
+![Learn more about Chaucha, its algorithm, and watch me being a silly goose.](https://youtu.be/L3pePM64cDk)
