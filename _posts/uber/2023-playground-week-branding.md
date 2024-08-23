@@ -1,6 +1,6 @@
 ---
 title: "Uber Design Playground Week 2023"
-excerpt: "Visual identity for the internal Uber Design global event."
+excerpt: "Visual identity for an internal Uber Design event."
 client:
   - "Uber"
 clientSector:
@@ -64,4 +64,4 @@ To further consolidate a cohesive brand sentiment and expand the brand's versati
 
 ![Stills from our Intro & Kickoff deck.](/assets/design-work/uber/2023-playground-week-branding/2023-playground-week-branding-slides.jpg)
 
-This was definitely one of my favorite projects from 2023, and both I and the broader Delivery Design team were so happy with the results from both the branding and the actual Playground Week projects—which, needless to say, are confidential, so you'll just have to trust me on that one.
+This was definitely one of my favorite projects from 2023, and both I and the broader Delivery Design team were so happy with the results from the branding, as well as the actual Playground Week projects—which, needless to say, are confidential, so you'll just have to trust me on that one.
