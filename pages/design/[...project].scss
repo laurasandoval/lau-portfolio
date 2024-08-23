@@ -42,7 +42,8 @@
                 grid-column: 1;
             }
 
-            p {
+            p,
+            blockquote {
                 width: 100%;
                 margin: 0 auto;
                 padding: 0;
@@ -50,10 +51,10 @@
                 &:not(:first-child):not(figure + p) {
                     margin-top: 1em;
                 }
+            }
 
-                strong {
-                    font-weight: 560;
-                }
+            strong {
+                font-weight: 560;
             }
 
             h2 {
@@ -65,6 +66,14 @@
                 &:not(:first-child):not(figure + h2) {
                     margin-top: 2em;
                 }
+            }
+
+            blockquote {
+                font-size: 30px;
+                font-weight: 560;
+                letter-spacing: -0.03em;
+                line-height: 1.4em;
+                padding: 20px 0;
             }
 
             .ctas {
