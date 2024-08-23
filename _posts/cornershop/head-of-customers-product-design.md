@@ -2,10 +2,10 @@
 title: "Cornershop by Uber"
 excerpt: "From 2020 to 2023, led Consumer Product Design at Cornershop by Uber."
 client:
-  - "Uber"
+  - "Cornershop by Uber"
 clientSector:
   - "Delivery"
-  - "Corporate"
+  - "Start-up"
 workType:
   - "Product Design"
   - "Design Management"

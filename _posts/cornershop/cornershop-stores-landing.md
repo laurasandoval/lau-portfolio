@@ -1,16 +1,18 @@
 ---
-title: "Cornershop for Stores Landing"
-excerpt: "Website redesign for \"Cornershop for Stores\" landing page."
-startYear: 2021
-endYear: 2021
+title: "Cornershop for Merchants"
+excerpt: "Landing page redesign to boost Cornershop self-service merchants sign-ups."
+client:
+  - "Cornershop by Uber"
+clientSector:
+  - "Delivery"
+  - "Start-up"
+workType:
+  - "Product Design"
+startYear: 2020
+endYear: 2020
 coverImage: "/assets/design-work/cornershop/cornershop-stores-landing/cornershop-stores-landing-redesign.webm"
-otherImages:
-
 ogImage: "/assets/design-work/cornershop/cornershop-stores-landing/social-thumbnail.png"
 customThemeColorHex: "#A8ADB7"
-cta:
-    - title: "About Cornershop by Uber"
-      url: "https://es.wikipedia.org/wiki/Cornershop_(aplicación)"
 team:
   Design:
     - "Laura Sandoval"
@@ -19,9 +21,16 @@ team:
     - "Coniele Lastra"
     - "Matías Verdejo"
     - "Saher Piñero"
+  Product:
+    - "Osvaldo Mena"
+    - "Oskar Hjertonsson"
 ---
 
-Website redesign for "Cornershop for Stores" landing page.
+Towards the end of 2020, Cornershop by Uber was in the midst of its most intense growth period, boosted by quarantines and the increase reliance on delivery services. Additionally, that same year we had just launched Uber Grocery delivery, meaning that any merchant that signed-up for Cornershop was automatically available inside the Uber and Uber Eats apps too.
+
+We thought this was an inmense value proposition for merchants, yet our then landing page was not a reflection of it.
+
+!["Cornershop for Merchants" landing page before its 2020 redesign.](/assets/design-work/cornershop/cornershop-stores-landing/cornershop-for-stores-landing-before.png)
 
 The entire website was redesigned and rewritten from the ground up, providing first-class support for assistive technologies —such as keyboard navigation and screen readers— in every step of the process.
 
