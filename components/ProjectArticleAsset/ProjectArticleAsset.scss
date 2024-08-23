@@ -90,6 +90,10 @@
                     }
                 }
 
+                @media (max-width: 850px) {
+                    background-color: rgba(0, 0, 0, 0);
+                }
+
                 .play_button_affordance {
                     --size: 60px;
                     position: relative;
