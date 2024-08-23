@@ -1,6 +1,6 @@
 ---
 title: "Uber Design Playground Week 2023"
-excerpt: "Visual identity for an internal Uber Design event."
+excerpt: "Visual identity for the internal Uber Design event."
 client:
   - "Uber"
 clientSector:
