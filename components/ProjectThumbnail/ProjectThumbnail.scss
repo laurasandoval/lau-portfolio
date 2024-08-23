@@ -43,7 +43,7 @@
 
         @at-root [data-portrait="true"]#{&} {
             @media (max-width: 480px) {
-                padding-top: calc(100% * calc(3 / 2));
+                padding-top: calc(100% * calc(4 / 3));
             }
         }
 
