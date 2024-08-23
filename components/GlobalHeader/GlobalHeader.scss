@@ -99,7 +99,7 @@
         grid-template-columns: 1fr auto;
         grid-gap: 40px;
         align-items: center;
-        font-size: 15px;
+        font-size: 17px;
         color: rgba(0, 0, 0, 1);
 
         .nav_item {
@@ -169,7 +169,7 @@
                             color: rgba(136, 138, 144, 1);
 
                             @media (max-width: 850px) {
-                                font-size: 14px;
+                                font-size: 15px;
                             }
                         }
                     }
