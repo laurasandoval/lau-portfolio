@@ -48,7 +48,7 @@ The amount of organic reach and people's reactions to the product gave me the co
 
 ![Designing for future versions of the app. Circa 2019](/assets/design-work/balance/app/saldo-red-sketch-2019-bts.png)
 
-As a self-taught developer, this was the most ambitious technical challenge I had ever embarked on. But it ultimately taught me so much about launching, owning, and iterating on a product that I kept coming back for more.
+As a self-taught engineer, this was the most ambitious technical challenge I had ever embarked on. But it ultimately taught me so much about launching, owning, and iterating on a product that I kept coming back for more.
 
 ## Present
 
