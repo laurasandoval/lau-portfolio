@@ -74,6 +74,12 @@ export default function Project({ currentPostData, nextPostData, server }) {
             href: `${server}/logo192.png`
           }
         ]}
+      // additionalMetaTags={[
+      //   {
+      //     name: "theme-color",
+      //     content: projectThemeColor,
+      //   },
+      // ]}
       />
 
       <GlobalHeader />
