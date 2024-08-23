@@ -1,6 +1,6 @@
 ---
 title: "Cornershop by Uber"
-excerpt: "From 2020 to 2023, led the design division of Cornershop by Uber's customer-facing products."
+excerpt: "From 2020 to 2023, led Consumer Product Design at Cornershop by Uber."
 client:
   - "Uber"
 clientSector:
@@ -11,7 +11,7 @@ workType:
   - "Design Management"
 startYear: 2020
 endYear: 2023
-coverImage: "/assets/design-work/cornershop/head-of-customers-product-design/cornershop-order.png"
+coverImage: "/assets/design-work/cornershop/head-of-customers-product-design/cornershop-cover.png"
 ogImage: "/assets/design-work/cornershop/head-of-customers-product-design/social-thumbnail.png"
 customThemeColorHex: "#FF404C"
 team:
@@ -38,14 +38,14 @@ team:
     - "Daniel Undurraga"
 ---
 
-From 2020 to 2023, led the design division of Cornershop by Uber's customer-facing products.
+From 2020 to 2023, I led Consumer Product Design for Cornershop by Uber. This included hiring, managing, and mentoring a team of Product Designers and Design Managers, as well as working closely with Engineering and Product Leadership to steer the direction of the product throughout its most intense growth period—culminating in a $3B acquisition by Uber in 2021.
 
-![Cornershop was a grocery delivery app available in the US, Canada, Brazil, Chile, Peru, Colombia, Mexico, and Costa Rica](/assets/design-work/cornershop/head-of-customers-product-design/cornershop-marketplace.png)
+![Cornershop was a grocery delivery app available in the US, Canada, Brazil, Chile, Peru, Colombia, Mexico, and Costa Rica.](/assets/design-work/cornershop/head-of-customers-product-design/cornershop-marketplace.png)
 
-This included hiring, managing and mentoring a team of Product Designers and Design Managers, overseeing the design of over 100 projects, and working closely with Engineering and Product teams to deliver new features and continuously improve Cornershop by Uber’s customer-facing products.
+![Some key merchants included Walmart, Fresco & Más, Jumbo, Longo's, The Body Shop, among others.](/assets/design-work/cornershop/head-of-customers-product-design/cornershop-storefront.png)
 
-![Cornershop's storefront.](/assets/design-work/cornershop/head-of-customers-product-design/cornershop-storefront.png)
+![Shoppers were trained to pick your groceries just like you would, and users were always able to chat with them if they needed help or to add something else.](/assets/design-work/cornershop/head-of-customers-product-design/cornershop-order.png)
 
 ![We shipped 100+ projects.](/assets/design-work/cornershop/head-of-customers-product-design/projects-grid-infinite-carousel.webm)
 
-Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, got acquired by Uber in 2021, and was later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.
+Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, was acquired by Uber in 2021, and later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.
