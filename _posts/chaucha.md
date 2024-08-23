@@ -1,5 +1,5 @@
 ---
-title: "Chaucha — Easier wire transfers"
+title: "Chaucha — Wire transfers made easy"
 excerpt: "Chaucha is a Chilean app to transcribe incorrectly formatted wire transfer details —both from text & images— into clean, banking-app-friendly information."
 client:
   - "Chaucha"
