@@ -1,7 +1,10 @@
 .project_article_header {
+    --max-width: 1280px;
+    --grid-gap: 40px;
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 40px;
+    grid-gap: var(--grid-gap);
 
     p,
     h1,
@@ -28,6 +31,16 @@
     }
 
     .basic_info {
+        width: 100%;
+        max-width: calc((var(--max-width) / 2) - (var(--grid-gap) / 2));
+        margin-left: auto;
+
+        @media (max-width: 850px) {
+            width: auto;
+            max-width: initial;
+            margin-left: 0;
+        }
+
         .title {
             font-size: 30px;
             font-weight: 560;
@@ -46,6 +59,16 @@
     }
 
     .excerpt {
+        width: 100%;
+        max-width: calc((var(--max-width) / 2) - (var(--grid-gap) / 2));
+        margin-right: auto;
+
+        @media (max-width: 850px) {
+            width: auto;
+            max-width: initial;
+            margin-right: 0;
+        }
+
         font-size: 22px;
         font-weight: 460;
         letter-spacing: -0.03em;

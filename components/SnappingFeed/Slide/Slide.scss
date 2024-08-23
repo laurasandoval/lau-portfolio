@@ -1,6 +1,6 @@
 .snapping_feed_slide {
     $horizontal-padding: 40px; // Same as site's header. // ⚠️ If this value changes, you'll also have to change the value in the `handleScroll` function.
-    $desktop-max-width: 1280px; // Same as site's header.
+    $desktop-max-width: 1600px; // Same as site's header.
 
     scroll-snap-align: start;
     scroll-snap-stop: always;
