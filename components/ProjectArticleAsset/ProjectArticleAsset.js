@@ -31,6 +31,7 @@ export default function ProjectArticleAsset({
                         loop
                         muted
                         autoPlay={autoplay}
+                        playsInline
                         className="project_article_video"
                     />
                     <button
