@@ -1,11 +1,17 @@
 ---
 title: "Guemil — Icons for Emergency"
 excerpt: "Designed and implemented multiple internal tools and APIs to automate icon testing and visualization for \"Guemil, Icons for Emergency\"."
+client:
+  - "Guemil"
+clientSector:
+  - "NGOs"
+  - "Design"
+workType:
+  - "Product Design"
+  - "Engineering"
 startYear: 2018
 endYear: 2018
 coverImage: "/assets/design-work/guemil/guemil-uploader.png"
-otherImages:
-
 ogImage: "/assets/design-work/guemil/social-thumbnail.png"
 customThemeColorHex: "#C2AEE1"
 cta:
