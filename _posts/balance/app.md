@@ -11,7 +11,7 @@ workType:
   - "Independent Apps"
 startYear: 2019
 endYear: 
-coverImage: "/assets/design-work/balance/app/balance-cover.webm"
+coverImage: "/assets/design-work/balance/app/balance-cover.mp4"
 ogImage: "/assets/design-work/balance/app/social-thumbnail.png"
 customThemeColorHex: "#FD3333"
 team:
@@ -36,13 +36,13 @@ Back in 2019, I found myself frustrated with the lack of alternatives for decent
 
 Driven by this personal frustration, I coded a small progressive web app called "Saldo," or "Saldo Red" (in reference to Chile's upcoming new transit system branding, "Red") that was hopefully a bit simpler and more reliable than what the market had to offer at the time.
 
-![Initial MVP for Balance, in the form of a progressive web app. Circa 2019.](/assets/design-work/balance/app/balance-2019-webapp-demo.webm)
+![Initial MVP for Balance, in the form of a progressive web app. Circa 2019.](/assets/design-work/balance/app/balance-2019-webapp-demo.mp4)
 
 Though mostly made for myself, I was still curious to see if there was appetite in the market for the product. So I made it public and tweeted about it.
 
 ![At the beginning of 2019, I launched an MVP web version of my app, back then called "Saldo Red" instead of "Balance," and used Twitter to gut-check if there was any consumer appetite for something like this.](/assets/design-work/balance/app/2019-tweet.png)
 
-![Thanks to the tweet, the app got some news coverage as well. 2019.](/assets/design-work/balance/app/TVN-230719.webm)
+![Thanks to the tweet, the app got some news coverage as well. 2019.](/assets/design-work/balance/app/TVN-230719.mp4)
 
 The amount of organic reach and people's reactions to the product gave me the confidence and dopamine boost I needed to keep going, so I quickly began listening to feedback, iterating, and incorporating users' most requested features, like saving more than one card at a time, highlighting the number of trips left more prominently (a feature that's still exclusive to Balance, even more than half a decade later), etc.
 
@@ -52,7 +52,7 @@ As a self-taught engineer, this was the most ambitious technical challenge I had
 
 ## Present
 
-![Balance in 2024.](/assets/design-work/balance/app/balance-cover.webm)
+![Balance in 2024.](/assets/design-work/balance/app/balance-cover.mp4)
 
 Today, Balance supports 9 types of transit cards across Chile, it's no longer a website but a native iOS app (re-built from the ground up in Swift in 2021), and it's by far the most positively reviewed transit app in Chile, with almost two thousand reviews on the App Store.
 
@@ -60,6 +60,6 @@ On top of getting your latest transit card balance, it now also supports persona
 
 ![Users can save and customize as many transit cards as they want.](/assets/design-work/balance/app/balance-saved-cards.png)
 
-![Each card has a different set of artwork options, based on the card's historical context as well as platform-wide themes like Pride.](/assets/design-work/balance/app/balance-card-designs-reel.webm)
+![Each card has a different set of artwork options, based on the card's historical context as well as platform-wide themes like Pride.](/assets/design-work/balance/app/balance-card-designs-reel.mp4)
 
 This project was not commissioned by, and is not directly related to, any of Chile's official transit authorities.

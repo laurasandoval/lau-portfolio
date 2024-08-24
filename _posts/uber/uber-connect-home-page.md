@@ -10,7 +10,7 @@ workType:
   - "Product Design"
 startYear: 2023
 endYear: 2023
-coverImage: "/assets/design-work/uber/uber-connect-home-page/uber-connect-home-page.webm"
+coverImage: "/assets/design-work/uber/uber-connect-home-page/uber-connect-home-page.mp4"
 ogImage: "/assets/design-work/uber/uber-connect-home-page/social-thumbnail.png"
 customThemeColorHex: "#000000"
 team:

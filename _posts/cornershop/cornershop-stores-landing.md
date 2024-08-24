@@ -10,7 +10,7 @@ workType:
   - "Product Design"
 startYear: 2020
 endYear: 2020
-coverImage: "/assets/design-work/cornershop/cornershop-stores-landing/cornershop-stores-landing-redesign.webm"
+coverImage: "/assets/design-work/cornershop/cornershop-stores-landing/cornershop-stores-landing-redesign.mp4"
 ogImage: "/assets/design-work/cornershop/cornershop-stores-landing/social-thumbnail.png"
 customThemeColorHex: "#A8ADB7"
 team:

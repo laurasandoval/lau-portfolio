@@ -3,7 +3,7 @@ title: "Cool Place to Bike Website"
 excerpt: "Website redesign and development for Kappo's Cool Place to Bike program."
 startYear: 2019
 endYear: 2019
-coverImage: "/assets/design-work/kappo/cool-place-to-bike-website/web-cool-place-to-bike.webm"
+coverImage: "/assets/design-work/kappo/cool-place-to-bike-website/web-cool-place-to-bike.mp4"
 otherImages:
 
 ogImage: "/assets/design-work/kappo/cool-place-to-bike-website/social-thumbnail.png"

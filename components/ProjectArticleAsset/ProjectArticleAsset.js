@@ -11,7 +11,7 @@ export default function ProjectArticleAsset({
     const [showVideo, setShowVideo] = useState(false);
     const videoRef = useRef(null);
 
-    const isVideo = src.endsWith('.mp4') || src.endsWith('.webm');
+    const isVideo = src.endsWith('.mp4') || src.endsWith('.mp4');
     const isYouTube = src.includes('youtube.com') || src.includes('youtu.be');
 
     const togglePlayPause = () => {

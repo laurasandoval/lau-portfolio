@@ -99,13 +99,13 @@ export function ProjectThumbnail({
                         <source
                             src={`${coverImage.replace(
                                 ".mp4",
-                                ".webm"
+                                ".mp4"
                             )}`}
                             type="video/webm"
                         />
                         <source
                             src={`${coverImage.replace(
-                                ".webm",
+                                ".mp4",
                                 ".mp4"
                             )}`}
                             type="video/mp4"

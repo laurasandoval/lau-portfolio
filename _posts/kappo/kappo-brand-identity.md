@@ -3,7 +3,7 @@ title: "Kappo Bike — Brand Identity Redesign"
 excerpt: "Led, designed, and implemented a complete brand identity redesign for Kappo Bike, a now-defunct app for logging your bicycle trips around the city."
 startYear: 2019
 endYear: 2019
-coverImage: "/assets/design-work/kappo/kappo-brand-identity/kappo-brand-identity.webm"
+coverImage: "/assets/design-work/kappo/kappo-brand-identity/kappo-brand-identity.mp4"
 otherImages:
     - "/assets/design-work/kappo/kappo-brand-identity/kappo-brand-identity-tote.png"
     - "/assets/design-work/kappo/kappo-brand-identity/kappo-brand-posters-1.png"

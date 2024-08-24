@@ -10,7 +10,7 @@ workType:
   - "Brand Identity"
 startYear: 2023
 endYear: 2023
-coverImage: "/assets/design-work/uber/2023-playground-week-branding/2023-playground-week-branding.webm"
+coverImage: "/assets/design-work/uber/2023-playground-week-branding/2023-playground-week-branding.mp4"
 ogImage: "/assets/design-work/uber/2023-playground-week-branding/social-thumbnail.png"
 customThemeColorHex: "#FF00F5"
 team:
@@ -56,7 +56,7 @@ To further consolidate a cohesive brand sentiment and expand the brand's versati
 
 ## Final Results
 
-![Final logo for the event.](/assets/design-work/uber/2023-playground-week-branding/2023-playground-week-branding.webm)
+![Final logo for the event.](/assets/design-work/uber/2023-playground-week-branding/2023-playground-week-branding.mp4)
 
 ![All event participants were required to sign up on this Google Sheet, which we branded with our bold Pink & Blue colors, as well as our new shiny virtual stickers.](/assets/design-work/uber/2023-playground-week-branding/2023-playground-week-branding-group-forming-sheet.jpg)
 
