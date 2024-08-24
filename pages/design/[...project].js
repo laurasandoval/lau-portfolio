@@ -1,50 +1,17 @@
 import './[...project].scss'
 import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
-import { throttle } from 'lodash'
-import { useEffect, useRef, useState } from 'react'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
-import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLabel'
 import { NextSeo } from 'next-seo'
 import Button from '@/components/Button/Button'
 import { Balancer } from 'react-wrap-balancer'
+import parse from 'html-react-parser';
 import { getAllPostIds, getPostData, getSortedPostsData } from '../../lib/posts'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
+import { ProjectArticleHeader } from '@/components/ProjectArticleHeader/ProjectArticleHeader'
+import ProjectArticleAsset from '@/components/ProjectArticleAsset/ProjectArticleAsset'
 
 export default function Project({ currentPostData, nextPostData, server }) {
-  const [showGalleryBorder, setShowGalleryBorder] = useState(false)
-  const [projectInfoChildCount, setProjectInfoChildCount] = useState(0)
-  const projectGalleryContainer = useRef(null)
-  const projectGallery = useRef(null)
-  const projectInfo = useRef(null);
-
-  useEffect(() => {
-    window.addEventListener("scroll", _throttledScrollCheck)
-
-    if (projectInfo) {
-      setProjectInfoChildCount(projectInfo.current.childNodes.length + 2);
-    }
-
-    return () => document.removeEventListener("scroll", _throttledScrollCheck)
-  }, [currentPostData]);
-
-  useEffect(() => {
-    projectGallery.current.scroll({
-      left: 0
-    });
-  }, [currentPostData])
-
-  const _throttledScrollCheck = throttle(() => {
-    if (
-      projectGalleryContainer.current &&
-      projectGalleryContainer.current.offsetTop <= window.scrollY
-    ) {
-      setShowGalleryBorder(true)
-    } else {
-      setShowGalleryBorder(false)
-    }
-  }, 250)
-
   const getColorLuminance = (color) => {
     const hex = color.replace("#", "");
     const r = parseInt(hex.substring(0, 2), 16) / 255;
@@ -55,6 +22,25 @@ export default function Project({ currentPostData, nextPostData, server }) {
 
     return luminance;
   }
+
+  const renderContent = (htmlString) => {
+    const options = {
+      replace: (domNode) => {
+        // Check if the current node is a <p> tag containing only an <img> tag
+        if (domNode.name === 'p' && domNode.children.length === 1 && domNode.children[0].name === 'img') {
+          const { src, alt } = domNode.children[0].attribs; // Get src and alt from the img tag
+          return (
+            <ProjectArticleAsset
+              src={src}
+              caption={alt}
+            />
+          );
+        }
+      },
+    };
+
+    return parse(htmlString, options);
+  };
 
   const projectThemeColor = currentPostData.customThemeColorHex ?? "#000000";
   const luminance = getColorLuminance(projectThemeColor);
@@ -88,6 +74,12 @@ export default function Project({ currentPostData, nextPostData, server }) {
             href: `${server}/logo192.png`
           }
         ]}
+      // additionalMetaTags={[
+      //   {
+      //     name: "theme-color",
+      //     content: projectThemeColor,
+      //   },
+      // ]}
       />
 
       <GlobalHeader />
@@ -102,97 +94,69 @@ export default function Project({ currentPostData, nextPostData, server }) {
       </style>
 
       <article
-        className="project_page_fallback"
+        className="design_project_article"
         data-name={currentPostData?.title}
       >
-        <div
-          className="project_gallery_container"
-          ref={projectGalleryContainer}
-          data-show-border={showGalleryBorder}
-          style={{
-            "--project-info-child-count": projectInfoChildCount
-          }}
-        >
-          <div
-            className="project_gallery"
-            ref={projectGallery}
-          >
-            <ProjectThumbnail
-              {...currentPostData}
-              img_only
-              placeholder={false}
-            />
-            {currentPostData.otherImages &&
-              currentPostData.otherImages.map((src, index) => {
-                return (
-                  <ProjectThumbnail
-                    {...currentPostData}
-                    coverImage={src}
-                    key={src}
-                    priority={false}
-                    img_only
-                    placeholder={false}
-                  />
-                )
-              })}
+        <ProjectArticleHeader postData={currentPostData} />
+        <div className="body">
+          <div className="content">
+            {renderContent(currentPostData.contentHtml)}
+            {currentPostData?.cta && (
+              <div className="ctas">
+                {currentPostData?.cta.map((cta, i) => {
+                  return (
+                    <Button
+                      type="secondary"
+                      key={i}
+                      link={true}
+                      href={cta.url}
+                      label={cta.title}
+                    />
+                  )
+                })}
+              </div>
+            )}
           </div>
-          <hr />
-        </div>
-        <div
-          className="project_info"
-          ref={projectInfo}
-        >
-          <div className="header">
-            <h2 className="title">
-              <Balancer>
-                {currentPostData.title}
-              </Balancer>
-            </h2>
-            <p className="period">
-              {
-                currentPostData.startYear && currentPostData.endYear ?
-                  currentPostData.startYear == currentPostData.endYear ?
-                    `${currentPostData.startYear}` :
-                    `${currentPostData.startYear} — ${currentPostData.endYear}`
-                  : currentPostData.startYear && currentPostData.endYear === null
-                    ? `Since ${currentPostData.startYear}`
-                    : currentPostData.endYear && currentPostData.startYear === null
-                      ? `Until ${currentPostData.endYear}`
-                      : null
-              }
-            </p>
+          <div className="credits">
+            {currentPostData.client &&
+              <div className="item">
+                <h3>Client</h3>
+                {currentPostData.client.map((client, i) => {
+                  return (
+                    <p key={i}>{client}</p>
+                  )
+                })}
+              </div>
+            }
+            {currentPostData.clientSector &&
+              <div className="item">
+                <h3>Sector</h3>
+                {currentPostData.clientSector.map((clientSector, i) => {
+                  return (
+                    <p key={i}>{clientSector}</p>
+                  )
+                })}
+              </div>
+            }
+            {currentPostData.workType &&
+              <div className="item">
+                <h3>Discipline</h3>
+                {currentPostData.workType.map((workType, i) => {
+                  return (
+                    <p key={i}>{workType}</p>
+                  )
+                })}
+              </div>
+            }
+            {currentPostData.team && Object.entries(currentPostData.team).map(([teamName, members]) => (
+              <div className="item" key={teamName}>
+                <h3>{teamName}</h3>
+                {members.map((member, index) => (
+                  <p key={index}>{member}</p>
+                ))}
+              </div>
+            ))}
           </div>
-          <div
-            className="description"
-            dangerouslySetInnerHTML={{ __html: currentPostData.contentHtml }}
-          />
-          {currentPostData?.cta && (
-            <div className="ctas">
-              {currentPostData?.cta.map((cta, i) => {
-                return (
-                  <Button
-                    type="secondary"
-                    key={i}
-                    link={true}
-                    href={cta.url}
-                    label={cta.title}
-                  />
-                )
-              })}
-            </div>
-          )}
-          {currentPostData.team && (
-            <div className="credits">
-              {Object.entries(currentPostData.team).map(([teamName, members]) => (
-                <div className="item" key={teamName}>
-                  <h3>{teamName}</h3>
-                  {members.map((member, index) => (
-                    <p key={index}>{member}</p>
-                  ))}
-                </div>
-              ))}
-            </div>
-          )}
         </div>
       </article>
 
@@ -200,7 +164,7 @@ export default function Project({ currentPostData, nextPostData, server }) {
 
       {
         nextPostData != null &&
-        <NextProjectPeek id={nextPostData.project} {...nextPostData} />
+        <NextProjectPeek nextPostData={nextPostData} />
       }
     </>
   )

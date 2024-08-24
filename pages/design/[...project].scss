@@ -1,171 +1,104 @@
-.project_page_fallback {
+.design_project_article {
     margin: 0 auto;
-    padding: 20px;
+    padding: 80px 40px 0px;
     max-width: 1600px;
-    display: grid;
-    grid-template-columns: 1fr 0.5fr;
-    grid-gap: 20px;
+    display: block;
 
     @media (max-width: 850px) {
-        padding: 10px;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, auto);
+        padding: 40px 20px 0 20px;
     }
 
-    .project_gallery_container {
-        grid-row: 1 / var(--project-info-child-count);
+    p,
+    h1,
+    h2,
+    h3,
+    span,
+    a {
+        margin: 0;
+    }
 
-        hr {
-            display: none;
+    >*:not(:first-child) {
+        padding-top: 40px;
+    }
 
-            @media (max-width: 850px) {
-                display: block;
-                position: absolute;
-                right: 10px;
-                bottom: 0;
-                left: 10px;
-                border: none;
-                outline: none;
-                margin: 0;
-                height: 1px;
-                background: rgba(231, 232, 233, 1);
-                opacity: 0;
-                transition: opacity 0.4s ease;
-            }
-        }
+    .body {
+        max-width: 1280px;
+        margin: 0 auto;
+        font-size: 15px;
+        font-weight: 460;
+        color: rgba(0, 0, 0, 1);
+        line-height: 1.6;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 40px;
 
         @media (max-width: 850px) {
-            grid-row: 1;
-            position: sticky;
-            top: 0;
-            margin: -10px;
-            padding: 10px;
-
-            &[data-show-border="true"] {
-                hr {
-                    opacity: 1;
-                }
-            }
+            font-size: 15px;
+            grid-template-columns: 1fr;
         }
 
-        .project_gallery {
-            display: flex;
-            flex-flow: column;
-
-            .project_thumbnail {
-                &:not(:last-of-type) {
-                    margin-bottom: 20px;
-                }
-            }
-
-            @media (max-width: 850px) {
-                flex-flow: row;
-                overflow: auto;
-                margin: -10px;
-                padding: 10px;
-                background: white;
-                scroll-snap-type: x mandatory;
-
-                .project_thumbnail {
-                    scroll-snap-align: center;
-                    scroll-snap-stop: always;
-                    width: 96%;
-                    margin-right: 5px;
-                    flex-shrink: 0;
-
-                    &:not(:last-of-type) {
-                        margin-bottom: 0;
-                    }
-
-                    &:last-of-type {
-                        margin-right: 0;
-                    }
-
-                    &:only-of-type {
-                        width: 100%;
-                    }
-                }
-
-                &::-webkit-scrollbar {
-                    display: none;
-                }
-            }
-        }
-    }
-
-    .project_info {
-        display: contents;
-
-        >* {
-            padding-right: 10px;
-            padding-left: 10px;
-            max-width: 420px;
+        .content {
             grid-column: 2;
-            height: fit-content;
 
             @media (max-width: 850px) {
                 grid-column: 1;
             }
-        }
 
-        > :not(:first-child) {
-            padding-top: 20px;
-        }
-
-        .title,
-        .description {
-            margin: 0;
-        }
-
-        .header {
-            .title {
-                font-size: 27px;
-                font-weight: 560;
-                letter-spacing: -0.03em;
-                line-height: 1.2em;
-            }
-
-            .period {
-                color: rgba(136, 138, 144, 1);
-                font-size: 15px;
-                font-weight: 460;
-                line-height: 1.4;
-                margin: 8px 0 0;
+            p,
+            blockquote {
+                width: 100%;
+                margin: 0 auto;
                 padding: 0;
-            }
-        }
 
-        .description {
-            font-size: 15px;
-            font-weight: 460;
-            color: rgba(0, 0, 0, 1);
-            line-height: 1.4;
-
-            p {
-                margin: 0;
-                padding: 0;
-                font: inherit;
-
-                &:not(:first-child) {
+                &:not(:first-child):not(figure + p) {
                     margin-top: 1em;
                 }
             }
-        }
 
-        .ctas {
-            line-height: 1.4;
-            display: grid;
-            grid-auto-flow: row;
-            grid-gap: 8px;
+            strong {
+                font-weight: 560;
+            }
+
+            h2 {
+                font-size: 23px;
+                font-weight: 560;
+                letter-spacing: -0.03em;
+                line-height: 1.2em;
+
+                &:not(:first-child):not(figure + h2) {
+                    margin-top: 2em;
+                }
+            }
+
+            blockquote {
+                font-size: 30px;
+                font-weight: 560;
+                letter-spacing: -0.03em;
+                line-height: 1.4em;
+                padding: 20px 0;
+            }
+
+            .ctas {
+                padding-top: 40px;
+                line-height: 1.4;
+                display: grid;
+                grid-auto-flow: row;
+                grid-gap: 8px;
+                width: 100%;
+                margin: 0 auto;
+            }
         }
 
         .credits {
             position: sticky;
-            top: 0px;
-
+            top: 40px;
+            width: 100%;
+            height: min-content;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 40px;
+            grid-row: 1;
 
             @media (max-width: 1080px) {
                 grid-template-columns: 1fr;
@@ -173,9 +106,8 @@
             }
 
             @media (max-width: 850px) {
-                & {
-                    position: initial;
-                }
+                position: initial;
+                grid-row: initial;
             }
 
             .item {

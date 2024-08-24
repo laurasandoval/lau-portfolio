@@ -4,6 +4,7 @@ import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './ProjectThumbnail.scss'
 import { useEffect, useRef, useState } from 'react';
 import { IconPlayerPauseFilled, IconPlayerPlayFilled } from '@tabler/icons-react';
+import { formatYears } from '@/lib/formatters';
 
 export function ProjectThumbnail({
     id,
@@ -66,6 +67,11 @@ export function ProjectThumbnail({
         }
     }, [isIntersecting, manuallyPaused]);
 
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.load();
+        }
+    }, [coverImage]);
 
     const _renderThumbnail = (coverImage, title, priority, sizes) => {
         const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"]
@@ -93,13 +99,13 @@ export function ProjectThumbnail({
                         <source
                             src={`${coverImage.replace(
                                 ".mp4",
-                                ".webm"
+                                ".mp4"
                             )}`}
                             type="video/webm"
                         />
                         <source
                             src={`${coverImage.replace(
-                                ".webm",
+                                ".mp4",
                                 ".mp4"
                             )}`}
                             type="video/mp4"
@@ -158,19 +164,7 @@ export function ProjectThumbnail({
             {!img_only && (
                 <div className="project_info" aria-hidden={hover}>
                     <h3 className="title">{title}</h3>
-                    <span className="date">
-                        {
-                            startYear && endYear ?
-                                startYear == endYear ?
-                                    `${startYear}` :
-                                    `${startYear} — ${endYear}`
-                                : startYear && endYear === null
-                                    ? `Since ${startYear}`
-                                    : endYear && startYear === null
-                                        ? `Until ${endYear}`
-                                        : null
-                        }
-                    </span>
+                    <span className="date">{formatYears(startYear, endYear)}</span>
                 </div>
             )}
         </Tag>

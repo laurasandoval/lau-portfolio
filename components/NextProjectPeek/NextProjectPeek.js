@@ -1,87 +1,21 @@
-import Balancer from 'react-wrap-balancer'
-import { ProjectThumbnail } from '../ProjectThumbnail/ProjectThumbnail'
 import './NextProjectPeek.scss'
 import Link from 'next/link'
 import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
-import { useEffect, useRef, useState } from 'react'
-import { throttle } from 'lodash'
+import { ProjectArticleHeader } from '../ProjectArticleHeader/ProjectArticleHeader'
 
 export default function NextProjectPeek({
-    id,
-    title,
-    excerpt,
-    categories,
-    startYear,
-    endYear,
-    coverImage,
+    nextPostData
 }) {
-    const projectInfoHeaderRef = useRef(null);
-    const [projectInfoHeaderHeight, setProjectInfoHeaderHeight] = useState(0);
-
-    useEffect(() => {
-        const getProjectInfoHeaderHeight = throttle(() => {
-            setProjectInfoHeaderHeight(projectInfoHeaderRef.current?.clientHeight);
-        }, 200);
-
-        getProjectInfoHeaderHeight();
-
-        window.addEventListener('resize', getProjectInfoHeaderHeight);
-
-        return () => {
-            window.removeEventListener('resize', getProjectInfoHeaderHeight);
-            getProjectInfoHeaderHeight.cancel();
-        };
-    }, [title]);
-
     return (
-        <div
-            className="next_project_peek"
-            style={{
-                "--project-info-header-computed-height": `${projectInfoHeaderHeight}px`
-            }}
-        >
+        <div className="next_project_peek">
             <hr />
-            <div className="project_info">
-                <div className="project_thumbnail_container">
-                    <ProjectThumbnail
-                        id={id}
-                        title={title}
-                        startYear={startYear}
-                        endYear={endYear}
-                        img_only={true}
-                        coverImage={coverImage}
-                        placeholder={true}
-                        autoplay={false}
-                    />
-                </div>
-                <div
-                    className="header"
-                    ref={projectInfoHeaderRef}
-                >
-                    <h2 className="title">
-                        <Balancer>
-                            {title}
-                        </Balancer>
-                    </h2>
-                    <p className="period">
-                        {
-                            startYear && endYear ?
-                                startYear == endYear ?
-                                    `${startYear}` :
-                                    `${startYear} — ${endYear}`
-                                : startYear && endYear === null
-                                    ? `Since ${startYear}`
-                                    : endYear && startYear === null
-                                        ? `Until ${endYear}`
-                                        : null
-                        }
-                    </p>
-                </div>
+            <div className="project_article_header_container">
+                <ProjectArticleHeader postData={nextPostData} />
             </div>
 
-            <Link href={`/design/${id}`} prefetch={false} className="project_access">
+            <Link href={`/design/${nextPostData.project}`} prefetch={false} className="project_access">
                 <AccessibilityLabel role="text" as="span">
-                    {title}
+                    {nextPostData.title}
                 </AccessibilityLabel>
             </Link>
         </div>
