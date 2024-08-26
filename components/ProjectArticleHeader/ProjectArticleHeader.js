@@ -5,6 +5,7 @@ import './ProjectArticleHeader.scss'
 
 export function ProjectArticleHeader({
     postData,
+    autoPlayThumbnail = true,
 }) {
     return (
         <div className="project_article_header">
