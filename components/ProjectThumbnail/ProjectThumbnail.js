@@ -42,7 +42,7 @@ export function ProjectThumbnail({
                 observer.unobserve(videoRef.current);
             }
         };
-    }, [videoRef]);
+    }, [videoRef, coverImage]);
 
     useEffect(() => {
         if (videoRef.current != null) {
@@ -65,7 +65,7 @@ export function ProjectThumbnail({
                 setIsPlaying(false);
             }
         }
-    }, [isIntersecting, manuallyPaused]);
+    }, [isIntersecting, manuallyPaused, coverImage]);
 
     useEffect(() => {
         if (videoRef.current) {
