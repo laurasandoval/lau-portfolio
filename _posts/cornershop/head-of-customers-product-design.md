@@ -48,4 +48,6 @@ From 2020 to 2023, I led Consumer Product Design for Cornershop by Uber. This in
 
 ![We shipped 100+ projects.](/assets/design-work/cornershop/head-of-customers-product-design/projects-grid-infinite-carousel.mp4)
 
+![Our team's Notion page.](/assets/design-work/cornershop/head-of-customers-product-design/team-notion.png)
+
 Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, was acquired by Uber in 2021, and later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.

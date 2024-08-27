@@ -10,6 +10,7 @@ import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
 import { ProjectArticleHeader } from '@/components/ProjectArticleHeader/ProjectArticleHeader'
 import ProjectArticleAsset from '@/components/ProjectArticleAsset/ProjectArticleAsset'
+import { formatYears } from '@/lib/formatters'
 
 export default function Project({ currentPostData, nextPostData, server }) {
   const getColorLuminance = (color) => {
@@ -118,6 +119,12 @@ export default function Project({ currentPostData, nextPostData, server }) {
             )}
           </div>
           <div className="credits">
+            {(currentPostData.startYear || currentPostData.endYear) &&
+              <div className="item">
+                <h3>Period</h3>
+                <p>{formatYears(currentPostData.startYear, currentPostData.endYear)}</p>
+              </div>
+            }
             {currentPostData.client &&
               <div className="item">
                 <h3>Client</h3>

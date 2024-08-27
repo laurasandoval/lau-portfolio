@@ -42,7 +42,7 @@ export function ProjectThumbnail({
                 observer.unobserve(videoRef.current);
             }
         };
-    }, [videoRef]);
+    }, [videoRef, coverImage]);
 
     useEffect(() => {
         if (videoRef.current != null) {
@@ -65,7 +65,7 @@ export function ProjectThumbnail({
                 setIsPlaying(false);
             }
         }
-    }, [isIntersecting, manuallyPaused]);
+    }, [isIntersecting, manuallyPaused, coverImage]);
 
     useEffect(() => {
         if (videoRef.current) {
@@ -75,7 +75,7 @@ export function ProjectThumbnail({
 
     const _renderThumbnail = (coverImage, title, priority, sizes) => {
         const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"]
-        const videoFormats = ["mp4", "webm"]
+        const videoFormats = ["mp4"]
 
         if (new RegExp(`[.](${imageFormats.join("|")})`).test(coverImage)) {
             return (
@@ -96,13 +96,6 @@ export function ProjectThumbnail({
                         muted
                         loop
                     >
-                        <source
-                            src={`${coverImage.replace(
-                                ".mp4",
-                                ".mp4"
-                            )}`}
-                            type="video/webm"
-                        />
                         <source
                             src={`${coverImage.replace(
                                 ".mp4",
