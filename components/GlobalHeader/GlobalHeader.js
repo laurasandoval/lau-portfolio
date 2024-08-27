@@ -97,7 +97,7 @@ export default function GlobalHeader({
                         </span>
                     </div>
                     <h1 className="home" aria-hidden={navOpen.toString()}>
-                        <AccessibilityLabel>Laura Sandoval. Product Designer at Uber</AccessibilityLabel>
+                        <AccessibilityLabel>Laura Sandoval. Senior Product Designer at Uber</AccessibilityLabel>
                         <Link
                             className="nav_item home"
                             href="/"
@@ -106,7 +106,7 @@ export default function GlobalHeader({
                             <img className="profile_pic" alt="App Icon" src="/assets/profile-pic.jpg" />
                             <div className="name_and_role">
                                 <span className="name">Laura Sandoval</span>
-                                <span className="role">Product Designer at Uber</span>
+                                <span className="role">Senior Product Designer at Uber</span>
                             </div>
                         </Link>
                     </h1>
