@@ -9,7 +9,7 @@ clientSector:
 workType:
   - "Product Design"
 startYear: 2023
-endYear: 2024
+endYear: 2023
 coverImage: "/assets/design-work/uber/snap-ebt-on-uber-eats/snap-ebt-on-uber-eats.png"
 ogImage: "/assets/design-work/uber/snap-ebt-on-uber-eats/social-thumbnail.png"
 customThemeColorHex: "#0E8345"
