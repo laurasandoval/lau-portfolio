@@ -15,7 +15,7 @@ export default function GlobalFooter({
             {
                 statement &&
                 <BigParagraph
-                    statement={`I also coded & designed this portfolio website. You can see the code & leave feedback on [GitHub](https://github.com/laurasandoval/lau-portfolio). ◡̈`}
+                    statement={`I also designed and coded this portfolio website. You can inspect the code & leave feedback on [GitHub](https://github.com/laurasandoval/lau-portfolio). ◡̈`}
                     centered={true}
                 />
             }

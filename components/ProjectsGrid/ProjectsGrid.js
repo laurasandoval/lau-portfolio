@@ -50,8 +50,19 @@ export default function ProjectsGrid({ featured, children }) {
         if (featured) {
             return React.Children.count(children);
         } if (columnCount === 1) {
-            return 0;
+            // Mobile
+            return 2;
         } else {
+            /*
+            I know we don't need to multiply by 1,
+            but this is a code cheatsheet to remind
+            my future self (who probably won't
+            remember this code) that that '1' can
+            be replaced by however many rows we want
+            at any given time.
+            return columnCount * 1;
+             */
+
             return columnCount * 1;
         }
     };
