@@ -61,7 +61,7 @@ export default function Home({ allPostsData, server }) {
   const featuredProjects = allPostsData.slice(0, maxFeaturedCount)
   const remainingProjects = allPostsData.slice(maxFeaturedCount, featuredProjects.lenght)
 
-  const markdown = `Hola! I am a _curiosity-driven designer™_ currently shaping the grocery shopping experience at [Uber](https://uber.com).
+  const markdown = `Hola! I am a curiosity-driven designer currently shaping the grocery shopping experience at [Uber](https://uber.com).
   
   For two years, I led consumer-facing product design at [Cornershop](https://latamlist.com/uber-acquires-cornershop-at-3b-valuation/), a grocery delivery startup acquired by Uber in 2021 for $3B. Following the acquisition, I joined Uber's Grocery & Retail team as a Product Designer, where I continue to drive Uber's Delivery vision forward.
 
