@@ -12,33 +12,15 @@ import { ProjectArticleHeader } from '@/components/ProjectArticleHeader/ProjectA
 import ProjectArticleAsset from '@/components/ProjectArticleAsset/ProjectArticleAsset'
 import { formatYears } from '@/lib/formatters'
 import ProjectsGrid from '@/components/ProjectsGrid/ProjectsGrid'
+import FolderPage from './folder-page'
 
 export default function Project({ isFolder, folderName, posts, currentPostData, nextPostData, server }) {
   if (isFolder) {
     return (
-      <>
-        <NextSeo
-          title={`${folderName} Projects — Laura Sandoval`}
-          description={`Collection of projects for ${folderName}`}
-        />
-
-        <GlobalHeader sticky fadeIn />
-
-        <ProjectsGrid featured>
-          {posts.map((project, index) => (
-            <ProjectThumbnail
-              {...project}
-              id={project.id}
-              as="article"
-              hover
-              key={index}
-              fadeIn
-            />
-          ))}
-        </ProjectsGrid>
-
-        <GlobalFooter />
-      </>
+      <FolderPage
+        folderName={folderName}
+        posts={posts}
+      />
     );
   }
 
