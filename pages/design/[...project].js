@@ -5,14 +5,43 @@ import { NextSeo } from 'next-seo'
 import Button from '@/components/Button/Button'
 import { Balancer } from 'react-wrap-balancer'
 import parse from 'html-react-parser';
-import { getAllPostIds, getPostData, getSortedPostsData } from '../../lib/posts'
+import { getAllPostIds, getPostData, getSortedPostsData, getPostsByFolder, getAllFolders } from '../../lib/posts'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
 import { ProjectArticleHeader } from '@/components/ProjectArticleHeader/ProjectArticleHeader'
 import ProjectArticleAsset from '@/components/ProjectArticleAsset/ProjectArticleAsset'
 import { formatYears } from '@/lib/formatters'
+import ProjectsGrid from '@/components/ProjectsGrid/ProjectsGrid'
 
-export default function Project({ currentPostData, nextPostData, server }) {
+export default function Project({ isFolder, folderName, posts, currentPostData, nextPostData, server }) {
+  if (isFolder) {
+    return (
+      <>
+        <NextSeo
+          title={`${folderName} Projects — Laura Sandoval`}
+          description={`Collection of projects for ${folderName}`}
+        />
+
+        <GlobalHeader sticky fadeIn />
+
+        <ProjectsGrid featured>
+          {posts.map((project, index) => (
+            <ProjectThumbnail
+              {...project}
+              id={project.id}
+              as="article"
+              hover
+              key={index}
+              fadeIn
+            />
+          ))}
+        </ProjectsGrid>
+
+        <GlobalFooter />
+      </>
+    );
+  }
+
   const getColorLuminance = (color) => {
     const hex = color.replace("#", "");
     const r = parseInt(hex.substring(0, 2), 16) / 255;
@@ -178,9 +207,11 @@ export default function Project({ currentPostData, nextPostData, server }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const postPaths = getAllPostIds();
+  const folderPaths = getAllFolders();
+
   return {
-    paths,
+    paths: [...postPaths, ...folderPaths],
     fallback: false,
   };
 }
@@ -188,9 +219,27 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const dev = process.env.NODE_ENV !== 'production'
   const server = dev ? `http://localhost:3000` : `https://lau.work`
-  const allPosts = getSortedPostsData(); // Fetch and sort all posts
-  const currentPostIndex = allPosts.findIndex(post => post.id === params.project.join('/'));
+  const folderPaths = getAllFolders();
 
+  const isFolder = params.project.length === 1 && folderPaths.some(path =>
+    path.params.project.join('/') === params.project.join('/')
+  );
+
+  if (isFolder) {
+    const folderPosts = getPostsByFolder(params.project[0]);
+    return {
+      props: {
+        isFolder: true,
+        folderName: params.project[0],
+        posts: folderPosts,
+        server
+      }
+    };
+  }
+
+  // Existing logic for individual posts
+  const allPosts = getSortedPostsData();
+  const currentPostIndex = allPosts.findIndex(post => post.id === params.project.join('/'));
   const currentPostData = await getPostData(params.project.join('/'));
 
   let nextPostData = null;
@@ -201,6 +250,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
+      isFolder: false,
       currentPostData,
       nextPostData,
       server
