@@ -1,3 +1,4 @@
+import './folder-page.scss'
 import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import ProjectsGrid from '@/components/ProjectsGrid/ProjectsGrid'
 import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
@@ -15,14 +16,14 @@ export default function FolderPage({ folderName, posts, server }) {
         hover
         key={index}
         portrait={featured}
-        fadeIn
+        fadeIn={false}
         priority={priority}
       />
     )
   }
 
-  const _normalizedFolderName = (folderName) => {
-    const cleanedFolderName = folderName.replace("-", " ");
+  const _normalizedFolderName = () => {
+    const cleanedFolderName = folderName.replaceAll("-", " ");
     const words = cleanedFolderName.split(" ");
 
     for (let i = 0; i < words.length; i++) {
@@ -32,20 +33,25 @@ export default function FolderPage({ folderName, posts, server }) {
     return words.join(" ");
   }
 
+  const _folderDisplayName = () => {
+    if (posts[0].client === undefined) {
+      return _normalizedFolderName()
+    } else {
+      return posts[0].client
+    }
+  }
+
   return (
     <>
       <NextSeo
-        title={`${_normalizedFolderName(folderName)}  — Laura Sandoval`}
+        title={`${_folderDisplayName()}  — Laura Sandoval`}
         description="Digital Product Designer & Engineer. Featured works include projects for Uber, Uber Eats, Cornershop, among others."
         openGraph={{
-          title: `${_normalizedFolderName(folderName)}  — Laura Sandoval`,
+          title: `${_folderDisplayName()}  — Laura Sandoval`,
           description: "Digital Product Designer & Engineer. Featured works include projects for Uber, Uber Eats, Cornershop, among others.",
           images: [
             {
-              url: `${server}/social-thumbnail.png`,
-              width: 1200,
-              height: 630,
-              type: "image/png",
+              url: `${server}${posts[0].ogImage}`,
             }
           ],
         }}
@@ -71,15 +77,22 @@ export default function FolderPage({ folderName, posts, server }) {
         ]}
       />
 
-      <GlobalHeader sticky />
+      <GlobalHeader sticky fadeIn={false} />
 
-      <h2>{_normalizedFolderName(folderName)}</h2>
+      <div className="folder_page">
+        <div className="folder_name_header">
+          <div className="basic_info">
+            <h2 className="title">{_folderDisplayName()}</h2>
+            <h2 className="subtitle">{`${posts.length} projects`}</h2>
+          </div>
+        </div>
 
-      <ProjectsGrid featured>
-        {posts.map((project, index) => {
-          return _renderThumbnail(project, index, true, (index == 0 || index == 1))
-        })}
-      </ProjectsGrid>
+        <ProjectsGrid featured>
+          {posts.map((project, index) => {
+            return _renderThumbnail(project, index, true, (index == 0 || index == 1))
+          })}
+        </ProjectsGrid>
+      </div>
 
       <GlobalFooter />
     </>

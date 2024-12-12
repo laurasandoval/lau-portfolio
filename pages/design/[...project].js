@@ -18,6 +18,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
       <FolderPage
         folderName={folderName}
         posts={posts}
+        server={server}
       />
     );
   }
@@ -93,8 +94,6 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
       />
 
       <GlobalHeader />
-
-      <h1>{folderAvailable ? "FOLDER AVAILABLE" : "no folder available"}</h1>
 
       <style>
         {`
