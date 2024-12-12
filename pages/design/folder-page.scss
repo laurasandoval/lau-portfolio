@@ -1,11 +1,11 @@
 .folder_page {
     margin: 0 auto;
-    padding: 80px 0px 0px;
+    padding-top: 80px;
     max-width: 1600px;
     display: block;
 
     @media (max-width: 850px) {
-        padding: 40px 10px 0px;
+        padding-top: 40px;
     }
 
     .folder_name_header {
@@ -15,11 +15,11 @@
         grid-template-columns: repeat(2, 1fr);
         grid-gap: var(--grid-gap);
         margin-bottom: 20px;
-        padding: 0 20px;
+        padding: 0 40px;
 
         @media (max-width: 850px) {
-            padding: 0 10px;
-            margin-bottom: 10px;
+            padding: 0 20px;
+            margin-bottom: 0px;
         }
 
         .basic_info {
