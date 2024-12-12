@@ -207,7 +207,7 @@ export async function getStaticProps({ params }) {
 
   // Check if folder exists and get its URL
   const folderAvailable = folderPaths.some(path => path.params.project[0] === currentPath);
-  const folderUrl = folderAvailable ? `/design/${currentPath}` : null;
+  const folderUrl = folderAvailable ? `${server}/design/${currentPath}` : null;
 
   const isFolder = params.project.length === 1 && folderPaths.some(path =>
     path.params.project.join('/') === params.project.join('/')
