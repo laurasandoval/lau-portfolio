@@ -7,7 +7,7 @@ import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import { getSortedPostsData } from '../../lib/posts'
 
 export default function FolderPage({ folderName, posts, server }) {
-  const _renderThumbnail = (project, index, featured, priority) => {
+  const _renderThumbnail = (project, index, priority) => {
     return (
       <ProjectThumbnail
         {...project}
@@ -15,7 +15,6 @@ export default function FolderPage({ folderName, posts, server }) {
         as="article"
         hover
         key={index}
-        portrait={featured}
         fadeIn={false}
         priority={priority}
       />
@@ -89,7 +88,7 @@ export default function FolderPage({ folderName, posts, server }) {
 
         <ProjectsGrid showAll>
           {posts.map((project, index) => {
-            return _renderThumbnail(project, index, true, (index == 0 || index == 1))
+            return _renderThumbnail(project, index, (index == 0 || index == 1))
           })}
         </ProjectsGrid>
       </div>
