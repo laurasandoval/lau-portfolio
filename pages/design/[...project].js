@@ -1,9 +1,7 @@
 import './[...project].scss'
 import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
-import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
 import { NextSeo } from 'next-seo'
 import Button from '@/components/Button/Button'
-import { Balancer } from 'react-wrap-balancer'
 import parse from 'html-react-parser';
 import { getAllPostIds, getPostData, getSortedPostsData, getPostsByFolder, getAllFolders } from '../../lib/posts'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
@@ -11,10 +9,10 @@ import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
 import { ProjectArticleHeader } from '@/components/ProjectArticleHeader/ProjectArticleHeader'
 import ProjectArticleAsset from '@/components/ProjectArticleAsset/ProjectArticleAsset'
 import { formatYears } from '@/lib/formatters'
-import ProjectsGrid from '@/components/ProjectsGrid/ProjectsGrid'
 import FolderPage from './folder-page'
+import Link from 'next/link';
 
-export default function Project({ isFolder, folderName, posts, currentPostData, nextPostData, server }) {
+export default function Project({ isFolder, folderAvailable, folderUrl, folderName, posts, currentPostData, nextPostData, server }) {
   if (isFolder) {
     return (
       <FolderPage
@@ -96,6 +94,8 @@ export default function Project({ isFolder, folderName, posts, currentPostData, 
 
       <GlobalHeader />
 
+      <h1>{folderAvailable ? "FOLDER AVAILABLE" : "no folder available"}</h1>
+
       <style>
         {`
           ::selection {
@@ -139,11 +139,11 @@ export default function Project({ isFolder, folderName, posts, currentPostData, 
             {currentPostData.client &&
               <div className="item">
                 <h3>Client</h3>
-                {currentPostData.client.map((client, i) => {
-                  return (
-                    <p key={i}>{client}</p>
-                  )
-                })}
+                {folderAvailable ? (
+                  <Link href={folderUrl}><p>{currentPostData.client}</p></Link>
+                ) : (
+                  <p>{currentPostData.client}</p>
+                )}
               </div>
             }
             {currentPostData.clientSector &&
@@ -203,6 +203,13 @@ export async function getStaticProps({ params }) {
   const server = dev ? `http://localhost:3000` : `https://lau.work`
   const folderPaths = getAllFolders();
 
+  // Get the current path without the last segment (file name)
+  const currentPath = params.project.slice(0, -1).join('/');
+
+  // Check if folder exists and get its URL
+  const folderAvailable = folderPaths.some(path => path.params.project[0] === currentPath);
+  const folderUrl = folderAvailable ? `/design/${currentPath}` : null;
+
   const isFolder = params.project.length === 1 && folderPaths.some(path =>
     path.params.project.join('/') === params.project.join('/')
   );
@@ -233,6 +240,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       isFolder: false,
+      folderAvailable,
+      folderUrl,
       currentPostData,
       nextPostData,
       server
