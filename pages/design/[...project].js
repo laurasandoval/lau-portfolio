@@ -1,18 +1,28 @@
 import './[...project].scss'
 import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
-import { ProjectThumbnail } from '@/components/ProjectThumbnail/ProjectThumbnail'
 import { NextSeo } from 'next-seo'
 import Button from '@/components/Button/Button'
-import { Balancer } from 'react-wrap-balancer'
 import parse from 'html-react-parser';
-import { getAllPostIds, getPostData, getSortedPostsData } from '../../lib/posts'
+import { getAllPostIds, getPostData, getSortedPostsData, getPostsByFolder, getAllFolders } from '../../lib/posts'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
 import { ProjectArticleHeader } from '@/components/ProjectArticleHeader/ProjectArticleHeader'
 import ProjectArticleAsset from '@/components/ProjectArticleAsset/ProjectArticleAsset'
 import { formatYears } from '@/lib/formatters'
+import FolderPage from './folder-page'
+import Link from 'next/link';
 
-export default function Project({ currentPostData, nextPostData, server }) {
+export default function Project({ isFolder, folderAvailable, folderUrl, folderName, posts, currentPostData, nextPostData, server }) {
+  if (isFolder) {
+    return (
+      <FolderPage
+        folderName={folderName}
+        posts={posts}
+        server={server}
+      />
+    );
+  }
+
   const getColorLuminance = (color) => {
     const hex = color.replace("#", "");
     const r = parseInt(hex.substring(0, 2), 16) / 255;
@@ -128,11 +138,11 @@ export default function Project({ currentPostData, nextPostData, server }) {
             {currentPostData.client &&
               <div className="item">
                 <h3>Client</h3>
-                {currentPostData.client.map((client, i) => {
-                  return (
-                    <p key={i}>{client}</p>
-                  )
-                })}
+                {folderAvailable ? (
+                  <Link href={folderUrl}><p>{currentPostData.client}</p></Link>
+                ) : (
+                  <p>{currentPostData.client}</p>
+                )}
               </div>
             }
             {currentPostData.clientSector &&
@@ -178,9 +188,11 @@ export default function Project({ currentPostData, nextPostData, server }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds();
+  const postPaths = getAllPostIds();
+  const folderPaths = getAllFolders();
+
   return {
-    paths,
+    paths: [...postPaths, ...folderPaths],
     fallback: false,
   };
 }
@@ -188,9 +200,34 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const dev = process.env.NODE_ENV !== 'production'
   const server = dev ? `http://localhost:3000` : `https://lau.work`
-  const allPosts = getSortedPostsData(); // Fetch and sort all posts
-  const currentPostIndex = allPosts.findIndex(post => post.id === params.project.join('/'));
+  const folderPaths = getAllFolders();
 
+  // Get the current path without the last segment (file name)
+  const currentPath = params.project.slice(0, -1).join('/');
+
+  // Check if folder exists and get its URL
+  const folderAvailable = folderPaths.some(path => path.params.project[0] === currentPath);
+  const folderUrl = folderAvailable ? `${server}/design/${currentPath}` : null;
+
+  const isFolder = params.project.length === 1 && folderPaths.some(path =>
+    path.params.project.join('/') === params.project.join('/')
+  );
+
+  if (isFolder) {
+    const folderPosts = getPostsByFolder(params.project[0]);
+    return {
+      props: {
+        isFolder: true,
+        folderName: params.project[0],
+        posts: folderPosts,
+        server
+      }
+    };
+  }
+
+  // Existing logic for individual posts
+  const allPosts = getSortedPostsData();
+  const currentPostIndex = allPosts.findIndex(post => post.id === params.project.join('/'));
   const currentPostData = await getPostData(params.project.join('/'));
 
   let nextPostData = null;
@@ -201,6 +238,9 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
+      isFolder: false,
+      folderAvailable,
+      folderUrl,
       currentPostData,
       nextPostData,
       server

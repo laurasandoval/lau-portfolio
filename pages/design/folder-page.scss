@@ -1,0 +1,48 @@
+.folder_page {
+    margin: 0 auto;
+    padding: 80px 20px 0px;
+    max-width: 1600px;
+    display: block;
+
+    @media (max-width: 850px) {
+        padding: 40px 10px 0px;
+    }
+
+    .folder_name_header {
+        --max-width: 1280px;
+        --grid-gap: 40px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: var(--grid-gap);
+        margin-bottom: 20px;
+        padding: 0 20px;
+
+        @media (max-width: 850px) {
+            padding: 0 10px;
+            margin-bottom: 10px;
+        }
+
+        .basic_info {
+            width: 100%;
+            max-width: calc(var(--max-width) / 2 - var(--grid-gap) / 2);
+            margin-left: auto;
+
+            .title {
+                font-size: 30px;
+                font-weight: 560;
+                letter-spacing: -0.03em;
+                line-height: 1.2em;
+                margin: 0;
+            }
+
+            .subtitle {
+                color: rgb(136, 138, 144);
+                font-size: 15px;
+                font-weight: 460;
+                line-height: 1.4;
+                margin: 8px 0 0;
+                padding: 0;
+            }
+        }
+    }
+}

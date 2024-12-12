@@ -1,6 +1,6 @@
-import { getSortedPostsData } from "@/lib/posts";
+import { getAllFolders, getSortedPostsData } from "@/lib/posts";
 
-function generateSiteMap(designWorkData, server) {
+function generateSiteMap(designWorkData, designWorkFoldersData, server) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <url>
@@ -19,6 +19,13 @@ function generateSiteMap(designWorkData, server) {
        </url>
      `;
   }).join('')}
+     ${designWorkFoldersData.map((folder) => {
+    return `
+       <url>
+           <loc>${`${server}/design/${folder.params.project[0]}`}</loc>
+       </url>
+     `;
+  }).join('')}
    </urlset>
  `;
 }
@@ -31,11 +38,12 @@ export async function getServerSideProps(context) {
   const dev = process.env.NODE_ENV !== 'production';
   const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`;
 
-  // Fetch and sort all posts data (similar to your other page)
+  // Fetch and sort all posts data
   const designWorkData = getSortedPostsData();
+  const designWorkFoldersData = getAllFolders();
 
   // Generate the XML sitemap with the project data
-  const sitemap = generateSiteMap(designWorkData, server);
+  const sitemap = generateSiteMap(designWorkData, designWorkFoldersData, server);
 
   context.res.setHeader('Content-Type', 'text/xml');
   // Send the XML to the browser

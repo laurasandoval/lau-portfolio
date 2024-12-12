@@ -1,8 +1,7 @@
 ---
 title: "SNAP EBT × Uber Eats"
 excerpt: "Adding support for SNAP EBT—also known as \"food stamps\"—on Uber Eats."
-client:
-  - "Uber"
+client: "Uber"
 clientSector:
   - "Delivery"
   - "Corporate"

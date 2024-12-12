@@ -1,8 +1,7 @@
 ---
 title: "Cornershop by Uber Referral Landing"
 excerpt: "Website redesign for Cornershop's referral landing page."
-client:
-  - "Cornershop by Uber"
+client: "Cornershop by Uber"
 clientSector:
   - "Delivery"
   - "Start-up"

@@ -1,8 +1,7 @@
 ---
 title: "Cornershop by Uber Web App"
 excerpt: "Web app refactor and redesign for Cornershop by Uber."
-client:
-  - "Cornershop by Uber"
+client: "Cornershop by Uber"
 clientSector:
   - "Delivery"
   - "Start-up"
