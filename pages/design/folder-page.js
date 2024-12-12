@@ -83,7 +83,7 @@ export default function FolderPage({ folderName, posts, server }) {
         <div className="folder_name_header">
           <div className="basic_info">
             <h2 className="title">{_folderDisplayName()}</h2>
-            <h2 className="subtitle">{`${posts.length} projects`}</h2>
+            <h2 className="subtitle">{`${posts.length} ${posts.length === 1 ? "project" : "projects"}`}</h2>
           </div>
         </div>
 
