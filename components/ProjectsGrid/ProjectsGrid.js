@@ -3,7 +3,7 @@ import './ProjectsGrid.scss';
 import { IconArrowDown } from '@tabler/icons-react';
 import { useRouter } from 'next/router';
 
-export default function ProjectsGrid({ featured, children }) {
+export default function ProjectsGrid({ featured, children, showAll }) {
     const gridRef = useRef(null);
     const loadMoreButtonRef = useRef(null);
     const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
@@ -112,7 +112,9 @@ export default function ProjectsGrid({ featured, children }) {
 
     // Sets the initial number of items to render
     useEffect(() => {
-        if (router.query.page >= 2) {
+        if (showAll) {
+            setItemsToShow(children.length);
+        } else if (router.query.page >= 2) {
             let itemsToShow = getInitialItemCount() + (getItemsToAddCount() * (router.query.page - 1));
             setItemsToShow(itemsToShow);
         } else {

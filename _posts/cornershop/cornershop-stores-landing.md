@@ -1,8 +1,7 @@
 ---
 title: "Cornershop for Merchants"
 excerpt: "Landing page redesign to boost Cornershop self-service merchant sign-ups."
-client:
-  - "Cornershop by Uber"
+client: "Cornershop by Uber"
 clientSector:
   - "Delivery"
   - "Start-up"

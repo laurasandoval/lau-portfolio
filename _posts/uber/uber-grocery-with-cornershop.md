@@ -1,8 +1,7 @@
 ---
 title: "Uber Grocery with Cornershop"
 excerpt: "In 5 months, designed, developed, and shipped a grocery delivery service for Uber Eats from scratch."
-client:
-  - "Uber"
+client: "Uber"
 clientSector:
   - "Delivery"
   - "Corporate"

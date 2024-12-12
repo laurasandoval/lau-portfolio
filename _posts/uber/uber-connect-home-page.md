@@ -1,8 +1,7 @@
 ---
 title: "Uber Connect Home Page"
-excerpt: "Uber Connect—also known as 'Uber Flash'—is Uber’s customer-facing 'Delivery as a Service' product."
-client:
-  - "Uber"
+excerpt: "Uber Connect—also known as 'Uber Flash'—is Uber's customer-facing 'Delivery as a Service' product."
+client: "Uber"
 clientSector:
   - "Delivery"
   - "Corporate"
@@ -39,7 +38,7 @@ team:
     - "Rohit Verma"
 ---
 
-Uber Connect—also known as "Uber Flash"—is Uber’s customer-facing "Delivery as a Service" product. It allows people to send items the same day, whether it’s a care item for a loved one, a gift for a friend’s birthday, an item sold online, or a business document.
+Uber Connect—also known as "Uber Flash"—is Uber's customer-facing "Delivery as a Service" product. It allows people to send items the same day, whether it's a care item for a loved one, a gift for a friend's birthday, an item sold online, or a business document.
 
 ![Uber Connect "Post office dropoffs".](/assets/design-work/uber/uber-connect-home-page/uber-connect-home-page-detail.png)
 

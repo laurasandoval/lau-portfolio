@@ -1,8 +1,7 @@
 ---
 title: "Cornershop by Uber"
 excerpt: "From 2020 to 2023, led Consumer Product Design at Cornershop by Uber."
-client:
-  - "Cornershop by Uber"
+client: "Cornershop by Uber"
 clientSector:
   - "Delivery"
   - "Start-up"

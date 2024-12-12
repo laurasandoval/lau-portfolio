@@ -1,3 +1,5 @@
+'use client';
+import { useState, useEffect } from 'react';
 import Link from 'next/link'
 import './GlobalFooter.scss'
 import BigParagraph from '../BigParagraph/BigParagraph';
@@ -5,7 +7,15 @@ import BigParagraph from '../BigParagraph/BigParagraph';
 export default function GlobalFooter({
     statement,
 }) {
-    let year = new Date().getFullYear();
+    const currentYear = new Date().getFullYear();
+    const [startYear, setStartYear] = useState(currentYear);
+
+    useEffect(() => {
+        fetch('/api/earliest-year')
+            .then(res => res.json())
+            .then(data => setStartYear(data.earliestYear))
+            .catch(error => console.error('Error fetching earliest year:', error));
+    }, []);
 
     return (
         <footer
@@ -21,7 +31,7 @@ export default function GlobalFooter({
             }
             <div className="boring_stuff">
                 <div className="copyright_thingy">
-                    <p>© 1998—{year}</p>
+                    <p>© {startYear}—{currentYear}</p>
                     <p>Laura Sandoval</p>
                 </div>
                 <div className="socials">
