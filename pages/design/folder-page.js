@@ -87,7 +87,7 @@ export default function FolderPage({ folderName, posts, server }) {
           </div>
         </div>
 
-        <ProjectsGrid featured>
+        <ProjectsGrid showAll>
           {posts.map((project, index) => {
             return _renderThumbnail(project, index, true, (index == 0 || index == 1))
           })}
