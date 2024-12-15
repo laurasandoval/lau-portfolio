@@ -111,6 +111,9 @@
             }
 
             .item {
+                >*:not(:first-child) {
+                    margin-top: 2px;
+                }
 
                 h3,
                 p {
@@ -126,11 +129,11 @@
                 }
 
                 a {
-                    display: inline-block;
+                    display: block;
+                    width: fit-content;
                     position: relative;
-
-                    padding-bottom: 4px;
-                    margin-bottom: -4px;
+                    padding-bottom: 1px;
+                    margin-bottom: -1px;
 
                     @media (hover: hover) {
                         &:hover {

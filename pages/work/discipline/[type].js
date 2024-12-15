@@ -12,7 +12,7 @@ export default function WorkTypePage({ type, posts, server }) {
             title={displayTitle}
             posts={posts}
             server={server}
-            description={`Projects in ${displayTitle} by Laura Sandoval`}
+            description={`${displayTitle} projects by Laura Sandoval.`}
         />
     )
 }

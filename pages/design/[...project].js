@@ -160,7 +160,9 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
                 <h3>Discipline</h3>
                 {currentPostData.workType.map((workType, i) => {
                   return (
-                    <p key={i}>{workType}</p>
+                    <Link href={`/work/discipline/${workType.toLowerCase().replace(/[&]/g, '').replace(/\s+/g, '-')}`} key={i}>
+                      <p>{workType}</p>
+                    </Link>
                   )
                 })}
               </div>
