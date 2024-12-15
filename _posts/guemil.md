@@ -3,8 +3,7 @@ title: "Guemil — Icons for Emergency"
 excerpt: "Designed and implemented multiple internal tools and APIs to automate icon testing and visualization for \"Guemil, Icons for Emergency\"."
 client: "Guemil"
 clientSector:
-  - "NGOs"
-  - "Design"
+  - "Not-for-Profit"
 workType:
   - "Product Design"
   - "Engineering"
