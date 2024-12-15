@@ -2,7 +2,7 @@
 title: "Lintuaf — An unofficial Fintual client for iOS"
 excerpt: "Fintual is a Chilean fintech startup offering a low-cost, user-friendly platform for investing in diversified portfolios. Lintuaf is a private iOS client I made for myself."
 clientSector:
-  - "Independent"
+  - "Banking & Finance"
 workType:
   - "Product Design"
   - "Engineering"

@@ -8,7 +8,7 @@ import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import NextProjectPeek from '@/components/NextProjectPeek/NextProjectPeek'
 import { ProjectArticleHeader } from '@/components/ProjectArticleHeader/ProjectArticleHeader'
 import ProjectArticleAsset from '@/components/ProjectArticleAsset/ProjectArticleAsset'
-import { formatYears } from '@/lib/formatters'
+import { formatYears, normalizeForUrl } from '@/lib/formatters'
 import FolderPage from './folder-page'
 import Link from 'next/link';
 
@@ -150,7 +150,9 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
                 <h3>Sector</h3>
                 {currentPostData.clientSector.map((clientSector, i) => {
                   return (
-                    <p key={i}>{clientSector}</p>
+                    <Link href={`/work/sector/${normalizeForUrl(clientSector)}`} key={i}>
+                      <p>{clientSector}</p>
+                    </Link>
                   )
                 })}
               </div>
@@ -160,7 +162,9 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
                 <h3>Discipline</h3>
                 {currentPostData.workType.map((workType, i) => {
                   return (
-                    <p key={i}>{workType}</p>
+                    <Link href={`/work/discipline/${normalizeForUrl(workType)}`} key={i}>
+                      <p>{workType}</p>
+                    </Link>
                   )
                 })}
               </div>

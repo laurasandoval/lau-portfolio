@@ -10,7 +10,7 @@ export default function NextProjectPeek({
         <div className="next_project_peek">
             <hr />
             <div className="project_article_header_container">
-                <ProjectArticleHeader postData={nextPostData} autoPlayThumbnail={false} />
+                <ProjectArticleHeader peek={true} postData={nextPostData} autoPlayThumbnail={false} />
             </div>
 
             <Link href={`/design/${nextPostData.project}`} prefetch={false} className="project_access">
