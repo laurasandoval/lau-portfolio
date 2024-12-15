@@ -2,6 +2,7 @@ import Balancer from 'react-wrap-balancer'
 import { ProjectThumbnail } from '../ProjectThumbnail/ProjectThumbnail'
 import './ProjectArticleHeader.scss'
 import Link from 'next/link'
+import { normalizeForUrl } from '@/lib/formatters'
 
 export function ProjectArticleHeader({
     peek = false,
@@ -19,7 +20,7 @@ export function ProjectArticleHeader({
                 <p className="subtitle">
                     {postData.workType?.map((workType, i) => (
                         <Link
-                            href={`/work/discipline/${workType.toLowerCase().replace(/[&]/g, '').replace(/\s+/g, '-')}`}
+                            href={`/work/discipline/${normalizeForUrl(workType)}`}
                             key={i}
                         >
                             {workType}

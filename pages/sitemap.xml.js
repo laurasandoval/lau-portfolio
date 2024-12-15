@@ -1,6 +1,6 @@
-import { getAllFolders, getSortedPostsData, getAllWorkTypes } from "@/lib/posts";
+import { getAllFolders, getSortedPostsData, getAllWorkTypes, getAllSectors } from "@/lib/posts";
 
-function generateSiteMap(designWorkData, designWorkFoldersData, workTypes, server) {
+function generateSiteMap(designWorkData, designWorkFoldersData, workTypes, sectors, server) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <url>
@@ -33,6 +33,13 @@ function generateSiteMap(designWorkData, designWorkFoldersData, workTypes, serve
          </url>
        `;
   }).join('')}
+     ${sectors.map((sector) => {
+    return `
+         <url>
+             <loc>${`${server}/work/sector/${sector}`}</loc>
+         </url>
+       `;
+  }).join('')}
    </urlset>
  `;
 }
@@ -48,8 +55,9 @@ export async function getServerSideProps(context) {
   const designWorkData = getSortedPostsData();
   const designWorkFoldersData = getAllFolders();
   const workTypes = getAllWorkTypes();
+  const sectors = getAllSectors();
 
-  const sitemap = generateSiteMap(designWorkData, designWorkFoldersData, workTypes, server);
+  const sitemap = generateSiteMap(designWorkData, designWorkFoldersData, workTypes, sectors, server);
 
   context.res.setHeader('Content-Type', 'text/xml');
   context.res.write(sitemap);
