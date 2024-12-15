@@ -1,6 +1,6 @@
-import { getAllFolders, getSortedPostsData } from "@/lib/posts";
+import { getAllFolders, getSortedPostsData, getAllWorkTypes } from "@/lib/posts";
 
-function generateSiteMap(designWorkData, designWorkFoldersData, server) {
+function generateSiteMap(designWorkData, designWorkFoldersData, workTypes, server) {
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <url>
@@ -14,17 +14,24 @@ function generateSiteMap(designWorkData, designWorkFoldersData, server) {
      </url>
      ${designWorkData.map((project) => {
     return `
-       <url>
-           <loc>${`${server}/design/${project.id}`}</loc>
-       </url>
-     `;
+         <url>
+             <loc>${`${server}/design/${project.id}`}</loc>
+         </url>
+       `;
   }).join('')}
      ${designWorkFoldersData.map((folder) => {
     return `
-       <url>
-           <loc>${`${server}/design/${folder.params.project[0]}`}</loc>
-       </url>
-     `;
+         <url>
+             <loc>${`${server}/design/${folder.params.project[0]}`}</loc>
+         </url>
+       `;
+  }).join('')}
+     ${workTypes.map((type) => {
+    return `
+         <url>
+             <loc>${`${server}/work/discipline/${type}`}</loc>
+         </url>
+       `;
   }).join('')}
    </urlset>
  `;
@@ -38,20 +45,18 @@ export async function getServerSideProps(context) {
   const dev = process.env.NODE_ENV !== 'production';
   const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`;
 
-  // Fetch and sort all posts data
   const designWorkData = getSortedPostsData();
   const designWorkFoldersData = getAllFolders();
+  const workTypes = getAllWorkTypes();
 
-  // Generate the XML sitemap with the project data
-  const sitemap = generateSiteMap(designWorkData, designWorkFoldersData, server);
+  const sitemap = generateSiteMap(designWorkData, designWorkFoldersData, workTypes, server);
 
   context.res.setHeader('Content-Type', 'text/xml');
-  // Send the XML to the browser
   context.res.write(sitemap);
   context.res.end();
 
   return {
-    props: {}, // No props are needed as this page just serves the XML
+    props: {},
   };
 }
 
