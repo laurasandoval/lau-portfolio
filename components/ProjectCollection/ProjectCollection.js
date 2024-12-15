@@ -3,6 +3,7 @@ import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import ProjectsGrid from '@/components/ProjectsGrid/ProjectsGrid'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import { NextSeo } from 'next-seo'
+import './ProjectCollection.scss'
 
 export default function ProjectCollection({
     title,
@@ -63,8 +64,8 @@ export default function ProjectCollection({
 
             <GlobalHeader sticky fadeIn={false} />
 
-            <div className="folder_page">
-                <div className="folder_name_header">
+            <div className="project_collection_page">
+                <div className="header">
                     <div className="basic_info">
                         <h2 className="title">{title}</h2>
                         <h2 className="subtitle">{subtitle || `${posts.length} ${posts.length === 1 ? "project" : "projects"}`}</h2>

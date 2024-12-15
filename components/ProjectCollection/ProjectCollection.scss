@@ -1,4 +1,4 @@
-.folder_page {
+.project_collection_page {
     margin: 0 auto;
     padding-top: 80px;
     max-width: 1600px;
@@ -8,7 +8,7 @@
         padding-top: 40px;
     }
 
-    .folder_name_header {
+    >.header {
         --max-width: 1280px;
         --grid-gap: 40px;
         display: grid;
