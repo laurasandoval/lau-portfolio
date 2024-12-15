@@ -48,13 +48,49 @@
             line-height: 1.2em;
         }
 
-        .period {
+        .subtitle {
             color: rgba(136, 138, 144, 1);
             font-size: 15px;
             font-weight: 460;
             line-height: 1.4;
             margin: 8px 0 0;
             padding: 0;
+
+            a {
+                position: relative;
+                padding-bottom: 1px;
+                margin-bottom: -1px;
+
+                @media (hover: hover) {
+                    &:hover {
+                        &::after {
+                            background-color: rgb(136, 138, 144);
+
+                            @at-root [data-peek="true"]#{&} {
+                                background-color: transparent;
+                            }
+                        }
+                    }
+                }
+
+                &::after {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    border-radius: 2px;
+                    background-color: rgb(231, 232, 233);
+                    transition: background-color .3s cubic-bezier(.25, .46, .45, .94) 0s;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+
+                    @at-root [data-peek="true"]#{&} {
+                        background-color: transparent;
+                    }
+                }
+            }
         }
     }
 
