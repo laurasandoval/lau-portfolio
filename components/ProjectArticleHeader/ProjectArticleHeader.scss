@@ -60,9 +60,13 @@
                 position: relative;
                 padding-bottom: 1px;
                 margin-bottom: -1px;
+                color: rgba(136, 138, 144, 1);
+                transition: color .3s cubic-bezier(.25, .46, .45, .94) 0s;
 
                 @media (hover: hover) {
                     &:hover {
+                        color: #000;
+
                         &::after {
                             background-color: rgb(136, 138, 144);
 
