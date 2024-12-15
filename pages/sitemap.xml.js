@@ -15,14 +15,22 @@ function generateSiteMap(designWorkData, designWorkFoldersData, workTypes, secto
      ${designWorkData.map((project) => {
     return `
          <url>
+             <loc>${`${server}/work/${project.id}`}</loc>
+         </url>
+         <url>
              <loc>${`${server}/design/${project.id}`}</loc>
+             <link rel="canonical" href="${`${server}/work/${project.id}`}" />
          </url>
        `;
   }).join('')}
      ${designWorkFoldersData.map((folder) => {
     return `
          <url>
+             <loc>${`${server}/work/${folder.params.project[0]}`}</loc>
+         </url>
+         <url>
              <loc>${`${server}/design/${folder.params.project[0]}`}</loc>
+             <link rel="canonical" href="${`${server}/work/${folder.params.project[0]}`}" />
          </url>
        `;
   }).join('')}
