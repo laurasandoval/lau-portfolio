@@ -1,7 +1,7 @@
 export default function handler(req, res) {
   res.status(200).json([
     {
-      "caption": "Short film about Chilean bank transfers —and how one of my independent apps, [Chaucha](/design/chaucha), solves one of their biggest issues— I made for an internal Uber Design \"Show & Tell\" meeting. Featured on [Uber's LinkedIn page](https://www.linkedin.com/feed/update/urn:li:activity:7183910504656961537/),",
+      "caption": "Short film about Chilean bank transfers —and how one of my independent apps, [Chaucha](/work/chaucha), solves one of their biggest issues— I made for an internal Uber Design \"Show & Tell\" meeting. Featured on [Uber's LinkedIn page](https://www.linkedin.com/feed/update/urn:li:activity:7183910504656961537/),",
       "period": "2024",
       "location": null,
       "assets": [
@@ -14,7 +14,7 @@ export default function handler(req, res) {
       ]
     },
     {
-      "caption": "\"Abstracta\" transit card design launch video for [Balance](/design/balance/app), the most positively reviewed app for managing Chilean transit cards on the App Store.",
+      "caption": "\"Abstracta\" transit card design launch video for [Balance](/work/balance/app), the most positively reviewed app for managing Chilean transit cards on the App Store.",
       "period": "2022",
       "location": null,
       "assets": [
@@ -27,7 +27,7 @@ export default function handler(req, res) {
       ]
     },
     {
-      "caption": "Feature introduction video for [Ride with Balance](/design/balance/app), a new way to ride transit in Santiago de Chile.",
+      "caption": "Feature introduction video for [Ride with Balance](/work/balance/app), a new way to ride transit in Santiago de Chile.",
       "period": "2022",
       "location": null,
       "assets": [
@@ -40,7 +40,7 @@ export default function handler(req, res) {
       ]
     },
     {
-      "caption": "Internal introduction video for the 2021 [Cornershop by Uber](/design/cornershop/head-of-customers-product-design)'s H1 Roadmap All Hands. The video highlights the biggest redesign to our order tracking page since the app's launch. The redesign was successfully implemented by the end of 2021.",
+      "caption": "Internal introduction video for the 2021 [Cornershop by Uber](/work/cornershop/head-of-customers-product-design)'s H1 Roadmap All Hands. The video highlights the biggest redesign to our order tracking page since the app's launch. The redesign was successfully implemented by the end of 2021.",
       "period": "2021",
       "location": null,
       "assets": [
@@ -53,7 +53,7 @@ export default function handler(req, res) {
       ]
     },
     {
-      "caption": "Promotional video for [Santiago Transit Map 2019](/design/santiago-transit-map/2019). Featured in Chile's national news network \"Televisión Nacional de Chile (TVN)\".",
+      "caption": "Promotional video for [Santiago Transit Map 2019](/work/santiago-transit-map/2019). Featured in Chile's national news network \"Televisión Nacional de Chile (TVN)\".",
       "period": "2019",
       "location": null,
       "assets": [
@@ -66,7 +66,7 @@ export default function handler(req, res) {
       ]
     },
     // {
-    //   "caption": "\"Luces, no bocina\" (Lights, not horn) was one of a series of educational videos I drafted for [Kappo Bike](/design/kappo/kappo-brand-identity) in 2019. The ultimate goal was to use those videos as a part of an educational campaign for bicycle safety, targeted towards car drivers to promote safe interaction between bicycles and cars on the road.",
+    //   "caption": "\"Luces, no bocina\" (Lights, not horn) was one of a series of educational videos I drafted for [Kappo Bike](/work/kappo/kappo-brand-identity) in 2019. The ultimate goal was to use those videos as a part of an educational campaign for bicycle safety, targeted towards car drivers to promote safe interaction between bicycles and cars on the road.",
     //   "period": "2019",
     //   "location": null,
     //   "assets": [
@@ -79,7 +79,7 @@ export default function handler(req, res) {
     //   ]
     // },
     {
-      "caption": "Promotional video for \"Saldo Red\", a now-defunct app (later replaced by [Balance](/design/balance/app)), highlighting the addition of Valparaíso's main transit card, \"MerVal\" to its list of supported transit cards.",
+      "caption": "Promotional video for \"Saldo Red\", a now-defunct app (later replaced by [Balance](/work/balance/app)), highlighting the addition of Valparaíso's main transit card, \"MerVal\" to its list of supported transit cards.",
       "period": "2019",
       "location": null,
       "assets": [

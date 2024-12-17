@@ -117,7 +117,7 @@ export default function GlobalHeader({
                             return (
                                 <li key={index}>
                                     <Link
-                                        className={`nav_item ${cleanPath == link.href ? "active" : (link.title == "Design" && cleanPath.includes("/design/")) ? "active" : ""}`}
+                                        className={`nav_item ${cleanPath == link.href ? "active" : (link.title == "Design" && cleanPath.includes("/work/")) ? "active" : ""}`}
                                         href={link.href}
                                     >
                                         {link.title}

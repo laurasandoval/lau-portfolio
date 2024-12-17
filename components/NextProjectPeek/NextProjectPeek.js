@@ -13,7 +13,7 @@ export default function NextProjectPeek({
                 <ProjectArticleHeader peek={true} postData={nextPostData} autoPlayThumbnail={false} />
             </div>
 
-            <Link href={`/design/${nextPostData.project}`} prefetch={false} className="project_access">
+            <Link href={`/work/${nextPostData.project}`} prefetch={false} className="project_access">
                 <AccessibilityLabel role="text" as="span">
                     {nextPostData.title}
                 </AccessibilityLabel>
