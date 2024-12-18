@@ -1,18 +1,37 @@
 import { getAllWorkTypes, getPostsByWorkType } from '@/lib/posts'
 import ProjectCollection from '@/components/ProjectCollection/ProjectCollection'
+import { normalizeForUrl } from '@/lib/formatters';
 
 export default function WorkTypePage({ type, posts, server }) {
-    const displayTitle = type
-        .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
+    const _normalizedDisciplineName = () => {
+        const cleanedDisciplineName = type.replaceAll("-", " ");
+        const words = cleanedDisciplineName.split(" ");
+
+        for (let i = 0; i < words.length; i++) {
+            words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+        }
+
+        return words.join(" ");
+    }
+
+    const _disciplineDisplayName = () => {
+        if (!posts[0].workType) {
+            return _normalizedDisciplineName()
+        }
+
+        const matchingDiscipline = posts[0].workType.find(sector =>
+            normalizeForUrl(sector) === type
+        );
+
+        return matchingDiscipline || _normalizedDisciplineName();
+    }
 
     return (
         <ProjectCollection
-            title={displayTitle}
+            title={_disciplineDisplayName()}
             posts={posts}
             server={server}
-            description={`${displayTitle} projects by Laura Sandoval.`}
+            description={`${_disciplineDisplayName()} projects by Laura Sandoval.`}
         />
     )
 }
