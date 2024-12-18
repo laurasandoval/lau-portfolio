@@ -4,7 +4,7 @@ excerpt: "Selected online films I worked on before transitioning to Product Desi
 workType:
   - "Filmmaking & Photography"
 startYear: 2013
-endYear: 2017
+endYear: 2016
 coverImage: "/assets/design-work/independent-films/independent-films-cover.mp4"
 ogImage: "/assets/design-work/independent-films/social-thumbnail.png"
 customThemeColorHex: "#FFCC00"
@@ -25,7 +25,7 @@ team:
     - "María Fernanda Pereira"
 ---
 
-Prior to my work in [Product Design](/work/discipline/product-design) and [Engineering](/work/discipline/engineering), I spent 4 years as an independent online filmmaker (aka “a YouTuber”)—growing an audience of over 10K subscribers and achieving more than 900K cumulative views between 2013 and 2017.
+Prior to my work in [Product Design](/work/discipline/product-design) and [Engineering](/work/discipline/engineering), I spent 4 years as an independent online filmmaker (aka “a YouTuber”)—growing an audience of over 10K subscribers and achieving more than 900K cumulative views between 2013 and 2016.
 
 During this time, I also produced internal short films for organizations such as the [University of Piura](https://en.wikipedia.org/wiki/University_of_Piura) and [DRRP Spaces](https://drrpspaces.com), among others.
 
