@@ -79,14 +79,14 @@
                 display: flex;
                 border: none;
                 outline: none;
-                background-color: rgba(0, 0, 0, 0.2);
+                background-color: rgba(0, 0, 0, 0);
                 transition: background-color .3s cubic-bezier(.25, .46, .45, .94) 0s;
                 cursor: pointer;
                 z-index: 2;
 
                 @media (hover: hover) {
                     &:hover {
-                        background-color: rgba(0, 0, 0, 0);
+                        background-color: rgba(0, 0, 0, 0.2);
                     }
                 }
 
