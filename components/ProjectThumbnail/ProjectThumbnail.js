@@ -145,7 +145,7 @@ export function ProjectThumbnail({
             data-fade-in={fadeIn}
         >
             {hover && (
-                <Link href={`/design/${id}`} className="project_access">
+                <Link href={`/work/${id}`} className="project_access">
                     <AccessibilityLabel role="text" as="span">
                         {title}
                     </AccessibilityLabel>

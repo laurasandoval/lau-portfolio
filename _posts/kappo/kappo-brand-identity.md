@@ -3,7 +3,7 @@ title: "Kappo Bike — Brand Identity Redesign"
 excerpt: "Brand identity redesign for Kappo Bike, a now-defunct app for logging your bicycle trips around the city."
 client: "Kappo Bike"
 clientSector:
-  - "Mobility"
+  - "Mobility & Transport"
   - "Start-up"
 workType:
   - "Brand Identity"
