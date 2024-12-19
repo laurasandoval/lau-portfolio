@@ -2,7 +2,8 @@
 title: "Y4PT 2nd Transport Hackathon Chile 2017"
 excerpt: "Branding and graphic design for Y4PT’s 2nd Chilean National Transport Hackathon."
 clientSector:
-  - "Mobility"
+  - "Mobility & Transport"
+  - "Not-for-Profit"
 workType:
   - "Brand Identity"
   - "Graphic Design"

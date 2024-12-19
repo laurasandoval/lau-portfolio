@@ -4,7 +4,7 @@ excerpt: "Balance is Chile’s top-rated transit app."
 client:
   - "Balance"
 clientSector:
-  - "Transport"
+  - "Mobility & Transport"
 workType:
   - "Product Design"
   - "Engineering"

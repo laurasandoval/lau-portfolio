@@ -3,7 +3,7 @@ title: "Cool Place to Bike Website"
 excerpt: "Website redesign and development for Kappo's Cool Place to Bike program."
 client: "Kappo Bike"
 clientSector:
-  - "Mobility"
+  - "Mobility & Transport"
   - "Start-up"
 workType:
   - "Product Design"
