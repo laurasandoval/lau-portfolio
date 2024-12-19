@@ -68,31 +68,16 @@
                 }
 
                 >a {
-                    display: inline;
-                    position: relative;
-                    padding-bottom: 1px;
-                    margin-bottom: -1px;
+                    transition: text-decoration-color .3s cubic-bezier(.25, .46, .45, .94) 0s;
+                    text-decoration-color: rgb(231, 232, 233);
+                    text-decoration-line: underline;
+                    text-underline-offset: 4px;
+                    text-decoration-thickness: 1px;
 
                     @media (hover: hover) {
                         &:hover {
-                            &::after {
-                                background-color: rgb(136, 138, 144);
-                            }
+                            text-decoration-color: rgb(136, 138, 144);
                         }
-                    }
-
-                    &::after {
-                        content: "";
-                        display: block;
-                        width: 100%;
-                        height: 1px;
-                        border-radius: 2px;
-                        background-color: rgb(231, 232, 233);
-                        transition: background-color .3s cubic-bezier(.25, .46, .45, .94) 0s;
-                        position: absolute;
-                        right: 0;
-                        bottom: 0;
-                        left: 0;
                     }
                 }
             }
@@ -188,30 +173,16 @@
                 a {
                     display: block;
                     width: fit-content;
-                    position: relative;
-                    padding-bottom: 1px;
-                    margin-bottom: -1px;
+                    transition: text-decoration-color .3s cubic-bezier(.25, .46, .45, .94) 0s;
+                    text-decoration-color: rgb(231, 232, 233);
+                    text-decoration-line: underline;
+                    text-underline-offset: 4px;
+                    text-decoration-thickness: 1px;
 
                     @media (hover: hover) {
                         &:hover {
-                            &::after {
-                                background-color: rgb(136, 138, 144);
-                            }
+                            text-decoration-color: rgb(136, 138, 144);
                         }
-                    }
-
-                    &::after {
-                        content: "";
-                        display: block;
-                        width: 100%;
-                        height: 1px;
-                        border-radius: 2px;
-                        background-color: rgb(231, 232, 233);
-                        transition: background-color .3s cubic-bezier(.25, .46, .45, .94) 0s;
-                        position: absolute;
-                        right: 0;
-                        bottom: 0;
-                        left: 0;
                     }
                 }
             }
