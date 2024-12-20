@@ -11,9 +11,6 @@ endYear: 2019
 coverImage: "/assets/design-work/transantiago-bot/transantiago-bot-cover.png"
 ogImage: "/assets/design-work/transantiago-bot/social-thumbnail.png"
 customThemeColorHex: "#2960DB"
-cta:
-    - title: "About Y4PT"
-      url: "https://www.y4pt.org"
 team:
   Graphic Design:
     - "Laura Sandoval"
