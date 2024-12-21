@@ -63,6 +63,16 @@ To make this work, I relied on third-party sources (e.g., people who worked at i
 
 While this approach was evidently not scalable over time, it quickly proved to be a delightful little detail and was even incorporated into the Ministry of Transport's official transit apps later on.
 
+![Asking for a specific bus route within a stop.](/assets/design-work/transantiago-bot/transantiago-bot-bus-stop-and-route.png)
+
+On top of asking for all bus ETAs within a stop, users could also specify a service, like "when's the next 516 bus coming to pa385?".
+
+![For more complex requests, like bus routes, I made complementary webviews Transantiago Bot could link to, without abandoning Messenger.](/assets/design-work/transantiago-bot/transantiago-bot-bus-route.mp4)
+
+For requests about specific bus routes, Transantiago Bot would provide everything it knew about the service (stops, disruptions, etc).
+
+Routes linked users to a complementary map webview I developed specifically for Transantiago Bot, allowing for a more familiar browsing experience.
+
 ---
 
 > After serving around ~300 organic monthly active users, Transantiago Bot was eventually sunsetted in 2019, following a failed acquisition attempt by Chile's Ministry of Transport.
