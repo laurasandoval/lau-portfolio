@@ -6,16 +6,16 @@ client:
 clientSector:
   - "Banking & Finance"
 workType:
+  - "Independent Apps"
   - "Product Design"
   - "Engineering"
-  - "Independent Apps"
 startYear: 2024
 endYear: 
 coverImage: "/assets/design-work/chaucha/chaucha-cover.png"
 ogImage: "/assets/design-work/chaucha/social-thumbnail.png"
 customThemeColorHex: "#BC7C47"
 team:
-  Design:
+  Product Design:
     - "Laura Sandoval"
   iOS Engineering:
     - "Laura Sandoval"

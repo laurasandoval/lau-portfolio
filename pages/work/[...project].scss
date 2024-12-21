@@ -113,10 +113,10 @@
             }
 
             blockquote {
-                font-size: 30px;
-                font-weight: 560;
+                font-size: 22px;
+                font-weight: 460;
                 letter-spacing: -0.03em;
-                line-height: 1.4em;
+                line-height: 1.4;
                 padding: 20px 0;
             }
 
@@ -173,15 +173,18 @@
                 a {
                     display: block;
                     width: fit-content;
-                    transition: text-decoration-color .3s cubic-bezier(.25, .46, .45, .94) 0s;
-                    text-decoration-color: rgb(231, 232, 233);
-                    text-decoration-line: underline;
-                    text-underline-offset: 4px;
-                    text-decoration-thickness: 1px;
 
-                    @media (hover: hover) {
-                        &:hover {
-                            text-decoration-color: rgb(136, 138, 144);
+                    p {
+                        transition: text-decoration-color .3s cubic-bezier(.25, .46, .45, .94) 0s;
+                        text-decoration-color: rgb(231, 232, 233);
+                        text-decoration-line: underline;
+                        text-underline-offset: 4px;
+                        text-decoration-thickness: 1px;
+
+                        @media (hover: hover) {
+                            &:hover {
+                                text-decoration-color: rgb(136, 138, 144);
+                            }
                         }
                     }
                 }
