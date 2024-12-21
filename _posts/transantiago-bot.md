@@ -9,7 +9,7 @@ workType:
   - "Chat Bots"
 startYear: 2018
 endYear: 2019
-coverImage: "/assets/design-work/transantiago-bot/transantiago-bot-cover.png"
+coverImage: "/assets/design-work/transantiago-bot/transantiago-bot-cover.mp4"
 ogImage: "/assets/design-work/transantiago-bot/social-thumbnail.png"
 customThemeColorHex: "#0284F4"
 team:
@@ -37,7 +37,7 @@ I figured the city deserved better. So, in an attempt to bring some dignity to t
 
 ## My Take: Transantiago Bot
 
-![Transantiago Bot's onboarding view, leveraging modern Messenger features to provide a more approachable transit experience.](/assets/design-work/transantiago-bot/transantiago-bot-onboarding.png)
+![Transantiago Bot's onboarding view, leveraging modern Messenger features to provide a more approachable experience to transit, compared to the official alternative.](/assets/design-work/transantiago-bot/transantiago-bot-onboarding.mp4)
 
 By utilizing modern Messenger Platform APIs, Transantiago Bot delivered a consistently better and more approachable experience than the official alternative. It used natural language, leveraged imagery when useful, and was packed with features to make it the perfect on-the-go transit assistant for Santiago's bus network—beyond just bus ETAs.
 
