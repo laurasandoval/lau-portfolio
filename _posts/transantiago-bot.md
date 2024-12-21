@@ -1,6 +1,6 @@
 ---
 title: "Transantiago Bot"
-excerpt: "Smart virtual assistant for Santiago de Chile's public transit buses network."
+excerpt: "Smart virtual assistant for Santiago de Chile's public transit bus network."
 clientSector:
   - "Mobility & Transport"
 workType:
@@ -21,34 +21,40 @@ team:
 
 ## Background: The Chilean Ministry of Transport's Bot
 
-Back in 2017, amidst the boom of Facebook Messenger and a year after Meta (back then Facebook) announced [Bots for Messenger](https://developers.facebook.com/blog/post/2016/07/01/bots-for-messenger-updates/), the Chilean Ministry of Transport launched their own chat bot for Santiago's —capital city of Chile— public transit bus network, called "Predictor Transantiago" (back then, Transantiago was the city's public transit buses network).
+Back in 2017, during the boom of Facebook Messenger and a year after Meta (then Facebook) announced [Bots for Messenger](https://developers.facebook.com/blog/post/2016/07/01/bots-for-messenger-updates/), the Chilean Ministry of Transport launched its own chatbot for Santiago's public transit bus network. The bot, called "Predictor Transantiago," was meant to help users navigate Transantiago (the city's public transit bus system at the time) by providing live bus ETAs.
 
-![The official Ministry of Transport's messenger chat bot. 2017.](/assets/design-work/transantiago-bot/mtt-bot-screen-recording-2017.gif)
+![The official Ministry of Transport's Messenger chatbot. 2017.](/assets/design-work/transantiago-bot/mtt-bot-screen-recording-2017.gif)
 
-![The official bot, created by Chile's Ministry of Transport, only replied to messages speficially formatted as "Parada {stop code}". Any typos (!) or any other message resulted in zero replies from the bot.](/assets/design-work/transantiago-bot/mtt-bot-screen-recording-2017-2.gif)
+![The official bot, created by Chile's Ministry of Transport, only replied to messages specifically formatted as "Parada {stop code}". Any typos (!) or any other message resulted in zero replies from the bot.](/assets/design-work/transantiago-bot/mtt-bot-screen-recording-2017-2.gif)
 
 But it kind of sucked.
 
-It didn't leverage any of the modern Messenger Platform APIs for chat bots (like quick replies, persistent menus, etc), nor did it provide any sort of guidance or feedback as to how people were supposed to use it. The only instructions to be found were hidden behind a random news article from the Ministry of Transport's press center, and the bot only really worked like half of the time.
+It didn’t take advantage of modern Messenger Platform APIs for chatbots (like quick replies or persistent menus), nor did it offer any guidance or feedback on how to use it. The only instructions were buried in a random news article on the Ministry of Transport’s press site. To make things worse, the bot only worked about half the time.
 
-I figured the city deserved better, so, in an attempt to bring a little more dignity to the digital aspect of the city's transit system, I embarqued into making my own.
+I figured the city deserved better. So, in an attempt to bring some dignity to the digital side of the transit system, I decided to make my own version.
 
 ---
 
-## My take: Transantiago Bot
+## My Take: Transantiago Bot
 
 ![Transantiago Bot's onboarding view, leveraging modern Messenger features to provide a more approachable transit experience.](/assets/design-work/transantiago-bot/transantiago-bot-onboarding.png)
 
-By leveraging modern Messenger Platform APIs, Transantiago Bot was able to deliver a consistently more approachable experience than the official alternative, and was jampacked with features to make it your perfect on-the-go transit assistant to Santiago's transit buses.
+By utilizing modern Messenger Platform APIs, Transantiago Bot delivered a consistently better and more approachable experience than the official alternative. It used natural language, leveraged imagery when useful, and was packed with features to make it the perfect on-the-go transit assistant for Santiago's bus network—beyond just bus ETAs.
 
 ![Transantiago Bot providing bus ETAs. When the next upcoming bus was electric, Transantiago Bot marked it with a small lightning emoji. Just for fun.](/assets/design-work/transantiago-bot/transantiago-bot-bus-stop.png)
 
-For bus ETAs, users could send the bot a stop code, like on the example above, or just ask using natural language. Users could even specify a particular bus within a bus stop, and Transantiago Bot would filter results to that route only.
+To check bus ETAs, users could send the bot a stop code—like in the example above—or just ask in natural language.
+
+One fun detail I added (because why not?) was marking the next bus with a lightning emoji if it was electric. Back in 2017, Santiago was in the midst of becoming the #1 city with the most electric buses outside of China, and the first new buses were starting to arrive—so I figured I’d celebrate that.
 
 ![Simplified diagram of how the lightning emoji mechanism worked.](/assets/design-work/transantiago-bot/api-diagram.png)
 
-A fun little detail I added just for fun —and, why not, because I'm a transit nerd— was, whenever the next upcoming bus for a specific bus route was electric, Transantiago Bot marked it with a thunder emoji. This was not straightforward not develop, as there was no publicly available data for which specific buses were electric, and official endpoints from the Ministry of Transport didn't provide that information either. So in order for this feature to exist, I relied on third-party sources who worked 
+This feature wasn’t straightforward to implement, though, as there wasn’t any publicly available data on which buses were electric at the time, and the Ministry of Transport’s official endpoints didn’t provide that info either.
+
+To make this work, I relied on third-party sources (e.g., people who worked at internal transit agencies) to maintain my own internal database of electric bus license plates. Each time Transantiago Bot generated a bus ETA response, it compared the license plate of buses approaching a specific stop to my database and marked them with the emoji if they matched.
+
+While this approach was evidently not scalable over time, it quickly proved to be a delightful little detail and was even incorporated into the Ministry of Transport's official transit apps later on.
 
 ![When in need of additional information, like a stop code, Transantiago Bot provided guidance to users on what it needed to proceed.](/assets/design-work/transantiago-bot/transantiago-bot-bus-stop-guided.png)
 
-When using the persistent Menu, Transantiago Bot would provide guidance to what specific info was needed—like a stop code, in this case—.
+When navigating through the persistent menu, Transantiago Bot guided users on what specific info was needed—like a stop code in this case—so they could get the help they needed without guesswork.
