@@ -19,7 +19,7 @@ team:
     - "Laura Sandoval"
 ---
 
-## Background: The Chilean Ministry of Transport's Bot
+## Background: The Chilean Ministry of Transport's Official Bot
 
 Back in 2017, during the boom of Facebook Messenger and a year after Meta (then Facebook) announced [Bots for Messenger](https://developers.facebook.com/blog/post/2016/07/01/bots-for-messenger-updates/), the Chilean Ministry of Transport launched its own chatbot for Santiago's public transit bus network. The bot, called "Predictor Transantiago," was meant to help users navigate Transantiago (the city's public transit bus system at the time) by providing live bus ETAs.
 
@@ -35,7 +35,7 @@ I figured **the city deserved better.** So, in an attempt to bring some dignity 
 
 ---
 
-## My Take: Transantiago Bot
+## Transantiago Bot
 
 ![Transantiago Bot's onboarding experience, leveraging modern Messenger features to provide a more approachable experience to transit, compared to the official alternative.](/assets/design-work/transantiago-bot/transantiago-bot-onboarding.mp4)
 
@@ -72,6 +72,14 @@ On top of asking for all bus ETAs within a stop, users could also specify a serv
 For requests about specific bus routes, Transantiago Bot would provide everything it knew about the service (stops, disruptions, etc).
 
 Routes linked users to a complementary map webview I developed specifically for Transantiago Bot, allowing for a more familiar browsing experience.
+
+![First time user experience for checking your transit card Balance on Transantiago Bot.](/assets/design-work/transantiago-bot/transantiago-bot-card-balance-ftux.mp4)
+
+Besides buses, you could also check your Bip card (Santiago's bespoke contactless transit card) balance, and even save it on Transantiago Bot for easier access.
+
+![Regular and student transit cards.](/assets/design-work/transantiago-bot/transantiago-bot-transit-cards.png)
+
+Guiding assets varied between regular and student cards, honoring their real-world design differences.
 
 ---
 
