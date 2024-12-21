@@ -58,3 +58,9 @@ While this approach was evidently not scalable over time, it quickly proved to b
 ![When in need of additional information, like a stop code, Transantiago Bot provided guidance to users on what it needed to proceed.](/assets/design-work/transantiago-bot/transantiago-bot-bus-stop-guided.png)
 
 When navigating through the persistent menu, Transantiago Bot guided users on what specific info was needed—like a stop code in this case—so they could get the help they needed without guesswork.
+
+---
+
+After serving around ~300 organic monthly active users, Transantiago Bot was eventually sunsetted in 2019, following a failed acquisition attempt by Chile's Ministry of Transport. In the words of their own technical project lead, it was cheaper for them to just "copy what I did," so they pulled back. They never did catch up to Transantiago Bot, though. Instead, they hired—I'm not kidding—a human employee to manually reply to their own chatbot behind the scenes. Unsurprisingly, it eventually stopped working a few months later. 
+
+Maybe the real chatbots were the friends we made along the way.
