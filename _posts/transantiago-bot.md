@@ -17,6 +17,9 @@ team:
     - "Laura Sandoval"
   Engineering:
     - "Laura Sandoval"
+  Special thanks to:
+    - "Rodrigo Ramírez"
+    - "Cristóbal Alfaro"
 ---
 
 ## The Chilean Ministry of Transport's Official Bot
@@ -80,6 +83,10 @@ Besides buses, you could also check your Bip card (Santiago's bespoke contactles
 ![Regular and student transit cards.](/assets/design-work/transantiago-bot/transantiago-bot-transit-cards.png)
 
 Guiding assets varied between regular and student cards, honoring their real-world design differences.
+
+![Chit chatting with Transantiago Bot.](/assets/design-work/transantiago-bot/transantiago-bot-easter-egg.mp4)
+
+As a little easter egg, Transantiago Bot was also capable of some light chit-chatting. It was no artificial intelligence, but it could hold its own in simple back-and-forths, and even use GIFs to lighten the mood.
 
 ---
 
