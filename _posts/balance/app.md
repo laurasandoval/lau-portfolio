@@ -6,16 +6,16 @@ client:
 clientSector:
   - "Mobility & Transport"
 workType:
+  - "Independent Apps"
   - "Product Design"
   - "Engineering"
-  - "Independent Apps"
 startYear: 2019
 endYear: 
 coverImage: "/assets/design-work/balance/app/balance-cover.mp4"
 ogImage: "/assets/design-work/balance/app/social-thumbnail.png"
 customThemeColorHex: "#FD3333"
 team:
-  Design:
+  Product Design:
     - "Laura Sandoval"
   iOS Engineering:
     - "Laura Sandoval"
