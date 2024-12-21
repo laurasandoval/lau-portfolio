@@ -65,7 +65,7 @@ While this approach was evidently not scalable over time, it quickly proved to b
 
 ---
 
-### After serving around ~300 organic monthly active users, Transantiago Bot was eventually sunsetted in 2019, following a failed acquisition attempt by Chile's Ministry of Transport.
+> After serving around ~300 organic monthly active users, Transantiago Bot was eventually sunsetted in 2019, following a failed acquisition attempt by Chile's Ministry of Transport.
 
 In the words of their own technical project lead, it was cheaper for them to just "copy what I did," so they pulled back. They never iterated on their official product, though. Instead, they hired—I'm not kidding—a human employee to manually reply to their own chatbot behind the scenes. Unsurprisingly, it eventually stopped working a few months later. 
 
