@@ -7,7 +7,6 @@ workType:
   - "Independent Apps"
   - "Product Design"
   - "Engineering"
-  - "Chat Bots"
 startYear: 2018
 endYear: 2019
 coverImage: "/assets/design-work/transantiago-bot/transantiago-bot-cover.mp4"
@@ -20,9 +19,9 @@ team:
     - "Laura Sandoval"
 ---
 
-## Background: The Chilean Ministry of Transport's Official Bot
+## The Chilean Ministry of Transport's Official Bot
 
-Back in 2017, during the boom of Facebook Messenger and a year after Meta (then Facebook) announced [Bots for Messenger](https://developers.facebook.com/blog/post/2016/07/01/bots-for-messenger-updates/), the Chilean Ministry of Transport launched its own chatbot for Santiago's public transit bus network. The bot, called "Predictor Transantiago," was meant to help users navigate Transantiago (the city's public transit bus system at the time) by providing live bus ETAs.
+Back in 2017, during the boom of Facebook Messenger, and a year after Meta (then Facebook) announced [Bots for Messenger](https://developers.facebook.com/blog/post/2016/07/01/bots-for-messenger-updates/), the Chilean Ministry of Transport launched its own chatbot for Santiago's public transit bus network. The bot, called "Predictor Transantiago," was meant to help users navigate Transantiago (the city's public transit bus system at the time) by providing live bus ETAs.
 
 ![The official Ministry of Transport's Messenger chatbot. 2017.](/assets/design-work/transantiago-bot/mtt-bot-screen-recording-2017-2.gif)
 
@@ -42,7 +41,7 @@ I figured **the city deserved better.** So, in an attempt to bring some dignity 
 
 By leveraging modern Messenger Platform APIs, Transantiago Bot delivered a consistently better and more approachable experience than the official alternative.
 
-Modern APIs allowed it to have buttons, images, and even a persistent menu pinned at the bottom of the screen, with shortcuts to its main features for easy access.
+Modern APIs allowed it to have buttons, images, and even a persistent menu pinned at the bottom of the screen, with shortcuts to its main features, for easy access.
 
 It used natural language, complemented its replies with imagery when useful, and was packed with features to make it the perfect on-the-go transit assistant for Santiago's bus network—beyond just bus ETAs.
 
@@ -60,9 +59,9 @@ One fun detail I added (because why not?) was marking the next bus with a lightn
 
 This feature wasn’t straightforward to implement, though, as there wasn’t any publicly available data on which buses were electric at the time, and the Ministry of Transport’s official endpoints didn’t provide that info either.
 
-To make this work, I relied on third-party sources (e.g., people who worked at internal transit agencies) to maintain my own internal database of electric bus license plates. Each time Transantiago Bot generated a bus ETA response, it compared the license plates of buses approaching a specific stop to my database and marked them with the emoji if they matched.
+To make this work, I relied on third-party sources (e.g., people who worked at internal transit agencies) to maintain my own internal database of electric bus license plates. Each time Transantiago Bot generated a bus ETA response, it compared the license plates of buses approaching a specific stop to my database, and marked them with the emoji if they matched.
 
-While this approach was evidently not scalable over time, it quickly proved to be a delightful little detail and was even incorporated into the Ministry of Transport's official transit apps later on.
+While this approach was evidently not scalable over time, it quickly proved to be a delightful little detail, and it was even incorporated into the Ministry of Transport's official transit apps later on.
 
 ![Asking for a specific bus route within a stop.](/assets/design-work/transantiago-bot/transantiago-bot-bus-stop-and-route.png)
 
@@ -76,7 +75,7 @@ Routes linked users to a complementary map webview I developed specifically for 
 
 ![First-time user experience for checking your transit card balance on Transantiago Bot.](/assets/design-work/transantiago-bot/transantiago-bot-card-balance-ftux.mp4)
 
-Besides buses, you could also check your Bip card (Santiago's bespoke contactless transit card) balance and even save it on Transantiago Bot for easier access.
+Besides buses, you could also check your Bip card (Santiago's bespoke contactless transit card) balance, and even save it on Transantiago Bot for easier access.
 
 ![Regular and student transit cards.](/assets/design-work/transantiago-bot/transantiago-bot-transit-cards.png)
 
