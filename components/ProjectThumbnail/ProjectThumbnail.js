@@ -152,10 +152,10 @@ export function ProjectThumbnail({
             id
         });
 
-        // Wait for fade out animation to complete before starting the slide up
+        // Reduced wait time since we're using a spring animation
         setTimeout(() => {
             router.push(`/work/${id}`);
-        }, 300);
+        }, 600);
     };
 
     return (

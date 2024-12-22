@@ -13,6 +13,7 @@ import FolderPage from './folder-page'
 import Link from 'next/link';
 import { useTransition } from '@/lib/TransitionContext';
 import { useEffect } from 'react';
+import { motion } from 'framer-motion'
 
 export default function Project({ isFolder, folderAvailable, folderUrl, folderName, posts, currentPostData, nextPostData, server }) {
     const { isTransitioning, setIsTransitioning } = useTransition();
@@ -66,6 +67,13 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
     const luminance = getColorLuminance(projectThemeColor);
     const textColor = luminance > 0.5 ? "#000000" : "#FFFFFF";
 
+    const springConfig = {
+        type: "spring",
+        stiffness: 56,
+        damping: 15,
+        mass: 0.5
+    };
+
     return (
         <>
             <NextSeo
@@ -113,10 +121,12 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
         `}
             </style>
 
-            <article
+            <motion.article
                 className="design_project_article"
                 data-name={currentPostData?.title}
-                data-transitioning={isTransitioning}
+                initial={{ opacity: 0, y: 60 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={springConfig}
             >
                 <ProjectArticleHeader postData={currentPostData} />
                 <div className="body">
@@ -189,7 +199,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
                         ))}
                     </div>
                 </div>
-            </article>
+            </motion.article>
 
             <GlobalFooter />
 
