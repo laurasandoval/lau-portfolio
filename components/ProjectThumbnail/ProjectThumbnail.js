@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './ProjectThumbnail.scss'
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { IconPlayerPauseFilled, IconPlayerPlayFilled } from '@tabler/icons-react';
 import { formatYears } from '@/lib/formatters';
 import { useTransition } from '@/lib/TransitionContext';
@@ -139,7 +139,7 @@ export function ProjectThumbnail({
 
     const Tag = as ? as : "div"
 
-    const handleProjectClick = async (e) => {
+    const handleProjectClick = useCallback(async (e) => {
         if (!hover) return;
 
         e.preventDefault();
@@ -152,11 +152,10 @@ export function ProjectThumbnail({
             id
         });
 
-        // Reduced wait time since we're using a spring animation
         setTimeout(() => {
             router.push(`/work/${id}`);
         }, 600);
-    };
+    }, [hover, title, coverImage, startYear, endYear, id, router, setIsTransitioning, setTransitionData]);
 
     return (
         <Tag

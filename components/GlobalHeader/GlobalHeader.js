@@ -1,6 +1,6 @@
 import { throttle } from 'lodash'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useMemo, useCallback } from 'react'
 import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './GlobalHeader.scss'
 import { useRouter } from 'next/router'
@@ -32,17 +32,17 @@ export default function GlobalHeader({
         return () => document.removeEventListener("scroll", _throttledScrollCheck)
     })
 
-    const _throttledScrollCheck = throttle(() => {
+    const _throttledScrollCheck = useCallback(throttle(() => {
         window.scrollY > headerMarginBottom
             ? setShowHeaderBorder(true)
             : setShowHeaderBorder(false)
-    }, 250)
+    }, 250), [headerMarginBottom])
 
     const _toggleNav = () => {
         setNavOpen(!navOpen)
     }
 
-    const links = [
+    const links = useMemo(() => [
         {
             title: "Design",
             href: "/"
@@ -59,7 +59,7 @@ export default function GlobalHeader({
             title: "Résumé",
             href: "/resume"
         },
-    ]
+    ], [])
 
     return (
         <header
