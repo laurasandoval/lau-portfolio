@@ -27,7 +27,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    z-index: 100;
+    z-index: 1000;
     background: var(--background-color, rgba(255, 255, 255, 1));
 
     &[data-sticky="true"] {

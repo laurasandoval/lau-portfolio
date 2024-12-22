@@ -11,8 +11,17 @@ import ProjectArticleAsset from '@/components/ProjectArticleAsset/ProjectArticle
 import { formatYears, normalizeForUrl } from '@/lib/formatters'
 import FolderPage from './folder-page'
 import Link from 'next/link';
+import { useTransition } from '@/lib/TransitionContext';
+import { useEffect } from 'react';
 
 export default function Project({ isFolder, folderAvailable, folderUrl, folderName, posts, currentPostData, nextPostData, server }) {
+    const { isTransitioning, setIsTransitioning } = useTransition();
+
+    useEffect(() => {
+        // Reset transition state when component unmounts
+        return () => setIsTransitioning(false);
+    }, []);
+
     if (isFolder) {
         return (
             <FolderPage
@@ -107,6 +116,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
             <article
                 className="design_project_article"
                 data-name={currentPostData?.title}
+                data-transitioning={isTransitioning}
             >
                 <ProjectArticleHeader postData={currentPostData} />
                 <div className="body">

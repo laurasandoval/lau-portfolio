@@ -8,9 +8,11 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { getSortedPostsData } from '../lib/posts';
 import BigParagraph from '@/components/BigParagraph/BigParagraph'
+import { useTransition } from '@/lib/TransitionContext';
 
 export default function Home({ allPostsData, server }) {
   const router = useRouter();
+  const { isTransitioning } = useTransition();
 
   // set scroll restoration to manual
   useEffect(() => {
@@ -112,21 +114,26 @@ export default function Home({ allPostsData, server }) {
       />
 
       <GlobalHeader sticky fadeIn />
-      <BigParagraph
-        statement={markdown}
-      />
-      <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
-      <ProjectsGrid featured>
-        {featuredProjects.map((project, index) => {
-          return _renderThumbnail(project, index, true, (index == 0 || index == 1))
-        })}
-      </ProjectsGrid>
-      <ProjectsGrid>
-        {remainingProjects.map((project, index) => {
-          return _renderThumbnail(project, index, false, false)
-        })}
-      </ProjectsGrid>
-      <GlobalFooter statement />
+      <div
+        className="home_content"
+        data-transitioning={isTransitioning}
+      >
+        <BigParagraph
+          statement={markdown}
+        />
+        <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
+        <ProjectsGrid featured>
+          {featuredProjects.map((project, index) => {
+            return _renderThumbnail(project, index, true, (index == 0 || index == 1))
+          })}
+        </ProjectsGrid>
+        <ProjectsGrid>
+          {remainingProjects.map((project, index) => {
+            return _renderThumbnail(project, index, false, false)
+          })}
+        </ProjectsGrid>
+        <GlobalFooter statement />
+      </div>
     </>
   )
 }

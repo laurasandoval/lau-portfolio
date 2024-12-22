@@ -5,6 +5,8 @@ import './ProjectThumbnail.scss'
 import { useEffect, useRef, useState } from 'react';
 import { IconPlayerPauseFilled, IconPlayerPlayFilled } from '@tabler/icons-react';
 import { formatYears } from '@/lib/formatters';
+import { useTransition } from '@/lib/TransitionContext';
+import { useRouter } from 'next/router';
 
 export function ProjectThumbnail({
     id,
@@ -22,6 +24,8 @@ export function ProjectThumbnail({
     autoplay,
     ...props
 }) {
+    const router = useRouter();
+    const { setIsTransitioning, setTransitionData } = useTransition();
     const [isIntersecting, setIsIntersecting] = useState(false);
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -135,6 +139,25 @@ export function ProjectThumbnail({
 
     const Tag = as ? as : "div"
 
+    const handleProjectClick = async (e) => {
+        if (!hover) return;
+
+        e.preventDefault();
+        setIsTransitioning(true);
+        setTransitionData({
+            title,
+            coverImage,
+            startYear,
+            endYear,
+            id
+        });
+
+        // Wait for fade out animation to complete before starting the slide up
+        setTimeout(() => {
+            router.push(`/work/${id}`);
+        }, 300);
+    };
+
     return (
         <Tag
             className="project_thumbnail"
@@ -145,7 +168,11 @@ export function ProjectThumbnail({
             data-fade-in={fadeIn}
         >
             {hover && (
-                <Link href={`/work/${id}`} className="project_access">
+                <Link
+                    href={`/work/${id}`}
+                    className="project_access"
+                    onClick={handleProjectClick}
+                >
                     <AccessibilityLabel role="text" as="span">
                         {title}
                     </AccessibilityLabel>

@@ -3,12 +3,13 @@ import { Analytics } from '@vercel/analytics/react';
 import { Inter } from '@next/font/google'
 import NextNProgress from 'nextjs-progressbar'
 import { Provider } from 'react-wrap-balancer';
+import { TransitionProvider } from '@/lib/TransitionContext';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }) {
   return (
-    <>
+    <TransitionProvider>
       <Provider>
         <style jsx global>{`
         html {
@@ -19,6 +20,6 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
         <Analytics />
       </Provider>
-    </>
+    </TransitionProvider>
   )
 }
