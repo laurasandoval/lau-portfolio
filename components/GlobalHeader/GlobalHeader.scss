@@ -49,7 +49,7 @@
         bottom: 0;
         left: 0;
         background: var(--background-color, rgba(255, 255, 255, 1));
-        transition: border-bottom 0.4s ease, transform 0.4s ease, background-color 0.4s ease;
+        transition: border-bottom 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s ease, background-color 0.4s ease;
         border-bottom: 1px solid rgba(231, 232, 233, 0);
 
         @media (max-width: 850px) {
@@ -63,6 +63,10 @@
 
         @at-root [data-nav-open="true"]#{&} {
             background: rgba(255, 255, 255, 1);
+        }
+
+        @at-root [data-transitioning="true"]#{&} {
+            border-bottom-color: rgba(231, 232, 233, 0);
         }
     }
 

@@ -5,6 +5,7 @@ import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './GlobalHeader.scss'
 import { useRouter } from 'next/router'
 import GlobalFooter from '../GlobalFooter/GlobalFooter'
+import { useTransition } from '@/lib/TransitionContext'
 
 export default function GlobalHeader({
     sticky,
@@ -12,6 +13,7 @@ export default function GlobalHeader({
     fadeIn,
     className,
 }) {
+    const { isTransitioning } = useTransition();
     const [headerMarginBottom, setHeaderMarginBottom] = useState(null)
     const [navOpen, setNavOpen] = useState(false)
     const [showHeaderBorder, setShowHeaderBorder] = useState(false)
@@ -64,6 +66,7 @@ export default function GlobalHeader({
             className={`global_header${className ? ` ${className}` : ""}`}
             data-sticky={sticky}
             data-fade-in={fadeIn}
+            data-transitioning={isTransitioning}
             data-show-border={
                 showHeaderBorder === true
                     ? sticky
