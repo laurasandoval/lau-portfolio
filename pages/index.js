@@ -6,13 +6,13 @@ import { NextSeo } from 'next-seo'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
-import { getSortedPostsData, getAllWorkTypes, getPostsByWorkType } from '../lib/posts';
+import { getSortedPostsData, getAllWorkTypes, getPostsByWorkType, getAllSectors, getPostsBySector } from '../lib/posts';
 import BigParagraph from '@/components/BigParagraph/BigParagraph'
 import IndexTabs from '@/components/IndexTabs/IndexTabs'
 import './index.scss'
 import { normalizeForUrl, formatYears } from '@/lib/formatters'
 
-export default function Home({ allPostsData, workTypes, workTypePosts, server }) {
+export default function Home({ allPostsData, workTypes, workTypePosts, sectors, sectorPosts, server }) {
   const router = useRouter();
   const feedsRef = useRef(null);
   const headerRef = useRef(null);
@@ -83,14 +83,22 @@ export default function Home({ allPostsData, workTypes, workTypePosts, server })
   }
 
   const _normalizedDisciplineName = (type) => {
-    const cleanedDisciplineName = type.replaceAll("-", " ");
-    const words = cleanedDisciplineName.split(" ");
-
-    for (let i = 0; i < words.length; i++) {
-      words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    const posts = workTypePosts[type];
+    if (!posts[0].workType) {
+      // Fallback to basic normalization if no workType found
+      const cleanedDisciplineName = type.replaceAll("-", " ");
+      const words = cleanedDisciplineName.split(" ");
+      for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+      }
+      return words.join(" ");
     }
 
-    return words.join(" ");
+    const matchingDiscipline = posts[0].workType.find(discipline =>
+      normalizeForUrl(discipline) === type
+    );
+
+    return matchingDiscipline || type;
   }
 
   const _renderDisciplineThumbnail = (type, index) => {
@@ -101,6 +109,41 @@ export default function Home({ allPostsData, workTypes, workTypePosts, server })
         subtitle={`${posts.length} ${posts.length === 1 ? 'project' : 'projects'}`}
         asset={posts[0].coverImage}
         url={`/work/discipline/${type}`}
+        as="article"
+        key={index}
+        fadeIn
+        collection={true}
+      />
+    )
+  }
+
+  const _normalizedSectorName = (type) => {
+    const posts = sectorPosts[type];
+    if (!posts[0].clientSector) {
+      // Fallback to basic normalization if no clientSector found
+      const cleanedSectorName = type.replaceAll("-", " ");
+      const words = cleanedSectorName.split(" ");
+      for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+      }
+      return words.join(" ");
+    }
+
+    const matchingSector = posts[0].clientSector.find(sector =>
+      normalizeForUrl(sector) === type
+    );
+
+    return matchingSector || type;
+  }
+
+  const _renderSectorThumbnail = (type, index) => {
+    const posts = sectorPosts[type];
+    return (
+      <ProjectThumbnail
+        title={_normalizedSectorName(type)}
+        subtitle={`${posts.length} ${posts.length === 1 ? 'project' : 'projects'}`}
+        asset={posts[0].coverImage}
+        url={`/work/sector/${type}`}
         as="article"
         key={index}
         fadeIn
@@ -123,7 +166,7 @@ export default function Home({ allPostsData, workTypes, workTypePosts, server })
   const pageTabs = [
     { label: "All Projects", defaultChecked: true },
     { label: "Type of Work" },
-    { label: "Type of Client lalala this is a long tab" },
+    { label: "Type of Client" },
   ];
 
   return (
@@ -193,13 +236,17 @@ export default function Home({ allPostsData, workTypes, workTypePosts, server })
           </div>
           <div className="feed" data-current>
             <ProjectsGrid>
-              {workTypes.map((type, index) => {
+              {workTypes?.map((type, index) => {
                 return _renderDisciplineThumbnail(type, index)
               })}
             </ProjectsGrid>
           </div>
           <div className="feed" data-current>
-            <h2>Type of client feed</h2>
+            <ProjectsGrid>
+              {sectors?.map((type, index) => {
+                return _renderSectorThumbnail(type, index)
+              })}
+            </ProjectsGrid>
           </div>
         </div>
       </main>
@@ -212,12 +259,19 @@ export async function getServerSideProps(context) {
   const dev = process.env.NODE_ENV !== 'production'
   const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
   const allPostsData = getSortedPostsData();
-  const workTypes = getAllWorkTypes();
-  const workTypePosts = {};
 
-  // Pre-fetch posts for each work type
+  // Get work types and their posts
+  const workTypes = getAllWorkTypes() || [];
+  const workTypePosts = {};
   workTypes.forEach(type => {
     workTypePosts[type] = getPostsByWorkType(type);
+  });
+
+  // Get sectors and their posts
+  const sectors = getAllSectors() || [];
+  const sectorPosts = {};
+  sectors.forEach(type => {
+    sectorPosts[type] = getPostsBySector(type);
   });
 
   return {
@@ -225,6 +279,8 @@ export async function getServerSideProps(context) {
       allPostsData,
       workTypes,
       workTypePosts,
+      sectors,
+      sectorPosts,
       server
     }
   }
