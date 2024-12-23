@@ -10,7 +10,7 @@ import { getSortedPostsData } from '../lib/posts';
 import BigParagraph from '@/components/BigParagraph/BigParagraph'
 import IndexTabs from '@/components/IndexTabs/IndexTabs'
 import './index.scss'
-import { normalizeForUrl } from '@/lib/formatters'
+import { normalizeForUrl, formatYears } from '@/lib/formatters'
 
 export default function Home({ allPostsData, server }) {
   const router = useRouter();
@@ -69,9 +69,11 @@ export default function Home({ allPostsData, server }) {
     return (
       <ProjectThumbnail
         {...project}
-        id={project.id}
+        title={project.title}
+        subtitle={project.subtitle || formatYears(project.startYear, project.endYear)}
+        asset={project.coverImage}
+        url={`/work/${project.id}`}
         as="article"
-        hover
         key={index}
         portrait={featured}
         fadeIn

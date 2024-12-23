@@ -34,7 +34,8 @@ export function ProjectArticleHeader({
                 </Balancer>
             </p>
             <ProjectThumbnail
-                coverImage={postData.coverImage}
+                title={postData.title}
+                asset={postData.coverImage}
                 autoplay={autoPlayThumbnail}
                 img_only
                 placeholder={false}
