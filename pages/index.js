@@ -79,12 +79,17 @@ export default function Home({ allPostsData, server }) {
     const resizeObservers = []; // store resize observers for cleanup
 
     const calculateTabPositions = () => {
+      const tabsContainer = tabsContainerRef.current;
+      if (!tabsContainer) return;
+
+      const containerRect = tabsContainer.getBoundingClientRect();
+
       tabPositions = tabs
         .filter((tab) => tab)
         .map((tab) => {
           const rect = tab.getBoundingClientRect();
           return {
-            offsetLeft: rect.left + window.scrollX,
+            offsetLeft: rect.left - containerRect.left,
             width: rect.width,
           };
         });
@@ -98,9 +103,6 @@ export default function Home({ allPostsData, server }) {
 
       const currentIndex = Math.floor(scrollLeft / viewportWidth);
       const nextIndex = Math.min(currentIndex + 1, tabPositions.length - 1);
-
-      const currentTab = tabs[currentIndex];
-      const nextTab = tabs[nextIndex] || currentTab;
 
       const interpolationFactor = (scrollLeft % viewportWidth) / viewportWidth;
 
@@ -117,6 +119,19 @@ export default function Home({ allPostsData, server }) {
       currentTabIndicator.style.setProperty('--leading-offset', `${Math.round(interpolatedOffset)}px`);
       currentTabIndicator.style.setProperty('--width', `${Math.round(interpolatedWidth)}px`);
     };
+
+    // Create a ResizeObserver for the tabs container
+    const tabsResizeObserver = new ResizeObserver(throttle(() => {
+      calculateTabPositions();
+      updateTabIndicator();
+    }, 100));
+
+    // Observe each tab element for size changes
+    tabs.forEach((tab) => {
+      if (tab) {
+        tabsResizeObserver.observe(tab);
+      }
+    });
 
     const updateFeedHeight = () => {
       const viewportWidth = feeds.offsetWidth;
@@ -168,6 +183,7 @@ export default function Home({ allPostsData, server }) {
 
     const handleResize = () => {
       calculateTabPositions();
+      updateTabIndicator();
       detectCurrentTab();
     };
 
@@ -186,6 +202,7 @@ export default function Home({ allPostsData, server }) {
       feeds.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', handleResize);
       resizeObservers.forEach((observer) => observer.disconnect());
+      tabsResizeObserver.disconnect(); // Clean up the tabs resize observer
     };
   }, []);
 
