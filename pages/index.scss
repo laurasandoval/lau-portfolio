@@ -1,0 +1,26 @@
+.feeds_container {
+    overflow: hidden;
+
+    .feeds {
+        --ghost-padding: 40px; // We use this to hide the h-scrollbar in Safari :P
+        width: 100vw;
+        height: calc(var(--ghost-padding) + var(--current-feed-height));
+        transition: height 0.8s cubic-bezier(0.28, 0.11, 0.32, 1);
+        display: flex;
+        flex-direction: row;
+        scroll-snap-type: x mandatory;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        margin-bottom: calc(var(--ghost-padding) * -1);
+
+        >.feed {
+            width: 100vw;
+            height: fit-content;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}

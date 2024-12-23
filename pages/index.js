@@ -5,12 +5,77 @@ import AccessibilityLabel from '@/components/AccessibilityLabel/AccessibilityLab
 import { NextSeo } from 'next-seo'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { getSortedPostsData } from '../lib/posts';
 import BigParagraph from '@/components/BigParagraph/BigParagraph'
+import './index.scss'
 
 export default function Home({ allPostsData, server }) {
   const router = useRouter();
+  const feedsRef = useRef(null);
+
+  useEffect(() => {
+    const feeds = feedsRef.current;
+
+    // resize observer to watch for height changes
+    const resizeObserver = new ResizeObserver(() => {
+      const scrollLeft = feeds.scrollLeft;
+      const viewportWidth = feeds.offsetWidth;
+
+      // determine the index of the visible feed
+      const currentFeedIndex = Math.round(scrollLeft / viewportWidth);
+
+      // get all feed elements
+      const feedElements = feeds.children;
+
+      Array.from(feedElements).forEach((feed, index) => {
+        const isCurrent = index === currentFeedIndex;
+        feed.setAttribute('data-current', isCurrent);
+
+        if (isCurrent) {
+          const height = feed.offsetHeight;
+          feeds.style.setProperty('--current-feed-height', `${height}px`);
+        }
+      });
+    });
+
+    // observe all children
+    Array.from(feeds.children).forEach((child) => resizeObserver.observe(child));
+
+    // call it initially to set the correct state
+    const updateCurrentFeed = () => {
+      const scrollLeft = feeds.scrollLeft;
+      const viewportWidth = feeds.offsetWidth;
+
+      // determine the index of the visible feed
+      const currentFeedIndex = Math.round(scrollLeft / viewportWidth);
+
+      // get all feed elements
+      const feedElements = feeds.children;
+
+      Array.from(feedElements).forEach((feed, index) => {
+        const isCurrent = index === currentFeedIndex;
+        feed.setAttribute('data-current', isCurrent);
+
+        if (isCurrent) {
+          const height = feed.offsetHeight;
+          feeds.style.setProperty('--current-feed-height', `${height}px`);
+        }
+      });
+    };
+
+    feeds.addEventListener('scroll', updateCurrentFeed);
+
+    setTimeout(() => {
+      updateCurrentFeed();
+    }, 200);
+
+    // cleanup observers and event listeners on unmount
+    return () => {
+      feeds.removeEventListener('scroll', updateCurrentFeed);
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   // set scroll restoration to manual
   useEffect(() => {
@@ -55,11 +120,6 @@ export default function Home({ allPostsData, server }) {
       />
     )
   }
-
-  const maxFeaturedCount = 4
-
-  const featuredProjects = allPostsData.slice(0, maxFeaturedCount)
-  const remainingProjects = allPostsData.slice(maxFeaturedCount, featuredProjects.lenght)
 
   const markdown = `Hola! I am a curiosity-driven designer currently shaping the grocery shopping experience at [Uber](https://uber.com).
   
@@ -115,17 +175,35 @@ export default function Home({ allPostsData, server }) {
       <BigParagraph
         statement={markdown}
       />
-      <AccessibilityLabel as="h2">Selected Works</AccessibilityLabel>
-      <ProjectsGrid featured>
-        {featuredProjects.map((project, index) => {
-          return _renderThumbnail(project, index, true, (index == 0 || index == 1))
-        })}
-      </ProjectsGrid>
-      <ProjectsGrid>
-        {remainingProjects.map((project, index) => {
-          return _renderThumbnail(project, index, false, false)
-        })}
-      </ProjectsGrid>
+
+      <div className="index_header">
+        <div className="basic_info">
+          <h2 className="title">Work</h2>
+        </div>
+        <div className="tabs">
+          <div className="tab">All</div>
+          <div className="tab">Type of Client</div>
+          <div className="tab">Type of Work</div>
+        </div>
+      </div>
+
+      <div className="feeds_container">
+        <div className="feeds" ref={feedsRef}>
+          <div className="feed" data-current>
+            <ProjectsGrid>
+              {allPostsData.map((project, index) => {
+                return _renderThumbnail(project, index, false, false)
+              })}
+            </ProjectsGrid>
+          </div>
+          <div className="feed" data-current>
+            <h2>Type of client feed</h2>
+          </div>
+          <div className="feed" data-current>
+            <h2>Type of work feed</h2>
+          </div>
+        </div>
+      </div>
       <GlobalFooter statement />
     </>
   )

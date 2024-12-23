@@ -63,7 +63,7 @@ export default function ProjectsGrid({ featured, children, showAll }) {
             return columnCount * 1;
              */
 
-            return columnCount * 1;
+            return columnCount * 2;
         }
     };
 
