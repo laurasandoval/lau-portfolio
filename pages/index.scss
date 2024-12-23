@@ -10,15 +10,15 @@
         position: absolute;
         bottom: -1px;
         left: 0;
-        width: 120px;
         height: 2px;
         background-color: rgb(0, 0, 0);
         border-radius: 2px;
+        transform: translateX(var(--leading-offset, 0));
+        width: var(--width, 0);
     }
 
     .tab {
         position: relative;
-        cursor: pointer;
 
         >input {
             position: absolute;
@@ -36,6 +36,7 @@
             outline: none;
             border: none;
             opacity: 0;
+            pointer-events: none;
         }
 
         >label {
@@ -62,7 +63,7 @@
         --ghost-padding: 40px; // We use this to hide the h-scrollbar in Safari :P
         width: 100vw;
         height: calc(var(--ghost-padding) + var(--current-feed-height));
-        transition: height 0.8s cubic-bezier(0.28, 0.11, 0.32, 1);
+        transition: height 0.2s cubic-bezier(0.28, 0.11, 0.32, 1);
         display: flex;
         flex-direction: row;
         scroll-snap-type: x mandatory;
