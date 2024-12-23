@@ -176,18 +176,27 @@ export default function Home({ allPostsData, server }) {
         statement={markdown}
       />
 
-      <div className="index_header">
-        <div className="basic_info">
-          <h2 className="title">Work</h2>
+      <div className="tabs">
+        <span className="current_tab_indicator"></span>
+
+        <div className="tab">
+          <input type="radio" id="all-projects" name="sample" value="all-projects" defaultChecked />
+          <label for="all-projects">All Projects</label>
         </div>
-        <div className="tabs">
-          <div className="tab">All</div>
-          <div className="tab">Type of Client</div>
-          <div className="tab">Type of Work</div>
+
+        <div className="tab">
+          <input type="radio" id="type-of-work" name="sample" value="type-of-work" />
+          <label for="type-of-work">Type of Work</label>
         </div>
+
+        <div className="tab">
+          <input type="radio" id="type-of-company" name="sample" value="type-of-company" />
+          <label for="type-of-company">Type of Company</label>
+        </div>
+
       </div>
 
-      <div className="feeds_container">
+      <main className="feeds_container">
         <div className="feeds" ref={feedsRef}>
           <div className="feed" data-current>
             <ProjectsGrid>
@@ -203,7 +212,7 @@ export default function Home({ allPostsData, server }) {
             <h2>Type of work feed</h2>
           </div>
         </div>
-      </div>
+      </main>
       <GlobalFooter statement />
     </>
   )
