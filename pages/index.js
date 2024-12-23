@@ -10,6 +10,7 @@ import { getSortedPostsData } from '../lib/posts';
 import BigParagraph from '@/components/BigParagraph/BigParagraph'
 import './index.scss'
 import { normalizeForUrl } from '@/lib/formatters'
+import { throttle } from 'lodash'
 
 export default function Home({ allPostsData, server }) {
   const router = useRouter();
@@ -104,16 +105,20 @@ export default function Home({ allPostsData, server }) {
       });
     };
 
+    const detectCurrentTab = throttle(() => {
+      updateFeedHeight(); // update the feed height when tab changes
+    }, 200);
+
     const onScroll = () => {
       requestAnimationFrame(() => {
-        updateTabIndicator();
-        updateFeedHeight();
+        updateTabIndicator(); // update the indicator smoothly
+        detectCurrentTab(); // throttle tab detection and height updates
       });
     };
 
     const handleResize = () => {
       calculateTabPositions();
-      updateFeedHeight(); // ensure the height updates on resize
+      detectCurrentTab();
     };
 
     feeds.addEventListener('scroll', onScroll);
@@ -123,14 +128,14 @@ export default function Home({ allPostsData, server }) {
     setTimeout(() => {
       calculateTabPositions();
       observeFeedHeights(); // start observing for height changes
-      updateFeedHeight(); // set initial height
+      detectCurrentTab();
       updateTabIndicator();
     }, 200);
 
     return () => {
       feeds.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', handleResize);
-      resizeObservers.forEach((observer) => observer.disconnect()); // cleanup observers
+      resizeObservers.forEach((observer) => observer.disconnect());
     };
   }, []);
 
