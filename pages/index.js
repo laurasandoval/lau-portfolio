@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from 'react'
 import { getSortedPostsData } from '../lib/posts';
 import BigParagraph from '@/components/BigParagraph/BigParagraph'
 import './index.scss'
+import { normalizeForUrl } from '@/lib/formatters'
 
 export default function Home({ allPostsData, server }) {
   const router = useRouter();
@@ -23,6 +24,8 @@ export default function Home({ allPostsData, server }) {
     const currentTabIndicator = currentTabIndicatorRef.current;
 
     let tabPositions = []; // cache tab dimensions and positions
+    let currentFeedIndex = 0; // track the current feed index
+    const resizeObservers = []; // store resize observers for cleanup
 
     const calculateTabPositions = () => {
       tabPositions = tabs
@@ -36,7 +39,7 @@ export default function Home({ allPostsData, server }) {
         });
     };
 
-    const updateTabIndicatorAndHeight = () => {
+    const updateTabIndicator = () => {
       const scrollLeft = feeds.scrollLeft;
       const viewportWidth = feeds.offsetWidth;
 
@@ -62,47 +65,72 @@ export default function Home({ allPostsData, server }) {
 
       currentTabIndicator.style.setProperty('--leading-offset', `${Math.round(interpolatedOffset)}px`);
       currentTabIndicator.style.setProperty('--width', `${Math.round(interpolatedWidth)}px`);
-
-      // update feed height dynamically
-      const feedElements = feeds.children;
-      const currentFeed = feedElements[currentIndex];
-      const nextFeed = feedElements[nextIndex] || currentFeed;
-
-      const currentFeedHeight = currentFeed.offsetHeight;
-      const nextFeedHeight = nextFeed.offsetHeight;
-
-      const interpolatedHeight =
-        currentFeedHeight + interpolationFactor * (nextFeedHeight - currentFeedHeight);
-
-      feeds.style.setProperty('--current-feed-height', `${Math.round(interpolatedHeight)}px`);
     };
 
-    const syncTabsWithScroll = () => {
-      const scrollLeft = feeds.scrollLeft;
+    const updateFeedHeight = () => {
       const viewportWidth = feeds.offsetWidth;
+      const scrollLeft = feeds.scrollLeft;
 
-      const currentIndex = Math.round(scrollLeft / viewportWidth);
-      setSelectedTab(currentIndex); // update the selected tab index
+      // calculate which feed is currently visible
+      const newFeedIndex = Math.round(scrollLeft / viewportWidth);
+
+      // only update height if the feed index changes
+      if (newFeedIndex !== currentFeedIndex) {
+        currentFeedIndex = newFeedIndex;
+        setSelectedTab(newFeedIndex); // update the selected tab state
+
+        const feedElements = Array.from(feeds.children);
+        const currentFeed = feedElements[currentFeedIndex];
+        if (!currentFeed) return;
+
+        const newHeight = currentFeed.offsetHeight;
+        feeds.style.setProperty('--current-feed-height', `${newHeight}px`);
+      }
+    };
+
+    const observeFeedHeights = () => {
+      const feedElements = Array.from(feeds.children);
+      feedElements.forEach((feed) => {
+        const resizeObserver = new ResizeObserver(() => {
+          // update the height only if it's the current feed
+          const feedIndex = Array.from(feedElements).indexOf(feed);
+          if (feedIndex === currentFeedIndex) {
+            const newHeight = feed.offsetHeight;
+            feeds.style.setProperty('--current-feed-height', `${newHeight}px`);
+          }
+        });
+        resizeObserver.observe(feed);
+        resizeObservers.push(resizeObserver); // store observer for cleanup
+      });
     };
 
     const onScroll = () => {
       requestAnimationFrame(() => {
-        updateTabIndicatorAndHeight();
-        syncTabsWithScroll();
+        updateTabIndicator();
+        updateFeedHeight();
       });
     };
 
-    feeds.addEventListener('scroll', onScroll);
-    window.addEventListener('resize', calculateTabPositions);
+    const handleResize = () => {
+      calculateTabPositions();
+      updateFeedHeight(); // ensure the height updates on resize
+    };
 
+    feeds.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', handleResize);
+
+    // initial setup
     setTimeout(() => {
       calculateTabPositions();
-      updateTabIndicatorAndHeight();
-    }, 10);
+      observeFeedHeights(); // start observing for height changes
+      updateFeedHeight(); // set initial height
+      updateTabIndicator();
+    }, 200);
 
     return () => {
       feeds.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', calculateTabPositions);
+      window.removeEventListener('resize', handleResize);
+      resizeObservers.forEach((observer) => observer.disconnect()); // cleanup observers
     };
   }, []);
 
@@ -172,10 +200,10 @@ export default function Home({ allPostsData, server }) {
   You can reach me at [@laurasideral](https://x.com/laurasideral) or [hi@lau.work](mailto:hi@lau.work), and browse some of my work & links below.
   `
 
-  const tabLabels = [
-    { id: "all-projects", name: "sample", value: "all-projects", label: "All Projects", defaultChecked: true },
-    { id: "type-of-work", name: "sample", value: "type-of-work", label: "Type of Work" },
-    { id: "type-of-company", name: "sample", value: "type-of-company", label: "Type of Company" },
+  const pageTabs = [
+    { label: "All Projects", defaultChecked: true },
+    { label: "Type of Work" },
+    { label: "Type of Client" },
   ];
 
   return (
@@ -225,23 +253,23 @@ export default function Home({ allPostsData, server }) {
       <div className="tabs">
         <span className="current_tab_indicator" ref={currentTabIndicatorRef}></span>
 
-        {tabLabels.map(({ id, name, value, label }, index) => (
+        {pageTabs.map(({ label }, index) => (
           <div
             className="tab"
-            key={id}
+            key={normalizeForUrl(label)}
             ref={(el) => {
               if (el) tabsRef.current[index] = el;
             }}
           >
             <input
               type="radio"
-              id={id}
-              name={name}
-              value={value}
+              id={normalizeForUrl(label)}
+              name={normalizeForUrl(label)}
+              value={normalizeForUrl(label)}
               checked={selectedTab === index} // synchronize with selectedTab state
               onChange={() => handleTabChange(index)} // update the feed on tab change
             />
-            <label htmlFor={id}>{label}</label>
+            <label htmlFor={normalizeForUrl(label)}>{label}</label>
           </div>
         ))}
       </div>
@@ -256,10 +284,10 @@ export default function Home({ allPostsData, server }) {
             </ProjectsGrid>
           </div>
           <div className="feed" data-current>
-            <h2>Type of client feed</h2>
+            <h2>Type of work feed</h2>
           </div>
           <div className="feed" data-current>
-            <h2>Type of work feed</h2>
+            <h2>Type of client feed</h2>
           </div>
         </div>
       </main>
