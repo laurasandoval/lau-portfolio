@@ -258,7 +258,7 @@ export default function Home({ allPostsData, server }) {
   const pageTabs = [
     { label: "All Projects", defaultChecked: true },
     { label: "Type of Work" },
-    { label: "Type of Client" },
+    { label: "Type of Client lalala this is a long tab" },
   ];
 
   return (
@@ -310,32 +310,36 @@ export default function Home({ allPostsData, server }) {
       />
 
       <div
-        className="tabs"
+        className="tabs_container"
+        ref={tabsContainerRef}
         style={{ "--header-height": `${headerHeight}px` }}
         data-show-border={isTabsSticking.toString()}
-        ref={tabsContainerRef}
       >
-        <span className="current_tab_indicator" ref={currentTabIndicatorRef}></span>
+        <div
+          className="tabs"
+        >
+          <span className="current_tab_indicator" ref={currentTabIndicatorRef}></span>
 
-        {pageTabs.map(({ label }, index) => (
-          <div
-            className="tab"
-            key={normalizeForUrl(label)}
-            ref={(el) => {
-              if (el) tabsRef.current[index] = el;
-            }}
-          >
-            <input
-              type="radio"
-              id={normalizeForUrl(label)}
-              name={normalizeForUrl(label)}
-              value={normalizeForUrl(label)}
-              checked={selectedTab === index} // synchronize with selectedTab state
-              onChange={() => handleTabChange(index)} // update the feed on tab change
-            />
-            <label htmlFor={normalizeForUrl(label)}>{label}</label>
-          </div>
-        ))}
+          {pageTabs.map(({ label }, index) => (
+            <div
+              className="tab"
+              key={normalizeForUrl(label)}
+              ref={(el) => {
+                if (el) tabsRef.current[index] = el;
+              }}
+            >
+              <input
+                type="radio"
+                id={normalizeForUrl(label)}
+                name={normalizeForUrl(label)}
+                value={normalizeForUrl(label)}
+                checked={selectedTab === index} // synchronize with selectedTab state
+                onChange={() => handleTabChange(index)} // update the feed on tab change
+              />
+              <label htmlFor={normalizeForUrl(label)}>{label}</label>
+            </div>
+          ))}
+        </div>
       </div>
 
       <main className="feeds_container">
