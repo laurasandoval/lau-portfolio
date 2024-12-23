@@ -17,7 +17,57 @@ export default function Home({ allPostsData, server }) {
   const feedsRef = useRef(null);
   const tabsRef = useRef([]);
   const currentTabIndicatorRef = useRef(null);
+  const headerRef = useRef(null);
+  const tabsContainerRef = useRef(null);
   const [selectedTab, setSelectedTab] = useState(0);
+  const [headerHeight, setHeaderHeight] = useState(0);
+  const [isTabsSticking, setIsTabsSticking] = useState(false);
+
+  // Add new effect to measure header height
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        const height = headerRef.current.getBoundingClientRect().height;
+        setHeaderHeight(height);
+      }
+    };
+
+    // Initial measurement
+    updateHeaderHeight();
+
+    // Update on resize
+    window.addEventListener('resize', updateHeaderHeight);
+    return () => window.removeEventListener('resize', updateHeaderHeight);
+  }, []);
+
+  // Add new effect to track tabs sticking state
+  useEffect(() => {
+    const tabsElement = tabsContainerRef.current;
+    if (!tabsElement) return;
+
+    const checkSticky = throttle(() => {
+      if (!tabsElement) return;
+
+      const { top } = tabsElement.getBoundingClientRect();
+      const computedStyle = window.getComputedStyle(tabsElement);
+      const stickyTop = parseInt(computedStyle.top) || 0;
+
+      setIsTabsSticking(top <= stickyTop);
+    }, 100);
+
+    // Initial check
+    checkSticky();
+
+    // Add scroll listener
+    window.addEventListener('scroll', checkSticky);
+    window.addEventListener('resize', checkSticky);
+
+    return () => {
+      window.removeEventListener('scroll', checkSticky);
+      window.removeEventListener('resize', checkSticky);
+      checkSticky.cancel();
+    };
+  }, []);
 
   useEffect(() => {
     const feeds = feedsRef.current;
@@ -250,12 +300,21 @@ export default function Home({ allPostsData, server }) {
         ]}
       />
 
-      <GlobalHeader sticky fadeIn />
+      <GlobalHeader
+        sticky
+        fadeIn
+        ref={headerRef}
+      />
       <BigParagraph
         statement={markdown}
       />
 
-      <div className="tabs">
+      <div
+        className="tabs"
+        style={{ "--header-height": `${headerHeight}px` }}
+        data-show-border={isTabsSticking.toString()}
+        ref={tabsContainerRef}
+      >
         <span className="current_tab_indicator" ref={currentTabIndicatorRef}></span>
 
         {pageTabs.map(({ label }, index) => (

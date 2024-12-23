@@ -1,10 +1,21 @@
 .tabs {
+    --tab-vertical-padding: 20px;
     display: flex;
     width: 100%;
     flex-flow: row;
-    border-bottom: 1px solid rgb(231, 232, 233);
+    border-bottom: 1px solid rgba(231, 232, 233, 0);
+    transition: border-bottom 0.4s ease;
     justify-content: center;
-    position: relative;
+    position: sticky;
+    top: calc(var(--header-height, 0) - (var(--tab-vertical-padding) / 2));
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 90%, rgba(255, 255, 255, 0) 100%);
+    z-index: 100;
+    animation: tabsFadeIn 1s cubic-bezier(0.28, 0.11, 0.32, 1) 1.2s;
+    animation-fill-mode: backwards;
+
+    &[data-show-border="true"] {
+        border-bottom: 1px solid rgba(231, 232, 233, 1);
+    }
 
     >.current_tab_indicator {
         position: absolute;
@@ -42,7 +53,7 @@
 
         >label {
             display: block;
-            padding: 20px;
+            padding: var(--tab-vertical-padding) 20px;
             cursor: pointer;
             font-size: 15px;
             font-weight: 460;
@@ -81,5 +92,15 @@
             margin: 0;
             padding: 0;
         }
+    }
+}
+
+@keyframes tabsFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

@@ -1,17 +1,17 @@
 import { throttle } from 'lodash'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, forwardRef } from 'react'
 import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './GlobalHeader.scss'
 import { useRouter } from 'next/router'
 import GlobalFooter from '../GlobalFooter/GlobalFooter'
 
-export default function GlobalHeader({
+const GlobalHeader = forwardRef(function GlobalHeader({
     sticky,
     backgroundColor,
     fadeIn,
     className,
-}) {
+}, ref) {
     const [headerMarginBottom, setHeaderMarginBottom] = useState(null)
     const [navOpen, setNavOpen] = useState(false)
     const [showHeaderBorder, setShowHeaderBorder] = useState(false)
@@ -19,22 +19,29 @@ export default function GlobalHeader({
     const { asPath } = useRouter();
     const cleanPath = asPath.split('#')[0].split('?')[0];
 
-    useEffect(() => {
-        const renderedHeaderMarginBottom = window
-            .getComputedStyle(headerElementRef.current)
-            .getPropertyValue("margin-bottom")
-            .replace("px", "")
-        setHeaderMarginBottom(renderedHeaderMarginBottom)
-        window.addEventListener("scroll", _throttledScrollCheck)
-
-        return () => document.removeEventListener("scroll", _throttledScrollCheck)
-    })
-
     const _throttledScrollCheck = throttle(() => {
         window.scrollY > headerMarginBottom
             ? setShowHeaderBorder(true)
             : setShowHeaderBorder(false)
     }, 250)
+
+    useEffect(() => {
+        const headerElement = ref?.current || headerElementRef.current;
+        if (!headerElement) return;
+
+        const renderedHeaderMarginBottom = window
+            .getComputedStyle(headerElement)
+            .getPropertyValue("margin-bottom")
+            .replace("px", "")
+
+        setHeaderMarginBottom(renderedHeaderMarginBottom)
+        window.addEventListener("scroll", _throttledScrollCheck)
+
+        return () => {
+            window.removeEventListener("scroll", _throttledScrollCheck)
+            _throttledScrollCheck.cancel()
+        }
+    }, [_throttledScrollCheck, ref])
 
     const _toggleNav = () => {
         setNavOpen(!navOpen)
@@ -75,7 +82,7 @@ export default function GlobalHeader({
             style={{
                 "--background-color": backgroundColor
             }}
-            ref={headerElementRef}
+            ref={ref || headerElementRef}
         >
             <div className="header_content">
                 <div className="top_bar">
@@ -132,4 +139,6 @@ export default function GlobalHeader({
             </div>
         </header>
     )
-}
+})
+
+export default GlobalHeader
