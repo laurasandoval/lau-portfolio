@@ -6,13 +6,13 @@ import { NextSeo } from 'next-seo'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import { useRouter } from 'next/router'
 import { useEffect, useRef, useState } from 'react'
-import { getSortedPostsData } from '../lib/posts';
+import { getSortedPostsData, getAllWorkTypes, getPostsByWorkType } from '../lib/posts';
 import BigParagraph from '@/components/BigParagraph/BigParagraph'
 import IndexTabs from '@/components/IndexTabs/IndexTabs'
 import './index.scss'
 import { normalizeForUrl, formatYears } from '@/lib/formatters'
 
-export default function Home({ allPostsData, server }) {
+export default function Home({ allPostsData, workTypes, workTypePosts, server }) {
   const router = useRouter();
   const feedsRef = useRef(null);
   const headerRef = useRef(null);
@@ -78,6 +78,33 @@ export default function Home({ allPostsData, server }) {
         portrait={featured}
         fadeIn
         priority={priority}
+      />
+    )
+  }
+
+  const _normalizedDisciplineName = (type) => {
+    const cleanedDisciplineName = type.replaceAll("-", " ");
+    const words = cleanedDisciplineName.split(" ");
+
+    for (let i = 0; i < words.length; i++) {
+      words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+    }
+
+    return words.join(" ");
+  }
+
+  const _renderDisciplineThumbnail = (type, index) => {
+    const posts = workTypePosts[type];
+    return (
+      <ProjectThumbnail
+        title={_normalizedDisciplineName(type)}
+        subtitle={`${posts.length} ${posts.length === 1 ? 'project' : 'projects'}`}
+        asset={posts[0].coverImage}
+        url={`/work/discipline/${type}`}
+        as="article"
+        key={index}
+        fadeIn
+        collection={true}
       />
     )
   }
@@ -165,7 +192,11 @@ export default function Home({ allPostsData, server }) {
             </ProjectsGrid>
           </div>
           <div className="feed" data-current>
-            <h2>Type of work feed</h2>
+            <ProjectsGrid>
+              {workTypes.map((type, index) => {
+                return _renderDisciplineThumbnail(type, index)
+              })}
+            </ProjectsGrid>
           </div>
           <div className="feed" data-current>
             <h2>Type of client feed</h2>
@@ -181,10 +212,19 @@ export async function getServerSideProps(context) {
   const dev = process.env.NODE_ENV !== 'production'
   const server = dev ? `http://localhost:3000` : `https://${context.req.headers.host}`
   const allPostsData = getSortedPostsData();
+  const workTypes = getAllWorkTypes();
+  const workTypePosts = {};
+
+  // Pre-fetch posts for each work type
+  workTypes.forEach(type => {
+    workTypePosts[type] = getPostsByWorkType(type);
+  });
 
   return {
     props: {
       allPostsData,
+      workTypes,
+      workTypePosts,
       server
     }
   }

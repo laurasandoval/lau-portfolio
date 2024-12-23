@@ -98,6 +98,11 @@
             padding: 10px 0 0;
         }
 
+        @at-root [data-collection="true"]#{&} {
+            flex-flow: column;
+            padding: 0 0 14px;
+        }
+
         .title,
         .subtitle {
             margin: 0;
