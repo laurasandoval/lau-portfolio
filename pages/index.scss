@@ -89,6 +89,12 @@
                 color: rgb(136, 139, 144);
                 transition: color 0.2s cubic-bezier(0.28, 0.11, 0.32, 1);
                 width: max-content;
+
+                @media (hover: hover) {
+                    &:hover {
+                        color: rgb(0, 0, 0);
+                    }
+                }
             }
 
             >input:checked+label {
