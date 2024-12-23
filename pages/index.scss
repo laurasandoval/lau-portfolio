@@ -40,13 +40,14 @@
         >.current_tab_indicator {
             position: absolute;
             bottom: var(--ghost-padding);
-            left: 0;
+            left: 20px;
             height: 2px;
             background-color: rgb(0, 0, 0);
             border-radius: 2px;
             transform: translateX(var(--leading-offset, 0));
-            width: var(--width, 0);
+            width: calc(var(--width, 0) - 40px);
             z-index: 1;
+            padding: 0 16px;
         }
 
         .tab {
