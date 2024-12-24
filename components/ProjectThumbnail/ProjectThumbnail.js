@@ -135,20 +135,17 @@ export function ProjectThumbnail({
 
     const Tag = as ? as : "div"
 
-    const projectInfo = (
-        <div className="project_info">
-            <h3 className="title">{title}</h3>
-            <span className="subtitle">{subtitle}</span>
-        </div>
-    )
-
     const content = (
         <>
-            {collection && !img_only && projectInfo}
             <div className="project_artwork" aria-hidden="true">
                 {_renderThumbnail(asset, title, priority, sizes)}
             </div>
-            {!collection && !img_only && projectInfo}
+            {!img_only &&
+                <div className="project_info">
+                    <h3 className="title">{title}</h3>
+                    <span className="subtitle">{subtitle}</span>
+                </div>
+            }
         </>
     )
 
