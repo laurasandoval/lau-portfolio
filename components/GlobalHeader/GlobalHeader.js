@@ -49,7 +49,7 @@ const GlobalHeader = forwardRef(function GlobalHeader({
 
     const links = [
         {
-            title: "Design",
+            title: "Work",
             href: "/"
         },
         {
