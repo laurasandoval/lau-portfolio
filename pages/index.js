@@ -165,8 +165,8 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
 
   const pageTabs = [
     { label: "All Projects", defaultChecked: true },
-    { label: "Type of Work" },
-    { label: "Type of Client" },
+    { label: "Grouped by Discipline" },
+    { label: "Grouped by Sector" },
   ];
 
   return (
