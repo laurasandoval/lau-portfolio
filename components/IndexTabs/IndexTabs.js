@@ -72,6 +72,25 @@ export default function IndexTabs({
         });
     };
 
+    const scrollTabsIntoView = () => {
+        const tabsElement = tabsContainerRef.current;
+        if (!tabsElement) return;
+
+        const { top: tabsTop } = tabsElement.getBoundingClientRect();
+        const computedStyle = window.getComputedStyle(tabsElement);
+        const stickyTop = parseInt(computedStyle.top) || 0;
+
+        // If tabs are below the sticky position, scroll them into view
+        if (tabsTop > stickyTop) {
+            const currentScroll = window.scrollY;
+            const targetScroll = currentScroll + (tabsTop - stickyTop);
+            window.scrollTo({
+                top: targetScroll,
+                behavior: 'smooth'
+            });
+        }
+    };
+
     useEffect(() => {
         const feeds = feedsRef.current;
         const tabs = tabsRef.current;
@@ -172,6 +191,7 @@ export default function IndexTabs({
                     onTabChange(newFeedIndex);
                     updateFeedHeight(newFeedIndex);
                     centerTab(newFeedIndex);
+                    scrollTabsIntoView();
                 }
             }, 150);
         };
@@ -206,15 +226,20 @@ export default function IndexTabs({
         const feeds = feedsRef.current;
         if (!feeds || index < 0 || index >= tabs.length) return;
 
-        // Scroll the feeds
-        const viewportWidth = feeds.offsetWidth;
-        const targetX = index * viewportWidth;
-        feeds.scrollTo({
-            left: targetX,
-            behavior: 'smooth'
-        });
+        // Always scroll tabs into view when clicking, even if it's the current tab
+        scrollTabsIntoView();
 
-        centerTab(index);
+        // Only proceed with feed scrolling if it's a different tab
+        if (index !== selectedTab) {
+            const viewportWidth = feeds.offsetWidth;
+            const targetX = index * viewportWidth;
+            feeds.scrollTo({
+                left: targetX,
+                behavior: 'smooth'
+            });
+
+            centerTab(index);
+        }
     };
 
     return (
