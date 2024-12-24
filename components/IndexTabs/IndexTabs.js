@@ -45,6 +45,33 @@ export default function IndexTabs({
         };
     }, []);
 
+    const centerTab = (index) => {
+        const tabElement = tabsRef.current[index];
+        const tabsScrollContainer = tabsScrollContainerRef.current;
+        if (!tabElement || !tabsScrollContainer) return;
+
+        // Center the selected tab
+        const tabRect = tabElement.getBoundingClientRect();
+        const containerRect = tabsScrollContainer.getBoundingClientRect();
+
+        // Calculate how far the tab is from being centered
+        const tabCenter = tabRect.left + (tabRect.width / 2);
+        const containerCenter = containerRect.left + (containerRect.width / 2);
+        const scrollOffset = tabCenter - containerCenter;
+
+        // Add this offset to current scroll position
+        const newScrollPosition = tabsScrollContainer.scrollLeft + scrollOffset;
+
+        // Clamp the scroll position
+        const maxScroll = tabsScrollContainer.scrollWidth - tabsScrollContainer.offsetWidth;
+        const clampedScrollLeft = Math.max(0, Math.min(newScrollPosition, maxScroll));
+
+        tabsScrollContainer.scrollTo({
+            left: clampedScrollLeft,
+            behavior: 'smooth'
+        });
+    };
+
     useEffect(() => {
         const feeds = feedsRef.current;
         const tabs = tabsRef.current;
@@ -144,6 +171,7 @@ export default function IndexTabs({
                     currentFeedIndex = newFeedIndex;
                     onTabChange(newFeedIndex);
                     updateFeedHeight(newFeedIndex);
+                    centerTab(newFeedIndex);
                 }
             }, 150);
         };
@@ -176,9 +204,7 @@ export default function IndexTabs({
 
     const handleTabClick = (index) => {
         const feeds = feedsRef.current;
-        const tabElement = tabsRef.current[index];
-        const tabsScrollContainer = tabsScrollContainerRef.current;
-        if (!feeds || !tabElement || !tabsScrollContainer || index < 0 || index >= tabs.length) return;
+        if (!feeds || index < 0 || index >= tabs.length) return;
 
         // Scroll the feeds
         const viewportWidth = feeds.offsetWidth;
@@ -188,26 +214,7 @@ export default function IndexTabs({
             behavior: 'smooth'
         });
 
-        // Center the selected tab
-        const tabRect = tabElement.getBoundingClientRect();
-        const containerRect = tabsScrollContainer.getBoundingClientRect();
-
-        // Calculate how far the tab is from being centered
-        const tabCenter = tabRect.left + (tabRect.width / 2);
-        const containerCenter = containerRect.left + (containerRect.width / 2);
-        const scrollOffset = tabCenter - containerCenter;
-
-        // Add this offset to current scroll position
-        const newScrollPosition = tabsScrollContainer.scrollLeft + scrollOffset;
-
-        // Clamp the scroll position
-        const maxScroll = tabsScrollContainer.scrollWidth - tabsScrollContainer.offsetWidth;
-        const clampedScrollLeft = Math.max(0, Math.min(newScrollPosition, maxScroll));
-
-        tabsScrollContainer.scrollTo({
-            left: clampedScrollLeft,
-            behavior: 'smooth'
-        });
+        centerTab(index);
     };
 
     return (
