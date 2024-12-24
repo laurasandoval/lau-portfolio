@@ -9,6 +9,7 @@ workType:
   - "Engineering"
 startYear: 2018
 endYear: 2019
+forceSlot: 1
 coverImage: "/assets/design-work/transantiago-bot/transantiago-bot-cover.mp4"
 ogImage: "/assets/design-work/transantiago-bot/social-thumbnail.png"
 customThemeColorHex: "#0284F4"
