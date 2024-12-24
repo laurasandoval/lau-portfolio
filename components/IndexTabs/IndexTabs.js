@@ -49,16 +49,16 @@ export default function IndexTabs({
         const tabs = tabsRef.current;
         const currentTabIndicator = currentTabIndicatorRef.current;
 
-        let tabPositions = []; // cache tab dimensions and positions
-        let currentFeedIndex = 0; // track the current feed index
-        const resizeObservers = []; // store resize observers for cleanup
+        let tabPositions = [];
+        let currentFeedIndex = 0;
+        let scrollTimeout;
+        const resizeObservers = [];
 
         const calculateTabPositions = () => {
             const tabsContainer = tabsContainerRef.current;
             if (!tabsContainer) return;
 
             const containerRect = tabsContainer.getBoundingClientRect();
-
             tabPositions = tabs
                 .filter((tab) => tab)
                 .map((tab) => {
@@ -70,72 +70,57 @@ export default function IndexTabs({
                 });
         };
 
-        const updateTabIndicator = () => {
-            const scrollLeft = feeds.scrollLeft;
+        const updateVisuals = () => {
+            if (!feeds || !currentTabIndicator || tabPositions.length === 0) return;
+
             const viewportWidth = feeds.offsetWidth;
-
-            if (!tabPositions || tabPositions.length === 0) return;
-
-            const currentIndex = Math.floor(scrollLeft / viewportWidth);
+            const scrollLeft = feeds.scrollLeft;
+            const rawIndex = scrollLeft / viewportWidth;
+            const currentIndex = Math.floor(rawIndex);
             const nextIndex = Math.min(currentIndex + 1, tabPositions.length - 1);
+            const progress = rawIndex - currentIndex;
 
-            const interpolationFactor = (scrollLeft % viewportWidth) / viewportWidth;
+            if (currentIndex >= 0 && nextIndex < tabPositions.length) {
+                const current = tabPositions[currentIndex];
+                const next = tabPositions[nextIndex];
+                if (!current || !next) return;
 
-            // interpolate tab indicator position and width
-            const current = tabPositions[currentIndex];
-            const next = tabPositions[nextIndex];
-            if (!current || !next) return;
+                const interpolatedOffset = current.offsetLeft + (next.offsetLeft - current.offsetLeft) * progress;
+                const interpolatedWidth = current.width + (next.width - current.width) * progress;
 
-            const interpolatedOffset =
-                current.offsetLeft + interpolationFactor * (next.offsetLeft - current.offsetLeft);
-            const interpolatedWidth =
-                current.width + interpolationFactor * (next.width - current.width);
+                currentTabIndicator.style.setProperty('--leading-offset', `${Math.round(interpolatedOffset)}px`);
+                currentTabIndicator.style.setProperty('--width', `${Math.round(interpolatedWidth)}px`);
 
-            currentTabIndicator.style.setProperty('--leading-offset', `${Math.round(interpolatedOffset)}px`);
-            currentTabIndicator.style.setProperty('--width', `${Math.round(interpolatedWidth)}px`);
+                // Update tab colors
+                tabs.forEach((tab, index) => {
+                    if (!tab) return;
+                    const label = tab.querySelector('label');
+                    if (!label) return;
+
+                    const distance = Math.abs(index - rawIndex);
+                    const opacity = Math.max(0, 1 - distance);
+                    label.style.setProperty('--active-opacity', opacity.toString());
+                });
+            }
         };
 
-        // Create a ResizeObserver for the tabs container
-        const tabsResizeObserver = new ResizeObserver(throttle(() => {
-            calculateTabPositions();
-            updateTabIndicator();
-        }, 100));
+        const updateFeedHeight = (index) => {
+            if (!feeds) return;
+            const feedElements = Array.from(feeds.children);
+            const currentFeed = feedElements[index];
+            if (!currentFeed) return;
 
-        // Observe each tab element for size changes
-        tabs.forEach((tab) => {
-            if (tab) {
-                tabsResizeObserver.observe(tab);
-            }
-        });
-
-        const updateFeedHeight = () => {
-            const viewportWidth = feeds.offsetWidth;
-            const scrollLeft = feeds.scrollLeft;
-            const newFeedIndex = Math.round(scrollLeft / viewportWidth);
-
-            // only update height if the feed index changes
-            if (newFeedIndex !== currentFeedIndex) {
-                currentFeedIndex = newFeedIndex;
-                onTabChange(newFeedIndex);
-
-                const feedElements = Array.from(feeds.children);
-                const currentFeed = feedElements[currentFeedIndex];
-                if (!currentFeed) return;
-
-                const newHeight = currentFeed.offsetHeight;
-                feeds.style.setProperty('--current-feed-height', `${newHeight}px`);
-            }
+            const newHeight = currentFeed.offsetHeight;
+            feeds.style.setProperty('--current-feed-height', `${newHeight}px`);
         };
 
         const observeFeedHeights = () => {
             const feedElements = Array.from(feeds.children);
             feedElements.forEach((feed) => {
                 const resizeObserver = new ResizeObserver(() => {
-                    // update the height only if it's the current feed
-                    const feedIndex = Array.from(feedElements).indexOf(feed);
+                    const feedIndex = feedElements.indexOf(feed);
                     if (feedIndex === currentFeedIndex) {
-                        const newHeight = feed.offsetHeight;
-                        feeds.style.setProperty('--current-feed-height', `${newHeight}px`);
+                        updateFeedHeight(feedIndex);
                     }
                 });
                 resizeObserver.observe(feed);
@@ -143,49 +128,61 @@ export default function IndexTabs({
             });
         };
 
-        const detectCurrentTab = throttle(() => {
-            updateFeedHeight();
-        }, 200);
-
         const onScroll = () => {
-            requestAnimationFrame(() => {
-                updateTabIndicator();
-                detectCurrentTab();
-            });
+            // Immediate visual updates
+            requestAnimationFrame(updateVisuals);
+
+            // Debounced state updates
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const viewportWidth = feeds.offsetWidth;
+                const scrollLeft = feeds.scrollLeft;
+                const newFeedIndex = Math.round(scrollLeft / viewportWidth);
+
+                if (newFeedIndex !== currentFeedIndex && newFeedIndex >= 0 && newFeedIndex < tabs.length) {
+                    currentFeedIndex = newFeedIndex;
+                    onTabChange(newFeedIndex);
+                    updateFeedHeight(newFeedIndex);
+                }
+            }, 150);
         };
 
         const handleResize = () => {
             calculateTabPositions();
-            updateTabIndicator();
-            detectCurrentTab();
+            updateVisuals();
+            updateFeedHeight(currentFeedIndex);
         };
 
-        feeds.addEventListener('scroll', onScroll);
+        // Setup
+        feeds.addEventListener('scroll', onScroll, { passive: true });
         window.addEventListener('resize', handleResize);
+        observeFeedHeights();
 
-        // initial setup
-        setTimeout(() => {
+        // Initial setup
+        requestAnimationFrame(() => {
             calculateTabPositions();
-            observeFeedHeights();
-            detectCurrentTab();
-            updateTabIndicator();
-        }, 200);
+            updateVisuals();
+            updateFeedHeight(currentFeedIndex);
+        });
 
         return () => {
             feeds.removeEventListener('scroll', onScroll);
             window.removeEventListener('resize', handleResize);
-            resizeObservers.forEach((observer) => observer.disconnect());
-            tabsResizeObserver.disconnect();
+            clearTimeout(scrollTimeout);
+            resizeObservers.forEach(observer => observer.disconnect());
         };
     }, [onTabChange]);
 
     const handleTabClick = (index) => {
         const feeds = feedsRef.current;
+        if (!feeds || index < 0 || index >= tabs.length) return;
+
         const viewportWidth = feeds.offsetWidth;
+        const targetX = index * viewportWidth;
 
         feeds.scrollTo({
-            left: index * viewportWidth,
-            behavior: 'smooth',
+            left: targetX,
+            behavior: 'smooth'
         });
     };
 

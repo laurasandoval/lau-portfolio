@@ -86,8 +86,10 @@
                 cursor: pointer;
                 font-size: 15px;
                 font-weight: 460;
-                color: rgb(136, 139, 144);
-                transition: color 0.2s cubic-bezier(0.28, 0.11, 0.32, 1);
+                --active-opacity: 0;
+                color: rgb(calc(136 - 136 * var(--active-opacity)),
+                        calc(139 - 139 * var(--active-opacity)),
+                        calc(144 - 144 * var(--active-opacity)));
                 width: max-content;
 
                 @media (hover: hover) {
@@ -95,10 +97,6 @@
                         color: rgb(0, 0, 0);
                     }
                 }
-            }
-
-            >input:checked+label {
-                color: rgb(0, 0, 0);
             }
         }
     }
