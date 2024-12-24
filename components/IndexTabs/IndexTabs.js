@@ -13,6 +13,7 @@ export default function IndexTabs({
     const tabsRef = useRef([]);
     const currentTabIndicatorRef = useRef(null);
     const tabsContainerRef = useRef(null);
+    const tabsScrollContainerRef = useRef(null);
     const [isTabsSticking, setIsTabsSticking] = useState(false);
 
     // Effect to track tabs sticking state
@@ -175,13 +176,36 @@ export default function IndexTabs({
 
     const handleTabClick = (index) => {
         const feeds = feedsRef.current;
-        if (!feeds || index < 0 || index >= tabs.length) return;
+        const tabElement = tabsRef.current[index];
+        const tabsScrollContainer = tabsScrollContainerRef.current;
+        if (!feeds || !tabElement || !tabsScrollContainer || index < 0 || index >= tabs.length) return;
 
+        // Scroll the feeds
         const viewportWidth = feeds.offsetWidth;
         const targetX = index * viewportWidth;
-
         feeds.scrollTo({
             left: targetX,
+            behavior: 'smooth'
+        });
+
+        // Center the selected tab
+        const tabRect = tabElement.getBoundingClientRect();
+        const containerRect = tabsScrollContainer.getBoundingClientRect();
+
+        // Calculate how far the tab is from being centered
+        const tabCenter = tabRect.left + (tabRect.width / 2);
+        const containerCenter = containerRect.left + (containerRect.width / 2);
+        const scrollOffset = tabCenter - containerCenter;
+
+        // Add this offset to current scroll position
+        const newScrollPosition = tabsScrollContainer.scrollLeft + scrollOffset;
+
+        // Clamp the scroll position
+        const maxScroll = tabsScrollContainer.scrollWidth - tabsScrollContainer.offsetWidth;
+        const clampedScrollLeft = Math.max(0, Math.min(newScrollPosition, maxScroll));
+
+        tabsScrollContainer.scrollTo({
+            left: clampedScrollLeft,
             behavior: 'smooth'
         });
     };
@@ -193,7 +217,7 @@ export default function IndexTabs({
             style={{ "--header-height": `${headerHeight}px` }}
             data-show-border={isTabsSticking.toString()}
         >
-            <div className="tabs">
+            <div className="tabs" ref={tabsScrollContainerRef}>
                 <span className="current_tab_indicator" ref={currentTabIndicatorRef}></span>
 
                 {tabs.map(({ label }, index) => (
