@@ -235,14 +235,14 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
             </ProjectsGrid>
           </div>
           <div className="feed" data-current>
-            <ProjectsGrid>
+            <ProjectsGrid showAll>
               {workTypes?.map((type, index) => {
                 return _renderDisciplineThumbnail(type, index)
               })}
             </ProjectsGrid>
           </div>
           <div className="feed" data-current>
-            <ProjectsGrid>
+            <ProjectsGrid showAll>
               {sectors?.map((type, index) => {
                 return _renderSectorThumbnail(type, index)
               })}
