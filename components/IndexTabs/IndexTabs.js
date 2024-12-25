@@ -276,7 +276,12 @@ export default function IndexTabs({
                                 checked={selectedTab === index}
                                 onChange={() => handleTabClick(index)}
                             />
-                            <label htmlFor={normalizeForUrl(label)}>{label}</label>
+                            <label
+                                htmlFor={normalizeForUrl(label)}
+                                onClick={() => handleTabClick(index)}
+                            >
+                                {label}
+                            </label>
                         </div>
                     ))}
                 </div>
