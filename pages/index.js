@@ -152,6 +152,11 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
     )
   }
 
+  const maxFeaturedCount = 2
+
+  const featuredProjects = allPostsData.slice(0, maxFeaturedCount)
+  const remainingProjects = allPostsData.slice(maxFeaturedCount, featuredProjects.lenght)
+
   const markdown = `Hola! I am a curiosity-driven designer currently shaping the grocery shopping experience at [Uber](https://uber.com).
   
   For two years, I led consumer-facing product design at [Cornershop](https://latamlist.com/uber-acquires-cornershop-at-3b-valuation/), a grocery delivery startup acquired by Uber in 2021 for $3B. Following the acquisition, I joined Uber's Grocery & Retail team as a Product Designer, where I continue to drive Uber's Delivery vision forward.
@@ -228,8 +233,13 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
       <main className="feeds_container">
         <div className="feeds" ref={feedsRef}>
           <div className="feed" data-current>
+            <ProjectsGrid featured>
+              {featuredProjects.map((project, index) => {
+                return _renderThumbnail(project, index, true, (index == 0 || index == 1))
+              })}
+            </ProjectsGrid>
             <ProjectsGrid>
-              {allPostsData.map((project, index) => {
+              {remainingProjects.map((project, index) => {
                 return _renderThumbnail(project, index, false, false)
               })}
             </ProjectsGrid>
