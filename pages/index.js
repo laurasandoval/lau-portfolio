@@ -12,6 +12,17 @@ import IndexTabs from '@/components/IndexTabs/IndexTabs'
 import './index.scss'
 import { normalizeForUrl, formatYears } from '@/lib/formatters'
 
+// Helper function to get first unused cover from posts
+const getFirstUnusedCover = (posts, usedCovers) => {
+  for (let i = 0; i < posts.length; i++) {
+    if (posts[i].coverImage && !usedCovers.has(posts[i].coverImage)) {
+      usedCovers.add(posts[i].coverImage);
+      return posts[i].coverImage;
+    }
+  }
+  return posts[0].coverImage; // Fallback to first cover if all are used
+}
+
 export default function Home({ allPostsData, workTypes, workTypePosts, sectors, sectorPosts, server }) {
   const router = useRouter();
   const feedsRef = useRef(null);
@@ -103,11 +114,12 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
 
   const _renderDisciplineThumbnail = (type, index) => {
     const posts = workTypePosts[type];
+    const cover = getFirstUnusedCover(posts, disciplineCovers);
     return (
       <ProjectThumbnail
         title={_normalizedDisciplineName(type)}
         subtitle={`${posts.length} ${posts.length === 1 ? 'project' : 'projects'}`}
-        asset={posts[0].coverImage}
+        asset={cover}
         url={`/work/discipline/${type}`}
         as="article"
         key={index}
@@ -138,11 +150,12 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
 
   const _renderSectorThumbnail = (type, index) => {
     const posts = sectorPosts[type];
+    const cover = getFirstUnusedCover(posts, sectorCovers);
     return (
       <ProjectThumbnail
         title={_normalizedSectorName(type)}
         subtitle={`${posts.length} ${posts.length === 1 ? 'project' : 'projects'}`}
-        asset={posts[0].coverImage}
+        asset={cover}
         url={`/work/sector/${type}`}
         as="article"
         key={index}
@@ -153,6 +166,8 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
   }
 
   const maxFeaturedCount = 2
+  const disciplineCovers = new Set(); // Track used covers for disciplines
+  const sectorCovers = new Set(); // Track used covers for sectors
 
   const featuredProjects = allPostsData.slice(0, maxFeaturedCount)
   const remainingProjects = allPostsData.slice(maxFeaturedCount, featuredProjects.lenght)
