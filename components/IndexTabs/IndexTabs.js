@@ -13,6 +13,7 @@ export default function IndexTabs({
     const tabsRef = useRef([]);
     const currentTabIndicatorRef = useRef(null);
     const tabsContainerRef = useRef(null);
+    const tabsContainerPositionMarkRef = useRef(null);
     const tabsScrollContainerRef = useRef(null);
     const [isTabsSticking, setIsTabsSticking] = useState(false);
 
@@ -74,21 +75,22 @@ export default function IndexTabs({
 
     const scrollTabsIntoView = () => {
         const tabsElement = tabsContainerRef.current;
-        if (!tabsElement) return;
+        const positionMark = tabsContainerPositionMarkRef.current;
+        if (!tabsElement || !positionMark) return;
 
-        const { top: tabsTop } = tabsElement.getBoundingClientRect();
+        // Get absolute position of the marker relative to the document
+        const markRect = positionMark.getBoundingClientRect();
+        const absoluteMarkPosition = markRect.top + window.scrollY;
+
+        // Get the sticky top offset and height from the tabs element
         const computedStyle = window.getComputedStyle(tabsElement);
         const stickyTop = parseInt(computedStyle.top) || 0;
 
-        // If tabs are below the sticky position, scroll them into view
-        if (tabsTop > stickyTop) {
-            const currentScroll = window.scrollY;
-            const targetScroll = currentScroll + (tabsTop - stickyTop);
-            window.scrollTo({
-                top: targetScroll,
-                behavior: 'smooth'
-            });
-        }
+        // Scroll to the absolute position plus the sticky offset and tabs height
+        window.scrollTo({
+            top: absoluteMarkPosition - stickyTop,
+            behavior: 'smooth'
+        });
     };
 
     useEffect(() => {
@@ -243,35 +245,42 @@ export default function IndexTabs({
     };
 
     return (
-        <div
-            className="tabs_container"
-            ref={tabsContainerRef}
-            style={{ "--header-height": `${headerHeight}px` }}
-            data-show-border={isTabsSticking.toString()}
-        >
-            <div className="tabs" ref={tabsScrollContainerRef}>
-                <span className="current_tab_indicator" ref={currentTabIndicatorRef}></span>
+        <>
+            {/*
+                This is a marker that is used to track the position of the tabs container.
+                It is used to determine the fake "top" of the page when a tab is selected.
+            */}
+            <span className="tabs_container_position_mark" ref={tabsContainerPositionMarkRef} />
+            <div
+                className="tabs_container"
+                ref={tabsContainerRef}
+                style={{ "--header-height": `${headerHeight}px` }}
+                data-show-border={isTabsSticking.toString()}
+            >
+                <div className="tabs" ref={tabsScrollContainerRef}>
+                    <span className="current_tab_indicator" ref={currentTabIndicatorRef}></span>
 
-                {tabs.map(({ label }, index) => (
-                    <div
-                        className="tab"
-                        key={normalizeForUrl(label)}
-                        ref={(el) => {
-                            if (el) tabsRef.current[index] = el;
-                        }}
-                    >
-                        <input
-                            type="radio"
-                            id={normalizeForUrl(label)}
-                            name={normalizeForUrl(label)}
-                            value={normalizeForUrl(label)}
-                            checked={selectedTab === index}
-                            onChange={() => handleTabClick(index)}
-                        />
-                        <label htmlFor={normalizeForUrl(label)}>{label}</label>
-                    </div>
-                ))}
+                    {tabs.map(({ label }, index) => (
+                        <div
+                            className="tab"
+                            key={normalizeForUrl(label)}
+                            ref={(el) => {
+                                if (el) tabsRef.current[index] = el;
+                            }}
+                        >
+                            <input
+                                type="radio"
+                                id={normalizeForUrl(label)}
+                                name={normalizeForUrl(label)}
+                                value={normalizeForUrl(label)}
+                                checked={selectedTab === index}
+                                onChange={() => handleTabClick(index)}
+                            />
+                            <label htmlFor={normalizeForUrl(label)}>{label}</label>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     );
 } 
