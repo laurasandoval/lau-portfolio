@@ -9,6 +9,7 @@ workType:
   - "Brand Identity"
 startYear: 2023
 endYear: 2023
+forceSlot: 2
 coverImage: "/assets/design-work/uber/2023-playground-week-branding/2023-playground-week-branding.mp4"
 ogImage: "/assets/design-work/uber/2023-playground-week-branding/social-thumbnail.png"
 customThemeColorHex: "#FF00F5"
