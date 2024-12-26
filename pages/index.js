@@ -29,6 +29,7 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
   const headerRef = useRef(null);
   const [selectedTab, setSelectedTab] = useState(0);
   const [headerHeight, setHeaderHeight] = useState(0);
+  const [isTabsSticking, setIsTabsSticking] = useState(false);
 
   // Add new effect to measure header height
   useEffect(() => {
@@ -232,6 +233,7 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
         sticky
         fadeIn
         ref={headerRef}
+        forceBorderHidden={isTabsSticking}
       />
       <BigParagraph
         statement={markdown}
@@ -243,6 +245,7 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
         onTabChange={setSelectedTab}
         headerHeight={headerHeight}
         feedsRef={feedsRef}
+        onStickingChange={setIsTabsSticking}
       />
 
       <main className="feeds_container">

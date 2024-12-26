@@ -8,7 +8,8 @@ export default function IndexTabs({
     selectedTab,
     onTabChange,
     headerHeight,
-    feedsRef
+    feedsRef,
+    onStickingChange
 }) {
     const tabsRef = useRef([]);
     const currentTabIndicatorRef = useRef(null);
@@ -30,6 +31,9 @@ export default function IndexTabs({
             const stickyTop = parseInt(computedStyle.top) || 0;
 
             setIsTabsSticking(top <= stickyTop);
+            if (onStickingChange) {
+                onStickingChange(top <= stickyTop);
+            }
         }, 100);
 
         // Initial check
