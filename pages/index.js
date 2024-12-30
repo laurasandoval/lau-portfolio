@@ -177,11 +177,11 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
   
   For two years, I led consumer-facing product design at [Cornershop](https://latamlist.com/uber-acquires-cornershop-at-3b-valuation/), a grocery delivery startup acquired by Uber in 2021 for $3B. Following the acquisition, I joined Uber's Grocery & Retail team as a Product Designer, where I continue to drive Uber's Delivery vision forward.
 
-  I also founded [Balance](http://lau.work/work/balance/app), the best-rated consumer transit app in Chile, and [Chaucha](http://lau.work/work/chaucha), which makes Chilean bank transfers a little bit easier.
+  I also founded [Balance](http://lausandoval.com/work/balance/app), the best-rated consumer transit app in Chile, and [Chaucha](http://lausandoval.com/work/chaucha), which makes Chilean bank transfers a little bit easier.
 
   I am deeply passionate about the intersection of design and engineering, and building highly polished products.
   
-  You can reach me at [@laurasideral](https://x.com/laurasideral) or [hi@lau.work](mailto:hi@lau.work), and browse some of my work & links below.
+  You can reach me at [@laurasideral](https://x.com/laurasideral) or [hi@lausandoval.com](mailto:hi@lausandoval.com), and browse some of my work & links below.
   `
 
   const pageTabs = [

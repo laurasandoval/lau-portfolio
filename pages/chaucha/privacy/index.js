@@ -52,7 +52,7 @@ export default function BalancePrivacyPolicy({ server }) {
                 <p>Tal vez, sólo tal vez, en algún momento empiece a registrar eventos con fines analíticos, como analizar cuántas personas usan Chaucha, qué datos son los que más fallan, etc. Pero ese no es el caso hoy.</p>
                 <h2>Sobre Chaucha</h2>
                 <p>Chaucha es una aplicación independiente creada por Laura Sandoval para transformar datos bancarios en fotos, o mal formateados, a datos amigables para tu app del banco. Chaucha no tiene ninguna relación con ningún banco ni entidad bancaria de Chile o del mundo.</p>
-                <p>Si tienes cualquier pregunta, por favor escríbeme vía <a href="https://twitter.com/laurasideral">Twitter</a>, <a href="https://instagram.com/laurasideral">Instagram</a>, o por mail a <a href="mailto:hi@lau.work">hi@lau.work</a>. ¡Gracias!</p>
+                <p>Si tienes cualquier pregunta, por favor escríbeme vía <a href="https://twitter.com/laurasideral">Twitter</a>, <a href="https://instagram.com/laurasideral">Instagram</a>, o por mail a <a href="mailto:hi@lausandoval.com">hi@lausandoval.com</a>. ¡Gracias!</p>
             </GenericContainer>
         </>
     )
