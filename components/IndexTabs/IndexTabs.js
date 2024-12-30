@@ -161,19 +161,24 @@ export default function IndexTabs({
         let tabPositions = [];
         let currentFeedIndex = 0;
         let scrollTimeout;
+        let lastScrollLeft = 0;
         const resizeObservers = [];
 
         const calculateTabPositions = () => {
             const tabsContainer = tabsContainerRef.current;
             if (!tabsContainer) return;
 
-            const containerRect = tabsContainer.getBoundingClientRect();
+            // Get the leftmost tab's position as reference point
+            const firstTab = tabs[0];
+            const containerLeft = firstTab ? firstTab.getBoundingClientRect().left : 0;
+
             tabPositions = tabs
                 .filter((tab) => tab)
                 .map((tab) => {
                     const rect = tab.getBoundingClientRect();
+                    // Calculate position relative to first tab instead of container
                     return {
-                        offsetLeft: rect.left - containerRect.left,
+                        offsetLeft: rect.left - containerLeft,
                         width: rect.width,
                     };
                 });
@@ -188,6 +193,12 @@ export default function IndexTabs({
             const currentIndex = Math.floor(rawIndex);
             const nextIndex = Math.min(currentIndex + 1, tabPositions.length - 1);
             const progress = rawIndex - currentIndex;
+
+            // Only recalculate positions if we're actively scrolling horizontally
+            if (Math.abs(feeds.scrollLeft - lastScrollLeft) > 1) {
+                calculateTabPositions();
+                lastScrollLeft = feeds.scrollLeft;
+            }
 
             if (currentIndex >= 0 && nextIndex < tabPositions.length) {
                 const current = tabPositions[currentIndex];
