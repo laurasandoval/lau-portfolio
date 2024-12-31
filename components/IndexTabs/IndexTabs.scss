@@ -9,7 +9,7 @@
 
     .tabs {
         --tab-vertical-padding: 16px;
-        --tab-horizontal-padding: 20px;
+        --tab-horizontal-padding: 12px;
         display: flex;
         width: 100%;
         flex-flow: row;
@@ -57,18 +57,23 @@
         >.current_tab_indicator {
             position: absolute;
             bottom: var(--ghost-padding);
-            left: var(--tab-horizontal-padding);
+            left: 0;
             height: 2px;
             background-color: rgb(0, 0, 0);
             border-radius: 2px;
             transform: translateX(var(--leading-offset, 0));
-            width: calc(var(--width, 0) - (var(--tab-horizontal-padding) * 2));
+            width: calc(var(--width, 0));
             z-index: 1;
             padding: 0 16px;
         }
 
         .tab {
             position: relative;
+
+            &:first-of-type,
+            &:last-of-type {
+                --tab-horizontal-padding: 20px;
+            }
 
             &:first-of-type {
                 margin-left: auto;

@@ -12,6 +12,7 @@ export default function IndexTabs({
     onStickingChange
 }) {
     const tabsRef = useRef([]);
+    const labelsRef = useRef([]);
     const currentTabIndicatorRef = useRef(null);
     const tabsContainerRef = useRef(null);
     const tabsContainerPositionMarkRef = useRef(null);
@@ -170,13 +171,18 @@ export default function IndexTabs({
             const containerRect = tabsContainer.getBoundingClientRect();
 
             tabPositions = tabs
-                .filter((tab) => tab)
-                .map((tab) => {
+                .filter((tab, index) => tab && labelsRef.current[index])
+                .map((tab, index) => {
                     const rect = tab.getBoundingClientRect();
-                    // Calculate position relative to first tab instead of container
+                    const label = labelsRef.current[index];
+                    const computedStyle = window.getComputedStyle(label);
+                    // Get the actual computed padding value after CSS variables are resolved
+                    const horizontalPadding = parseInt(computedStyle.getPropertyValue('padding-left'));
+
                     return {
                         offsetLeft: rect.left - containerRect.left,
                         width: rect.width,
+                        padding: horizontalPadding
                     };
                 });
         };
@@ -198,14 +204,16 @@ export default function IndexTabs({
 
                 const interpolatedOffset = current.offsetLeft + (next.offsetLeft - current.offsetLeft) * progress;
                 const interpolatedWidth = current.width + (next.width - current.width) * progress;
+                const interpolatedPadding = current.padding + (next.padding - current.padding) * progress;
 
-                currentTabIndicator.style.setProperty('--leading-offset', `${Math.round(interpolatedOffset)}px`);
-                currentTabIndicator.style.setProperty('--width', `${Math.round(interpolatedWidth)}px`);
+                // Add padding to offset and subtract double padding from width to account for both sides
+                currentTabIndicator.style.setProperty('--leading-offset', `${Math.round(interpolatedOffset + interpolatedPadding)}px`);
+                currentTabIndicator.style.setProperty('--width', `${Math.round(interpolatedWidth - (interpolatedPadding * 2))}px`);
 
                 // Update tab colors
                 tabs.forEach((tab, index) => {
                     if (!tab) return;
-                    const label = tab.querySelector('label');
+                    const label = labelsRef.current[index];
                     if (!label) return;
 
                     const distance = Math.abs(index - rawIndex);
@@ -332,7 +340,12 @@ export default function IndexTabs({
                             className="tab"
                             key={normalizeForUrl(label)}
                             ref={(el) => {
-                                if (el) tabsRef.current[index] = el;
+                                if (el) {
+                                    tabsRef.current[index] = el;
+                                    // Store label ref when tab is mounted
+                                    const labelEl = el.querySelector('label');
+                                    if (labelEl) labelsRef.current[index] = labelEl;
+                                }
                             }}
                         >
                             <input
