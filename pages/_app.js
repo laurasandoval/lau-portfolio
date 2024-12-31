@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-        <NextNProgress color="#000" height={2} options={{ showSpinner: false }} />
+        <NextNProgress color="rgb(231, 232, 233)" height={2} options={{ showSpinner: false }} />
         <Component {...pageProps} />
         <Analytics />
       </Provider>
