@@ -260,10 +260,15 @@ export default function IndexTabs({
             }, 150);
         };
 
+        let lastWidth = window.innerWidth;
         const handleResize = () => {
-            calculateTabPositions();
-            updateVisuals();
-            updateFeedHeight(currentFeedIndex);
+            const currentWidth = window.innerWidth;
+            if (currentWidth !== lastWidth) {
+                lastWidth = currentWidth;
+                calculateTabPositions();
+                updateVisuals();
+                updateFeedHeight(currentFeedIndex);
+            }
         };
 
         // Setup
