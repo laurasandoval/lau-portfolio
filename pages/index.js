@@ -31,6 +31,49 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
   const [headerHeight, setHeaderHeight] = useState(0);
   const [isTabsSticking, setIsTabsSticking] = useState(false);
 
+  // Read initial tab from URL
+  useEffect(() => {
+    const tabParam = router.query.tab;
+    if (tabParam) {
+      const tabIndex = pageTabs.findIndex(tab =>
+        normalizeForUrl(tab.label) === tabParam
+      );
+      if (tabIndex !== -1) {
+        setSelectedTab(tabIndex);
+        // Scroll the feed to the selected tab
+        if (feedsRef.current) {
+          feedsRef.current.scrollTo({
+            left: feedsRef.current.offsetWidth * tabIndex,
+            behavior: 'smooth'
+          });
+        }
+      }
+    }
+  }, [router.query.tab]);
+
+  // Update URL when tab changes
+  useEffect(() => {
+    const options = { shallow: true };
+    // Preserve existing query parameters
+    const query = { ...router.query };
+
+    if (selectedTab === 0) {
+      // Remove tab parameter when first tab is selected but keep other params
+      delete query.tab;
+      router.replace({
+        pathname: '/',
+        query
+      }, undefined, options);
+    } else {
+      // Add/update tab parameter while keeping other params
+      query.tab = normalizeForUrl(pageTabs[selectedTab].label);
+      router.replace({
+        pathname: '/',
+        query
+      }, undefined, options);
+    }
+  }, [selectedTab]);
+
   // Add new effect to measure header height
   useEffect(() => {
     const updateHeaderHeight = () => {
@@ -250,7 +293,7 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
 
       <main className="feeds_container">
         <div className="feeds" ref={feedsRef}>
-          <div className="feed" data-current>
+          <div className="feed" data-current={selectedTab === 0}>
             <ProjectsGrid featured>
               {featuredProjects.map((project, index) => {
                 return _renderThumbnail(project, index, true, (index == 0 || index == 1))
@@ -262,14 +305,14 @@ export default function Home({ allPostsData, workTypes, workTypePosts, sectors, 
               })}
             </ProjectsGrid>
           </div>
-          <div className="feed" data-current>
+          <div className="feed" data-current={selectedTab === 1}>
             <ProjectsGrid showAll>
               {workTypes?.map((type, index) => {
                 return _renderDisciplineThumbnail(type, index)
               })}
             </ProjectsGrid>
           </div>
-          <div className="feed" data-current>
+          <div className="feed" data-current={selectedTab === 2}>
             <ProjectsGrid showAll>
               {sectors?.map((type, index) => {
                 return _renderSectorThumbnail(type, index)
