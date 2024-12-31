@@ -4,22 +4,20 @@ import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './ProjectThumbnail.scss'
 import { useEffect, useRef, useState } from 'react';
 import { IconPlayerPauseFilled, IconPlayerPlayFilled } from '@tabler/icons-react';
-import { formatYears } from '@/lib/formatters';
 
 export function ProjectThumbnail({
-    id,
     as,
     title,
-    startYear,
-    endYear,
-    coverImage,
-    hover,
+    subtitle,
+    asset,
+    url,
     img_only,
     portrait,
     fadeIn,
     priority,
     sizes,
     autoplay,
+    collection,
     ...props
 }) {
     const [isIntersecting, setIsIntersecting] = useState(false);
@@ -42,7 +40,7 @@ export function ProjectThumbnail({
                 observer.unobserve(videoRef.current);
             }
         };
-    }, [videoRef, coverImage]);
+    }, [videoRef, asset]);
 
     useEffect(() => {
         if (videoRef.current != null) {
@@ -65,29 +63,29 @@ export function ProjectThumbnail({
                 setIsPlaying(false);
             }
         }
-    }, [isIntersecting, manuallyPaused, coverImage]);
+    }, [isIntersecting, manuallyPaused, asset]);
 
     useEffect(() => {
         if (videoRef.current) {
             videoRef.current.load();
         }
-    }, [coverImage]);
+    }, [asset]);
 
-    const _renderThumbnail = (coverImage, title, priority, sizes) => {
+    const _renderThumbnail = (asset, title, priority, sizes) => {
         const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"]
         const videoFormats = ["mp4"]
 
-        if (new RegExp(`[.](${imageFormats.join("|")})`).test(coverImage)) {
+        if (new RegExp(`[.](${imageFormats.join("|")})`).test(asset)) {
             return (
                 <Image
-                    src={coverImage}
+                    src={asset}
                     alt={title}
                     fill
                     priority={priority ? priority : false}
                     sizes={sizes ? sizes : undefined}
                 />
             )
-        } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(coverImage)) {
+        } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(asset)) {
             return (
                 <>
                     <video
@@ -97,7 +95,7 @@ export function ProjectThumbnail({
                         loop
                     >
                         <source
-                            src={`${coverImage.replace(
+                            src={`${asset.replace(
                                 ".mp4",
                                 ".mp4"
                             )}`}
@@ -105,7 +103,9 @@ export function ProjectThumbnail({
                         />
                     </video>
                     <button
-                        onClick={() => {
+                        onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
                             const video = videoRef.current;
                             if (video.paused) {
                                 video.play();
@@ -135,31 +135,37 @@ export function ProjectThumbnail({
 
     const Tag = as ? as : "div"
 
-    return (
+    const content = (
+        <>
+            <div className="project_artwork" aria-hidden="true">
+                {_renderThumbnail(asset, title, priority, sizes)}
+            </div>
+            {!img_only &&
+                <div className="project_info">
+                    <h3 className="title">{title}</h3>
+                    <span className="subtitle">{subtitle}</span>
+                </div>
+            }
+        </>
+    )
+
+    return url ? (
+        <Link href={url} className="project_thumbnail" data-name={title} data-img-only={img_only} data-portrait={portrait} data-fade-in={fadeIn} data-collection={collection}>
+            <AccessibilityLabel role="text" as="span">
+                {title}
+            </AccessibilityLabel>
+            {content}
+        </Link>
+    ) : (
         <Tag
             className="project_thumbnail"
             data-name={title}
-            data-hover={hover ? "true" : "false"}
             data-img-only={img_only}
             data-portrait={portrait}
             data-fade-in={fadeIn}
+            data-collection={collection}
         >
-            {hover && (
-                <Link href={`/work/${id}`} className="project_access">
-                    <AccessibilityLabel role="text" as="span">
-                        {title}
-                    </AccessibilityLabel>
-                </Link>
-            )}
-            <div className="project_artwork" aria-hidden="true">
-                {_renderThumbnail(coverImage, title, priority, sizes)}
-            </div>
-            {!img_only && (
-                <div className="project_info" aria-hidden={hover}>
-                    <h3 className="title">{title}</h3>
-                    <span className="date">{formatYears(startYear, endYear)}</span>
-                </div>
-            )}
+            {content}
         </Tag>
     )
 }

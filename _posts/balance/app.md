@@ -11,6 +11,7 @@ workType:
   - "Engineering"
 startYear: 2019
 endYear: 
+forceSlot: 1
 coverImage: "/assets/design-work/balance/app/balance-cover.mp4"
 ogImage: "/assets/design-work/balance/app/social-thumbnail.png"
 customThemeColorHex: "#FD3333"

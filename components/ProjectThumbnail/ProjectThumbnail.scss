@@ -10,6 +10,8 @@
     position: relative;
     display: block;
     margin: 0;
+    text-decoration: none;
+    color: unset;
     transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform;
 
@@ -17,16 +19,6 @@
         animation: fadeIn 1s cubic-bezier(0.28, 0.11, 0.32, 1);
         animation-fill-mode: backwards;
         @include projectThumbnailFadeInDelays;
-    }
-
-    .project_access {
-        text-decoration: none;
-        color: unset;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
     }
 
     .project_artwork {
@@ -71,20 +63,6 @@
             object-fit: cover;
         }
 
-        &:after {
-            content: "";
-            border-radius: inherit;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-
-            @at-root [data-hover="false"]#{&} {
-                pointer-events: all;
-            }
-        }
-
         .playpause_button {
             z-index: 99;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -120,8 +98,12 @@
             padding: 10px 0 0;
         }
 
+        @at-root [data-collection="true"]#{&} {
+            flex-flow: column;
+        }
+
         .title,
-        .date {
+        .subtitle {
             margin: 0;
             padding: 0;
             line-height: 1.3;
@@ -136,7 +118,7 @@
             }
         }
 
-        .date {
+        .subtitle {
             font-size: 15px;
             font-weight: 460;
             color: rgba(136, 139, 144, 1);

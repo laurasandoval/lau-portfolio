@@ -52,7 +52,7 @@ export async function getStaticProps({ params }) {
             posts,
             server: process.env.NODE_ENV !== 'production'
                 ? 'http://localhost:3000'
-                : 'https://lau.work',
+                : 'https://lausandoval.com',
         },
         // Revalidate every hour
         revalidate: 3600

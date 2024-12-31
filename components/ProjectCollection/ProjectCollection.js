@@ -3,6 +3,7 @@ import GlobalHeader from '@/components/GlobalHeader/GlobalHeader'
 import ProjectsGrid from '@/components/ProjectsGrid/ProjectsGrid'
 import GlobalFooter from '@/components/GlobalFooter/GlobalFooter'
 import { NextSeo } from 'next-seo'
+import { formatYears } from '@/lib/formatters'
 import './ProjectCollection.scss'
 
 export default function ProjectCollection({
@@ -16,9 +17,11 @@ export default function ProjectCollection({
         return (
             <ProjectThumbnail
                 {...project}
-                id={project.id}
+                title={project.title}
+                subtitle={project.subtitle || formatYears(project.startYear, project.endYear)}
+                asset={project.coverImage}
+                url={`/work/${project.id}`}
                 as="article"
-                hover
                 key={index}
                 fadeIn={false}
                 priority={priority}

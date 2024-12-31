@@ -203,7 +203,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const dev = process.env.NODE_ENV !== 'production'
-    const server = dev ? `http://localhost:3000` : `https://lau.work`
+    const server = dev ? `http://localhost:3000` : `https://lausandoval.com`
     const folderPaths = getAllFolders();
 
     // Get the current path without the last segment (file name)
