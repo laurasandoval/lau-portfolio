@@ -1,5 +1,5 @@
 .tabs_container {
-    --ghost-padding: 20px;
+    --ghost-padding: 20px; // We use this to hide h-scrollbars in Safari lol. Changing this value should be irrelevant.
     display: block;
     overflow: hidden;
     position: sticky;
@@ -8,7 +8,8 @@
     z-index: 99;
 
     .tabs {
-        --tab-vertical-padding: 20px;
+        --tab-vertical-padding: 16px;
+        --tab-horizontal-padding: 16px;
         display: flex;
         width: 100%;
         flex-flow: row;
@@ -56,12 +57,12 @@
         >.current_tab_indicator {
             position: absolute;
             bottom: var(--ghost-padding);
-            left: 20px;
+            left: var(--tab-horizontal-padding);
             height: 2px;
             background-color: rgb(0, 0, 0);
             border-radius: 2px;
             transform: translateX(var(--leading-offset, 0));
-            width: calc(var(--width, 0) - 40px);
+            width: calc(var(--width, 0) - (var(--tab-horizontal-padding) * 2));
             z-index: 1;
             padding: 0 16px;
         }
@@ -98,7 +99,7 @@
 
             >label {
                 display: block;
-                padding: var(--tab-vertical-padding) 20px;
+                padding: var(--tab-vertical-padding) var(--tab-horizontal-padding);
                 cursor: pointer;
                 font-size: 15px;
                 font-weight: 460;
