@@ -6,6 +6,10 @@ import { useRef, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
+if (typeof window !== 'undefined') {
+    window.__isFromProjectPeek = false;
+}
+
 export default function NextProjectPeek({
     nextPostData,
     headerDistance
@@ -58,6 +62,11 @@ export default function NextProjectPeek({
 
         // If already transitioning, don't do anything
         if (isTransitioning) return;
+
+        // Set the global flag
+        if (typeof window !== 'undefined') {
+            window.__isFromProjectPeek = true;
+        }
 
         setIsTransitioning(true);
 
