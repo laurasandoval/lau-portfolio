@@ -27,17 +27,45 @@ team:
     - "Gonzalo Castillo"
 ---
 
-Originally aimed at making Cornershop's web application suitable for smaller screen sizes, multiple discussions between the Product Design and Engineering teams snowballed the project into a complete redesign and development of the website.
+## The [Uber](/work/uber/) Acquisition
+
+Back in 2019, after [Uber acquired a majority stake in Cornershop](https://investor.uber.com/news-events/news/press-release-details/2019/Uber-to-Acquire-Majority-Ownership-in-Cornershop/default.aspx) —which eventually culminated in [the acquisition of the entire company](https://latamlist.com/uber-acquires-cornershop-at-3b-valuation/) in 2021—, we were faced with the challenge of combining the magic of the Cornershop online grocery shopping experience with the scale of the Uber ecosystem.
+
+We wanted the experience to reach as many customers as possible, so integrating into both Uber Rides and Uber Eats was desirable.
+
+After assessing the feasibility of different integration approaches, we decided to lead with a web-powered experience, as it would be the quickest way to reach the most users, and would ultimately benefit both companies, which back then operated separately.
+
+## Bringing the Cornershop Web App to mobile
+
+Cornershop's web app, originally designed for desktop use, only served a small fraction of the company's user base, and was actively maintained by a small team of 4 engineers.
+
+![The original pull request for the refactor. More than 18K lines of code changed, and 248 files had to be modified.](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-github-pr.png)
+
+Bringing it to mobile was a stepping stone towards its eventual key role in the company's acquisition, but it was no small task.
+
+Bringing the Cornershop web app to mobile required a complete redesign and development of the website (more than 18K lines of code changed, and 248 files had to be modified), as the original web app was not designed to support smaller screen sizes, or mobile interactions & paradigms.
+
+![Screen recording of the final web app experience.](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-demo.mp4)
+
+While preserving its underlying JavaScript foundations, the entire markup and CSS of the web app were reimagined and rebuilt from the ground up, taking advantage of modern CSS technologies (like CSS Grid, native scroll-snapping, and more) to achieve native-feeling interactions, visually polished UI elements, and a brand new, mobile-first component library—all while taking the opportunity to significantly improve accessibility for both screen readers and keyboard users throughout every point of the experience.
+
+![Before and after of the web app's Home view.](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-before-and-after-1.png)
+
+![Before and after of the web app's Home view.](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-before-and-after-2.png)
+
+![Before and after of the web app's Store view.](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-before-and-after-3.png)
+
+Most JavaScript-powered UI libraries were deprecated from the codebase afterward, helping consolidate a mature, proprietary, and flexible design and development environment.
+
+---
 
 ![](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-iphone-11-dark-mode.png)
 
 ![](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-ipad-pro-11-inch.png)
 
-While preserving its underlying JavaScript foundations, the entire markup and CSS of the web app were reimagined and rebuilt from the ground up, taking advantage of modern CSS properties to achieve native-feeling interactions, visually polished elements, and a brand new, mobile-first component library—all while taking the opportunity to significantly improve accessibility for both screen readers and keyboard users throughout every point of the experience.
 
 ![](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-iphone-11-fruits-and-vegetables.png)
 
-Most JavaScript-powered UI libraries were deprecated from the codebase afterward, helping consolidate a mature, proprietary, and flexible design and development environment.
 
 ![](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-iphone-11-and-iphone-se-2.png)
 
