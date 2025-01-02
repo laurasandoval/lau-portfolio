@@ -12,36 +12,17 @@ import { formatYears, normalizeForUrl } from '@/lib/formatters'
 import FolderPage from './folder-page'
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/router'
 
 export default function Project({ isFolder, folderAvailable, folderUrl, folderName, posts, currentPostData, nextPostData, server }) {
     const [headerDistance, setHeaderDistance] = useState(0);
     const headerRef = useRef(null);
-    const [shouldFadeIn, setShouldFadeIn] = useState(false);
-    const router = useRouter();
 
     useEffect(() => {
-        // Check if we came from a project peek
-        if (typeof window !== 'undefined') {
-            setShouldFadeIn(window.__isFromProjectPeek);
-            // Reset the flag
-            window.__isFromProjectPeek = false;
-        }
-
         if (headerRef.current) {
             setHeaderDistance(headerRef.current.offsetTop);
         }
 
-        // Clear flag on unmount
-        return () => {
-            if (typeof window !== 'undefined') {
-                window.__isFromProjectPeek = false;
-            }
-        };
     }, []);
-
-    // Simple check if we're coming from another project
-    const isFromProject = router.asPath.startsWith('/work/');
 
     if (isFolder) {
         return (
@@ -123,10 +104,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
             // ]}
             />
 
-            <GlobalHeader
-                key={currentPostData.project}
-                fadeIn={shouldFadeIn}
-            />
+            <GlobalHeader />
 
             <style>
                 {`
