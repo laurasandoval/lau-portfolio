@@ -4,6 +4,7 @@ import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import { ProjectArticleHeader } from '../ProjectArticleHeader/ProjectArticleHeader'
 import { useRef, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 export default function NextProjectPeek({
     nextPostData,
@@ -13,25 +14,51 @@ export default function NextProjectPeek({
     const [isTransitioning, setIsTransitioning] = useState(false);
     const router = useRouter();
     const headerRef = useRef(null);
-    const transitionTimeoutRef = useRef(null);
-    const hasRouteFinished = useRef(false);
+    const timeoutRef = useRef(null);
 
     useEffect(() => {
+        // Prefetch the next route
+        router.prefetch(`/work/${nextPostData.project}`);
+
         // Reset everything when route change completes
         const handleRouteChangeComplete = () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+                timeoutRef.current = null;
+            }
             setViewportDistance(0);
             setIsTransitioning(false);
+            clearAllBodyScrollLocks();
+        };
+
+        const handleRouteChangeError = () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+                timeoutRef.current = null;
+            }
+            setIsTransitioning(false);
+            clearAllBodyScrollLocks();
         };
 
         router.events.on('routeChangeComplete', handleRouteChangeComplete);
+        router.events.on('routeChangeError', handleRouteChangeError);
 
         return () => {
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
             router.events.off('routeChangeComplete', handleRouteChangeComplete);
+            router.events.off('routeChangeError', handleRouteChangeError);
+            clearAllBodyScrollLocks();
         };
-    }, [router]);
+    }, [router, nextPostData.project]);
 
     const handleClick = (e) => {
         e.preventDefault();
+
+        // If already transitioning, don't do anything
+        if (isTransitioning) return;
+
         setIsTransitioning(true);
 
         // Calculate distance to viewport top
@@ -40,9 +67,20 @@ export default function NextProjectPeek({
             setViewportDistance(Math.round(rect.top));
         }
 
+        // Lock scroll at current position
+        disableBodyScroll(document.body, {
+            reserveScrollBarGap: true,
+        });
+
         // Start navigation after delay
-        setTimeout(() => {
-            router.push(`/work/${nextPostData.project}`);
+        timeoutRef.current = setTimeout(async () => {
+            try {
+                await router.push(`/work/${nextPostData.project}`, undefined, { shallow: false });
+            } catch (error) {
+                // If navigation fails, cleanup
+                setIsTransitioning(false);
+                clearAllBodyScrollLocks();
+            }
         }, 3000);
     };
 
