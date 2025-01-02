@@ -75,9 +75,13 @@ export default function NextProjectPeek({
         // Start navigation after delay
         timeoutRef.current = setTimeout(async () => {
             try {
-                await router.push(`/work/${nextPostData.project}`, undefined, { shallow: false });
+                await router.push(`/work/${nextPostData.project}`);
             } catch (error) {
-                // If navigation fails, cleanup
+                // Ignore AbortError as it's expected when navigation is cancelled
+                if (error.name !== 'AbortError') {
+                    console.error('Navigation error:', error);
+                }
+                // Cleanup regardless of error type
                 setIsTransitioning(false);
                 clearAllBodyScrollLocks();
             }
