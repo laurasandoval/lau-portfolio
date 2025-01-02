@@ -3,14 +3,15 @@ import { ProjectThumbnail } from '../ProjectThumbnail/ProjectThumbnail'
 import './ProjectArticleHeader.scss'
 import Link from 'next/link'
 import { normalizeForUrl } from '@/lib/formatters'
+import { forwardRef } from 'react'
 
-export function ProjectArticleHeader({
+export const ProjectArticleHeader = forwardRef(({
     peek = false,
     postData,
     autoPlayThumbnail = true,
-}) {
+}, ref) => {
     return (
-        <div className="project_article_header" data-peek={peek}>
+        <div ref={ref} className="project_article_header" data-peek={peek}>
             <div className="basic_info">
                 <h2 className="title">
                     <Balancer>
@@ -43,4 +44,4 @@ export function ProjectArticleHeader({
             <hr />
         </div>
     )
-}
+})

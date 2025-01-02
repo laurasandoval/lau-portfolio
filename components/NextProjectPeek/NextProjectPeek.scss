@@ -31,6 +31,17 @@
         }
     }
 
+    &[data-transitioning="true"] {
+        .project_article_header_container {
+            overflow: visible;
+
+            .project_article_header {
+                transition: transform 3s cubic-bezier(.25, .46, .45, .94) 0s;
+                transform: translateY(calc((var(--viewport-distance) * -1) + var(--header-distance)));
+            }
+        }
+    }
+
     @media (max-width: 850px) {
         padding: 0 20px 0;
     }

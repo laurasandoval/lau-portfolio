@@ -11,8 +11,18 @@ import ProjectArticleAsset from '@/components/ProjectArticleAsset/ProjectArticle
 import { formatYears, normalizeForUrl } from '@/lib/formatters'
 import FolderPage from './folder-page'
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react'
 
 export default function Project({ isFolder, folderAvailable, folderUrl, folderName, posts, currentPostData, nextPostData, server }) {
+    const [headerDistance, setHeaderDistance] = useState(0);
+    const headerRef = useRef(null);
+
+    useEffect(() => {
+        if (headerRef.current) {
+            setHeaderDistance(headerRef.current.offsetTop);
+        }
+    }, []);
+
     if (isFolder) {
         return (
             <FolderPage
@@ -108,7 +118,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
                 className="design_project_article"
                 data-name={currentPostData?.title}
             >
-                <ProjectArticleHeader postData={currentPostData} />
+                <ProjectArticleHeader ref={headerRef} postData={currentPostData} />
                 <div className="body">
                     <div className="content">
                         {renderContent(currentPostData.contentHtml)}
@@ -185,7 +195,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
 
             {
                 nextPostData != null &&
-                <NextProjectPeek nextPostData={nextPostData} />
+                <NextProjectPeek nextPostData={nextPostData} headerDistance={headerDistance} />
             }
         </>
     )
