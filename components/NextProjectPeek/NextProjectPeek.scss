@@ -31,14 +31,32 @@
         }
     }
 
+    &::before {
+        content: "";
+        position: absolute;
+        top: calc((var(--viewport-distance) * -1));
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 1);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s cubic-bezier(.25, .46, .45, .94) 0s;
+    }
+
     &[data-transitioning="true"] {
         .project_article_header_container {
             overflow: visible;
 
             .project_article_header {
-                transition: transform 3s cubic-bezier(.25, .46, .45, .94) 0s;
+                transition: transform 1s cubic-bezier(0.28, 0.11, 0.32, 1) 0.2s;
                 transform: translateY(calc((var(--viewport-distance) * -1) + var(--header-distance)));
             }
+        }
+
+        &::before {
+            opacity: 1;
+            pointer-events: auto;
         }
     }
 

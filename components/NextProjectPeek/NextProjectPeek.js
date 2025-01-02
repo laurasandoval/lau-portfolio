@@ -81,7 +81,7 @@ export default function NextProjectPeek({
                 setIsTransitioning(false);
                 clearAllBodyScrollLocks();
             }
-        }, 3000);
+        }, 1200);
     };
 
     return (
