@@ -73,18 +73,21 @@ export default function NextProjectPeek({
         });
 
         // Start navigation after delay
-        timeoutRef.current = setTimeout(async () => {
-            try {
-                await router.push(`/work/${nextPostData.project}`);
-            } catch (error) {
-                // Ignore AbortError as it's expected when navigation is cancelled
-                if (error.name !== 'AbortError') {
-                    console.error('Navigation error:', error);
-                }
-                // Cleanup regardless of error type
-                setIsTransitioning(false);
-                clearAllBodyScrollLocks();
-            }
+        timeoutRef.current = setTimeout(() => {
+            router.push(`/work/${nextPostData.project}`)
+                .catch((error) => {
+                    // Ignore AbortError as it's expected when navigation is cancelled
+                    if (error.name !== 'AbortError') {
+                        console.error('Navigation error:', error);
+                    }
+                })
+                .finally(() => {
+                    // Always ensure we cleanup
+                    if (!router.pathname.includes(nextPostData.project)) {
+                        setIsTransitioning(false);
+                        clearAllBodyScrollLocks();
+                    }
+                });
         }, 1200);
     };
 
