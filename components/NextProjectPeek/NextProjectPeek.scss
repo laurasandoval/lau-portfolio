@@ -4,6 +4,7 @@
     max-width: 1600px;
     position: relative;
     transition: opacity 0.3s ease;
+    z-index: 99;
 
     --additional-peek-hover-margin: 20px;
     --project-info-header-computed-height: 300px;
@@ -34,7 +35,7 @@
     &::before {
         content: "";
         position: absolute;
-        top: calc((var(--viewport-distance) * -1));
+        top: calc(((var(--viewport-distance) * 2) * -1));
         right: 0;
         bottom: 0;
         left: 0;
