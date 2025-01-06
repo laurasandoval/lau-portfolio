@@ -16,67 +16,49 @@ export default function NextProjectPeek({
     const timeoutRef = useRef(null);
     const scrollPosRef = useRef(0);
 
-    const cleanupScrollLock = () => {
-        document.documentElement.classList.remove('scroll-locked');
-        document.documentElement.style.removeProperty('--scroll-position');
-        document.documentElement.style.removeProperty('--scrollbar-width');
-    };
-
     useEffect(() => {
         // Prefetch the next route
         router.prefetch(`/work/${nextPostData.project}`);
 
-        // Reset everything when route change starts
-        const handleRouteChangeStart = () => {
+        const cleanup = () => {
             if (timeoutRef.current) {
                 clearTimeout(timeoutRef.current);
                 timeoutRef.current = null;
             }
+            document.documentElement.classList.remove('scroll-locked');
+            document.documentElement.style.removeProperty('--scroll-position');
+            document.documentElement.style.removeProperty('--scrollbar-width');
         };
 
         // Handle route change completion
         const handleRouteChangeComplete = () => {
+            cleanup();
             setViewportDistance(0);
             setIsTransitioning(false);
-            cleanupScrollLock();
-            // Force scroll to top after cleanup
             requestAnimationFrame(() => {
                 window.scrollTo(0, 0);
             });
         };
 
         const handleRouteChangeError = () => {
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current);
-                timeoutRef.current = null;
-            }
+            cleanup();
             setIsTransitioning(false);
-            cleanupScrollLock();
-            // Restore original scroll position if navigation fails
             window.scrollTo(0, scrollPosRef.current);
         };
 
-        router.events.on('routeChangeStart', handleRouteChangeStart);
         router.events.on('routeChangeComplete', handleRouteChangeComplete);
         router.events.on('routeChangeError', handleRouteChangeError);
 
         return () => {
-            if (timeoutRef.current) {
-                clearTimeout(timeoutRef.current);
-            }
-            router.events.off('routeChangeStart', handleRouteChangeStart);
+            cleanup();
             router.events.off('routeChangeComplete', handleRouteChangeComplete);
             router.events.off('routeChangeError', handleRouteChangeError);
-            cleanupScrollLock();
-            // Restore original scroll position on unmount
             window.scrollTo(0, scrollPosRef.current);
         };
     }, [router, nextPostData.project]);
 
     const handleClick = (e) => {
         e.preventDefault();
-
-        // If already transitioning, don't do anything
         if (isTransitioning) return;
 
         setIsTransitioning(true);
@@ -87,12 +69,10 @@ export default function NextProjectPeek({
             setViewportDistance(Math.round(rect.top));
         }
 
-        // Calculate scrollbar width to prevent layout shifts
-        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-        document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
-
         // Lock scroll while preserving position
         scrollPosRef.current = window.scrollY;
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
         document.documentElement.style.setProperty('--scroll-position', `${scrollPosRef.current}px`);
         document.documentElement.classList.add('scroll-locked');
 
@@ -100,17 +80,8 @@ export default function NextProjectPeek({
         timeoutRef.current = setTimeout(() => {
             router.push(`/work/${nextPostData.project}`)
                 .catch((error) => {
-                    // Ignore AbortError as it's expected when navigation is cancelled
                     if (error.name !== 'AbortError') {
                         console.error('Navigation error:', error);
-                    }
-                })
-                .finally(() => {
-                    // Always ensure we cleanup if navigation fails
-                    if (!router.pathname.includes(nextPostData.project)) {
-                        setIsTransitioning(false);
-                        cleanupScrollLock();
-                        window.scrollTo(0, scrollPosRef.current);
                     }
                 });
         }, 1200);

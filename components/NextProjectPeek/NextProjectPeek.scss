@@ -63,14 +63,6 @@
             opacity: 1;
             pointer-events: auto;
         }
-
-        // Prevent any scrolling while transitioning
-        html,
-        body {
-            overflow: hidden !important;
-            touch-action: none !important;
-            -webkit-overflow-scrolling: none !important;
-        }
     }
 
     @media (max-width: 850px) {
@@ -104,12 +96,7 @@
     }
 }
 
-// Prevent content shift when scroll is locked
-html:not([style*="position: fixed"]) {
-    overflow-y: scroll;
-}
-
-// Scroll locking styles that prevent layout shifts
+// Scroll locking styles
 html.scroll-locked {
     overflow: hidden !important;
     height: 100% !important;
@@ -122,7 +109,6 @@ html.scroll-locked {
         padding-right: var(--scrollbar-width, 0px) !important;
     }
 
-    // Maintain scroll position visually
     #__next {
         transform: translateY(calc(-1 * var(--scroll-position)));
         position: fixed;
