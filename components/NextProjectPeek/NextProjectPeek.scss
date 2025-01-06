@@ -46,6 +46,10 @@
     }
 
     &[data-transitioning="true"] {
+        &:active {
+            opacity: 1;
+        }
+
         .project_article_header_container {
             overflow: visible;
 
@@ -58,6 +62,14 @@
         &::before {
             opacity: 1;
             pointer-events: auto;
+        }
+
+        // Prevent any scrolling while transitioning
+        html,
+        body {
+            overflow: hidden !important;
+            touch-action: none !important;
+            -webkit-overflow-scrolling: none !important;
         }
     }
 
@@ -88,6 +100,34 @@
         top: 0;
         right: 0;
         bottom: 0;
+        left: 0;
+    }
+}
+
+// Prevent content shift when scroll is locked
+html:not([style*="position: fixed"]) {
+    overflow-y: scroll;
+}
+
+// Scroll locking styles that prevent layout shifts
+html.scroll-locked {
+    overflow: hidden !important;
+    height: 100% !important;
+    width: 100% !important;
+
+    body {
+        overflow: hidden !important;
+        height: 100% !important;
+        position: relative !important;
+        padding-right: var(--scrollbar-width, 0px) !important;
+    }
+
+    // Maintain scroll position visually
+    #__next {
+        transform: translateY(calc(-1 * var(--scroll-position)));
+        position: fixed;
+        width: 100%;
+        top: 0;
         left: 0;
     }
 }

@@ -4,7 +4,6 @@ import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import { ProjectArticleHeader } from '../ProjectArticleHeader/ProjectArticleHeader'
 import { useRef, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 export default function NextProjectPeek({
     nextPostData,
@@ -15,20 +14,35 @@ export default function NextProjectPeek({
     const router = useRouter();
     const headerRef = useRef(null);
     const timeoutRef = useRef(null);
+    const scrollPosRef = useRef(0);
+
+    const cleanupScrollLock = () => {
+        document.documentElement.classList.remove('scroll-locked');
+        document.documentElement.style.removeProperty('--scroll-position');
+        document.documentElement.style.removeProperty('--scrollbar-width');
+    };
 
     useEffect(() => {
         // Prefetch the next route
         router.prefetch(`/work/${nextPostData.project}`);
 
-        // Reset everything when route change completes
-        const handleRouteChangeComplete = () => {
+        // Reset everything when route change starts
+        const handleRouteChangeStart = () => {
             if (timeoutRef.current) {
                 clearTimeout(timeoutRef.current);
                 timeoutRef.current = null;
             }
+        };
+
+        // Handle route change completion
+        const handleRouteChangeComplete = () => {
             setViewportDistance(0);
             setIsTransitioning(false);
-            clearAllBodyScrollLocks();
+            cleanupScrollLock();
+            // Force scroll to top after cleanup
+            requestAnimationFrame(() => {
+                window.scrollTo(0, 0);
+            });
         };
 
         const handleRouteChangeError = () => {
@@ -37,9 +51,12 @@ export default function NextProjectPeek({
                 timeoutRef.current = null;
             }
             setIsTransitioning(false);
-            clearAllBodyScrollLocks();
+            cleanupScrollLock();
+            // Restore original scroll position if navigation fails
+            window.scrollTo(0, scrollPosRef.current);
         };
 
+        router.events.on('routeChangeStart', handleRouteChangeStart);
         router.events.on('routeChangeComplete', handleRouteChangeComplete);
         router.events.on('routeChangeError', handleRouteChangeError);
 
@@ -47,9 +64,12 @@ export default function NextProjectPeek({
             if (timeoutRef.current) {
                 clearTimeout(timeoutRef.current);
             }
+            router.events.off('routeChangeStart', handleRouteChangeStart);
             router.events.off('routeChangeComplete', handleRouteChangeComplete);
             router.events.off('routeChangeError', handleRouteChangeError);
-            clearAllBodyScrollLocks();
+            cleanupScrollLock();
+            // Restore original scroll position on unmount
+            window.scrollTo(0, scrollPosRef.current);
         };
     }, [router, nextPostData.project]);
 
@@ -67,10 +87,14 @@ export default function NextProjectPeek({
             setViewportDistance(Math.round(rect.top));
         }
 
-        // Lock scroll at current position
-        disableBodyScroll(document.body, {
-            reserveScrollBarGap: true,
-        });
+        // Calculate scrollbar width to prevent layout shifts
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+
+        // Lock scroll while preserving position
+        scrollPosRef.current = window.scrollY;
+        document.documentElement.style.setProperty('--scroll-position', `${scrollPosRef.current}px`);
+        document.documentElement.classList.add('scroll-locked');
 
         // Start navigation after delay
         timeoutRef.current = setTimeout(() => {
@@ -82,10 +106,11 @@ export default function NextProjectPeek({
                     }
                 })
                 .finally(() => {
-                    // Always ensure we cleanup
+                    // Always ensure we cleanup if navigation fails
                     if (!router.pathname.includes(nextPostData.project)) {
                         setIsTransitioning(false);
-                        clearAllBodyScrollLocks();
+                        cleanupScrollLock();
+                        window.scrollTo(0, scrollPosRef.current);
                     }
                 });
         }, 1200);
