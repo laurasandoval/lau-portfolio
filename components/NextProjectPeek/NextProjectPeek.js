@@ -66,7 +66,19 @@ export default function NextProjectPeek({
         // Calculate distance to viewport top
         if (headerRef.current) {
             const rect = headerRef.current.getBoundingClientRect();
-            setViewportDistance(Math.round(rect.top));
+
+            // Only apply margin compensation on iOS Safari
+            const isIOSSafari = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+            let marginCompensation = 0;
+
+            if (isIOSSafari) {
+                const containerComputedStyle = window.getComputedStyle(headerRef.current.parentElement);
+                const cssMarginTop = parseInt(containerComputedStyle.getPropertyValue('--margin-top'), 10) || 0;
+                const computedMarginTop = parseInt(containerComputedStyle.marginTop, 10) || 0;
+                marginCompensation = cssMarginTop - computedMarginTop;
+            }
+
+            setViewportDistance(Math.round(rect.top - marginCompensation));
         }
 
         // Lock scroll while preserving position
