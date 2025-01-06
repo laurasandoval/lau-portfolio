@@ -120,7 +120,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
                 data-name={currentPostData?.title}
             >
                 <ProjectArticleHeader ref={headerRef} postData={currentPostData} />
-                <div className="body">
+                <div className="design_project_article_body">
                     <div className="content">
                         {renderContent(currentPostData.contentHtml)}
                         {currentPostData?.cta && (

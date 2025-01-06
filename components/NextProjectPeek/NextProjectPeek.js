@@ -57,6 +57,11 @@ export default function NextProjectPeek({
         };
     }, [router, nextPostData.project]);
 
+    const getComputedValue = (element, property) => {
+        const computedStyle = window.getComputedStyle(element);
+        return parseInt(computedStyle.getPropertyValue(property), 10) || 0;
+    };
+
     const handleClick = (e) => {
         e.preventDefault();
         if (isTransitioning) return;
@@ -86,6 +91,28 @@ export default function NextProjectPeek({
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
         document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
         document.documentElement.style.setProperty('--scroll-position', `${scrollPosRef.current}px`);
+
+        // Calculate and preserve credits position
+        const credits = document.querySelector('.design_project_article_body');
+        if (credits) {
+            const creditsRect = credits.getBoundingClientRect();
+            const absoluteCreditsTop = creditsRect.top + window.scrollY;
+
+            // Check if credits are in sticky state
+            const creditsElement = credits.querySelector('.credits');
+            if (creditsElement) {
+                const creditsRect = creditsElement.getBoundingClientRect();
+                const isSticky = Math.abs(creditsRect.top - 40) < 1;
+
+                if (isSticky) {
+                    document.documentElement.style.setProperty('--credits-distance', `${absoluteCreditsTop}px`);
+                    document.documentElement.setAttribute('data-credits-sticky', 'true');
+                } else {
+                    document.documentElement.removeAttribute('data-credits-sticky');
+                }
+            }
+        }
+
         document.documentElement.classList.add('scroll-locked');
 
         // Start navigation after delay
