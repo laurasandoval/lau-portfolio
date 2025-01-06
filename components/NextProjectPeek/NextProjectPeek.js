@@ -96,7 +96,7 @@ export default function NextProjectPeek({
                         console.error('Navigation error:', error);
                     }
                 });
-        }, 1200);
+        }, 1400);
     };
 
     return (
