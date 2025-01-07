@@ -118,8 +118,7 @@ html.scroll-locked {
     }
 }
 
-// Sticky credits during transition
-html.scroll-locked[data-credits-sticky="true"] .credits {
-    transform: translateY(calc(var(--scroll-position) - var(--credits-distance))) !important;
+html.scroll-locked .credits {
+    transform: translateY(calc(var(--scroll-position) - var(--credits-absolute-distance) + var(--credits-relative-distance))) !important;
     will-change: transform;
 }

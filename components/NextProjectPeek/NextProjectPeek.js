@@ -93,27 +93,19 @@ export default function NextProjectPeek({
         document.documentElement.style.setProperty('--scroll-position', `${scrollPosRef.current}px`);
 
         // Calculate and preserve credits position
-        const credits = document.querySelector('.design_project_article_body');
-        if (credits) {
-            const creditsRect = credits.getBoundingClientRect();
-            const absoluteCreditsTop = creditsRect.top + window.scrollY;
+        const designProjectArticleBody = document.querySelector('.design_project_article_body');
+        if (designProjectArticleBody) {
+            const designProjectArticleBodyRect = designProjectArticleBody.getBoundingClientRect();
+            const absoluteCreditsTop = designProjectArticleBodyRect.top + window.scrollY;
 
             // Check if credits are in sticky state
-            const creditsElement = credits.querySelector('.credits');
-            if (creditsElement) {
-                const creditsRect = creditsElement.getBoundingClientRect();
-                const isSticky = Math.abs(creditsRect.top - 40) < 1;
+            const creditsElement = designProjectArticleBody.querySelector('.credits');
+            const creditsRect = creditsElement.getBoundingClientRect();
+            const relativeCreditsTop = creditsRect.top - 40;
 
-                if (isSticky) {
-                    document.documentElement.style.setProperty('--credits-distance', `${absoluteCreditsTop}px`);
-                    document.documentElement.setAttribute('data-credits-sticky', 'true');
-                } else {
-                    document.documentElement.removeAttribute('data-credits-sticky');
-                }
-            }
+            document.documentElement.style.setProperty('--credits-absolute-distance', `${Math.round(absoluteCreditsTop)}px`);
+            document.documentElement.style.setProperty('--credits-relative-distance', `${Math.round(relativeCreditsTop)}px`);
         }
-
-        document.documentElement.classList.add('scroll-locked');
 
         // Start navigation after delay
         timeoutRef.current = setTimeout(() => {
