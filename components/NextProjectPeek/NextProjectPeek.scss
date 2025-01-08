@@ -54,7 +54,7 @@
             overflow: visible;
 
             .project_article_header {
-                transition: transform 1s cubic-bezier(0.28, 0.11, 0.32, 1) 0.4s;
+                transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1) 0.4s;
                 transform: translateY(calc((var(--viewport-distance) * -1) + var(--header-distance)));
             }
         }
