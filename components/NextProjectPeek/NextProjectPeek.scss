@@ -130,4 +130,8 @@ html.scroll-locked {
 html.scroll-locked .credits {
     transform: translateY(calc(var(--scroll-position) - var(--credits-absolute-distance) + var(--credits-relative-distance))) !important;
     will-change: transform;
+
+    @media (max-width: 850px) {
+        transform: translateY(0px) !important;
+    }
 }
