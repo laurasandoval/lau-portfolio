@@ -104,7 +104,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
             // ]}
             />
 
-            <GlobalHeader />
+            <GlobalHeader key={currentPostData?.project} fadeIn={false} />
 
             <style>
                 {`
