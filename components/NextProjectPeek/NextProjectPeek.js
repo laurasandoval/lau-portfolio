@@ -117,7 +117,7 @@ export default function NextProjectPeek({
 
         // Start navigation after delay
         timeoutRef.current = setTimeout(() => {
-            router.push(`/work/${nextPostData.project}`)
+            router.push(`/work/${nextPostData.project}?ref=peek`)
                 .catch((error) => {
                     if (error.name !== 'AbortError') {
                         console.error('Navigation error:', error);
@@ -140,7 +140,7 @@ export default function NextProjectPeek({
                 <ProjectArticleHeader ref={headerRef} peek={true} postData={nextPostData} autoPlayThumbnail={false} />
             </div>
 
-            <Link href={`/work/${nextPostData.project}`} prefetch={false} className="project_access" onClick={handleClick}>
+            <Link href={`/work/${nextPostData.project}?ref=peek`} prefetch={false} className="project_access" onClick={handleClick}>
                 <AccessibilityLabel role="text" as="span">
                     {nextPostData.title}
                 </AccessibilityLabel>

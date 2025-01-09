@@ -12,16 +12,24 @@ import { formatYears, normalizeForUrl } from '@/lib/formatters'
 import FolderPage from './folder-page'
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function Project({ isFolder, folderAvailable, folderUrl, folderName, posts, currentPostData, nextPostData, server }) {
     const [headerDistance, setHeaderDistance] = useState(0);
+    const [fadeIn, setFadeIn] = useState(false);
     const headerRef = useRef(null);
+    const router = useRouter();
+
+    useEffect(() => {
+        if (router.query.ref === 'peek') {
+            setFadeIn(true);
+        }
+    }, [router.query]);
 
     useEffect(() => {
         if (headerRef.current) {
             setHeaderDistance(headerRef.current.offsetTop);
         }
-
     }, []);
 
     if (isFolder) {
@@ -104,7 +112,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
             // ]}
             />
 
-            <GlobalHeader key={currentPostData?.project} fadeIn={false} />
+            <GlobalHeader key={currentPostData?.project} fadeIn={fadeIn} fadeInDelay={0} />
 
             <style>
                 {`

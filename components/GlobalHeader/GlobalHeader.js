@@ -10,6 +10,7 @@ const GlobalHeader = forwardRef(function GlobalHeader({
     sticky,
     backgroundColor,
     fadeIn,
+    fadeInDelay = 0.8,
     className,
     forceBorderHidden,
 }, ref) {
@@ -81,7 +82,8 @@ const GlobalHeader = forwardRef(function GlobalHeader({
             }
             data-nav-open={navOpen.toString()}
             style={{
-                "--background-color": backgroundColor
+                "--background-color": backgroundColor,
+                "--fade-in-delay": `${fadeInDelay}s`
             }}
             ref={ref || headerElementRef}
         >
