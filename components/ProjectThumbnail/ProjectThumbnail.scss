@@ -12,73 +12,73 @@
     margin: 0;
     text-decoration: none;
     color: unset;
-    transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateZ(0);
     will-change: transform;
+    transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     &[data-fade-in="true"] {
-        animation: fadeIn 1s cubic-bezier(0.28, 0.11, 0.32, 1);
+        animation: fadeIn 0.8s cubic-bezier(0.28, 0.11, 0.32, 1);
         animation-fill-mode: backwards;
         @include projectThumbnailFadeInDelays;
     }
 
     .project_artwork {
         --radius: 8px;
-
         position: relative;
         display: block;
         margin: 0;
         padding: 0;
         overflow: hidden;
         background: rgba(136, 139, 144, 0.15);
-        padding-top: calc(100% * calc(2 / 3));
+        padding-top: calc(100% * (2 / 3));
         pointer-events: none;
+        border-radius: var(--radius);
+        transform: translateZ(0);
+        will-change: transform, opacity;
+        transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+            opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
         @at-root [data-portrait="true"]#{&} {
             @media (max-width: 480px) {
-                padding-top: calc(100% * calc(4 / 3));
+                padding-top: calc(100% * (4 / 3));
             }
         }
 
-        border-radius: var(--radius);
-        transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        opacity 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        will-change: transform;
         -webkit-mask-box-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 25.6C0 16.6392 0 12.1587 1.7439 8.73615C3.27787 5.72556 5.72556 3.27787 8.73615 1.7439C12.1587 0 16.6392 0 25.6 0H74.4C83.3608 0 87.8413 0 91.2638 1.7439C94.2744 3.27787 96.7221 5.72556 98.2561 8.73615C100 12.1587 100 16.6392 100 25.6V74.4C100 83.3608 100 87.8413 98.2561 91.2638C96.7221 94.2744 94.2744 96.7221 91.2638 98.2561C87.8413 100 83.3608 100 74.4 100H25.6C16.6392 100 12.1587 100 8.73615 98.2561C5.72556 96.7221 3.27787 94.2744 1.7439 91.2638C0 87.8413 0 83.3608 0 74.4V25.6Z" fill="black"/></svg>') 16 / var(--radius) / 0px;
 
         @supports (font: -apple-system-body) and (-webkit-appearance: none) {
             img[loading="lazy"] {
-                clip-path: inset(0.6px)
+                clip-path: inset(0.6px);
             }
         }
 
         >img,
         >video {
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            backface-visibility: hidden;
         }
 
         .playpause_button {
             z-index: 99;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(40px);
-            color: rgba(255, 255, 255, 1);
-            border-radius: 40px;
+            position: absolute;
+            left: 16px;
+            bottom: 16px;
             display: flex;
             align-items: center;
             padding: 8px;
             line-height: 0;
             pointer-events: all;
-            position: absolute;
             cursor: pointer;
-            left: 16px;
-            bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(40px);
+            color: rgba(255, 255, 255, 1);
+            border-radius: 40px;
+            transform: translateZ(0);
 
             svg {
                 --size: 16px;
@@ -138,6 +138,6 @@
 
     100% {
         opacity: 1;
-        transform: translateY(0px);
+        transform: translateY(0);
     }
 }
