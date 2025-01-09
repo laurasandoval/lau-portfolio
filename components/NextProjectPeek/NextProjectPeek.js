@@ -28,6 +28,10 @@ export default function NextProjectPeek({
             document.documentElement.classList.remove('scroll-locked');
             document.documentElement.style.removeProperty('--scroll-position');
             document.documentElement.style.removeProperty('--scrollbar-width');
+            document.body.style.position = '';
+            document.body.style.top = '';
+            document.body.style.width = '';
+            window.scrollTo(0, scrollPosRef.current);
         };
 
         // Handle route change completion
@@ -86,12 +90,6 @@ export default function NextProjectPeek({
             setViewportDistance(Math.round(rect.top - marginCompensation));
         }
 
-        // Lock scroll while preserving position
-        scrollPosRef.current = window.scrollY;
-        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-        document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
-        document.documentElement.style.setProperty('--scroll-position', `${scrollPosRef.current}px`);
-
         // Calculate and preserve credits position
         const designProjectArticleBody = document.querySelector('.design_project_article_body');
         if (designProjectArticleBody) {
@@ -106,6 +104,16 @@ export default function NextProjectPeek({
             document.documentElement.style.setProperty('--credits-absolute-distance', `${Math.round(absoluteCreditsTop)}px`);
             document.documentElement.style.setProperty('--credits-relative-distance', `${Math.round(relativeCreditsTop)}px`);
         }
+
+        // Lock scroll while preserving position
+        scrollPosRef.current = window.scrollY;
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
+        document.documentElement.style.setProperty('--scroll-position', `${scrollPosRef.current}px`);
+        document.documentElement.classList.add('scroll-locked');
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosRef.current}px`;
+        document.body.style.width = '100%';
 
         // Start navigation after delay
         timeoutRef.current = setTimeout(() => {
