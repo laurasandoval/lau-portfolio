@@ -12,7 +12,8 @@
     }
 
     --additional-peek-hover-margin: 20px;
-    --project-info-header-computed-height: 300px;
+    --asset-peek-height: min(160px, calc(var(--thumbnail-computed-height) / 2.8));
+    --next-project-peek-height: calc(var(--asset-peek-height) + 20px + var(--basic-info-computed-height));
 
     &:active {
         opacity: 0.4;
@@ -87,7 +88,7 @@
         }
 
         margin-top: calc(var(--margin-top) - var(--additional-peek-hover-margin));
-        height: calc(var(--project-info-header-computed-height) + var(--additional-peek-hover-margin));
+        height: calc(var(--next-project-peek-height) + var(--additional-peek-hover-margin));
         overflow: hidden;
 
         .project_article_header {

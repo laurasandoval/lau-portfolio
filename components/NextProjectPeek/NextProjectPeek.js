@@ -7,13 +7,15 @@ import { useRouter } from 'next/router'
 
 export default function NextProjectPeek({
     nextPostData,
-    headerDistance,
+    headerDistance = 0,
     isTransitioning,
     setIsTransitioning,
     fadeIn = false,
     fadeInDelay = 0.5
 }) {
     const [viewportDistance, setViewportDistance] = useState(0);
+    const [basicInfoHeight, setBasicInfoHeight] = useState(0);
+    const [thumbnailHeight, setThumbnailHeight] = useState(0);
     const router = useRouter();
     const headerRef = useRef(null);
     const timeoutRef = useRef(null);
@@ -73,9 +75,8 @@ export default function NextProjectPeek({
         e.preventDefault();
         if (isTransitioning) return;
 
-        setIsTransitioning(true);
-
-        // Calculate distance to viewport top
+        // First calculate viewport distance
+        let calculatedViewportDistance = 0;
         if (headerRef.current) {
             const rect = headerRef.current.getBoundingClientRect();
 
@@ -90,10 +91,10 @@ export default function NextProjectPeek({
                 marginCompensation = cssMarginTop - computedMarginTop;
             }
 
-            setViewportDistance(Math.round(rect.top - marginCompensation));
+            calculatedViewportDistance = Math.round(rect.top - marginCompensation);
         }
 
-        // Calculate and preserve credits position
+        // Calculate credits position
         const designProjectArticleBody = document.querySelector('.design_project_article_body');
         if (designProjectArticleBody) {
             const designProjectArticleBodyRect = designProjectArticleBody.getBoundingClientRect();
@@ -108,7 +109,10 @@ export default function NextProjectPeek({
             document.documentElement.style.setProperty('--credits-relative-distance', `${Math.round(relativeCreditsTop)}px`);
         }
 
-        // Lock scroll while preserving position
+        // Set viewport distance before any transitions
+        setViewportDistance(calculatedViewportDistance);
+
+        // Now handle scroll locking
         scrollPosRef.current = window.scrollY;
         const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
         document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`);
@@ -118,7 +122,9 @@ export default function NextProjectPeek({
         document.body.style.top = `-${scrollPosRef.current}px`;
         document.body.style.width = '100%';
 
-        // Start navigation after delay
+        // Finally set transition state and trigger navigation
+        setIsTransitioning(true);
+
         timeoutRef.current = setTimeout(() => {
             router.push(`/work/${nextPostData.project}?ref=peek`)
                 .catch((error) => {
@@ -137,12 +143,21 @@ export default function NextProjectPeek({
             style={{
                 '--header-distance': `${headerDistance}px`,
                 '--viewport-distance': `${viewportDistance}px`,
-                '--fade-in-delay': `${fadeInDelay}s`
+                '--fade-in-delay': `${fadeInDelay}s`,
+                '--basic-info-computed-height': `${basicInfoHeight}px`,
+                '--thumbnail-computed-height': `${thumbnailHeight}px`
             }}
         >
             <hr />
             <div className="project_article_header_container">
-                <ProjectArticleHeader ref={headerRef} peek={true} postData={nextPostData} autoPlayThumbnail={false} />
+                <ProjectArticleHeader
+                    ref={headerRef}
+                    peek={true}
+                    postData={nextPostData}
+                    autoPlayThumbnail={false}
+                    onBasicInfoHeight={setBasicInfoHeight}
+                    onThumbnailHeight={setThumbnailHeight}
+                />
             </div>
 
             <Link href={`/work/${nextPostData.project}?ref=peek`} prefetch={false} className="project_access" onClick={handleClick}>

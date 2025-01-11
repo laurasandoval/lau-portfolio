@@ -3,14 +3,30 @@ import { ProjectThumbnail } from '../ProjectThumbnail/ProjectThumbnail'
 import './ProjectArticleHeader.scss'
 import Link from 'next/link'
 import { normalizeForUrl } from '@/lib/formatters'
-import { forwardRef } from 'react'
+import { forwardRef, useRef, useEffect } from 'react'
 
 export const ProjectArticleHeader = forwardRef(({
     peek = false,
     postData,
     autoPlayThumbnail = true,
-    fadeInUnderlines = false
+    fadeInUnderlines = false,
+    onBasicInfoHeight,
+    onThumbnailHeight
 }, ref) => {
+    const basicInfoRef = useRef(null);
+    const thumbnailRef = useRef(null);
+
+    useEffect(() => {
+        if (basicInfoRef.current && onBasicInfoHeight) {
+            const height = basicInfoRef.current.offsetHeight;
+            onBasicInfoHeight(height);
+        }
+        if (thumbnailRef.current && onThumbnailHeight) {
+            const height = thumbnailRef.current.offsetHeight;
+            onThumbnailHeight(height);
+        }
+    }, [postData, onBasicInfoHeight, onThumbnailHeight]);
+
     return (
         <div
             ref={ref}
@@ -18,7 +34,7 @@ export const ProjectArticleHeader = forwardRef(({
             data-peek={peek}
             data-fade-in-underlines={fadeInUnderlines}
         >
-            <div className="basic_info">
+            <div ref={basicInfoRef} className="basic_info">
                 <h2 className="title">
                     <Balancer>
                         {postData.title}
@@ -40,14 +56,16 @@ export const ProjectArticleHeader = forwardRef(({
                     {postData.excerpt}
                 </Balancer>
             </p>
-            <ProjectThumbnail
-                title={postData.title}
-                asset={postData.coverImage}
-                autoplay={autoPlayThumbnail}
-                key={postData.coverImage}
-                img_only
-                placeholder={false}
-            />
+            <div ref={thumbnailRef}>
+                <ProjectThumbnail
+                    title={postData.title}
+                    asset={postData.coverImage}
+                    autoplay={autoPlayThumbnail}
+                    key={postData.coverImage}
+                    img_only
+                    placeholder={false}
+                />
+            </div>
             <hr />
         </div>
     )
