@@ -60,6 +60,13 @@
             height: 100%;
             object-fit: cover;
             backface-visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            will-change: opacity;
+
+            &[data-loaded="true"] {
+                opacity: 1;
+            }
         }
 
         .playpause_button {

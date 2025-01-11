@@ -25,6 +25,7 @@ export function ProjectThumbnail({
     ...props
 }) {
     const [isIntersecting, setIsIntersecting] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [manuallyPaused, setManuallyPaused] = useState(false);
@@ -34,7 +35,13 @@ export function ProjectThumbnail({
     useEffect(() => {
         setIsPlaying(false);
         setManuallyPaused(false);
-    }, [asset]);
+        setIsLoaded(false);
+
+        // Set first frame when autoplay is false
+        if (videoRef.current && VIDEO_FORMATS_REGEX.test(asset) && autoplay === false) {
+            videoRef.current.currentTime = 0.1;
+        }
+    }, [asset, autoplay]);
 
     // Memoize the intersection observer callback
     const intersectionCallback = useCallback(([entry]) => {
@@ -115,6 +122,8 @@ export function ProjectThumbnail({
                     priority={priority}
                     sizes={sizes}
                     loading={priority ? 'eager' : 'lazy'}
+                    onLoadingComplete={() => setIsLoaded(true)}
+                    data-loaded={isLoaded}
                 />
             );
         }
@@ -128,6 +137,8 @@ export function ProjectThumbnail({
                         muted
                         loop
                         preload="metadata"
+                        onLoadedData={() => setIsLoaded(true)}
+                        data-loaded={isLoaded}
                     >
                         <source src={asset} type="video/mp4" />
                     </video>
@@ -147,7 +158,7 @@ export function ProjectThumbnail({
                 <span>Error</span>
             </div>
         );
-    }, [asset, title, priority, sizes, isPlaying, handleVideoButtonClick]);
+    }, [asset, title, priority, sizes, isPlaying, handleVideoButtonClick, isLoaded]);
 
     const Tag = as || "div";
 

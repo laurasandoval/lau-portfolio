@@ -38,6 +38,7 @@ export const ProjectArticleHeader = forwardRef(({
                 title={postData.title}
                 asset={postData.coverImage}
                 autoplay={autoPlayThumbnail}
+                key={postData.coverImage}
                 img_only
                 placeholder={false}
             />
