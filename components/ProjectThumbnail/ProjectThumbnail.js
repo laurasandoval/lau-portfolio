@@ -66,7 +66,7 @@ export function ProjectThumbnail({
         if (!videoRef.current) return;
 
         if (autoplay === false) {
-            videoRef.current.currentTime = 1;
+            videoRef.current.currentTime = 0.1;
             videoRef.current.play();
             videoRef.current.pause();
         } else if (isIntersecting && !manuallyPaused && autoplay !== false) {
