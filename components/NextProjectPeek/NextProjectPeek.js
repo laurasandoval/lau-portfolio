@@ -9,7 +9,9 @@ export default function NextProjectPeek({
     nextPostData,
     headerDistance,
     isTransitioning,
-    setIsTransitioning
+    setIsTransitioning,
+    fadeIn = false,
+    fadeInDelay = 0.5
 }) {
     const [viewportDistance, setViewportDistance] = useState(0);
     const router = useRouter();
@@ -131,9 +133,11 @@ export default function NextProjectPeek({
         <div
             className="next_project_peek"
             data-transitioning={isTransitioning ? "true" : "false"}
+            data-fade-in={fadeIn}
             style={{
                 '--header-distance': `${headerDistance}px`,
-                '--viewport-distance': `${viewportDistance}px`
+                '--viewport-distance': `${viewportDistance}px`,
+                '--fade-in-delay': `${fadeInDelay}s`
             }}
         >
             <hr />

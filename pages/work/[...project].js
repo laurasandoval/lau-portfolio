@@ -22,10 +22,12 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
     const router = useRouter();
 
     useEffect(() => {
-        if (router.query.ref === 'peek') {
+        if (isTransitioning) {
+            setFadeIn(false);
+        } else if (router.query.ref === 'peek') {
             setFadeIn(true);
         }
-    }, [router.query]);
+    }, [isTransitioning, router.query]);
 
     useEffect(() => {
         if (headerRef.current) {
@@ -113,7 +115,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
             // ]}
             />
 
-            <GlobalHeader key={currentPostData?.project} fadeIn={fadeIn} fadeInDelay={0.5} />
+            <GlobalHeader fadeIn={fadeIn} fadeInDelay={0.5} isTransitioning={isTransitioning} />
 
             <style>
                 {`
@@ -213,7 +215,14 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
 
             {
                 nextPostData != null &&
-                <NextProjectPeek nextPostData={nextPostData} headerDistance={headerDistance} isTransitioning={isTransitioning} setIsTransitioning={setIsTransitioning} />
+                <NextProjectPeek
+                    nextPostData={nextPostData}
+                    headerDistance={headerDistance}
+                    isTransitioning={isTransitioning}
+                    setIsTransitioning={setIsTransitioning}
+                    fadeIn={fadeIn}
+                    fadeInDelay={0.5}
+                />
             }
         </>
     )

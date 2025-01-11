@@ -6,6 +6,11 @@
     transition: opacity 0.3s ease;
     z-index: 99;
 
+    &[data-fade-in="true"] {
+        animation: nextProjectPeekFadeIn 1s ease var(--fade-in-delay, 0.5s);
+        animation-fill-mode: backwards;
+    }
+
     --additional-peek-hover-margin: 20px;
     --project-info-header-computed-height: 300px;
 
@@ -133,5 +138,15 @@ html.scroll-locked .credits {
 
     @media (max-width: 850px) {
         transform: translateY(0px) !important;
+    }
+}
+
+@keyframes nextProjectPeekFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

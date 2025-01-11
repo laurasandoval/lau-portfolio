@@ -13,6 +13,7 @@ const GlobalHeader = forwardRef(function GlobalHeader({
     fadeInDelay = 0.8,
     className,
     forceBorderHidden,
+    isTransitioning,
 }, ref) {
     const [headerMarginBottom, setHeaderMarginBottom] = useState(null)
     const [navOpen, setNavOpen] = useState(false)
@@ -73,6 +74,7 @@ const GlobalHeader = forwardRef(function GlobalHeader({
             className={`global_header${className ? ` ${className}` : ""}`}
             data-sticky={sticky}
             data-fade-in={fadeIn}
+            data-transitioning={isTransitioning}
             data-show-border={
                 !forceBorderHidden && showHeaderBorder === true
                     ? sticky
