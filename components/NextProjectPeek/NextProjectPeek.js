@@ -66,11 +66,6 @@ export default function NextProjectPeek({
         };
     }, [router, nextPostData.project]);
 
-    const getComputedValue = (element, property) => {
-        const computedStyle = window.getComputedStyle(element);
-        return parseInt(computedStyle.getPropertyValue(property), 10) || 0;
-    };
-
     const handleClick = (e) => {
         e.preventDefault();
         if (isTransitioning) return;
