@@ -7,10 +7,11 @@ import { useRouter } from 'next/router'
 
 export default function NextProjectPeek({
     nextPostData,
-    headerDistance
+    headerDistance,
+    isTransitioning,
+    setIsTransitioning
 }) {
     const [viewportDistance, setViewportDistance] = useState(0);
-    const [isTransitioning, setIsTransitioning] = useState(false);
     const router = useRouter();
     const headerRef = useRef(null);
     const timeoutRef = useRef(null);

@@ -17,6 +17,7 @@ import { useRouter } from 'next/router'
 export default function Project({ isFolder, folderAvailable, folderUrl, folderName, posts, currentPostData, nextPostData, server }) {
     const [headerDistance, setHeaderDistance] = useState(0);
     const [fadeIn, setFadeIn] = useState(false);
+    const [isTransitioning, setIsTransitioning] = useState(false);
     const headerRef = useRef(null);
     const router = useRouter();
 
@@ -112,7 +113,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
             // ]}
             />
 
-            <GlobalHeader key={currentPostData?.project} fadeIn={fadeIn} fadeInDelay={0} />
+            <GlobalHeader key={currentPostData?.project} fadeIn={fadeIn} fadeInDelay={0.5} />
 
             <style>
                 {`
@@ -126,9 +127,17 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
             <article
                 className="design_project_article"
                 data-name={currentPostData?.title}
+                data-transitioning={isTransitioning}
             >
                 <ProjectArticleHeader ref={headerRef} postData={currentPostData} />
-                <div className="design_project_article_body">
+                <div
+                    className="design_project_article_body"
+                    data-fade-in={fadeIn}
+                    key={currentPostData?.project}
+                    style={{
+                        "--fade-in-delay": "0.5s"
+                    }}
+                >
                     <div className="content">
                         {renderContent(currentPostData.contentHtml)}
                         {currentPostData?.cta && (
@@ -204,7 +213,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
 
             {
                 nextPostData != null &&
-                <NextProjectPeek nextPostData={nextPostData} headerDistance={headerDistance} />
+                <NextProjectPeek nextPostData={nextPostData} headerDistance={headerDistance} isTransitioning={isTransitioning} setIsTransitioning={setIsTransitioning} />
             }
         </>
     )
