@@ -59,7 +59,7 @@
             a {
                 color: inherit;
                 transition: color .3s cubic-bezier(.25, .46, .45, .94) 0s, text-decoration-color .3s cubic-bezier(.25, .46, .45, .94) 0s;
-                text-decoration-color: rgb(231, 232, 233);
+                text-decoration-color: rgba(231, 232, 233, 1);
                 text-decoration-line: underline;
                 text-underline-offset: 4px;
                 text-decoration-thickness: 1px;
@@ -72,7 +72,12 @@
                 }
 
                 @at-root [data-peek="true"]#{&} {
-                    text-decoration-line: none;
+                    text-decoration-color: rgba(231, 232, 233, 0);
+                }
+
+                @at-root [data-fade-in-underlines="true"]#{&} {
+                    animation: underlinesFadeIn 1s ease 0.5s;
+                    animation-fill-mode: backwards;
                 }
             }
         }
@@ -108,5 +113,15 @@
         @media (max-width: 850px) {
             display: block;
         }
+    }
+}
+
+@keyframes underlinesFadeIn {
+    0% {
+        text-decoration-color: rgba(231, 232, 233, 0);
+    }
+
+    100% {
+        text-decoration-color: rgba(231, 232, 233, 1);
     }
 }

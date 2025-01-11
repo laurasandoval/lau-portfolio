@@ -129,7 +129,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
                 data-name={currentPostData?.title}
                 data-transitioning={isTransitioning}
             >
-                <ProjectArticleHeader ref={headerRef} postData={currentPostData} />
+                <ProjectArticleHeader ref={headerRef} postData={currentPostData} fadeInUnderlines={fadeIn} />
                 <div
                     className="design_project_article_body"
                     data-fade-in={fadeIn}

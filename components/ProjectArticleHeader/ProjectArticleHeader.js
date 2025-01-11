@@ -9,9 +9,15 @@ export const ProjectArticleHeader = forwardRef(({
     peek = false,
     postData,
     autoPlayThumbnail = true,
+    fadeInUnderlines = false
 }, ref) => {
     return (
-        <div ref={ref} className="project_article_header" data-peek={peek}>
+        <div
+            ref={ref}
+            className="project_article_header"
+            data-peek={peek}
+            data-fade-in-underlines={fadeInUnderlines}
+        >
             <div className="basic_info">
                 <h2 className="title">
                     <Balancer>
