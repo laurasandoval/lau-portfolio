@@ -36,12 +36,7 @@ export function ProjectThumbnail({
         setIsPlaying(false);
         setManuallyPaused(false);
         setIsLoaded(false);
-
-        // Set first frame when autoplay is false
-        if (videoRef.current && VIDEO_FORMATS_REGEX.test(asset) && autoplay === false) {
-            videoRef.current.currentTime = 0.1;
-        }
-    }, [asset, autoplay]);
+    }, [asset]);
 
     // Memoize the intersection observer callback
     const intersectionCallback = useCallback(([entry]) => {
@@ -66,7 +61,7 @@ export function ProjectThumbnail({
         if (!videoRef.current) return;
 
         if (autoplay === false) {
-            videoRef.current.currentTime = 0.1;
+            videoRef.current.currentTime = 1;
             videoRef.current.play();
             videoRef.current.pause();
         } else if (isIntersecting && !manuallyPaused && autoplay !== false) {
