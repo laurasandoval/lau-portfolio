@@ -13,7 +13,6 @@ import FolderPage from './folder-page'
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
-import next from 'next';
 
 export default function Project({ isFolder, folderAvailable, folderUrl, folderName, posts, currentPostData, nextPostData, server }) {
     const [headerDistance, setHeaderDistance] = useState(0);
