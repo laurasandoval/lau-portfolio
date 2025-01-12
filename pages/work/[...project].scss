@@ -21,6 +21,19 @@
         padding-top: 40px;
     }
 
+    &[data-transitioning="true"] {
+        .project_article_header {
+            .basic_info {
+                .subtitle {
+                    a {
+                        transition: text-decoration-color 0s ease 0.6s;
+                        text-decoration-color: rgba(231, 232, 233, 0);
+                    }
+                }
+            }
+        }
+    }
+
     .design_project_article_body {
         max-width: 1280px;
         margin: 0 auto;
