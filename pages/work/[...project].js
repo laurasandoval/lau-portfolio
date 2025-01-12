@@ -31,6 +31,17 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
     }, [isTransitioning, router.query]);
 
     useEffect(() => {
+        if (!nextPostData && isTransitioning) {
+            // If there's no next project but we're transitioning (came from a peek),
+            // we need to handle the transition completion ourselves
+            setIsTransitioning(false);
+            requestAnimationFrame(() => {
+                window.scrollTo(0, 0);
+            });
+        }
+    }, [nextPostData, isTransitioning]);
+
+    useEffect(() => {
         if (headerRef.current) {
             setHeaderDistance(headerRef.current.offsetTop);
         }
