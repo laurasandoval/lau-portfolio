@@ -9,6 +9,7 @@ workType:
   - "Independent Apps"
   - "Product Design"
   - "Engineering"
+  - "Filmmaking & Photography"
 startYear: 2024
 endYear: 
 coverImage: "/assets/design-work/chaucha/chaucha-cover.png"

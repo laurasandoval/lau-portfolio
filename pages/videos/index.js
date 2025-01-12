@@ -83,7 +83,7 @@ export default function Photography({ videoWorkData, server }) {
                     <MobileRedirect
                         title="Continue on your phone"
                         body="Please continue on your phone for the best experience."
-                        url="https://lau.work/videos"
+                        url="https://lausandoval.com/videos"
                     />
                 </>
             )}

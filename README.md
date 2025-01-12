@@ -1,8 +1,8 @@
 <img src="README_Thumbnail.png" alt="Preview of my portfolio website.">
 
-# Source code for `lau.work`
+# Source code for `lausandoval.com`
 
-This repository contains the source code for my own portfolio website, [lau.work](https://lau.work). This was a private repository for ~2 years, but I decided to make it public because why not.
+This repository contains the source code for my own portfolio website, [lausandoval.com](https://lausandoval.com). This was a private repository for ~2 years, but I decided to make it public because why not.
 
 ## Design Background
 
@@ -23,7 +23,7 @@ _~~The main feature of my portfolio website is work randomization. Specifically,
 _~~Project artworks are also randomized each time you visit, although they're not tied to any fancy algorithm because I didn't have time to build that. This feature also serves the general purpose of the portfolio feeling _alive_.~~_ **Deprecated on [#2](https://github.com/laurasandoval/lau-portfolio/pull/2)**
 
 ### Bézier Curves
-This one is my personal favorite. Apart from a few exceptions, most border-radiuses on this website use bézier curves (aka. [squircles](https://lau.work/squircles.png)) using [a technique](https://github.com/laurasandoval/lau-portfolio/blob/26bd4f53fbdd533508bf3a7f33e022003ec742de/src/Components/ProjectThumbnail/index.scss#L48) I developed along with my friend [Matías](https://github.com/matmartinez), which basically consists of a combination of [9-slice scaling](https://en.wikipedia.org/wiki/9-slice_scaling) and [image masking](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image) using a base SVG and three lines of vanilla CSS. It's wonderful. A dream come true.
+This one is my personal favorite. Apart from a few exceptions, most border-radiuses on this website use bézier curves (aka. [squircles](https://lausandoval.com/squircles.png)) using [a technique](https://github.com/laurasandoval/lau-portfolio/blob/26bd4f53fbdd533508bf3a7f33e022003ec742de/src/Components/ProjectThumbnail/index.scss#L48) I developed along with my friend [Matías](https://github.com/matmartinez), which basically consists of a combination of [9-slice scaling](https://en.wikipedia.org/wiki/9-slice_scaling) and [image masking](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image) using a base SVG and three lines of vanilla CSS. It's wonderful. A dream come true.
 
 ### Cute Animations
 Go to the "About" page. Try opening the site on your phone and hitting the three lines. Cute, I hope!

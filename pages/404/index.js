@@ -15,7 +15,7 @@ export default function Custom404() {
                     description: `The link you followed may be broken, or the page may have been removed.`,
                     images: [
                         {
-                            url: `https://lau.work/social-thumbnail.png`,
+                            url: `https://lausandoval.com/social-thumbnail.png`,
                         }
                     ],
                 }}
@@ -26,11 +26,11 @@ export default function Custom404() {
                 additionalLinkTags={[
                     {
                         rel: "icon",
-                        href: `https://lau.work/favicon.ico`,
+                        href: `https://lausandoval.com/favicon.ico`,
                     },
                     {
                         rel: "apple-touch-icon",
-                        href: `https://lau.work/logo192.png`
+                        href: `https://lausandoval.com/logo192.png`
                     }
                 ]}
                 additionalMetaTags={[

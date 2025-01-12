@@ -2,92 +2,127 @@ import Image from 'next/image'
 import Link from 'next/link'
 import AccessibilityLabel from '../AccessibilityLabel/AccessibilityLabel'
 import './ProjectThumbnail.scss'
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import { IconPlayerPauseFilled, IconPlayerPlayFilled } from '@tabler/icons-react';
-import { formatYears } from '@/lib/formatters';
+
+// Memoized regex patterns
+const IMAGE_FORMATS_REGEX = /[.](png|jpg|jpeg|svg|gif)$/i;
+const VIDEO_FORMATS_REGEX = /[.]mp4$/i;
 
 export function ProjectThumbnail({
-    id,
     as,
     title,
-    startYear,
-    endYear,
-    coverImage,
-    hover,
+    subtitle,
+    asset,
+    url,
     img_only,
     portrait,
     fadeIn,
     priority,
     sizes,
-    autoplay,
+    autoplay = true,
+    collection,
     ...props
 }) {
     const [isIntersecting, setIsIntersecting] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [manuallyPaused, setManuallyPaused] = useState(false);
+    const observerRef = useRef(null);
+
+    // Reset states when asset changes
+    useEffect(() => {
+        setIsPlaying(false);
+        setManuallyPaused(false);
+        setIsLoaded(false);
+    }, [asset]);
+
+    // Memoize the intersection observer callback
+    const intersectionCallback = useCallback(([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+    }, []);
 
     useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => setIsIntersecting(entry.isIntersecting),
-            { threshold: 0.3 }
-        );
+        if (!videoRef.current) return;
 
-        if (videoRef.current) {
-            observer.observe(videoRef.current);
-        }
+        observerRef.current = new IntersectionObserver(intersectionCallback, { threshold: 0.3 });
+        observerRef.current.observe(videoRef.current);
 
         return () => {
-            if (videoRef.current) {
-                observer.unobserve(videoRef.current);
+            if (observerRef.current) {
+                observerRef.current.disconnect();
             }
         };
-    }, [videoRef, coverImage]);
+    }, [intersectionCallback, asset]); // Re-setup observer when asset changes
 
-    useEffect(() => {
-        if (videoRef.current != null) {
-            if (autoplay == false) {
-                videoRef.current.currentTime = 1;
-                videoRef.current.play();
-                videoRef.current.pause();
-            } else if (isIntersecting && !manuallyPaused && autoplay != false) {
-                const playPromise = videoRef.current.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(() => {
-                        setIsPlaying(true);
-                    }).catch((error) => {
-                        setIsPlaying(false);
-                        console.error("Error attempting to auto-play video: ", error);
-                    });
-                }
-            } else {
-                videoRef.current?.pause();
-                setIsPlaying(false);
+    // Memoize video play/pause handler
+    const handleVideoPlayback = useCallback(() => {
+        if (!videoRef.current) return;
+
+        if (autoplay === false) {
+            videoRef.current.currentTime = 1;
+            videoRef.current.pause();
+        } else if (isIntersecting && !manuallyPaused && autoplay !== false) {
+            const playPromise = videoRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => setIsPlaying(true))
+                    .catch(() => setIsPlaying(false));
             }
+        } else {
+            videoRef.current.pause();
+            setIsPlaying(false);
         }
-    }, [isIntersecting, manuallyPaused, coverImage]);
+    }, [isIntersecting, manuallyPaused, autoplay]);
 
     useEffect(() => {
-        if (videoRef.current) {
+        handleVideoPlayback();
+    }, [handleVideoPlayback]);
+
+    // Load video when asset changes
+    useEffect(() => {
+        if (videoRef.current && VIDEO_FORMATS_REGEX.test(asset)) {
             videoRef.current.load();
         }
-    }, [coverImage]);
+    }, [asset]);
 
-    const _renderThumbnail = (coverImage, title, priority, sizes) => {
-        const imageFormats = ["png", "jpg", "jpeg", "svg", "gif"]
-        const videoFormats = ["mp4"]
+    // Memoize video button click handler
+    const handleVideoButtonClick = useCallback((e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const video = videoRef.current;
+        if (!video) return;
 
-        if (new RegExp(`[.](${imageFormats.join("|")})`).test(coverImage)) {
+        if (video.paused) {
+            video.play();
+            setIsPlaying(true);
+            setManuallyPaused(false);
+        } else {
+            video.pause();
+            setIsPlaying(false);
+            setManuallyPaused(true);
+        }
+    }, []);
+
+    // Render thumbnail with asset dependency
+    const renderThumbnail = useMemo(() => {
+        if (IMAGE_FORMATS_REGEX.test(asset)) {
             return (
                 <Image
-                    src={coverImage}
+                    src={asset}
                     alt={title}
                     fill
-                    priority={priority ? priority : false}
-                    sizes={sizes ? sizes : undefined}
+                    priority={priority}
+                    sizes={sizes}
+                    loading={priority ? 'eager' : 'lazy'}
+                    onLoadingComplete={() => setIsLoaded(true)}
+                    data-loaded={isLoaded}
                 />
-            )
-        } else if (new RegExp(`[.](${videoFormats.join("|")})`).test(coverImage)) {
+            );
+        }
+
+        if (VIDEO_FORMATS_REGEX.test(asset)) {
             return (
                 <>
                     <video
@@ -95,71 +130,65 @@ export function ProjectThumbnail({
                         playsInline
                         muted
                         loop
+                        preload="metadata"
+                        onLoadedData={() => setIsLoaded(true)}
+                        data-loaded={isLoaded}
                     >
-                        <source
-                            src={`${coverImage.replace(
-                                ".mp4",
-                                ".mp4"
-                            )}`}
-                            type="video/mp4"
-                        />
+                        <source src={asset} type="video/mp4" />
                     </video>
                     <button
-                        onClick={() => {
-                            const video = videoRef.current;
-                            if (video.paused) {
-                                video.play();
-                                setIsPlaying(true);
-                                setManuallyPaused(false);
-                            } else {
-                                video.pause();
-                                setIsPlaying(false);
-                                setManuallyPaused(true);
-                            }
-                        }}
+                        onClick={handleVideoButtonClick}
                         className="playpause_button"
                         title={isPlaying ? "Pause" : "Play"}
                     >
                         {isPlaying ? <IconPlayerPauseFilled /> : <IconPlayerPlayFilled />}
                     </button>
                 </>
-            )
-        } else {
-            return (
-                <div>
-                    <span>Error</span>
-                </div>
-            )
+            );
         }
-    }
 
-    const Tag = as ? as : "div"
+        return (
+            <div>
+                <span>Error</span>
+            </div>
+        );
+    }, [asset, title, priority, sizes, isPlaying, handleVideoButtonClick, isLoaded]);
 
-    return (
-        <Tag
-            className="project_thumbnail"
-            data-name={title}
-            data-hover={hover ? "true" : "false"}
-            data-img-only={img_only}
-            data-portrait={portrait}
-            data-fade-in={fadeIn}
-        >
-            {hover && (
-                <Link href={`/work/${id}`} className="project_access">
-                    <AccessibilityLabel role="text" as="span">
-                        {title}
-                    </AccessibilityLabel>
-                </Link>
-            )}
+    const Tag = as || "div";
+
+    const content = (
+        <>
             <div className="project_artwork" aria-hidden="true">
-                {_renderThumbnail(coverImage, title, priority, sizes)}
+                {renderThumbnail}
             </div>
             {!img_only && (
-                <div className="project_info" aria-hidden={hover}>
+                <div className="project_info">
                     <h3 className="title">{title}</h3>
-                    <span className="date">{formatYears(startYear, endYear)}</span>
+                    <span className="subtitle">{subtitle}</span>
                 </div>
             )}
+        </>
+    );
+
+    const commonProps = {
+        className: "project_thumbnail",
+        "data-name": title,
+        "data-img-only": img_only,
+        "data-portrait": portrait,
+        "data-fade-in": fadeIn,
+        "data-collection": collection
+    };
+
+    return url ? (
+        <Link href={url} {...commonProps}>
+            <AccessibilityLabel role="text" as="span">
+                {title}
+            </AccessibilityLabel>
+            {content}
+        </Link>
+    ) : (
+        <Tag {...commonProps}>
+            {content}
         </Tag>
-    )
+    );
 }
