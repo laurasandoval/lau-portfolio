@@ -1,6 +1,6 @@
 import '@/styles/globals.scss'
 import { Analytics } from '@vercel/analytics/react';
-import { Inter } from '@next/font/google'
+import { Inter } from "next/font/google"
 import { Provider } from 'react-wrap-balancer';
 
 const inter = Inter({ subsets: ['latin'] })

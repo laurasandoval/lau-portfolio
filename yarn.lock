@@ -7,11 +7,6 @@
   "resolved" "https://registry.npmjs.org/@next/env/-/env-13.5.8.tgz"
   "version" "13.5.8"
 
-"@next/font@^13.5.6":
-  "integrity" "sha512-ITORq3Sw95OWNxUxgLICXKmeKFh7K5d+w1v+vO4cOZz6i2taUer/77zVxTZExmk72bD9P5lahkgunjS8ej24DA=="
-  "resolved" "https://registry.npmjs.org/@next/font/-/font-13.5.8.tgz"
-  "version" "13.5.8"
-
 "@next/swc-darwin-arm64@13.5.8":
   "integrity" "sha512-HkFw3QPeIy9bImWVTbsvzfEWQkuzBEQTK/L7ORMg+9sXNN0vNR5Gz/chD4/VbozTHyA38lWTrMBfLoWVpD+2IA=="
   "resolved" "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-13.5.8.tgz"
@@ -156,9 +151,9 @@
     "streamsearch" "^1.1.0"
 
 "caniuse-lite@^1.0.30001406":
-  "integrity" "sha512-CPB+UL9XMT/Av+pJxCKGhdx+yg1hzplvFJQlJ2n68PyQGMz9L/E2zCyLdOL8uasbouTUgnPl+y0tccI/se+BEw=="
-  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001449.tgz"
-  "version" "1.0.30001449"
+  "integrity" "sha512-A95VKan0kdtrsnMubMKxEKUKImOPSuCpYgxSQBo036P5YYgVIcOYJEgt/txJWqObiRQeISNCfef9nvlQ0vbV7A=="
+  "resolved" "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001692.tgz"
+  "version" "1.0.30001692"
 
 "ccount@^2.0.0":
   "integrity" "sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg=="
