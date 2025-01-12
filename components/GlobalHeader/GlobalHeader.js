@@ -10,8 +10,10 @@ const GlobalHeader = forwardRef(function GlobalHeader({
     sticky,
     backgroundColor,
     fadeIn,
+    fadeInDelay = 0.8,
     className,
     forceBorderHidden,
+    isTransitioning,
 }, ref) {
     const [headerMarginBottom, setHeaderMarginBottom] = useState(null)
     const [navOpen, setNavOpen] = useState(false)
@@ -72,6 +74,7 @@ const GlobalHeader = forwardRef(function GlobalHeader({
             className={`global_header${className ? ` ${className}` : ""}`}
             data-sticky={sticky}
             data-fade-in={fadeIn}
+            data-transitioning={isTransitioning}
             data-show-border={
                 !forceBorderHidden && showHeaderBorder === true
                     ? sticky
@@ -81,7 +84,8 @@ const GlobalHeader = forwardRef(function GlobalHeader({
             }
             data-nav-open={navOpen.toString()}
             style={{
-                "--background-color": backgroundColor
+                "--background-color": backgroundColor,
+                "--fade-in-delay": `${fadeInDelay}s`
             }}
             ref={ref || headerElementRef}
         >

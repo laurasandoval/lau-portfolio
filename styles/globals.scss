@@ -43,4 +43,9 @@ html {
     background: #000;
     color: #fff
   }
+
+  #__next {
+    will-change: transform;
+    transform: translateZ(0);
+  }
 }

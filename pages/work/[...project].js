@@ -11,8 +11,41 @@ import ProjectArticleAsset from '@/components/ProjectArticleAsset/ProjectArticle
 import { formatYears, normalizeForUrl } from '@/lib/formatters'
 import FolderPage from './folder-page'
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/router'
 
 export default function Project({ isFolder, folderAvailable, folderUrl, folderName, posts, currentPostData, nextPostData, server }) {
+    const [headerDistance, setHeaderDistance] = useState(0);
+    const [fadeIn, setFadeIn] = useState(false);
+    const [isTransitioning, setIsTransitioning] = useState(false);
+    const headerRef = useRef(null);
+    const router = useRouter();
+
+    useEffect(() => {
+        if (isTransitioning) {
+            setFadeIn(false);
+        } else if (router.query.ref === 'peek') {
+            setFadeIn(true);
+        }
+    }, [isTransitioning, router.query]);
+
+    useEffect(() => {
+        if (!nextPostData && isTransitioning) {
+            // If there's no next project but we're transitioning (came from a peek),
+            // we need to handle the transition completion ourselves
+            setIsTransitioning(false);
+            requestAnimationFrame(() => {
+                window.scrollTo(0, 0);
+            });
+        }
+    }, [nextPostData, isTransitioning]);
+
+    useEffect(() => {
+        if (headerRef.current) {
+            setHeaderDistance(headerRef.current.offsetTop);
+        }
+    }, []);
+
     if (isFolder) {
         return (
             <FolderPage
@@ -93,7 +126,7 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
             // ]}
             />
 
-            <GlobalHeader />
+            <GlobalHeader fadeIn={fadeIn} fadeInDelay={0.5} isTransitioning={isTransitioning} />
 
             <style>
                 {`
@@ -107,9 +140,17 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
             <article
                 className="design_project_article"
                 data-name={currentPostData?.title}
+                data-transitioning={isTransitioning}
             >
-                <ProjectArticleHeader postData={currentPostData} />
-                <div className="body">
+                <ProjectArticleHeader ref={headerRef} postData={currentPostData} fadeInUnderlines={fadeIn} />
+                <div
+                    className="design_project_article_body"
+                    data-fade-in={fadeIn}
+                    key={currentPostData?.project}
+                    style={{
+                        "--fade-in-delay": "0.5s"
+                    }}
+                >
                     <div className="content">
                         {renderContent(currentPostData.contentHtml)}
                         {currentPostData?.cta && (
@@ -185,7 +226,14 @@ export default function Project({ isFolder, folderAvailable, folderUrl, folderNa
 
             {
                 nextPostData != null &&
-                <NextProjectPeek nextPostData={nextPostData} />
+                <NextProjectPeek
+                    nextPostData={nextPostData}
+                    headerDistance={headerDistance}
+                    isTransitioning={isTransitioning}
+                    setIsTransitioning={setIsTransitioning}
+                    fadeIn={fadeIn}
+                    fadeInDelay={0.5}
+                />
             }
         </>
     )
