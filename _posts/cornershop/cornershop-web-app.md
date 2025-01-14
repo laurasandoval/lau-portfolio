@@ -37,17 +37,39 @@ After assessing the feasibility of different integration approaches, we decided 
 
 ## Bringing the Cornershop Web App to mobile
 
-Cornershop's web app, originally designed for desktop use, only served a small fraction of the company's user base, and was actively maintained by a small team of 4 engineers.
+At the begginning of 2019, Cornershop's web app, originally designed for desktop use, only served a small fraction of the company's user base, and was actively maintained by a small team of 4 engineers on the front-end side.
 
 ![The original pull request for the refactor. More than 18K lines of code changed, and 248 files had to be modified.](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-github-pr.png)
 
-Bringing it to mobile was a stepping stone towards its eventual key role in the company's acquisition, but it was no small task.
+Because it was never really intented for mobile, the experience was not optimized for touch input. Even the simpler things, like scroll snapping, were powered by JavaScript-heavy physics, which heavily impacted performance when attempted to be used on touch devices (like a phone or a tablet), and ultimately killed the illusion of a native, snappy experience—which we believed to be a key component for the success of the Uber integration.
 
-Bringing the Cornershop web app to mobile required a complete redesign and development of the website (more than 18K lines of code changed, and 248 files had to be modified), as the original web app was not designed to support smaller screen sizes, or mobile interactions & paradigms.
+While bringing it to mobile was a stepping stone towards its eventual key role in the company's acquisition, it was no small task.
+
+> Bringing the Cornershop web app to mobile required a complete redesign and development of the website. More than 18K lines of code changed, and 248 files had to be modified.
+
+We, of course, did not ask someone to review a +18-lines-pull-request, but rather adopted the new refactor branch as the new codebase for our web app. Any iterative work on the workstream was reviewed and merged into the refactor branch, which was then (carefully) deployed to production all at once, given the scale of the changes.
 
 ![Screen recording of the final web app experience.](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-demo.mp4)
 
-While preserving its underlying JavaScript foundations, the entire markup and CSS of the web app were reimagined and rebuilt from the ground up, taking advantage of modern CSS technologies (like CSS Grid, native scroll-snapping, and more) to achieve native-feeling interactions, visually polished UI elements, and a brand new, mobile-first component library—all while taking the opportunity to significantly improve accessibility for both screen readers and keyboard users throughout every point of the experience.
+> When we gave the Uber team a first demo of the redesign, the first question was: "Are you sure this is your web app?".
+
+While preserving its underlying JavaScript foundations and business logic, the entire markup and CSS of the web app were reimagined and rebuilt from the ground up, taking advantage of modern CSS technologies like CSS Grid and native scroll-snapping to achieve native-feeling interactions, highly crafted UI components, and a brand new, mobile-first component library—all while taking the opportunity to significantly improve accessibility for both screen readers and keyboard users throughout every touchpoint of the experience.
+
+![Evangelizing the entire Cornershop engineering team, 100 engineers total by mid-2020 —when this session took place—, about the importance of touch targets when coding for touch interfaces, and how to optimize them in code.](/assets/design-work/cornershop/cornershop-web-app/adjusting-touch-targets.png)
+
+![Sharing some of the challenges specific to our grocery oriented components, how they're interpreted by screen readers, and how we can easily optimize them for better accessibility.](/assets/design-work/cornershop/cornershop-web-app/screen-readers-item-thumbnail.png)
+
+In order to promote a sustained accessibility culture over time, we also organized a series of sessions with the entire engineering team, evangelizing about different accessibility challenges, considerations, and best practices when coding for web. My Android and iOS counterparts did similar sessions for their respective platforms.
+
+![Streamlining colors into standalone CSS variables allowed us to introduce dark mode in our web app "for free" through the redesign, closing another gap with our native apps, and laying the foundations for an upcoming theming engine, that'd allow us to launch on Uber.](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-iphone-11-dark-mode.png)
+
+By reducing JavaScript dependencies on the Cornershop Web UI and optimizing for CSS performance —leveraging CSS transforms, delegating physics to the system, etc.—, we were able to achieve a much closer to native-feeling experience, with performance improvements that ultimately benefited all users.
+
+![The redesigned web app on an iPad Pro.](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-ipad-pro-11-inch.png)
+
+![](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-iphone-11-fruits-and-vegetables.png)
+
+And because we hollistically designed all components to be responsive from the ground-up, the redesigned codebase had much stronger foundations to be maintained and scaled over time.
 
 ![Before and after of the web app's Home view.](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-before-and-after-1.png)
 
@@ -55,18 +77,8 @@ While preserving its underlying JavaScript foundations, the entire markup and CS
 
 ![Before and after of the web app's Store view.](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-before-and-after-3.png)
 
-Most JavaScript-powered UI libraries were deprecated from the codebase afterward, helping consolidate a mature, proprietary, and flexible design and development environment.
+The Cornershop Web App eventually [launched on Uber Eats on Tuesday, July 7, 2020](https://www.uber.com/newsroom/introducing-grocery-delivery/), two days after my 22nd birthday, which I spent coding the last details to it with my engineering colleagues. [You can see more from the Uber Grocery MVP here](/work/uber/uber-grocery-with-cornershop/).
 
----
+It was the main canvas through which Uber grew its grocery delivery business from $0.5B to $4.5B ARR from 2020 to 2023, and it grew to be one of the main acquisition channels for Cornershop while it operated as a separate entity as well, thanks to newly unlocked mobile web traffic.
 
-![](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-iphone-11-dark-mode.png)
-
-![](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-ipad-pro-11-inch.png)
-
-
-![](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-iphone-11-fruits-and-vegetables.png)
-
-
-![](/assets/design-work/cornershop/cornershop-web-app/cornershop-web-app-iphone-11-and-iphone-se-2.png)
-
-Cornershop was an Uber-owned grocery delivery service that offered world-class digital products powered by software and design. It debuted in 2015, was acquired by Uber in 2021, and later migrated to Uber Eats in 2023, bringing the magic of the Cornershop experience to millions of users worldwide.
+Cornershop was sunsetted in 2023, when it was integrated natively into Uber Eats, bringing the magic of the Cornershop experience to millions of users worldwide.
